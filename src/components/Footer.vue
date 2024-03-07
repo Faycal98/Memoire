@@ -3,14 +3,11 @@
     <div class="Wrapper">
       <div class="Footer_container d-flex flex-wrap">
         <div class="Footer_column col-3 col-6@s col-12@xs">
-          <h5 class="Footer_title">BenApart</h5>
+          <h4 class="Footer_title">BenApart</h4>
           <span class="Icon mb-20" style="--width: 180px; width: 180px"> </span>
           <ul>
             <li class="Footer_item">
-              <a
-                class="Footer_link"
-                href="https://studapart.com/fr/proprietaire"
-              >
+              <a class="Footer_link" href="https://studapart.com/fr/proprietaire">
                 Espace propriétaire
               </a>
             </li>
@@ -26,10 +23,10 @@
               <a class="Footer_link" href="/"> Comment ça marche ? </a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="/fr/nos-astuces"> Nos astuces </a>
+              <a class="Footer_link" href="#"> Nos astuces </a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="https://www.studapart.com/fr/login">
+              <a class="Footer_link" href="#">
                 Connexion
               </a>
             </li>
@@ -38,7 +35,7 @@
                 <link
                   rel="stylesheet"
                   media="all"
-                  href="https://www.studapart.com/sites/prod/files/css/css_xuCn8zzdbMleHI_G2CJhZbSszRrSdHUleCX0Xqz6gps.css?frz-v=3246"
+                  href="#"
                 />
               </span>
             </li>
@@ -47,22 +44,8 @@
         <div class="Footer_column col-3 col-6@s col-12@xs">
           <h5 class="Footer_title">Nos partenaires</h5>
           <ul>
-            <li class="Footer_item">
-              <a
-                class="Footer_link"
-                href="/fr/logement-nos-ecoles-et-universites-partenaires"
-              >
-                Les écoles et universités
-              </a>
-            </li>
-            <li class="Footer_item">
-              <div
-                class="Footer_link"
-                data-link="aHR0cHM6Ly93d3cuYWxsaWFuei5mci9hc3N1cmFuY2UtaGFiaXRhdGlvbi9wYXJ0ZW5haXJlcy9zdHVkYXBhcnQv"
-              >
-                Allianz - la garantie Studapart
-              </div>
-            </li>
+            
+            
             <li class="Footer_item">
               <div
                 class="Footer_link"
@@ -71,23 +54,17 @@
                 Allianz - L’Assurance Habitation et la Garantie Studapart
               </div>
             </li>
+            
             <li class="Footer_item">
-              <a class="Footer_link" href="/fr/cgu"> CGU </a>
-            </li>
-            <li class="Footer_item">
-              <a class="Footer_link" href="/fr/mentions-legales">
+              <a class="Footer_link" href="#">
                 Mentions légales
               </a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="http://help.studapart.com"> Aide </a>
+              <a class="Footer_link" href="#"> Aide </a>
             </li>
             <li class="Footer_item">
-              <a
-                class="Footer_link"
-                href="javascript:Didomi.preferences.show()"
-              >
-                Gérer les cookies
+              <a class="Footer_link" href="#">Gérer les cookies
               </a>
             </li>
           </ul>
@@ -96,70 +73,33 @@
           <h5 class="Footer_title">Trouver un logement</h5>
           <ul>
             <li class="Footer_item">
-              <a
-                class="Footer_link"
-                href="https://www.studapart.com/fr/logement-etudiant-paris"
-              >
-                Logement étudiant à Paris
+              <a class="Footer_link" href="#">
+                Logement dans les environs de Cotonou
               </a>
             </li>
             <li class="Footer_item">
-              <a
-                class="Footer_link"
-                href="https://www.studapart.com/fr/logement-etudiant-bordeaux"
-              >
-                Logement étudiant à Bordeaux
+              <a class="Footer_link" href="#">
+                Logement dans les environs de Calavi
               </a>
             </li>
             <li class="Footer_item">
-              <a
-                class="Footer_link"
-                href="https://www.studapart.com/fr/logement-etudiant-lille"
-              >
-                Logement étudiant à Lille
+              <a class="Footer_link" href="#">
+                Logement dans les environs de Parakou
               </a>
             </li>
             <li class="Footer_item">
-              <a
-                class="Footer_link"
-                href="https://www.studapart.com/fr/logement-etudiant-lyon"
-              >
-                Logement étudiant à Lyon
-              </a>
-            </li>
-            <li class="Footer_item">
-              <a
-                class="Footer_link"
-                href="https://www.studapart.com/fr/logement-etudiant-toulouse"
-              >
-                Location étudiant à Toulouse
-              </a>
-            </li>
-            <li class="Footer_item">
-              <a
-                class="Footer_link"
-                href="https://www.studapart.com/fr/logement-etudiant-marseille"
-              >
-                Logement étudiant à Marseille
-              </a>
-            </li>
-            <li class="Footer_item">
-              <a
-                class="Footer_link"
-                href="https://www.studapart.com/fr/logement-etudiant-nantes"
-              >
-                Logement étudiant Nantes
+              <a class="Footer_link"
+                href="#">Logement dans les environs de Ouidah
               </a>
             </li>
           </ul>
         </div>
-        <div
-          class="Footer_column col-3 col-6@s col-12@xs Footer_column--highlight"
-        >
+        <div class="Footer_column col-3 col-6@s col-12@xs Footer_column--highlight">
           <h5 class="Footer_title">Rejoignez-nous <i>!</i></h5>
+
           <ul>
             <li class="Footer_item">
-              <a class="Footer_link" href="/fr/lequipe-du-mieux-loger">
+              <a class="Footer_link" href="#">
                 L'équipe
               </a>
             </li>
@@ -169,33 +109,19 @@
               </a>
             </li>
             <li class="Footer_item">
-              <div
-                class="Footer_link"
-                data-link="aHR0cHM6Ly93d3cud2VsY29tZXRvdGhlanVuZ2xlLmNvbS9mci9jb21wYW5pZXMvc3R1ZGFwYXJ0"
-              >
+              <div class="Footer_link" data-link="aHR0cHM6Ly93d3cud2VsY29tZXRvdGhlanVuZ2xlLmNvbS9mci9jb21wYW5pZXMvc3R1ZGFwYXJ0">
                 Nous rejoindre
               </div>
             </li>
             <li class="Footer_item">
-              <div
-                class="Footer_link"
-                data-link="bWFpbHRvOmNvbnRhY3RAc3R1ZGFwYXJ0LmNvbQ=="
-              >
+              <div class="Footer_link" data-link="bWFpbHRvOmNvbnRhY3RAc3R1ZGFwYXJ0LmNvbQ==">
                 Nous contacter
               </div>
             </li>
           </ul>
           <div class="SocialShare mt-40 SocialShare--light">
-            <a
-              class="SocialShare_link"
-              href="https://twitter.com/studapart"
-              target="_blank"
-            >
-              <span
-                class="Icon Icon--height SocialShare_item"
-                style="--height: 20px; height: 20px"
-              >
-              </span>
+            <a class="SocialShare_link" href="#" target="_blank">
+              <span class="Icon Icon--height SocialShare_item" style="--height: 20px; height: 20px"></span>
             </a>
           </div>
         </div>
@@ -210,7 +136,7 @@
   background-color: #36417d;
 }
 .Footer_column {
-  padding: 60px 40px;
+  padding: 60px 34px;
   text-align: left;
 }
 
@@ -235,7 +161,7 @@
 .Footer_title {
     font-size: 20px;
     font-weight: 700;
-    margin: 10px 0 35px;
+    margin: 10px 5 35px;
 }
 
 .Footer_item {

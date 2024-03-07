@@ -97,20 +97,20 @@ export default defineComponent({
 }
 
 .Carousel_legend {
-  font: var(--ft-l);
-  font-weight: 700;
-  position: absolute;
-  height: 60px;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  right: 0;
-  color: var(--color-ft-light);
-  background-color: #3c9;
-  justify-content: flex-start;
-  overflow: hidden;
-  padding: 0 20px;
-  min-width: 250px;
+    font: var(--ft-l);
+    font-weight: 700;
+    position: absolute;
+    height: 60px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    right: 0; 
+    color: var(--color-ft-light);
+    background-color: rgb(221, 88, 55);
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: 0px 49px;
+    min-width: 205px;
 }
 .carousel__item {
   min-height: 200px;
@@ -139,6 +139,15 @@ export default defineComponent({
 .carousel__prev,
 .carousel__next {
   box-sizing: content-box;
+    border-radius: 5px;
+    border: 3px solid #36417d;
+    background: #36417d;
+    color: #ffffff;
+}
+.carousel__prev:hover,.carousel__next:hover{
+  background: #ffffff;
+  border: 3px solid #36417d; 
+  color: #36417d;
 }
 
 .carousel__pagination-button::after {

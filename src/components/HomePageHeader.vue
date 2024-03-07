@@ -9,7 +9,7 @@
         </h1>
         <ButtonGreen
           @click="goToSearch"
-          :content="'Je commence les recherches'"
+          :content="'Voir les annonces →'"
           :link="'/'"
         ></ButtonGreen>
       </div>
