@@ -167,7 +167,7 @@ export default {
 .light-black {
   color: #353535;
 }
-.Homepage_city::after {
+.Homepage_city:hover ::after {
   content: "";
   position: absolute;
   top: 0;
@@ -219,8 +219,8 @@ export default {
   transform: translate3d(-50%, -50%, 0) rotate(-5deg) scale(1);
 }
 
-.Homepage_city:hover .Homepage_cityTitle {
-  background-color: #3c9;
+.Homepage_city.Homepage_cityTitle:hover {
+  background-color: rgb(221, 88, 55);
 }
 .Homepage_cityTitle::before {
   transition: 250ms;

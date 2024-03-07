@@ -2,71 +2,59 @@
   <HomePageHeader></HomePageHeader>
   <div class="wrapper-city py-5">
     <h3 class="ft-2xl ft-bold strong-blue">
-      Louez à votre convenance partout en Benin.
+      Louez à votre convenance partout au Benin.
     </h3>
+
     <div class="d-flex flex-row justify-content-center">
       <div class="p-2 mb-2 img-container">
         <a href="/" class="Homepage_city ctn">
-          <h4 class="Homepage_cityTitle boost boost-xl">
-            <span>Cotonou</span>
-          </h4>
+          <h4 class="Homepage_cityTitle boost boost-xl"><span>Cotonou</span></h4>
         </a>
       </div>
-      <div class="p-2 img-container mb-2">
+
+      <div class="p-2 mb-2 img-container ">
         <a href="/" class="Homepage_city calavi">
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Calavi</span></h4>
         </a>
       </div>
+
       <div class="p-2 mb-2 img-container">
         <a href="/" class="Homepage_city porto">
-          <h4 class="Homepage_cityTitle boost boost-xl">
-            <span>Porto-Novo</span>
-          </h4>
+          <h4 class="Homepage_cityTitle boost boost-xl"><span>Porto-Novo</span></h4>
         </a>
       </div>
+
       <div class="p-2 mb-2 img-container">
-        <a href="/" class="Homepage_city ctn">
+        <a href="/" class="Homepage_city ouidah">
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Ouidah</span></h4>
         </a>
       </div>
+
       <div class="p-2 mb-2 img-container">
-        <a href="/" class="Homepage_city ctn">
-          <h4 class="Homepage_cityTitle boost boost-xl">
-            <span>Parakou</span>
-          </h4>
+        <a href="/" class="Homepage_city malanville">
+          <h4 class="Homepage_cityTitle boost boost-xl"><span>Malaville</span></h4>
         </a>
       </div>
-    </div>
-    <div class="d-flex flex-row justify-content-center">
-      <div class="px-2 mb-2 img-container">
-        <a href="/" class="Homepage_city ctn">
-          <h4 class="Homepage_cityTitle boost boost-xl">
-            <span>Cotonou</span>
-          </h4>
+
+      <div class="p-2 mb-2 img-container">
+        <a href="/" class="Homepage_city parakou">
+          <h4 class="Homepage_cityTitle boost boost-xl"><span>Parakou</span></h4>
         </a>
       </div>
-      <div class="px-2 img-container mb-2">
-        <a href="/" class="Homepage_city calavi">
-          <h4 class="Homepage_cityTitle boost boost-xl"><span>Calavi</span></h4>
+
+      <div class="p-2 mb-2 img-container">
+        <a href="/" class="Homepage_city ketou">
+          <h4 class="Homepage_cityTitle boost boost-xl"><span>Kétou</span></h4>
         </a>
       </div>
-      <div class="px-2 mb-2 img-container">
-        <a href="/" class="Homepage_city porto">
-          <h4 class="Homepage_cityTitle boost boost-xl"><span>Porto</span></h4>
+
+      <div class="p-2 mb-2 img-container">
+        <a href="/" class="Homepage_city come">
+          <h4 class="Homepage_cityTitle boost boost-xl"><span>Comé</span></h4>
         </a>
       </div>
-      <div class="px-2 mb-2 img-container">
-        <a href="/" class="Homepage_city ctn">
-          <h4 class="Homepage_cityTitle boost boost-xl"><span>Ouidah</span></h4>
-        </a>
-      </div>
-      <div class="px-2 mb-2 img-container">
-        <a href="/" class="Homepage_city ctn">
-          <h4 class="Homepage_cityTitle boost boost-xl">
-            <span>Parakou</span>
-          </h4>
-        </a>
-      </div>
+
+      
     </div>
     <ButtonGreen
       class="text-center"
@@ -111,16 +99,16 @@ export default {
     return {
       carrouselTab: [
         {
-          src: "stylish.jpg",
+          src: "cotonou-room.jpg",
           name: "Cotonou",
         },
         {
-          src: "lille.avif",
+          src: "cotonou-room.jpg",
           name: "Calavi",
-        },
+        },  
         {
-          src: "home.avif",
-          name: " Ouidah",
+          src: "cotonou-room.jpg",
+          name: "Calavi",
         },
       ],
     };
@@ -177,8 +165,8 @@ nav {
 .light-black {
   color: #353535;
 }
-.Homepage_city::after {
-  content: "";
+.Homepage_city:hover::after{
+ content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -230,7 +218,7 @@ nav {
 }
 
 .Homepage_city:hover .Homepage_cityTitle {
-  background-color: #3c9;
+  background-color: rgb(221, 88, 55);
 }
 .Homepage_cityTitle::before {
   transition: 250ms;
@@ -278,18 +266,38 @@ a {
   width: 23%;
 }
 .ctn {
-  background: url("../assets/paris.avif");
+  background: url("../assets/cotonou.jpg");
 }
 
 .calavi {
-  background: url("../assets/lille.avif");
+  background: url("../assets/calavii.jpeg");
 }
 
 .porto {
-  background: url("../assets/bordeaux.avif");
+  background: url("../assets/porto-novo.jpg");
+}
+.ouidah {
+  background: url("../assets/ouiidah.jpg");
+}
+.malanville {
+  background: url("../assets/malanville.webp");
+}
+.parakou {
+  background: url("../assets/parakouu.webp");
+}
+.ketou {
+  background: url("../assets/ketou.jpeg");
+}
+.come {
+  background: url("../assets/comé.jpeg");
 }
 .ft-bold {
   font-weight: 700;
+  color: #36417d;
+}
+.justify-content-center {
+    justify-content: center!important;
+    flex-wrap: wrap;
 }
 .wrapper-city {
   width: 70%;
@@ -298,8 +306,8 @@ a {
   margin-right: auto;
 }
 .header {
-  background: url("../assets/home.avif");
-  min-height: 400px;
+  background: url("../assets/homes.jpg");
+  background-size: cover;
 }
 .Wrapper {
   width: 80%;

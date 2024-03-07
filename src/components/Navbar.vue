@@ -1,7 +1,7 @@
 <template>
   <div id="navbar">
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
-      <h1 class="ms-5 header-title">Benapart</h1>
+      <h1 class="ms-5 header-title"><strong>B</strong>en<span id="letter"><strong>A</strong></span>part</h1>
       <button
         class="navbar-toggler"
         type="button"
@@ -62,6 +62,9 @@
 * {
   padding: 0;
   margin: 0;
+}
+#letter{
+  color: rgb(221, 88, 55);;
 }
 .link {
   display: flex;
@@ -152,7 +155,7 @@ nav {
       color: #36417d;
     }
     .account-btn {
-      background-color: #3c9;
+      background-color: rgb(221, 88, 55);
     }
     .account-btn:hover {
      color: white;
