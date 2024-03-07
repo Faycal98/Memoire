@@ -1,6 +1,6 @@
 <template>
   <div class="searching">
-    <a   class="ButtonRectangle mt-20 ButtonRectangle--green"> {{content}}</a>
+    <a class="ButtonRectangle mt-20 ButtonRectangle--green"> {{content}}</a>
   </div>
 </template>
 <script>

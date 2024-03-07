@@ -130,8 +130,12 @@
   </div>
 </template>
 <script>
+import ButtonGreen from "@/components/ButtonGreen.vue";
 export default {
   name: "HomepageStep",
+  components: {
+    ButtonGreen,
+  },
 };
 </script>
 <style scoped>

@@ -17,7 +17,7 @@
   </div>
 </template>
 <script>
-import ButtonGreen from "@/components/GreenBtn.vue";
+import ButtonGreen from "@/components/ButtonGreen.vue";
 import Navbar from "@/components/Navbar.vue"
 export default {
     name:"HomePageHeader",

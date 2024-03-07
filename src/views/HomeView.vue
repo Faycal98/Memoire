@@ -71,7 +71,6 @@
     <ButtonGreen
       class="text-center"
       :content="' Voir d\'autres villes '"
-      :link="'/'"
     ></ButtonGreen>
   </div>
   <HomepageStep></HomepageStep>
@@ -92,7 +91,7 @@
   <Footer></Footer>
 </template>
 <script>
-import ButtonGreen from "@/components/GreenBtn.vue";
+import ButtonGreen from "@/components/ButtonGreen.vue";
 import Carrousel from "../components/Carrousel.vue";
 import HomepageStep from "../components/HomepageStep.vue";
 import HomePageHeader from "../components/HomePageHeader.vue";
