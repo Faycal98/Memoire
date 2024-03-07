@@ -1,6 +1,6 @@
 <template>
   <div class="searching">
-    <a :href=link   class="ButtonRectangle mt-20 ButtonRectangle--green"> {{content}}</a>
+    <a   class="ButtonRectangle mt-20 ButtonRectangle--green"> {{content}}</a>
   </div>
 </template>
 <script>
@@ -10,10 +10,7 @@ export default {
             type:String,
             required:true
         },
-        link:{
-            type:String,
-            required:true
-        }
+       
     }
 };
 </script>
