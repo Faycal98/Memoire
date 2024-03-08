@@ -22,7 +22,6 @@
           <li class="link">Trouver un logement</li>
           <li class="link d-block">
             <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
-            
             <div class="list">
               <ul>
                 <li>

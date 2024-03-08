@@ -7,20 +7,20 @@
           <span class="Icon mb-20" style="--width: 180px; width: 180px"> </span>
           <ul>
             <li class="Footer_item">
-              <a class="Footer_link" href="https://studapart.com/fr/proprietaire">
+              <a class="Footer_link" href="#">
                 Espace propriétaire
               </a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="/">
+              <a class="Footer_link" href="#">
                 Espace professionnel de l'immobilier
               </a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="/"> Le mieux loger </a>
+              <a class="Footer_link" href="#"> Le mieux loger </a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="/"> Comment ça marche ? </a>
+              <a class="Footer_link" href="#"> Comment ça marche ? </a>
             </li>
             <li class="Footer_item">
               <a class="Footer_link" href="#"> Nos astuces </a>
@@ -46,19 +46,10 @@
           <ul>
             
             
-            <li class="Footer_item">
-              <div
-                class="Footer_link"
-                data-link="aHR0cHM6Ly93d3cuYWxsaWFuei5mci9xdWktZXN0LWFsbGlhbnovcGFydGVuYWlyZXMvc3R1ZGFwYXJ0Lmh0bWw="
-              >
-                Allianz - L’Assurance Habitation et la Garantie Studapart
-              </div>
-            </li>
+            
             
             <li class="Footer_item">
-              <a class="Footer_link" href="#">
-                Mentions légales
-              </a>
+              Aucun pour le moment
             </li>
             <li class="Footer_item">
               <a class="Footer_link" href="#"> Aide </a>
@@ -74,22 +65,22 @@
           <ul>
             <li class="Footer_item">
               <a class="Footer_link" href="#">
-                Logement dans les environs de Cotonou
+                Dans les environs de Cotonou
               </a>
             </li>
             <li class="Footer_item">
               <a class="Footer_link" href="#">
-                Logement dans les environs de Calavi
+                Dans les environs de Calavi
               </a>
             </li>
             <li class="Footer_item">
               <a class="Footer_link" href="#">
-                Logement dans les environs de Parakou
+                Dans les environs de Parakou
               </a>
             </li>
             <li class="Footer_item">
               <a class="Footer_link"
-                href="#">Logement dans les environs de Ouidah
+                href="#">Dans les environs de Ouidah...
               </a>
             </li>
           </ul>
@@ -103,11 +94,7 @@
                 L'équipe
               </a>
             </li>
-            <li class="Footer_item">
-              <a class="Footer_link" href="/fr/inside-the-culture">
-                Inside the culture
-              </a>
-            </li>
+            
             <li class="Footer_item">
               <div class="Footer_link" data-link="aHR0cHM6Ly93d3cud2VsY29tZXRvdGhlanVuZ2xlLmNvbS9mci9jb21wYW5pZXMvc3R1ZGFwYXJ0">
                 Nous rejoindre

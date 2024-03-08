@@ -6,25 +6,18 @@
   >
     <Slide v-for="slide in tabImg" :key="slide">
       <div class="carousel__item">
-        <img
-          class="carrou_img"
-          :src="require(`@/assets/${slide.src}`)"
+        <img class="carrou_img" :src="require(`@/assets/${slide.src}`)"
           width="700px"
-          height="360px"
-        />
+          height="360px"/>
         <div class="Carousel_legend">
           <span class="Icon me-3" style="">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="19"
               height="28"
-              viewBox="0 0 19 28"
-            >
+              viewBox="0 0 19 28">
               <path
-                fill="#FFF"
-                fill-rule="evenodd"
-                d="M9.5 13c-1.653 0-3-1.346-3-3s1.347-3 3-3c1.654 0 3 1.346 3 3s-1.346 3-3 3m0-8c-2.757 0-5 2.243-5 5s2.243 5 5 5c2.758 0 5-2.243 5-5s-2.242-5-5-5m0 20.238C6.837 21.283 2 13.313 2 9.5 2 5.364 5.364 2 9.5 2 13.637 2 17 5.364 17 9.5c0 3.813-4.837 11.783-7.5 15.738M9.5 0C4.263 0 0 4.262 0 9.5c0 5.752 8.33 17.577 8.685 18.078a.998.998 0 0 0 1.631 0C10.671 27.077 19 15.252 19 9.5 19 4.262 14.738 0 9.5 0"
-              ></path>
+                fill="#FFF" fill-rule="evenodd" d="M9.5 13c-1.653 0-3-1.346-3-3s1.347-3 3-3c1.654 0 3 1.346 3 3s-1.346 3-3 3m0-8c-2.757 0-5 2.243-5 5s2.243 5 5 5c2.758 0 5-2.243 5-5s-2.242-5-5-5m0 20.238C6.837 21.283 2 13.313 2 9.5 2 5.364 5.364 2 9.5 2 13.637 2 17 5.364 17 9.5c0 3.813-4.837 11.783-7.5 15.738M9.5 0C4.263 0 0 4.262 0 9.5c0 5.752 8.33 17.577 8.685 18.078a.998.998 0 0 0 1.631 0C10.671 27.077 19 15.252 19 9.5 19 4.262 14.738 0 9.5 0"></path>
             </svg>
           </span>
           <div class="Carousel_titles js-carousel-titles">
