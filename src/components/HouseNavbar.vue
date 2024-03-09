@@ -2,8 +2,9 @@
   <header>
     <div id="navbar">
       <nav class="navbar navbar-expand-lg">
-        <h1 class="ms-5 header-title">Benapart</h1>
-
+        <router-link to="/">
+          <h1 class="ms-5 header-title">BenApart</h1>
+        </router-link>
         <div
           class="header-right justify-content-between align-items-center collapse navbar-collapse"
           id="navbarSupportedContent"
@@ -59,7 +60,7 @@
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#"
+                    <a class="dropdown-item text-black" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i
                       >Connexion</a
                     >
@@ -98,7 +99,7 @@
       </ol>
     </div>
     <h1 class="ft-2xl text-center my-3">
-      <b>Trouver un logement en France</b>
+      <b>Trouver un logement au Bénin</b>
     </h1>
     <div class="text-center info-text">
       Studapart est une plateforme de logement en ligne qui rend la location
@@ -115,14 +116,18 @@
           />
         </div>
       </div>
-      <div
+      <div class="ButtonFilter_Budget SearchOptions_filter position-relative">
+        <div class="ButtonRectangle">
+          <button class="no-border-btn" @click="openPopup">
+            Votre budget <i class="ms-3 fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
 
-        class="SearchFilter ButtonFilter_Budget SearchOptions_filter position-relative"
-      >
-        <div class="ButtonRectangle"><button class="no-border-btn" @click="openPopup">Votre budget</button></div>
-        <i class="fa-solid fa-chevron-down"></i>
         <div v-if="isOpen" class="ButtonFilter_popin position-absolute">
-          <div class="py-4 px-3">
+          <div class="close-btn position-absolute" @click="openPopup">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <div class="pt-5 pb-4 px-3 pop-container flex-column">
             <div class="row budget gx-5">
               <div class="col">
                 <div class="InputNumber" type="number">
@@ -172,23 +177,26 @@
               </div>
             </div>
             <div
-              class="ButtonFilter_actions d-flex align-items-center justify-content-between"
+              class="ButtonFilter_actions w-100 d-flex align-items-center justify-content-between"
             >
               <div>Effacer</div>
-              <ButtonGreen :content="'Appliquer'"></ButtonGreen>
+              <ButtonGreen
+                class="searchpage"
+                :content="'Appliquer'"
+              ></ButtonGreen>
             </div>
           </div>
         </div>
       </div>
     </div>
   </header>
-  <div class="test"></div>
 </template>
 
 <script>
 import ButtonGreen from "../components/ButtonGreen.vue";
+
 export default {
-  name: "NavbarVue",
+  name: "HouseNavBar",
   data() {
     return {
       view: {
@@ -198,7 +206,21 @@ export default {
       minBudget: 1,
       maxBudget: 700000,
       disabled: false,
-      isOpen:false
+      isOpen: false,
+      carrouselTab: [
+        {
+          src: "cotonou-room.jpg",
+          name: "Cotonou",
+        },
+        {
+          src: "cotonou-room.jpg",
+          name: "Calavi",
+        },
+        {
+          src: "cotonou-room.jpg",
+          name: "Calavi",
+        },
+      ],
     };
   },
   components: {
@@ -212,11 +234,11 @@ export default {
     warnClicked() {
       this.disabled = !this.disabled;
     },
-    openPopup(){
-      this.isOpen =!this.isOpen
+    openPopup() {
+      this.isOpen = !this.isOpen;
     },
     handleScroll() {
-      if (window.pageYOffset > 200) {
+      if (window.pageYOffset > 100) {
         if (this.view.topOfPage) this.view.topOfPage = false;
       } else {
         if (!this.view.topOfPage) this.view.topOfPage = true;
@@ -232,6 +254,18 @@ export default {
   padding: 0;
   margin: 0;
 }
+
+header {
+  position: relative;
+  z-index: 500;
+}
+
+.close-btn {
+  right: 2%;
+  font-size: 20px;
+  color: #36417d;
+  z-index: 6000;
+}
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;
@@ -243,8 +277,12 @@ export default {
   gap: 10px;
   padding-bottom: 10px;
 }
-.no-border-btn{
+.no-border-btn {
   border: none;
+}
+
+.searchpage {
+  margin-top: 0px;
 }
 .ButtonFilter_actions {
   align-items: center;
@@ -290,7 +328,7 @@ export default {
 .is-value .Form_label {
   color: #36417d;
   opacity: 1;
-  transform: scale(0.75) translate3d(-8px, -42px, 0);
+  transform: scale(0.75) translate3d(-8px, -46px, 0);
 }
 .Form_label {
   color: #6a73ad;
@@ -301,7 +339,7 @@ export default {
   left: 10px;
   opacity: 0;
   padding: 0 5px;
- 
+
   position: absolute;
   top: 23px;
   transform: scale(1) translate3d(0, -50%, 0);
@@ -339,7 +377,7 @@ export default {
   background-color: transparent;
   color: #6a73ad;
   font-weight: 400;
-  padding-left: 16px;
+  padding-left: 8px;
   padding-right: 16px;
 }
 
@@ -400,25 +438,25 @@ export default {
   max-height: 45px;
 }
 
-.SearchFilter {
+.SearchOptions_filter .pop-container,
+.no-border-btn {
   background-color: #fcfcff;
   border: 1px solid#ededff;
   border-radius: 0px 12px 12px 0;
-  padding: 5px 16px;
+  padding: 5px 6px 5px 16px;
   display: flex;
   color: #36417d;
   align-items: center;
-  height: 45px;
+
   position: relative;
 }
 
-.test {
-  height: 100vh;
-  background-color: green;
+.no-border-btn {
+  height: 45px;
 }
+
 .onScroll {
   position: fixed;
-
   top: 9%;
   padding-bottom: 20px;
   background-color: #36417d;
@@ -516,7 +554,7 @@ header {
   border-bottom: 1px solid #f3f3ff;
 }
 .dropdown-item {
-  color: #36417d;
+  color: #36417d !important;
   font-weight: 400;
 
   transition: background-color 5ms;
@@ -530,7 +568,7 @@ header {
   background-color: #6a73ad;
   text-decoration: none;
 
-  color: inherit;
+  color: white !important;
 }
 
 .Header_navList {

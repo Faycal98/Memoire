@@ -24,7 +24,7 @@ const routes = [
     meta: {
       guestGuard: true,
     },
-    component:  () => import('../views/SearchView.vue')
+    component:  () => import('../views/HouseView.vue')
   },
 ]
 

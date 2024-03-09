@@ -2,7 +2,6 @@
   <nav class="navbar navbar-dark bg-dark navbar-dark bg-dark">
 
     <div class="container-fluid">
-        ssss
       <button
         class="navbar-toggler"
         type="button"

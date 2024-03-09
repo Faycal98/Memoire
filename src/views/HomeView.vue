@@ -53,13 +53,13 @@
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Comé</span></h4>
         </a>
       </div>
-
-      
     </div>
+    <router-link to="/logements">
     <ButtonGreen
       class="text-center"
       :content="' Voir d\'autres villes '"
     ></ButtonGreen>
+  </router-link>
   </div>
   <HomepageStep></HomepageStep>
   <div class="Homepage_ads bg-bg-light">
@@ -191,8 +191,9 @@ nav {
 .Homepage_cityTitle {
   position: absolute;
   top: 50%;
+  width: max-content;
   background: #36417d;
-  padding: 5px 10px;
+  padding: 8px 12px;
   border-radius: 5px;
   left: 50%;
   z-index: 5;

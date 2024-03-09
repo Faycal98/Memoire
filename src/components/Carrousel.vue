@@ -1,7 +1,7 @@
 <template>
   <Carousel
     :wrap-around="true"
-    @init="handleInit"
+  
     @slide-start="handleSlideStart"
   >
     <Slide v-for="slide in tabImg" :key="slide">
@@ -69,17 +69,15 @@ export default defineComponent({
     };
   },
   methods: {
-    handleInit() {
-      console.log("created");
-    },
     handleSlideStart(data) {
       this.clicked = true;
       setTimeout(() => {
         this.clicked = false
-      }, 1300)
-      console.log("slide-start", data);
-    },
-  },
+      }, 1500);
+        console.log('slide-start', data)
+      },
+  }
+ 
 });
 </script>
 
@@ -126,6 +124,7 @@ export default defineComponent({
 .Carousel_title{
     margin-bottom: 0;
 }
+
 
 .Carousel_title.animation {
   animation-name: example;

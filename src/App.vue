@@ -17,10 +17,18 @@ body {
   text-align: center;
   color: #2c3e50;
 }
+a {
+  text-decoration: none!important;
+  color: inherit!important;
+}
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.page-item {
+
+color: white;
+}
+
+.page-link{
+  background-color: #36417d!important;
 }
 
 nav a.router-link-exact-active {

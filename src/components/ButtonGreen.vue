@@ -1,28 +1,29 @@
 <template>
   <div class="searching">
-    <a class="ButtonRectangle mt-20 ButtonRectangle--green"> {{content}}</a>
+    <a class="ButtonRectangle mt-20 ButtonRectangle--green text-light">
+      {{ content }}</a
+    >
   </div>
 </template>
 <script>
 export default {
-    props:{
-        content:{
-            type:String,
-            required:true
-        },
-       
-    }
+  props: {
+    content: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>
 <style scoped>
-
-.searching{
+.searching {
   text-align: left;
   margin-top: 20px;
 }
-.ButtonRectangle--green.is-hover, .ButtonRectangle--green:hover {
-    background-color: rgb(190, 83, 56);
-    transform: translateY(-1px);
+.ButtonRectangle--green.is-hover,
+.ButtonRectangle--green:hover {
+  background-color: rgb(190, 83, 56);
+  transform: translateY(-1px);
 }
 .searching a {
   background-color: rgb(221, 88, 55);
@@ -44,4 +45,5 @@ export default {
   position: relative;
   transition: 250ms;
   box-shadow: 0 5px 15px rgb(221, 88, 55);
-}</style>
+}
+</style>

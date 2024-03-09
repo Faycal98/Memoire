@@ -1,7 +1,7 @@
 <template>
   <div id="navbar">
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
-      <h1 class="ms-5 header-title"><strong>B</strong>en<span id="letter"><strong>A</strong></span>part</h1>
+     <router-link to="/"> <h1 class="ms-5 header-title"><strong>B</strong>en<span id="letter"><strong>A</strong></span>part</h1></router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -90,7 +90,7 @@
   font-size: 35px;
 }
 .dropdown-item {
-  color: #36417d;
+  color: #36417d!important;
   font-weight: 400;
   border-bottom: 1px solid #f3f3ff;
   transition: background-color 5ms;

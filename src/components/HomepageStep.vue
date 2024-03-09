@@ -9,10 +9,11 @@
           De 1 à 24 mois, réservez votre logement auprès de loueurs de confiance
           et bénéficiez d’un accompagnement personnalisé.
         </p>
+        <router-link to="/logements">
         <ButtonGreen
           :content="'Je commence les recherches'"
-          :link="'/'"
         ></ButtonGreen>
+        </router-link>
         <div class="Homepage_floatSteps">
           <img
             loading="lazy"
