@@ -26,6 +26,14 @@ const routes = [
     },
     component:  () => import('../views/HouseView.vue')
   },
+  {
+    path: '/howitwork',
+    name: 'howitwork',
+    meta: {
+      guestGuard: true,
+    },
+    component:  () => import('../views/Commentcamarche.vue')
+  },
 ]
 
 const router = createRouter({
