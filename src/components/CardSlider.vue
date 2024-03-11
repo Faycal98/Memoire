@@ -81,7 +81,6 @@ export default defineComponent({
   border-top-left-radius: 10px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  min-width: 290px;
   min-height: 200px;
 }
 

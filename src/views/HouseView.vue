@@ -17,175 +17,176 @@
           <div class="me-4 select-container">
             <select v-model="selected">
               <option disabled value="">Trier par:</option>
-              <option>Ordre croissant</option>
-              <option>Ordre décroissant</option>
+              <option>Prix croissant</option>
+              <option>Prix décroissant</option>
             </select>
           </div>
         </div>
       </div>
       <div class="row gx-2">
         <div class="col col-lg-3 col-sm-0">
-          <div class="FilterSection os">
-            <div class="FilterSection_headerBlock">
-              <h2 class="FilterSection_headerTitle">Tous les filtres</h2>
-            </div>
-            <div class="FilterSection-filter-type">
-              <div class="AccordionFilter_Title">
-                <div class="AccordionFilter_Title_Text d-flex">
-                  Type de logement
-                  <div class="ml-10">
-                    <span class="bg-r ft-bold icon-color">3</span>
+          <div class="sidebar">
+            <div class="FilterSection os">
+              <div class="FilterSection_headerBlock">
+                <h2 class="FilterSection_headerTitle">Tous les filtres</h2>
+              </div>
+              <div class="FilterSection-filter-type">
+                <div class="AccordionFilter_Title">
+                  <div class="AccordionFilter_Title_Text d-flex">
+                    Type de logement
+                    <div class="ml-10">
+                      <span class="bg-r ft-bold icon-color">3</span>
+                    </div>
+                  </div>
+                  <div
+                    class="AccordionFilter_Details mt-3 d-flex align-items-center"
+                  >
+                    <input
+                      class="form-input"
+                      type="checkbox"
+                      v-model="Appartement"
+                      id="flexCheckDefault"
+                    />
+                    <label
+                      class="form-check-label ms-3 mt-1"
+                      for="flexCheckDefault"
+                    >
+                      Appartements
+                    </label>
+                  </div>
+                  <div
+                    class="AccordionFilter_Details mt-3 d-flex align-items-center"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      v-model="chambres"
+                      id="flexCheckDefault"
+                    />
+                    <label
+                      class="form-check-label ms-3 mt-1"
+                      for="flexCheckDefault"
+                      >Chambres à loués
+                    </label>
+                  </div>
+                  <div
+                    class="AccordionFilter_Details mt-3 d-flex align-items-center"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      v-model="maisons"
+                      id="flexCheckDefault"
+                    />
+                    <label
+                      class="form-check-label ms-3 mt-1"
+                      for="flexCheckDefault"
+                    >
+                      Maisons
+                    </label>
                   </div>
                 </div>
-                <div
-                  class="AccordionFilter_Details mt-3 d-flex align-items-center"
-                >
-                  <input
-                    class="form-input"
-                    type="checkbox"
-                    v-model="Appartement"
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    class="form-check-label ms-3 mt-1"
-                    for="flexCheckDefault"
-                  >
-                    Appartements
-                  </label>
-                </div>
-                <div
-                  class="AccordionFilter_Details mt-3 d-flex align-items-center"
-                >
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    v-model="chambres"
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    class="form-check-label ms-3 mt-1"
-                    for="flexCheckDefault"
-                    >Chambres à loués
-                  </label>
-                </div>
-                <div
-                  class="AccordionFilter_Details mt-3 d-flex align-items-center"
-                >
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    v-model="maisons"
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    class="form-check-label ms-3 mt-1"
-                    for="flexCheckDefault"
-                  >
-                    Maisons
-                  </label>
-                </div>
-              </div>
 
-              <div class="AccordionFilter_Title">
-                <div class="AccordionFilter_Title_Text d-flex">
-                  Proposés par
-                  <div class="ml-10">
-                    <span class="bg-r ft-bold icon-color">3</span>
+                <div class="AccordionFilter_Title">
+                  <div class="AccordionFilter_Title_Text d-flex">
+                    Proposés par
+                    <div class="ml-10">
+                      <span class="bg-r ft-bold icon-color">3</span>
+                    </div>
+                  </div>
+                  <div
+                    class="AccordionFilter_Details mt-3 d-flex align-items-center"
+                  >
+                    <input
+                      class="form-input"
+                      type="checkbox"
+                      v-model="proprietaires"
+                      id="flexCheckDefault"
+                    />
+                    <label
+                      class="form-check-label ms-3 mt-1"
+                      for="flexCheckDefault"
+                    >
+                      Propriétaires
+                    </label>
+                  </div>
+                  <div
+                    class="AccordionFilter_Details mt-3 d-flex align-items-center"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      v-model="demarcheurs"
+                      id="flexCheckDefault"
+                    />
+                    <label
+                      class="form-check-label ms-3 mt-1"
+                      for="flexCheckDefault"
+                      >Démarcheurs
+                    </label>
+                  </div>
+                  <div
+                    class="AccordionFilter_Details mt-3 d-flex align-items-center"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      v-model="agencesImmo"
+                      id="flexCheckDefault"
+                    />
+                    <label
+                      class="form-check-label ms-3 mt-1"
+                      for="flexCheckDefault"
+                    >
+                      Agences Immobilières
+                    </label>
                   </div>
                 </div>
-                <div
-                  class="AccordionFilter_Details mt-3 d-flex align-items-center"
-                >
-                  <input
-                    class="form-input"
-                    type="checkbox"
-                    v-model="proprietaires"
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    class="form-check-label ms-3 mt-1"
-                    for="flexCheckDefault"
+                <div class="AccordionFilter_Title">
+                  <div class="AccordionFilter_Title_Text d-flex">
+                    Autres critères
+                    <div class="ml-10">
+                      <span class="bg-r ft-bold icon-color">3</span>
+                    </div>
+                  </div>
+                  <div
+                    class="AccordionFilter_Details mt-3 d-flex align-items-center"
                   >
-                    Propriétaires
-                  </label>
-                </div>
-                <div
-                  class="AccordionFilter_Details mt-3 d-flex align-items-center"
-                >
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    v-model="demarcheurs"
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    class="form-check-label ms-3 mt-1"
-                    for="flexCheckDefault"
-                    >Démarcheurs
-                  </label>
-                </div>
-                <div
-                  class="AccordionFilter_Details mt-3 d-flex align-items-center"
-                >
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    v-model="agencesImmo"
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    class="form-check-label ms-3 mt-1"
-                    for="flexCheckDefault"
+                    <input
+                      class="form-input"
+                      type="checkbox"
+                      v-model="proprietaires"
+                      id="flexCheckDefault"
+                    />
+                    <label
+                      class="form-check-label ms-3 mt-1"
+                      for="flexCheckDefault"
+                    >
+                      A vendre
+                    </label>
+                  </div>
+                  <div
+                    class="AccordionFilter_Details mt-3 d-flex align-items-center"
                   >
-                    Agences Immobilières
-                  </label>
-                </div>
-              </div>
-              <div class="AccordionFilter_Title">
-                <div class="AccordionFilter_Title_Text d-flex">
-                Autres critères
-                  <div class="ml-10">
-                    <span class="bg-r ft-bold icon-color">3</span>
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      v-model="demarcheurs"
+                      id="flexCheckDefault"
+                    />
+                    <label
+                      class="form-check-label ms-3 mt-1"
+                      for="flexCheckDefault"
+                      >A louer
+                    </label>
                   </div>
                 </div>
-                <div
-                  class="AccordionFilter_Details mt-3 d-flex align-items-center"
-                >
-                  <input
-                    class="form-input"
-                    type="checkbox"
-                    v-model="proprietaires"
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    class="form-check-label ms-3 mt-1"
-                    for="flexCheckDefault"
-                  >
-                  A vendre
-                  </label>
+                <div class="ButtonFilterAccordion_actions">
+                  <ButtonGreen
+                    class="text-end mt-2 mb-2 px-0 filtre-btn"
+                    :content="'Appliquer'"
+                  ></ButtonGreen>
                 </div>
-                <div
-                  class="AccordionFilter_Details mt-3 d-flex align-items-center"
-                >
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    v-model="demarcheurs"
-                    id="flexCheckDefault"
-                  />
-                  <label
-                    class="form-check-label ms-3 mt-1"
-                    for="flexCheckDefault"
-                    >A louer
-                  </label>
-                </div>
-             
-              </div>
-              <div class="ButtonFilterAccordion_actions">
-                <ButtonGreen
-                  class="text-end mt-2 mb-2 px-0 filtre-btn"
-                  :content="'Appliquer'"
-                ></ButtonGreen>
               </div>
             </div>
           </div>
@@ -199,6 +200,7 @@
               </div>
             </div>
           </div>
+
           <div class="row mb-5">
             <div class="col">
               <paginate
@@ -216,9 +218,14 @@
       </div>
     </div>
   </div>
+  <div class="ff">
+  
+    <Gallery></Gallery>
+  </div>
 </template>
 
 <script>
+import Gallery from "../components/Gallery.vue";
 import HouseNav from "../components/HouseNavbar.vue";
 import Card from "../components/Card.vue";
 import ButtonGreen from "../components/ButtonGreen.vue";
@@ -264,6 +271,7 @@ export default {
     HouseNav,
     ButtonGreen,
     paginate: Paginate,
+    Gallery,
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
@@ -316,7 +324,12 @@ export default {
 .ft-bold {
   font-weight: 700;
 }
-
+/* sidebar scroll */
+.sidebar {
+  overflow: scroll;
+  margin-top: -15%;
+  height: 480px;
+}
 .AccordionFilter_Title_Text {
   font-weight: 600;
   font-size: 15px;
@@ -339,10 +352,14 @@ export default {
   line-height: 1;
   width: 22px;
 }
+/* .FilterSection.os{
+  height: 150px;
+} */
+
 .FilterSection {
   border: 1px solid #ededff;
   max-width: 300px;
-  margin-top: -15%;
+
   text-align: left;
   border-radius: 12px;
 }

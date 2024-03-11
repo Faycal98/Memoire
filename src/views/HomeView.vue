@@ -72,7 +72,7 @@
     </div>
   </div>
 
-  <div class="col-8 col-12@m m-auto">
+  <div class="col-8 col-12@m m-auto homepage-carrousel-container">
     <Carrousel :tabImg="carrouselTab"></Carrousel>
   </div>
   <AccordionAnnonce></AccordionAnnonce>
@@ -164,6 +164,10 @@ nav {
 }
 .light-black {
   color: #353535;
+}
+
+.homepage-carrousel-container{
+  min-height: 370px;
 }
 .Homepage_city:hover::after{
  content: "";

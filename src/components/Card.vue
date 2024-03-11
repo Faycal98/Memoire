@@ -173,6 +173,7 @@ export default {
 .AccomodationBlock {
   -webkit-tap-highlight-color: transparent;
   background-color: #fff;
+  width: 94%;
   border: 1px solid #ededff;
   border-radius: 12px;
   box-shadow: 0 3px 6px 0 rgba(69, 97, 251, 0.12);

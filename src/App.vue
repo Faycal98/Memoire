@@ -10,6 +10,13 @@ body {
   margin: 0;
 }
 
+html {
+  overflow: scroll;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -18,17 +25,16 @@ body {
   color: #2c3e50;
 }
 a {
-  text-decoration: none!important;
-  color: inherit!important;
+  text-decoration: none !important;
+  color: inherit !important;
 }
 
 .page-item {
-
-color: white;
+  color: white;
 }
 
-.page-link{
-  background-color: #36417d!important;
+.page-link {
+  background-color: #36417d !important;
 }
 
 nav a.router-link-exact-active {
