@@ -220,12 +220,12 @@
   </div>
   <div class="ff">
   
-    <Gallery></Gallery>
+   
   </div>
 </template>
 
 <script>
-import Gallery from "../components/Gallery.vue";
+
 import HouseNav from "../components/HouseNavbar.vue";
 import Card from "../components/Card.vue";
 import ButtonGreen from "../components/ButtonGreen.vue";
@@ -271,7 +271,7 @@ export default {
     HouseNav,
     ButtonGreen,
     paginate: Paginate,
-    Gallery,
+  
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
