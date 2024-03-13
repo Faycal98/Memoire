@@ -9,8 +9,7 @@
         data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -105,7 +104,6 @@
 
   color: inherit;
 }
-
 .Header_navList {
   position: absolute;
 
@@ -117,7 +115,6 @@
   opacity: 0;
   transition: 250ms;
 }
-
 .link .list ul {
   display: block;
   margin-left: 0px;
@@ -163,7 +160,6 @@ nav {
 
   ul {
     margin-left: 3em;
-
     display: flex;
     justify-content: space-between;
     li {

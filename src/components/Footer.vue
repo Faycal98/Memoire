@@ -7,17 +7,10 @@
           <span class="Icon mb-20" style="--width: 180px; width: 180px"> </span>
           <ul>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">
-                Espace propriétaire
-              </a>
+              <a class="Footer_link" href="#">Espace propriétaire</a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">
-                Espace professionnel de l'immobilier
-              </a>
-            </li>
-            <li class="Footer_item">
-              <a class="Footer_link" href="#"> Le mieux loger </a>
+              <a class="Footer_link" href="#">Espace démarcheur</a>
             </li>
             <li class="Footer_item">
               <a class="Footer_link" href="#"> Comment ça marche ? </a>
@@ -26,37 +19,19 @@
               <a class="Footer_link" href="#"> Nos astuces </a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">
-                Connexion
-              </a>
-            </li>
-            <li class="Footer_item">
-              <span id="language-switch-container">
-                <link
-                  rel="stylesheet"
-                  media="all"
-                  href="#"
-                />
-              </span>
+              <a class="Footer_link" href="#">Connexion</a>
             </li>
           </ul>
         </div>
         <div class="Footer_column col-3 col-6@s col-12@xs">
-          <h5 class="Footer_title">Nos partenaires</h5>
+          <h5 class="Footer_title">Notre partenaire</h5>
           <ul>
-            
-            
-            
-            
             <li class="Footer_item">
-              Aucun pour le moment
+              <a class="Footer_link" href="#"> Ola Technology </a>
             </li>
+            
             <li class="Footer_item">
-              <a class="Footer_link" href="#"> Aide </a>
-            </li>
-            <li class="Footer_item">
-              <a class="Footer_link" href="#">Gérer les cookies
-              </a>
+              <a class="Footer_link" href="#">Gérer les cookies</a>
             </li>
           </ul>
         </div>
@@ -64,24 +39,16 @@
           <h5 class="Footer_title">Trouver un logement</h5>
           <ul>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">
-                Dans les environs de Cotonou
-              </a>
+              <a class="Footer_link" href="#">Cotonou</a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">
-                Dans les environs de Calavi
-              </a>
+              <a class="Footer_link" href="#">Calavi</a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">
-                Dans les environs de Parakou
-              </a>
+              <a class="Footer_link" href="#">Parakou</a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link"
-                href="#">Dans les environs de Ouidah...
-              </a>
+              <a class="Footer_link" href="#">Ouidah...</a>
             </li>
           </ul>
         </div>
@@ -90,20 +57,14 @@
 
           <ul>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">
-                L'équipe
-              </a>
+              <a class="Footer_link" href="#">L'équipe</a>
             </li>
             
             <li class="Footer_item">
-              <div class="Footer_link" data-link="aHR0cHM6Ly93d3cud2VsY29tZXRvdGhlanVuZ2xlLmNvbS9mci9jb21wYW5pZXMvc3R1ZGFwYXJ0">
-                Nous rejoindre
-              </div>
+              <div class="Footer_link">Nous rejoindre</div>
             </li>
             <li class="Footer_item">
-              <div class="Footer_link" data-link="bWFpbHRvOmNvbnRhY3RAc3R1ZGFwYXJ0LmNvbQ==">
-                Nous contacter
-              </div>
+              <div class="Footer_link">Nous contacter</div>
             </li>
           </ul>
           <div class="SocialShare mt-40 SocialShare--light">
@@ -135,11 +96,11 @@
   text-decoration: none;
 }
 .Footer_link:hover {
-  text-decoration: underline;
+  
+  color: rgb(221, 88, 55) !important;
+  text-decoration: underline white  !important;
+  
 }
-
-
-
 .Footer ul{
     text-align: left;
     padding: 0;

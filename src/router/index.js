@@ -34,6 +34,38 @@ const routes = [
     },
     component:  () => import('../views/Commentcamarche.vue')
   },
+  {
+    path: '/login',
+    name: 'login',
+    meta: {
+      guestGuard: true,
+    },
+    component:  () => import('../views/connexion_p.vue')
+  },
+  {
+    path: '/logins',
+    name: 'logins',
+    meta: {
+      guestGuard: true,
+    },
+    component:  () => import('../views/connexion_l.vue')
+  },
+  {
+    path: '/connect',
+    name: 'connect',
+    meta: {
+      guestGuard: true,
+    },
+    component:  () => import('../views/inscription_p.vue')
+  },
+  {
+    path: '/connects',
+    name: 'connects',
+    meta: {
+      guestGuard: true,
+    },
+    component:  () => import('../views/inscription_l.vue')
+  },
 ]
 
 const router = createRouter({

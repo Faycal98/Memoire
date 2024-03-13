@@ -12,8 +12,7 @@
       </div>
     </nav>
   </div>
-  <div class="row">
-
+  <div class="rows">
     <div class="col-2">
       <h1 class="color"><strong>METTRE SON LOGEMENT EN LOCATION !</strong></h1>
     </div>
@@ -23,53 +22,38 @@
         <h4 class="color"><strong>Une expérience locative simple et humaine ! BenApart est une
          plateforme de réservation d'appartement, de chambre et de maison a louer en 
          ligne qui rend la location plus simple et humaine.</strong></h4>
-         <a href="#"> Déposer mon annonce ⩗</a> 
+         <a href="#" class="annonce"> Déposer mon annonce ⩗</a> 
       </div>
-                     
+      <h2><strong>Louer avec <span class="sigle">BenApart</span>, c’est protéger gratuitement votre logement et vos loyers!</strong></h2>   
     </div>
  </div>
-
-  <section class="wrapper">
-    <div class="container">
-      <h2><strong>Louer avec <span class="sigle">BenApart</span>, c’est protéger gratuitement votre logement et vos loyers!</strong></h2>
-      <div  class="wrappe">
-        <div class="wrappe-3">
-          <img src="" alt="">
+ <div class="service">
+            <div class="containt">
+              <h2 class="color"><strong>Profitez d’un service défiant toute concurrence</strong></h2>
+               <div class="rower">
+                  <div class="coll">
+                     <i class="fa-solid fa-house-laptop"></i>
+                     <h4><strong>1ere plateforme de location au Bénin !</strong></h4>
+                  </div>
+                  <div class="coll">
+                    <i class="fa-solid fa-house-lock"></i>
+                    <h4><strong>Des demandes qualifiées et sécurisées partout au Bénin !</strong></h4>
+                  </div>
+                  <div class="coll">
+                    <circul ></circul>
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <h4><strong>Nos services sont disponibles partout au Bénin !</strong></h4>
+                  </div>
+               </div>
+            </div>
         </div>
-        <div class="wrappe-3">
-          <img src="" alt="">
-        </div>
-        <div class="wrappe-3">
-          <img src="" alt="">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrapper">
-    <div class="container">
-      <h2 class="color"><strong>Profitez d’un service défiant toute concurrence</strong></h2>
-      <div  class="wrappe">
-        <div class="wrappe-3">
-          <img src="" alt="">
-        </div>
-        <div class="wrappe-3">
-          <img src="" alt="">
-        </div>
-        <div class="wrappe-3">
-          <img src="" alt="">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrapper">
+  <section class="wrapper" style="margin: -13px 0;">
     <div class="container">
       <h1><strong class="sigle">B</strong>en<span class="sigle"><strong>A</strong></span>part</h1>
       <h2 class="color"><strong>Comment ça marche ?</strong></h2>
-      <p class="etapes"><strong>4 étapes et votre logement est loué !</strong></p>
+      <h4 class="etapes"><strong>4 étapes et votre logement est loué !</strong></h4>
     </div>
-  </section>
+
       <section class="work" id="work">  
         <div class="work-row">
             <div class="work-column">
@@ -96,12 +80,13 @@
                         <div class="content">
                             <div class="year"> <h3><strong>Je finalise la réservation</strong>  </h3> 
                             </div>
-                            <p class="color" ><strong>Le locataire réserve apres avoir effectuer son choix sur la plateforme.</strong></p>   
+                            <p class="color" ><strong>Le locataire réserve apres avoir éffectuer son choix sur la plateforme.</strong></p>   
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
     </section>
 
 
@@ -145,7 +130,6 @@ export default {
 * {
   padding: 0;
   margin: 0;
- /* background: rgb(171, 199, 190);*/
 }
 #letter{
   color: rgb(221, 88, 55);
@@ -178,36 +162,10 @@ h1 .ms-5.header-title{
   cursor: pointer;
 }
 
-/*.dropdown-item:hover {
-  background-color: #6a73ad;
-  text-decoration: none;
-  color: inherit;
-}*/
-
-/*.Header_navList {
-  position: absolute;
-  padding: 0;
-  right: 0;
-  min-width: 280px;
-  pointer-events: none;
-  transform: translateY(-20px);
-  opacity: 0;
-  transition: 250ms;
-}*/
-
-/*.link .list ul {
-  display: block;
-  margin-left: 0px;
-}
-/*.link:hover .list,
-.link:hover .list li {
-  display: block;
-}*/
 nav {
   font-family: "Metrophobic", sans-serif;
   font-weight: 600;
   font-style: normal;
-  /*position: fixed;*/
   margin-right: auto;
   justify-content: space-between;
   margin-left: auto;
@@ -219,9 +177,8 @@ nav {
   background-color: #36417d;
   display: flex;
   align-items: center;
-  /*transition: all 0.2s ease-in-out;*/
+
   &.onScroll {
-   /* box-shadow: 0 0 10px #aaa;*/
     background-color:  #36417d;
     ul li {
       color: white;
@@ -252,7 +209,7 @@ nav {
   }
 }
 
-.row{
+.rows{
   background-image: url(../assets/accueuil.jpg);
   display: flex;
   align-items: center;
@@ -315,7 +272,7 @@ nav {
     justify-content: center;
     align-items: center;
     min-height: auto;
-    padding-bottom: 5rem;
+    padding-bottom: 1rem;
 }
 .work .work-row{
     display: flex;
@@ -349,7 +306,7 @@ nav {
 .work-content .content{
     position: relative;
     padding: 1.5rem;
-    border: .2rem solid #36417d;;
+    border: .2rem solid #36417d;
     border-radius: .6rem;
     margin-bottom: 2rem;
     overflow: hidden;
@@ -381,4 +338,38 @@ nav {
     font-size: 2rem;
 }
 
+.service{
+    margin: 30px 0;
+    background-color: rgba(247, 245, 243, 0.493);
+}
+.coll{
+    flex-basis: 30px;
+    min-width: 285px;
+}
+.coll i fa-solid{
+    width: 100%;
+    size: 30px;
+    font-size: 20px;
+}
+.containt h2{
+    text-align: center;
+    font-size:2.2rem ;
+    margin: 50px 0;
+}
+.rower{
+  display: flex;
+  justify-content: center;
+  margin-left: 7%;
+  margin-right: 7%;
+}
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa{
+  border: 18px solid rgb(221, 88, 55);
+    border-radius: 62px;
+    font-size: 80px;
+    background-color: rgb(221, 88, 55);
+    color: white;
+}
+.container{
+  background-color: rgba(247, 245, 243, 0.493);
+}
 </style>

@@ -7,49 +7,49 @@
 
     <div class="d-flex flex-row justify-content-center">
       <div class="p-2 mb-2 img-container">
-        <a href="/" class="Homepage_city ctn">
+        <a href="#" class="Homepage_city ctn">
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Cotonou</span></h4>
         </a>
       </div>
 
       <div class="p-2 mb-2 img-container ">
-        <a href="/" class="Homepage_city calavi">
+        <a href="#" class="Homepage_city calavi">
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Calavi</span></h4>
         </a>
       </div>
 
       <div class="p-2 mb-2 img-container">
-        <a href="/" class="Homepage_city porto">
+        <a href="#" class="Homepage_city porto">
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Porto-Novo</span></h4>
         </a>
       </div>
 
       <div class="p-2 mb-2 img-container">
-        <a href="/" class="Homepage_city ouidah">
+        <a href="#" class="Homepage_city ouidah">
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Ouidah</span></h4>
         </a>
       </div>
 
       <div class="p-2 mb-2 img-container">
-        <a href="/" class="Homepage_city malanville">
+        <a href="#" class="Homepage_city malanville">
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Malaville</span></h4>
         </a>
       </div>
 
       <div class="p-2 mb-2 img-container">
-        <a href="/" class="Homepage_city parakou">
+        <a href="#" class="Homepage_city parakou">
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Parakou</span></h4>
         </a>
       </div>
 
       <div class="p-2 mb-2 img-container">
-        <a href="/" class="Homepage_city ketou">
+        <a href="#" class="Homepage_city ketou">
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Kétou</span></h4>
         </a>
       </div>
 
       <div class="p-2 mb-2 img-container">
-        <a href="/" class="Homepage_city come">
+        <a href="#" class="Homepage_city come">
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Comé</span></h4>
         </a>
       </div>
@@ -65,9 +65,7 @@
   <div class="Homepage_ads bg-bg-light">
     <div class="Wrapper Wrapper--m pv-60 pt-60@xs pb-40@xs">
       <h2 class="max-width-s m-auto text-center">
-        <b class="ft-2xl ft-bold color-ft-strong">
-          Quelques de nos meilleurs appartements et locations
-        </b>
+        <b class="ft-2xl ft-bold color-ft-strong">Quelques de nos meilleurs appartements et locations</b>
       </h2>
     </div>
   </div>
