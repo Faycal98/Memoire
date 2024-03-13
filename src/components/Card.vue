@@ -9,12 +9,12 @@
           <div class="d-flex">
             <div class="AccomodationBlock_contentLeft">
               <div class="text-start">
-                <p class="pt-2 mb-0">
+                <p class="pt-2 mb-0" style="color: rgb(221, 88, 55) !important; font-weight: bold;">
                   <!---->
-                  Logement en résidence
+                  Appartement/Chambre
                 </p>
                 <p class="AccomodationBlock_title mb-2 fw-bold ellipsis-2">
-                  UXCO Le 124
+                  Localisation
                 </p>
               </div>
             </div>
@@ -22,17 +22,18 @@
               <div>
                 <p class="line-1">à partir de</p>
                 <p class="ft-l mb-0 ft-m@s">
-                  <b>4210€</b> <span class="ft-2xs">cc</span>
+                  15.000 fcfa <span class="ft-2xs">cc</span>
                 </p>
+                <p class="line-1">/ Jour</p>
                 <p class="line-1">/ mois</p>
               </div>
             </div>
           </div>
 
           <div class="AccomodationBlock_location text-start mb-3">
-            Meublé - Salle de sport
+            Meublé/ Sans meuble
           </div>
-          <div class="ellipsis-2 text-start color-ft-weak">
+          <div class="ellipsis-2 text-start color-ft-weak" style="">
             Ouverture Janvier 2023 La résidence Ecla Paris Villejuif a été
           </div>
         </div>
@@ -44,7 +45,7 @@
         >
           <p class="AccomodationBlock_availability">
             <span class="AccomodationBlock_notif is-active"></span>
-            <b class="fw-bolder me-5">Disponible immédiatement</b>
+            <b class="fw-bolder me-5" style="color: #36417d;">Disponible immédiatement</b>
           </p>
           <!---->
         </div>
@@ -64,11 +65,11 @@ export default {
           name: "Cotonou",
         },
         {
-          src: "cotonou-room.jpg",
+          src: "calavi-room.jpg",
           name: "Calavi",
         },
         {
-          src: "cotonou-room.jpg",
+          src: "living-room-2155376.jpg",
           name: "Calavi",
         },
       ],
@@ -107,14 +108,15 @@ export default {
 }
 
 .line-1 {
-  color: #6a73ad;
+  color: black;
   font-family: "Metrophobic", sans-serif;
   font-size: 13px;
+  font-weight: bold;
   text-align: end;
   margin-bottom: 0px;
 }
 .ft-2xs {
-  color: #6a73ad;
+  color: #0726f5;
   font-family: "Metrophobic", sans-serif;
   font-size: 13px;
   text-align: end;
@@ -122,7 +124,7 @@ export default {
 }
 
 .AccomodationBlock_notif.is-active {
-  background-color: #3c9;
+  background-color: green;
 }
 
 .AccomodationBlock_notif {
@@ -133,8 +135,9 @@ export default {
   border-radius: 50%;
 }
 .color-ft-weak {
-  color: #6a73ad;
+  color: #36417d;
   font-size: 16px;
+  font-weight: bold;
 }
 .ft-xs {
   font-size: 13px;

@@ -5,10 +5,7 @@
         <router-link to="/">
           <h1 class="ms-5 header-title">BenApart</h1>
         </router-link>
-        <div
-          class="header-right justify-content-between align-items-center collapse navbar-collapse"
-          id="navbarSupportedContent"
-        >
+        <div class="header-right justify-content-between align-items-center collapse navbar-collapse" id="navbarSupportedContent">
           <ul>
             <li class="link d-block">
               <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
@@ -97,18 +94,18 @@
     </div>
     <div class="SearchPage_bread mb-40">
       <ol class="breadcrumb">
-        <li class="bread">Home</li>
+        <li class="bread">Accueuil</li>
         <li class="bread" aria-current="page">
-          <i class="fa-solid fa-chevron-right"></i> Library
+          <i class="fa-solid fa-chevron-right"></i> Logement
         </li>
       </ol>
     </div>
     <h1 class="ft-2xl text-center my-3">
-      <b>Trouver un logement au Bénin</b>
+      <b style="color: rgb(221, 88, 55); font-size: 35px;">Trouver un logement partout au Bénin</b>
     </h1>
     <div class="text-center info-text">
-      Studapart est une plateforme de logement en ligne qui rend la location
-      plus simple et humaine, quelle qu’en soit la durée.
+      <p style="font-size: 20px;" >BenApart est une plateforme de logement en ligne qui rend la location
+      plus simple et humaine, quelle qu’en soit la durée.</p>
     </div>
     <div :class="[{ onScroll: !view.topOfPage }, 'searchBar_multiple']">
       <div class="Header_placeAutocomplete Header_placeAutocomplete--search">
@@ -561,11 +558,9 @@ header {
 .dropdown-item {
   color: #36417d !important;
   font-weight: 400;
-
   transition: background-color 5ms;
   text-align: left;
   padding: 18px 25px;
-
   cursor: pointer;
 }
 

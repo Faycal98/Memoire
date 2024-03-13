@@ -90,7 +90,7 @@
             </div>
             <div class="Step_content">
               <p class="Step_title strong-blue text-start">
-                2. Ciblez votre logements
+                2. Ciblez votre logement
               </p>
               <p class="text-start">
                 Un coup de coeur ? Échangez avec le loueur via la messagerie
