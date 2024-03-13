@@ -218,10 +218,7 @@
       </div>
     </div>
   </div>
-  <div class="ff">
-  
-   
-  </div>
+
 </template>
 
 <script>
@@ -271,7 +268,7 @@ export default {
     HouseNav,
     ButtonGreen,
     paginate: Paginate,
-  
+   
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
@@ -327,8 +324,10 @@ export default {
 /* sidebar scroll */
 .sidebar {
   overflow: scroll;
+  position: sticky;
+  top: 150px;
   margin-top: -15%;
-  height: 480px;
+  height: 420px;
 }
 .AccordionFilter_Title_Text {
   font-weight: 600;
@@ -374,8 +373,7 @@ export default {
 
 .FilterSection {
   padding: 0 16px;
-  position: sticky;
-  top: 150px;
+ 
 }
 
 .AccordionFilter_Title {

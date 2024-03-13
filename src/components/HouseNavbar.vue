@@ -74,7 +74,12 @@
                   <li>
                     <a class="dropdown-item" href="#"
                       ><i class="fa-regular fa-circle-question me-2"></i>
-                      Aide</a
+                      Aide et accompagnement</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item last" href="#"
+                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment ça marche ?</a
                     >
                   </li>
                   <li>

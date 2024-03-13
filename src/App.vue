@@ -1,5 +1,6 @@
 <template>
   <main>
+
     <Guest></Guest>
   </main>
 </template>
@@ -8,6 +9,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
 body {
   margin: 0;
+}
+
+
+.hidden{
+  display: none;
 }
 
 html {

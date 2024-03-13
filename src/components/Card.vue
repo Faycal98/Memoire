@@ -1,9 +1,9 @@
 <template>
   <div class="sliderCard AccomodationBlock">
     <div class="carrousel-container">
-      <Carrousel :tabImg="imgArray"></Carrousel>
+      <Carrousel @clickEvent="goDetails" :tabImg="imgArray"></Carrousel>
     </div>
-    <router-link :to="{ name: 'home' }">
+    <router-link :to="{ name: 'houseDetails' }">
       <div class="card-description mt-3">
         <div class="AccomodationBlock_contentContainer">
           <div class="d-flex">
@@ -22,7 +22,7 @@
               <div>
                 <p class="line-1">à partir de</p>
                 <p class="ft-l mb-0 ft-m@s">
-                  <b>421€</b> <span class="ft-2xs">cc</span>
+                  <b>4210€</b> <span class="ft-2xs">cc</span>
                 </p>
                 <p class="line-1">/ mois</p>
               </div>
@@ -85,7 +85,11 @@ export default {
       type: Number,
     },
   },
-  methods: {},
+  methods: {
+    goDetails(){
+      this.$router.push("/")
+    }
+  },
 };
 </script>
 <style scoped>
