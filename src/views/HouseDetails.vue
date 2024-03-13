@@ -1,17 +1,17 @@
 <template>
   <div class="container-fluid">
     <div class="gallery-description wrapper mt-4">
-        <Gallery></Gallery>
+      <Gallery></Gallery>
     </div>
     <div class="property-description mt-5 row">
       <div class="col-lg-8">
         <div class="description">
           <div class="Block p-20 mt-20 mb-10">
-            <div class="mb-30">
+            <div class="mb-1">
               <h2 class="Title Title--s mb-10 color-ft-strong">
                 Caractéristiques du logement
               </h2>
-              <div class="row property-container mb-20 mb-0@s">
+              <div class="row property-container mb-2 mb-0@s">
                 <div class="col-4 col-12@s mb-10@s">
                   <div class="icon-highlight">
                     <div><i class="fa-solid fa-location-dot"></i></div>
@@ -69,7 +69,7 @@
                 </div>
               </div>
 
-              <div class="row mb-20 mb-0@s"></div>
+              <div class="row mb-0 mb-0@s"></div>
             </div>
             <div class="PropertyPage_description js-truncate">
               <h2 class="Title Title--s mb-10 color-ft-strong">
@@ -104,7 +104,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 text-start">
+      <div class="col-lg-4 text-start property-wrapper">
         <div class="PropertyPage_sideBlock PropertyPage_sideBlock--intro p-20">
           <div class="row wrapper_price">
             <div class="col-lg-6">
@@ -275,24 +275,24 @@
             class="d-flex fx-justify-between fx-align-center b-top bg-bg-xweak p-4 mt-3"
           >
             <div></div>
-            <RouterLink to="/chat">
-            <button
-              class="ButtonRectangle PropertyPage_contact js-popin-generic-open ButtonRectangle--bordered ButtonRectangle--s"
-              data-id="contact-popup"
-              data-test="contactModal"
-            >
-             
+            <router-link to="/chat">
+              <button
+                class="ButtonRectangle PropertyPage_contact js-popin-generic-open ButtonRectangle--bordered ButtonRectangle--s"
+                data-id="contact-popup"
+                data-test="contactModal"
+                @click="openChat"
+              >
                 <span class="ButtonRectangle_content">
                   <span class="ButtonRectangle_text">
                     Envoyer un message à la résidence
                   </span>
                 </span>
-             
-              <div class="ButtonRectangle_loader">
-                <i class="fal fa-spinner-third"></i>
-              </div>
-            </button>
-            </RouterLink>
+
+                <div class="ButtonRectangle_loader">
+                  <i class="fal fa-spinner-third"></i>
+                </div>
+              </button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -306,6 +306,7 @@ export default {
   data() {
     return {
       hidden: true,
+      chat: false,
     };
   },
   mounted() {
@@ -326,7 +327,7 @@ export default {
     desc.append(span2);
   },
   components: {
-     Gallery,
+    Gallery,
   },
   methods: {
     seeMore() {
@@ -352,6 +353,9 @@ export default {
       //console.log(span)
       this.hidden = true;
     },
+    openChat() {
+      this.chat = true;
+    },
   },
 };
 </script>
@@ -368,6 +372,11 @@ export default {
   height: 50px;
   position: relative;
   width: 50px;
+}
+
+.property-wrapper {
+  margin-top: -90px;
+  z-index: 60;
 }
 .ButtonRectangle--bordered {
   background-color: transparent;

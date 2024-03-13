@@ -101,7 +101,7 @@
       </ol>
     </div>
     <h1 class="ft-2xl text-center my-3">
-      <b style="color: rgb(221, 88, 55); font-size: 35px;">Trouver un logement partout au Bénin</b>
+      <b style=" font-size: 35px;">Trouver un logement partout au Bénin</b>
     </h1>
     <div class="text-center info-text">
       <p style="font-size: 20px;" >BenApart est une plateforme de logement en ligne qui rend la location

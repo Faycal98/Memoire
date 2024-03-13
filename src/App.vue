@@ -1,6 +1,5 @@
 <template>
   <main>
-
     <Guest></Guest>
   </main>
 </template>
@@ -11,8 +10,7 @@ body {
   margin: 0;
 }
 
-
-.hidden{
+.hidden {
   display: none;
 }
 

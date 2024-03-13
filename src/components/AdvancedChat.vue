@@ -54,7 +54,7 @@ export default {
 		addMessages(reset) {
 			const messages = []
 
-			for (let i = 0; i < 30; i++) {
+			for (let i = 0; i < 15; i++) {
 				messages.push({
 					_id: reset ? i : this.messages.length + i,
 					content: `${reset ? '' : 'paginated'} message ${i + 1}`,
