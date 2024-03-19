@@ -15,16 +15,6 @@
         src="http://localhost:8080/img/porto-novo.1cfd9ec0.jpg"
       />
     </a>
-
-
-
-
-
-
-
-
-
-
     <a
       class="gallery-item"
       data-src="http://localhost:8080/img/photo2.e5a73b28.avif"
@@ -37,14 +27,6 @@
         src="http://localhost:8080/img/photo2.e5a73b28.avif"
       />
     </a>
-
-
-
-
-
-
-
-
 
     <a
       class="gallery-item"
@@ -66,11 +48,6 @@
         src="http://localhost:8080/img/homes.1c192204.jpg"
       />
     </a>
-
-
-
-
-
 
     <a
       class="gallery-item"

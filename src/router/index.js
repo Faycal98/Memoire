@@ -66,6 +66,14 @@ const routes = [
     },
     component:  () => import('../views/inscription_l.vue')
   },
+  {
+    path: '/annonce',
+    name: 'annonce',
+    meta: {
+      guestGuard: true,
+    },
+    component:  () => import('../views/Annonce.vue')
+  },
 ]
 
 const router = createRouter({

@@ -120,7 +120,7 @@
                 3. Réservez en ligne
               </p>
               <p class="text-start">
-                Finalisez votre réservation en effectuant le premier paiement
+                Finalisez votre réservation en communiquant via notre boite de messagerie 
                 sur la plateforme, en toute sécurité.
               </p>
             </div>

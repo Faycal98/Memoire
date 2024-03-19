@@ -12,13 +12,13 @@
             <h2>Recherche en cours</h2>
           </div>
           <div class="ps-3 SearchPage_Header_title" v-else>
-            <p style="color: rgb(221, 88, 55);">+50 logements sont disponibles</p>
+            <p>+50 logements sont disponibles</p>
           </div>
           <div class="me-4 select-container">
             <select v-model="selected">
               <option disabled value="">Trier par :</option>
-              <option  class="option" style="font-weight: bold;">Prix croissant</option>
-              <option style="font-weight: bold;">Prix décroissant</option>
+              <option>Prix croissant</option>
+              <option>Prix décroissant</option>
             </select>
           </div>
         </div>
@@ -717,7 +717,7 @@ header {
   border-bottom: 1px solid #f3f3ff;
 }
 .dropdown-item {
-  color: #36417d !important;
+ /* color: #36417d !important;*/
   font-weight: 400;
 
   transition: background-color 5ms;

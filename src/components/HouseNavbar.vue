@@ -96,7 +96,7 @@
       </ol>
     </div>
     <h1 class="ft-2xl text-center my-3">
-      <b style="color: rgb(221, 88, 55); font-size: 35px;">Trouver un logement partout au Bénin</b>
+      <b>Trouver un logement partout au Bénin</b>
     </h1>
     <div class="text-center info-text">
       <p style="font-size: 20px;" >BenApart est une plateforme de logement en ligne qui rend la location
@@ -134,9 +134,9 @@
                     <label class="Form_label">Budget min.</label>
                     <input
                       type="number"
-                      min="1"
+                      min="4000"
                       v-model="minBudget"
-                      max="3500"
+                      max="20000000"
                       id="numberId"
                       placeholder=""
                       name=""
@@ -157,9 +157,9 @@
                     <label class="Form_label">Budget max.</label>
                     <input
                       type="number"
-                      min="1"
+                      min="4000"
                       v-model="maxBudget"
-                      max="3500"
+                      max="20000000"
                       id="numberId"
                       placeholder=""
                       name=""
@@ -200,8 +200,8 @@ export default {
         topOfPage: true,
       },
       red: "red",
-      minBudget: 1,
-      maxBudget: 700000,
+      minBudget: 4000,
+      maxBudget: 20000000,
       disabled: false,
       isOpen: false,
       carrouselTab: [
