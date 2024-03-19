@@ -713,7 +713,7 @@ header {
   border-bottom: 1px solid #f3f3ff;
 }
 .dropdown-item {
-  color: #36417d !important;
+ /* color: #36417d !important;*/
   font-weight: 400;
 
   transition: background-color 5ms;
