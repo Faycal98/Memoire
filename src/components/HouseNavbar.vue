@@ -71,7 +71,12 @@
                   <li>
                     <a class="dropdown-item" href="#"
                       ><i class="fa-regular fa-circle-question me-2"></i>
-                      Aide</a
+                      Aide et accompagnement</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item last" href="#"
+                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment ça marche ?</a
                     >
                   </li>
                   <li>
@@ -97,6 +102,7 @@
     </div>
     <h1 class="ft-2xl text-center my-3">
       <b>Trouver un logement partout au Bénin</b>
+      <b style=" font-size: 35px;">Trouver un logement partout au Bénin</b>
     </h1>
     <div class="text-center info-text">
       <p style="font-size: 20px;" >BenApart est une plateforme de logement en ligne qui rend la location

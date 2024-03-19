@@ -27,6 +27,14 @@ const routes = [
     component:  () => import('../views/HouseView.vue')
   },
   {
+    path: '/houseDetails',
+    name: 'houseDetails',
+    meta: {
+      guestGuard: true,
+    },
+    component:  () => import('../views/HouseDetails.vue')
+  },
+  {
     path: '/howitwork',
     name: 'howitwork',
     meta: {
@@ -35,6 +43,12 @@ const routes = [
     component:  () => import('../views/Commentcamarche.vue')
   },
   {
+    path: '/chat',
+    meta: {
+      guestGuard: true,
+    },
+    component:  () => import('../components/AdvancedChat.vue')
+  },{
     path: '/login',
     name: 'login',
     meta: {

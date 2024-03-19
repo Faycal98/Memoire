@@ -1,20 +1,20 @@
 <template>
   <div class="sliderCard AccomodationBlock">
     <div class="carrousel-container">
-      <Carrousel :tabImg="imgArray"></Carrousel>
+      <Carrousel @clickEvent="goDetails" :tabImg="imgArray"></Carrousel>
     </div>
-    <router-link :to="{ name: 'home' }">
+    <router-link :to="{ name: 'houseDetails' }">
       <div class="card-description mt-3">
         <div class="AccomodationBlock_contentContainer">
           <div class="d-flex">
             <div class="AccomodationBlock_contentLeft">
               <div class="text-start">
-                <p class="pt-2 mb-0" style="color: rgb(221, 88, 55) !important; font-weight: bold;">
+                <p class="pt-2 mb-0">
                   <!---->
-                  Appartement/Chambre
+                Appartement 
                 </p>
                 <p class="AccomodationBlock_title mb-2 fw-bold ellipsis-2">
-                  Localisation
+                  UXCO Le 124
                 </p>
               </div>
             </div>
@@ -22,18 +22,17 @@
               <div>
                 <p class="line-1">à partir de</p>
                 <p class="ft-l mb-0 ft-m@s">
-                  15.000 fcfa <span class="ft-2xs">cc</span>
+                  <b>15000Fcfa</b>
                 </p>
-                <p class="line-1">/ Jour</p>
                 <p class="line-1">/ mois</p>
               </div>
             </div>
           </div>
 
           <div class="AccomodationBlock_location text-start mb-3">
-            Meublé/ Sans meuble
+            Meublé - Salle de sport
           </div>
-          <div class="ellipsis-2 text-start color-ft-weak" style="">
+          <div class="ellipsis-2 text-start color-ft-weak">
             Ouverture Janvier 2023 La résidence Ecla Paris Villejuif a été
           </div>
         </div>
@@ -45,7 +44,7 @@
         >
           <p class="AccomodationBlock_availability">
             <span class="AccomodationBlock_notif is-active"></span>
-            <b class="fw-bolder me-5" style="color: #36417d;">Disponible immédiatement</b>
+            <b class="fw-bolder me-5">Disponible immédiatement</b>
           </p>
           <!---->
         </div>
@@ -65,11 +64,11 @@ export default {
           name: "Cotonou",
         },
         {
-          src: "calavi-room.jpg",
+          src: "cotonou-room.jpg",
           name: "Calavi",
         },
         {
-          src: "living-room-2155376.jpg",
+          src: "cotonou-room.jpg",
           name: "Calavi",
         },
       ],
@@ -86,7 +85,11 @@ export default {
       type: Number,
     },
   },
-  methods: {},
+  methods: {
+    goDetails(){
+      this.$router.push("/")
+    }
+  },
 };
 </script>
 <style scoped>
@@ -104,15 +107,14 @@ export default {
 }
 
 .line-1 {
-  color: black;
+  color: #6a73ad;
   font-family: "Metrophobic", sans-serif;
   font-size: 13px;
-  font-weight: bold;
   text-align: end;
   margin-bottom: 0px;
 }
 .ft-2xs {
-  color: #0726f5;
+  color: #6a73ad;
   font-family: "Metrophobic", sans-serif;
   font-size: 13px;
   text-align: end;
@@ -120,7 +122,7 @@ export default {
 }
 
 .AccomodationBlock_notif.is-active {
-  background-color: green;
+  background-color: #3c9;
 }
 
 .AccomodationBlock_notif {
@@ -131,9 +133,8 @@ export default {
   border-radius: 50%;
 }
 .color-ft-weak {
-  color: #36417d;
+  color: #6a73ad;
   font-size: 16px;
-  font-weight: bold;
 }
 .ft-xs {
   font-size: 13px;

@@ -12,11 +12,11 @@
             <h2>Recherche en cours</h2>
           </div>
           <div class="ps-3 SearchPage_Header_title" v-else>
-            <p>+50 logements sont disponibles</p>
+            200 logements sont disponibles
           </div>
           <div class="me-4 select-container">
             <select v-model="selected">
-              <option disabled value="">Trier par :</option>
+              <option disabled value="">Trier par:</option>
               <option>Prix croissant</option>
               <option>Prix décroissant</option>
             </select>
@@ -66,7 +66,7 @@
                     <label
                       class="form-check-label ms-3 mt-1"
                       for="flexCheckDefault"
-                      >Chambres 
+                      >Chambres à loués
                     </label>
                   </div>
                   <div
@@ -146,7 +146,7 @@
                   <div class="AccordionFilter_Title_Text d-flex">
                     Autres critères
                     <div class="ml-10">
-                      <span class="bg-r ft-bold icon-color">2</span>
+                      <span class="bg-r ft-bold icon-color">3</span>
                     </div>
                   </div>
                   <div
@@ -218,10 +218,7 @@
       </div>
     </div>
   </div>
-  <div class="ff">
-  
-   
-  </div>
+
 </template>
 
 <script>
@@ -271,7 +268,7 @@ export default {
     HouseNav,
     ButtonGreen,
     paginate: Paginate,
-  
+   
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
@@ -327,6 +324,8 @@ export default {
 /* sidebar scroll */
 .sidebar {
   overflow: scroll;
+  position: sticky;
+  top: 150px;
   margin-top: -15%;
   height: 480px;
 }
@@ -374,8 +373,7 @@ export default {
 
 .FilterSection {
   padding: 0 16px;
-  position: sticky;
-  top: 150px;
+ 
 }
 
 .AccordionFilter_Title {
@@ -385,7 +383,8 @@ export default {
 .FilterSection_headerTitle {
   font-size: 20px;
   font-weight: bolder;
-  color:rgb(221, 88, 55);
+
+  color: #3d3c3c;
 }
 
 .FilterSection_headerBlock {
@@ -410,15 +409,12 @@ header {
 select {
   border: none;
   outline: none;
-  font-weight: bold;
-  font-size: 18px;
-  color: rgb(221, 88, 55);
 }
 
 .select-container {
-  border-radius: 9px;
+  border-radius: 5px;
   padding: 6px 8px;
-  border: 1px solid rgb(221, 88, 55);
+  border: 1px solid #3d3c3c;
 }
 
 .budget {
@@ -802,8 +798,5 @@ nav {
       color: white;
     }
   }
-}
-.form-check-label{
-  color: #36417d;
 }
 </style>

@@ -10,6 +10,10 @@ body {
   margin: 0;
 }
 
+.hidden {
+  display: none;
+}
+
 html {
   overflow: scroll;
 }

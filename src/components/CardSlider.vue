@@ -38,6 +38,7 @@ export default defineComponent({
     Pagination,
     Navigation,
   },
+  emits:["clickEvent"],
   props: {
     tabImg: {
       type: Array,
@@ -61,7 +62,9 @@ export default defineComponent({
       console.log("slide-start", data);
     }, */
     clickImg(){
-      console.log('5fkfk')
+      console.log('5fkfk');
+
+      this.$emit("clickEvent")
     }
   },
 });
