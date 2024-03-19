@@ -1,5 +1,6 @@
 <template>
-  <div class="container-fluid">
+  <div class="">
+    <WhiteNav></WhiteNav>
     <div class="gallery-description wrapper mt-4">
       <Gallery></Gallery>
     </div>
@@ -275,12 +276,11 @@
             class="d-flex fx-justify-between fx-align-center b-top bg-bg-xweak p-4 mt-3"
           >
             <div></div>
-            <router-link to="/chat">
+            <router-link :to="{path:'/chat', query:{current:'John',sender:'wick',idcurrent:'1234',idsender:'4321',}}">
               <button
                 class="ButtonRectangle PropertyPage_contact js-popin-generic-open ButtonRectangle--bordered ButtonRectangle--s"
                 data-id="contact-popup"
                 data-test="contactModal"
-                @click="openChat"
               >
                 <span class="ButtonRectangle_content">
                   <span class="ButtonRectangle_text">
@@ -300,6 +300,7 @@
   </div>
 </template>
 <script>
+import WhiteNav from "../components/WhiteNav.vue"
 import Gallery from "../components/Gallery.vue";
 export default {
   name: "HouseDetail",
@@ -328,6 +329,7 @@ export default {
   },
   components: {
     Gallery,
+    WhiteNav
   },
   methods: {
     seeMore() {
@@ -375,7 +377,7 @@ export default {
 }
 
 .property-wrapper {
-  margin-top: -90px;
+  margin-top: -18%;
   z-index: 60;
 }
 .ButtonRectangle--bordered {

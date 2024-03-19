@@ -17,6 +17,7 @@
     "bootstrap": "^5.3.3",
     "core-js": "^3.8.3",
     "lightgallery": "^2.7.2",
+    "pusher-js": "^8.4.0-rc2",
     "vue-advanced-chat": "^2.0.11",
     "vue-light-gallery": "^1.0.1",
     "vue-router": "^4.0.3",

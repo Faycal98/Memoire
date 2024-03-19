@@ -1,7 +1,12 @@
 <template>
   <div id="navbar">
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
-     <router-link to="/"> <h1 class="ms-5 header-title"><strong>B</strong>en<span id="letter"><strong>A</strong></span>part</h1></router-link>
+      <router-link to="/">
+        <h1 class="ms-5 header-title">
+          <strong>B</strong>en<span id="letter"><strong>A</strong></span
+          >part
+        </h1></router-link
+      >
       <button
         class="navbar-toggler"
         type="button"
@@ -9,7 +14,8 @@
         data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
-        aria-label="Toggle navigation">
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -61,8 +67,8 @@
   padding: 0;
   margin: 0;
 }
-#letter{
-  color: rgb(221, 88, 55);;
+#letter {
+  color: rgb(221, 88, 55);
 }
 .link {
   display: flex;
@@ -88,7 +94,7 @@
   font-size: 35px;
 }
 .dropdown-item {
-  color: #36417d!important;
+  color: #36417d !important;
   font-weight: 400;
   border-bottom: 1px solid #f3f3ff;
   transition: background-color 5ms;
@@ -102,7 +108,7 @@
   background-color: #6a73ad;
   text-decoration: none;
 
-  color: inherit;
+  color: white !important;
 }
 .Header_navList {
   position: absolute;
@@ -154,7 +160,7 @@ nav {
       background-color: rgb(221, 88, 55);
     }
     .account-btn:hover {
-     color: white;
+      color: white;
     }
   }
 
@@ -186,6 +192,7 @@ export default {
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
   },
+ 
   methods: {
     handleScroll() {
       if (window.pageYOffset > 0) {

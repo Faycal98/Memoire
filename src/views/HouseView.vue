@@ -727,7 +727,7 @@ header {
   background-color: #6a73ad;
   text-decoration: none;
 
-  color: inherit;
+  color: white;
 }
 
 .Header_navList {
