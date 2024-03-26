@@ -18,6 +18,8 @@
           <div class="col-10 mb-1 small">{{ message.message }}</div>
         </div>
       </div>
+
+      {{ testChat }}
     </div>
     <form @submit.prevent="submit">
       <input
@@ -36,6 +38,7 @@ import Pusher from "pusher-js";
 export default {
   name: "chat",
   setup() {
+    const testChat = ref([]);
     const username = ref("username");
     const messages = ref([]);
     const message = ref("");
@@ -46,7 +49,20 @@ export default {
       const pusher = new Pusher("8b8fd82e17f918d8a881", {
         cluster: "mt1",
       });
-   
+
+
+
+      const channel3 = pusher.subscribe("user-1");
+      channel3.bind("test_event",(data)=>{
+        console.log(data)
+      })
+      const channel2 = pusher.subscribe("channel-1");
+      channel2.bind("test_event", (data) => {
+        console.log(data);
+        testChat.value.push(JSON.stringify(data));
+        console.log(testChat.value)
+      });
+
       const channel = pusher.subscribe("chat");
       channel.bind("message", (data) => {
         console.log(messages.value);
@@ -73,6 +89,7 @@ export default {
       messages,
       message,
       submit,
+      testChat
     };
   },
 };

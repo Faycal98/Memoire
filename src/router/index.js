@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-
+import redirect from "./redirect";
+import store from "../store";
 const routes = [
   {
     path: "/",
-    name: "home",
+    name: "homed",
     meta: {
       guestGuard: true,
     },
@@ -58,7 +59,7 @@ const routes = [
     component: () => import("../components/Chat2.vue"),
   },
   {
-    path: "/login",
+    path: "/login2",
     name: "login",
     meta: {
       guestGuard: true,
@@ -73,35 +74,59 @@ const routes = [
     },
     component: () => import("../views/connexion_l.vue"),
   },
+
   {
-    path: "/connect",
-    name: "connect",
+    path: "/login",
+    name: "login",
     meta: {
       guestGuard: true,
     },
-    component: () => import("../views/inscription_p.vue"),
+    component: () => import("../views/Login.vue"),
+    beforeEnter: redirect,
+  },
+
+  {
+    path: "/register",
+    name: "register",
+    meta: {
+      guestGuard: true,
+    },
+    component: () => import("../views/Register.vue"),
+  },
+
+  {
+    path: "/fileUpload",
+    name: "upload",
+    meta: { requiresAuth: true },
+    component: () => import("../components/FileUpload.vue"),
   },
   {
-    path: "/connects",
-    name: "connects",
-    meta: {
-      guestGuard: true,
-    },
-    component: () => import("../views/inscription_l.vue"),
+    path: "/annonce",
+    name: "annonce",
+    meta: { requiresAuth: true },
+    component: () => import("../views/Annonce.vue"),
   },
-{
-    path: '/annonce',
-    name: 'annonce',
-    meta: {
-      guestGuard: true,
-    },
-    component:  () => import('../views/Annonce.vue')
-  },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    if (store.state.isAuth) {
+      console.log("here")
+      next();
+    
+    } else {
+      next({name: "login"});
+   
+    }
+  }else{
+    next();
+    
+  }
 });
 
 export default router;

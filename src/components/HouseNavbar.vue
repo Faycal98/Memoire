@@ -101,7 +101,6 @@
       </ol>
     </div>
     <h1 class="ft-2xl text-center my-3">
-      <b>Trouver un logement partout au Bénin</b>
       <b style=" font-size: 35px;">Trouver un logement partout au Bénin</b>
     </h1>
     <div class="text-center info-text">
@@ -250,7 +249,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style scoped >
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
 
 * {
@@ -635,9 +634,9 @@ nav {
     li {
       cursor: pointer;
       font-weight: 300;
-      color: red;
-      list-style-type: none;
       color: white;
+      list-style-type: none;
+
     }
   }
 }

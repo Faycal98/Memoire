@@ -81,6 +81,9 @@ export default {
         cluster: "mt1",
       });
 
+
+
+
       const channel = pusher.subscribe("chat");
       channel.bind("message", function (data) {
         //alert(JSON.stringify(data));

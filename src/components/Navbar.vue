@@ -52,9 +52,11 @@
         </ul>
 
         <div class="Header_buttons ms-3">
+          <router-link to="/login">
           <button type="button" class="btn btn-outline-light account-btn">
             Mon compte
           </button>
+        </router-link>
         </div>
       </div>
     </nav>
