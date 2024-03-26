@@ -448,7 +448,7 @@ body {
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
-  font-size: 12px;
+  font-size: 13px;
 }
 .form .message a {
   color: #234666 !important;
