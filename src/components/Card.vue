@@ -4,17 +4,18 @@
       <Carrousel @clickEvent="goDetails" :tabImg="imgArray"></Carrousel>
     </div>
     <router-link :to="{ name: 'houseDetails' }">
-      <div class="card-description mt-3">
+      <div class="card-description mt-1">
         <div class="AccomodationBlock_contentContainer">
           <div class="d-flex">
             <div class="AccomodationBlock_contentLeft">
               <div class="text-start">
                 <p class="pt-2 mb-0">
                   <!---->
-                Appartement 
+                  {{ accomodationDetail.type }}
                 </p>
                 <p class="AccomodationBlock_title mb-2 fw-bold ellipsis-2">
-                  UXCO Le 124
+                  {{ accomodationDetail.city }},
+                  {{ accomodationDetail.neighborhood }}
                 </p>
               </div>
             </div>
@@ -22,7 +23,7 @@
               <div>
                 <p class="line-1">à partir de</p>
                 <p class="ft-l mb-0 ft-m@s">
-                  <b>15000Fcfa</b>
+                  <b>{{ accomodationDetail.price }} <span class="ft-2xs unit">FCFA</span></b>
                 </p>
                 <p class="line-1">/ mois</p>
               </div>
@@ -57,22 +58,7 @@ import Carrousel from "./CardSlider.vue";
 export default {
   name: "CardVue",
   data() {
-    return {
-      carrouselTab: [
-        {
-          src: "cotonou-room.jpg",
-          name: "Cotonou",
-        },
-        {
-          src: "cotonou-room.jpg",
-          name: "Calavi",
-        },
-        {
-          src: "cotonou-room.jpg",
-          name: "Calavi",
-        },
-      ],
-    };
+    return {};
   },
   components: {
     Carrousel,
@@ -84,11 +70,14 @@ export default {
     appartId: {
       type: Number,
     },
+    accomodationDetail: {
+      type: Object,
+    },
   },
   methods: {
-    goDetails(){
-      this.$router.push("/")
-    }
+    goDetails() {
+      this.$router.push("/");
+    },
   },
 };
 </script>
@@ -96,7 +85,13 @@ export default {
 .sliderCard {
   width: 310px;
 }
-
+.ft-2xs.unit {
+  color: #353535;
+}
+.carrousel-container {
+  height: 218px !important;
+  overflow: hidden;
+}
 .sliderCard .carousel__pagination-button::after {
   display: block;
   content: "";
@@ -135,6 +130,7 @@ export default {
 .color-ft-weak {
   color: #6a73ad;
   font-size: 16px;
+
 }
 .ft-xs {
   font-size: 13px;

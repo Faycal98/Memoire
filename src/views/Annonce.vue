@@ -6,8 +6,8 @@
           <h1 class="ms-5 header-title">BenApart</h1>
         </router-link>
         <div
-          class="header-right justify-content-between align-items-center collapse navbar-collapse"
-          id="navbarSupportedContent"
+            class="header-right justify-content-between align-items-center collapse navbar-collapse"
+            id="navbarSupportedContent"
         >
           <ul class="u-block">
             <li class="link d-block">
@@ -16,9 +16,9 @@
           </ul>
           <div class="Header_buttons ms-3 position relative">
             <button
-              type="button"
-              @click="warnClicked"
-              class="btn btn-outline-light account-btn p-2"
+                type="button"
+                @click="warnClicked"
+                class="btn btn-outline-light account-btn p-2"
             >
               Menu
               <i class="fa-solid fa-bars"></i>
@@ -28,30 +28,30 @@
                 <ul class="sub-list d-block">
                   <li>
                     <a class="dropdown-item" href="#"
-                      ><i class="fa-solid fa-house me-2 pt-2"></i>Je suis
+                    ><i class="fa-solid fa-house me-2 pt-2"></i>Je suis
                       démarcheur</a
                     >
                   </li>
                   <li>
                     <a class="dropdown-item text-black" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i
-                      >Connexion</a
+                    ><i class="fa-solid fa-arrow-right me-2 arrow"></i
+                    >Connexion</a
                     >
                   </li>
                   <li>
                     <a class="dropdown-item last" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
-                      >Inscription</a
+                    ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
+                    >Inscription</a
                     >
                   </li>
                   <li>
                     <a class="dropdown-item" href="#"
-                      ><i class="fa-regular fa-circle-question me-2"></i>Aide</a
+                    ><i class="fa-regular fa-circle-question me-2"></i>Aide</a
                     >
                   </li>
                   <li>
                     <a class="dropdown-item last" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
+                    ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
                       contacter</a
                     >
                   </li>
@@ -67,7 +67,7 @@
 
   <div id="body">
     <h1
-      style="
+        style="
         margin: 0px 0px 5px;
         text-align: center;
         font-size: 2em;
@@ -81,56 +81,54 @@
       <form action="" method="">
         <div class="stepper-wrapper text-start">
           <v-stepper
-            v-model="e1"
-            class="position-relative"
-            :next-text="nextName"
-            :prev-text="'Précédent'"
-            show-actions
+              v-model="e1"
+              class="position-relative"
+              :next-text="nextName"
+              :prev-text="'Précédent'"
+              show-actions
           >
             <template v-slot:default="{ prev, next }">
               <v-stepper-header>
                 <v-stepper-item
-                  title="Détails"
-                  flat
-                  value="1"
-                  :rules="[() => step1verification]"
-                  :complete="e1 > 1"
+                    title="Détails"
+                    flat
+                    value="1"
+                    :rules="[() => step1verification]"
+                    :complete="e1 > 1"
                 ></v-stepper-item>
 
                 <v-divider></v-divider>
 
                 <v-stepper-item
-                  title="Localisation"
-                  value="2"
-                  :rules="[() => step2Verification]"
-                  :complete="e1 > 2"
+                    title="Localisation"
+                    value="2"
+                    :rules="[() => step2Verification]"
+                    :complete="e1 > 2"
                 ></v-stepper-item>
 
                 <v-divider></v-divider>
 
                 <v-stepper-item
-                  title="Caracteristiques"
-                  value="3"
-                  :rules="[() => step3Verification]"
-                  :complete="e1 > 3"
+                    title="Caracteristiques"
+                    value="3"
+                    :rules="[() => step3Verification]"
+                    :complete="e1 > 3"
                 ></v-stepper-item>
 
                 <v-divider></v-divider>
 
                 <v-stepper-item
-                  title="Equipements"
-                  value="4"
-                  
-                  :complete="e1>3"
+                    title="Equipements"
+                    value="4"
+                    :complete="e1 > 3"
                 ></v-stepper-item>
 
                 <v-divider></v-divider>
 
                 <v-stepper-item
-                  title="Gallerie"
-                  
-                  value="5"
-                  :complete="e1>4"
+                    title="Gallerie"
+                    value="5"
+                    :complete="e1 > 4"
                 ></v-stepper-item>
               </v-stepper-header>
 
@@ -141,35 +139,35 @@
                       <h2 class="text-h4 text-start title">Détails</h2>
                       <p class="my-2 mt-4">Selectionner le type de logement</p>
                       <v-btn-toggle
-                        v-model="typeLogement"
-                        color="#10B981"
-                        background-color="primary"
-                        mandatory
-                        rounded="0"
-                        group
+                          v-model="typeLogement"
+                          color="#10B981"
+                          background-color="primary"
+                          mandatory
+                          rounded="0"
+                          group
                       >
                         <v-btn
-                          class="text-none text-subtitle-1"
-                          size="small"
-                          variant="flat"
-                          value="Appartement"
-                          >Appartement
+                            class="text-none text-subtitle-1"
+                            size="small"
+                            variant="flat"
+                            value="Appartement"
+                        >Appartement
                         </v-btn>
 
                         <v-btn
-                          class="text-none text-subtitle-1"
-                          size="small"
-                          variant="flat"
-                          value="Maison"
+                            class="text-none text-subtitle-1"
+                            size="small"
+                            variant="flat"
+                            value="Maison"
                         >
                           Maison
                         </v-btn>
 
                         <v-btn
-                          class="text-none text-subtitle-1"
-                          size="small"
-                          variant="flat"
-                          value="Chambres a loues"
+                            class="text-none text-subtitle-1"
+                            size="small"
+                            variant="flat"
+                            value="Chambres à louer"
                         >
                           Chambre à louer
                         </v-btn>
@@ -179,39 +177,39 @@
 
                         <v-radio-group v-model="butAnnonce" class="text-black">
                           <v-radio
-                            v-if="typeLogement == 'Maison'"
-                            label="Vente"
-                            color="rgb(16, 185, 129)"
-                            value="vente"
+                              v-if="typeLogement == 'Maison'"
+                              label="Vente"
+                              color="rgb(16, 185, 129)"
+                              value="vente"
                           ></v-radio>
                           <v-radio
-                            label="Location"
-                            color="rgb(16, 185, 129)"
-                            value="location"
+                              label="Location"
+                              color="rgb(16, 185, 129)"
+                              value="location"
                           ></v-radio>
                         </v-radio-group>
                       </div>
                       <transition>
                         <div
-                          class="bill_period"
-                          v-if="butAnnonce == 'location'"
+                            class="bill_period"
+                            v-if="butAnnonce == 'location'"
                         >
                           <p>Période de paiement du loyer</p>
 
                           <v-radio-group
-                            v-model="bill_period"
-                            class="text-black"
+                              v-model="bill_period"
+                              class="text-black"
                           >
                             <v-radio
-                              v-if="typeLogement == 'Appartement'"
-                              label="Journalier"
-                              color="rgb(16, 185, 129)"
-                              value="journalier"
+                                v-if="typeLogement == 'Appartement'"
+                                label="Journalier"
+                                color="rgb(16, 185, 129)"
+                                value="jour"
                             ></v-radio>
                             <v-radio
-                              label="Mensuel"
-                              color="rgb(16, 185, 129)"
-                              value="mensuel"
+                                label="Mensuel"
+                                color="rgb(16, 185, 129)"
+                                value="mois"
                             ></v-radio>
                           </v-radio-group>
                         </div>
@@ -222,11 +220,11 @@
                           <v-col class="py-2 text-start" cols="12" sm="6">
                             <p>Montant à payer</p>
                             <v-text-field
-                              v-model="amount"
-                              :rules="[rules.required]"
-                              type="number"
-                              prefix="Fcfa"
-                              variant="outlined"
+                                v-model="amount"
+                                :rules="[rules.required]"
+                                type="number"
+                                prefix="Fcfa"
+                                variant="outlined"
                             >
                             </v-text-field>
                           </v-col>
@@ -238,10 +236,10 @@
                           <v-col class="py-2 text-start" cols="12" sm="12">
                             <p>Brève description du logement</p>
                             <v-textarea
-                              v-model="description"
-                              :rules="textAreaRules"
-                              auto-grow
-                              counter
+                                v-model="description"
+                                :rules="textAreaRules"
+                                auto-grow
+                                counter
                             ></v-textarea>
                           </v-col>
                         </v-row>
@@ -254,45 +252,46 @@
                     Emplacement du logement
                   </h2>
                   <span class="text-start"
-                    >Veuillez fourir des donnees correctes.<b
-                      >Il sera difficile de les modifier plus tard</b
-                    ></span
+                  >Veuillez fourir des donnees correctes.<b
+                  >Il sera difficile de les modifier plus tard</b
+                  ></span
                   >
                   <div class="stepper-bottom">
                     <v-row justify="space-between" no-gutters>
                       <v-col cols="12" md="12" sm="6" class="text-start mt-3">
                         <p class="mb-2">Pays</p>
                         <v-text-field
-                          model-value="Benin"
-                          variant="outlined"
-                          readonly
+                            model-value="Benin"
+                            variant="outlined"
+                            readonly
                         ></v-text-field>
                       </v-col>
                       <v-col class="py-2 text-start" md="5" sm="5">
                         <p class="mb-2">Département(Optionnel)</p>
                         <v-text-field
-                          clearable
-                          label=""
-                          placeholder="Littoral"
-                          variant="outlined"
+                            clearable
+                            label=""
+                            v-model="department"
+                            placeholder="Littoral"
+                            variant="outlined"
                         ></v-text-field>
                       </v-col>
 
                       <v-col class="py-2 text-start" md="5" sm="5">
                         <p class="mb-2">Ville</p>
                         <v-text-field
-                          placeholder="Cotonou"
-                          v-model="city"
-                          variant="outlined"
+                            placeholder="Cotonou"
+                            v-model="city"
+                            variant="outlined"
                         ></v-text-field>
                       </v-col>
 
                       <v-col class="py-2 text-start" md="5" sm="5">
                         <p class="mb-2">Quartier</p>
                         <v-text-field
-                          placeholder="ex: Gbegamey"
-                          v-model="neighborhood"
-                          variant="outlined"
+                            placeholder="ex: Gbegamey"
+                            v-model="neighborhood"
+                            variant="outlined"
                         ></v-text-field>
                       </v-col>
                     </v-row>
@@ -310,9 +309,9 @@
                       <div class="mr-2 info-container">
                         <p>Nombre de pièces</p>
                         <v-text-field
-                          type="number"
-                          v-model="piecesNumber"
-                          variant="outlined"
+                            type="number"
+                            v-model="piecesNumber"
+                            variant="outlined"
                         >
                         </v-text-field>
                       </div>
@@ -322,9 +321,9 @@
                       <div class="info-container">
                         <p>Nombre chambres</p>
                         <v-text-field
-                          type="number"
-                          v-model="roomNumber"
-                          variant="outlined"
+                            type="number"
+                            v-model="roomNumber"
+                            variant="outlined"
                         >
                         </v-text-field>
                       </div>
@@ -334,9 +333,9 @@
                       <div class="info-container">
                         <p>Nombre de douches</p>
                         <v-text-field
-                          type="number"
-                          v-model="showerNumber"
-                          variant="outlined"
+                            type="number"
+                            v-model="showerNumber"
+                            variant="outlined"
                         >
                         </v-text-field>
                       </div>
@@ -346,9 +345,9 @@
                       <div class="info-container">
                         <p>Nombre de Cuisines</p>
                         <v-text-field
-                          type="number"
-                          v-model="kitchenNumber"
-                          variant="outlined"
+                            type="number"
+                            v-model="kitchenNumber"
+                            variant="outlined"
                         >
                         </v-text-field>
                       </div>
@@ -364,68 +363,68 @@
                         <p>Sanitaire</p>
                         <v-radio-group v-model="isSanitary" class="text-black">
                           <v-radio
-                            label="Oui"
-                            color="rgb(16, 185, 129)"
-                            value="1"
+                              label="Oui"
+                              color="rgb(16, 185, 129)"
+                              :value="true"
                           ></v-radio>
                           <v-radio
-                            label="Non"
-                            color="rgb(16, 185, 129)"
-                            value="0"
+                              label="Non"
+                              color="rgb(16, 185, 129)"
+                              :value="false"
                           ></v-radio>
                         </v-radio-group>
                       </div>
 
                       <div class="w-30">
                         <p>Sol avec des carreaux</p>
-                        <v-radio-group v-model="hasTile" class="text-black">
+                        <v-radio-group v-model="hasTiles" class="text-black">
                           <v-radio
-                            label="Oui"
-                            color="rgb(16, 185, 129)"
-                            value="Oui"
+                              label="Oui"
+                              color="rgb(16, 185, 129)"
+                              :value="true"
                           ></v-radio>
                           <v-radio
-                            label="Non"
-                            color="rgb(16, 185, 129)"
-                            value="non"
+                              label="Non"
+                              color="rgb(16, 185, 129)"
+                              :value="false"
                           ></v-radio>
                         </v-radio-group>
                       </div>
                     </div>
 
                     <p>Type de compteur</p>
-                    <v-radio-group v-model="typeCounter" class="text-black">
+                    <v-radio-group v-model="counterType" class="text-black">
                       <v-radio
-                        label="Compteur a cartes"
-                        color="rgb(16, 185, 129)"
-                        value="Compteur a cartes"
+                          label="Compteur a cartes"
+                          color="rgb(16, 185, 129)"
+                          value="Compteur a cartes"
                       ></v-radio>
                       <v-radio
-                        label="Compteur traditionnel"
-                        color="rgb(16, 185, 129)"
-                        value="Compteur traditionnel"
+                          label="Compteur traditionnel"
+                          color="rgb(16, 185, 129)"
+                          value="Compteur traditionnel"
                       ></v-radio>
                     </v-radio-group>
 
                     <p>Approvisionnement en eau</p>
                     <v-radio-group
-                      v-model="waterDistribution"
-                      class="text-black"
+                        v-model="waterDistribution"
+                        class="text-black"
                     >
                       <v-radio
-                        label="Soneb"
-                        color="rgb(16, 185, 129)"
-                        value="Soneb"
+                          label="Soneb"
+                          color="rgb(16, 185, 129)"
+                          value="Soneb"
                       ></v-radio>
                       <v-radio
-                        label="Forage"
-                        color="rgb(16, 185, 129)"
-                        value="Forage"
+                          label="Forage"
+                          color="rgb(16, 185, 129)"
+                          value="Forage"
                       ></v-radio>
                       <v-radio
-                        label="Soneb + forage"
-                        color="rgb(16, 185, 129)"
-                        value="Soneb + forage"
+                          label="Soneb + forage"
+                          color="rgb(16, 185, 129)"
+                          value="Soneb + forage"
                       ></v-radio>
                     </v-radio-group>
                   </div>
@@ -441,131 +440,131 @@
                     <v-col cols="12" md="6" sm="6" class="text-start">
                       <p class="mb-2">Générale</p>
                       <div
-                        class="equipement-wrapper d-flex mb-2 align-items-center"
+                          class="equipement-wrapper d-flex mb-2 align-items-center"
                       >
                         <input
-                          class="form-check-input"
-                          type="checkbox"
-                          v-model="wifi"
-                          id="flexCheckDefault"
+                            class="form-check-input"
+                            type="checkbox"
+                            v-model="wifi"
+                            id="flexCheckDefault"
                         />
                         <label
-                          class="form-check-label ms-3 mt-1"
-                          for="flexCheckDefault"
-                          >Wi-Fi
+                            class="form-check-label ms-3 mt-1"
+                            for="flexCheckDefault"
+                        >Wi-Fi
                         </label>
                       </div>
                       <div
-                        class="equipement-wrapper d-flex mb-2 align-items-center"
+                          class="equipement-wrapper d-flex mb-2 align-items-center"
                       >
                         <input
-                          class="form-check-input"
-                          type="checkbox"
-                          v-model="ac"
-                          id="flexCheckDefault"
+                            class="form-check-input"
+                            type="checkbox"
+                            v-model="hasAc"
+                            id="flexCheckDefault"
                         />
                         <label
-                          class="form-check-label ms-3 mt-1"
-                          for="flexCheckDefault"
-                          >Climatiseur
+                            class="form-check-label ms-3 mt-1"
+                            for="flexCheckDefault"
+                        >Climatiseur
                         </label>
                       </div>
                       <div
-                        class="equipement-wrapper d-flex mb-2 align-items-center"
+                          class="equipement-wrapper d-flex mb-2 align-items-center"
                       >
                         <input
-                          class="form-check-input"
-                          type="checkbox"
-                          id="flexCheckDefault"
-                          v-model="brewer"
+                            class="form-check-input"
+                            type="checkbox"
+                            id="flexCheckDefault"
+                            v-model="hasBrewer"
                         />
                         <label
-                          class="form-check-label ms-3 mt-1"
-                          for="flexCheckDefault"
-                          >Brasseur
+                            class="form-check-label ms-3 mt-1"
+                            for="flexCheckDefault"
+                        >Brasseur
                         </label>
                       </div>
                     </v-col>
                     <v-col cols="12" md="6" sm="6" class="text-start">
                       <p class="mb-2">Cuisne & Entretien</p>
                       <div
-                        class="equipement-wrapper mb-2 d-flex align-items-center"
+                          class="equipement-wrapper mb-2 d-flex align-items-center"
                       >
                         <input
-                          class="form-check-input"
-                          type="checkbox"
-                          v-model="washMachine"
-                          id="flexCheckDefault"
+                            class="form-check-input"
+                            type="checkbox"
+                            v-model="washMachine"
+                            id="flexCheckDefault"
                         />
                         <label
-                          class="form-check-label ms-3 mt-1"
-                          for="flexCheckDefault"
-                          >Machine à laver
+                            class="form-check-label ms-3 mt-1"
+                            for="flexCheckDefault"
+                        >Machine à laver
                         </label>
                       </div>
                     </v-col>
                     <v-col cols="12" md="6" sm="6" class="text-start mt-4">
                       <p class="mb-2">Divertissement</p>
                       <div
-                        class="equipement-wrapper mb-2 d-flex align-items-center"
+                          class="equipement-wrapper mb-2 d-flex align-items-center"
                       >
                         <input
-                          class="form-check-input"
-                          type="checkbox"
-                          v-model="Tv"
-                          id="flexCheckDefault"
+                            class="form-check-input"
+                            type="checkbox"
+                            v-model="Tv"
+                            id="flexCheckDefault"
                         />
                         <label
-                          class="form-check-label ms-3 mt-1"
-                          for="flexCheckDefault"
-                          >Télévision
+                            class="form-check-label ms-3 mt-1"
+                            for="flexCheckDefault"
+                        >Télévision
                         </label>
                       </div>
 
                       <div class="equipement-wrapper d-flex align-items-center">
                         <input
-                          class="form-check-input"
-                          type="checkbox"
-                          v-model="pool"
-                          id="flexCheckDefault"
+                            class="form-check-input"
+                            type="checkbox"
+                            v-model="hasPool"
+                            id="flexCheckDefault"
                         />
                         <label
-                          class="form-check-label ms-3 mt-1"
-                          for="flexCheckDefault"
-                          >Piscine
+                            class="form-check-label ms-3 mt-1"
+                            for="flexCheckDefault"
+                        >Piscine
                         </label>
                       </div>
                     </v-col>
                     <v-col cols="12" md="6" sm="6" class="text-start mt-4">
                       <p class="mb-2">Exterieur</p>
                       <div
-                        class="equipement-wrapper mb-2 d-flex align-items-center"
+                          class="equipement-wrapper mb-2 d-flex align-items-center"
                       >
                         <input
-                          class="form-check-input"
-                          type="checkbox"
-                          v-model="balcony"
-                          id="flexCheckDefault"
+                            class="form-check-input"
+                            type="checkbox"
+                            v-model="balcony"
+                            id="flexCheckDefault"
                         />
                         <label
-                          class="form-check-label ms-3 mt-1"
-                          for="flexCheckDefault"
-                          >Balcon
+                            class="form-check-label ms-3 mt-1"
+                            for="flexCheckDefault"
+                        >Balcon
                         </label>
                       </div>
                       <div
-                        class="equipement-wrapper mb-2 d-flex align-items-center"
+                          class="equipement-wrapper mb-2 d-flex align-items-center"
                       >
                         <input
-                          class="form-check-input"
-                          type="checkbox"
-                          v-model="garden"
-                          id="flexCheckDefault"
+                            class="form-check-input"
+                            type="checkbox"
+                            v-model="garden"
+                            id="flexCheckDefault"
                         />
                         <label
-                          class="form-check-label ms-3 mt-1"
-                          for="flexCheckDefault"
-                          >Jardin
+                            class="form-check-label ms-3 mt-1"
+                            for="flexCheckDefault"
+                        >Jardin
                         </label>
                       </div>
                     </v-col>
@@ -578,30 +577,35 @@
                       <h2 class="text-h4 text-start title">Gallerie</h2>
                     </v-col>
                     <v-col cols="12" md="12" sm="12" class="text-start">
-                      <p class="text-center mt-2">Vous avez droit a 5 images</p>
-                      <FileUpload @update-album="updateAlbum"></FileUpload>
+                      <p class="text-center mt-2">
+                        Vous devez choisir au moins quatres images
+                      </p>
+                      <FileUpload
+                          @update-album="updateAlbum"
+                          @getfiles="getfiles"
+                      ></FileUpload>
                     </v-col>
                   </v-row>
                 </v-stepper-window-item>
               </v-stepper-window>
 
               <button
-                @click="submitInfo"
-                v-if="this.e1 == 4"
-                :disabled ="!checkData"
-                class="position-absolute hidden-btn v-btn v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-tonal"
+                  @click="submitInfo"
+                  v-if="this.e1 == 4"
+                  :disabled="!checkData"
+                  class="position-absolute hidden-btn v-btn v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-tonal"
               >
                 Soumettre
               </button>
               <v-stepper-actions
-                :disabled="disabled"
-                @click:next="
+                  :disabled="disabled"
+                  @click:next="
                   () => {
                     this.e1++;
-                    console.log(this.e1)
+                    console.log(this.e1);
                   }
                 "
-                @click:prev="
+                  @click:prev="
                   () => {
                     this.e1--;
                   }
@@ -617,7 +621,9 @@
 </template>
 
 <script>
+import axios from "axios";
 import FileUpload from "@/components/FileUpload.vue";
+
 export default {
   name: "HouseNavBar",
   data() {
@@ -633,33 +639,35 @@ export default {
       amount: undefined,
       description: "",
       e1: 0,
-      Tv: "",
-      pool: "",
+      rawfiles: [],
+      Tv: false,
+      hasPool: false,
       showerNumber: undefined,
       roomNumber: undefined,
       kitchenNumber: undefined,
       piecesNumber: undefined,
-      typeCounter: "",
-      ac: "",
-      brewer: "",
+      counterType: "Compteur traditionnel",
+      hasAc: false,
+      hasBrewer: false,
 
       galleryImg: [],
       city: "",
       neighborhood: "",
-      washMachine: "",
-      wifi: "",
-      balcony: "",
-      garden: "",
-      waterDistribution: "",
+      washMachine: false,
+      wifi: false,
+      balcony: false,
+      garden: false,
+      waterDistribution: "Soneb",
       nextName: "Suivant",
-      hasTile: "",
-      isSanitary: "",
+      department: "",
+      hasTiles: false,
+      isSanitary: false,
       steps: 4,
       bill_period: 1,
       rules: {
         required: (value) => !!value || "Requis",
         number: (value) =>
-          typeof parseInt(value) == "number" || "Entrer un nombre",
+            typeof parseInt(value) == "number" || "Entrer un nombre",
       },
       step: 1,
       items: ["Détails", "Localisation", "Submit"],
@@ -696,34 +704,140 @@ export default {
     warnClicked() {
       this.disabled_nav = !this.disabled_nav;
     },
-    upload(newVal, oldVal) {
-      console.log(newVal, oldVal);
-      console.log(newVal[0].files);
-    },
 
     updateAlbum(photos) {
       this.galleryImg = photos;
-     // console.log(this.galleryImg)
+      // console.log(this.galleryImg)
     },
+
+    getfiles(val) {
+      this.rawfiles = val;
+    },
+
     submitInfo(e) {
       e.preventDefault();
+      const form = document.querySelector("form");
+      const formData = new FormData(form);
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      let uploadImage = this.galleryImg.map(
+          (img) => img.name
+      );
+      for (let i = 0; i < this.rawfiles.length; i++) {
+        formData.append("files", this.rawfiles[i]);
+      }
 
-      console.log("clicked");
+      formData.append("type", this.typeLogement);
+      formData.append("city", this.city);
+      formData.append("neighborhood", this.neighborhood);
+      formData.append("department", this.department);
+      formData.append("description", this.description);
+      formData.append("isSanitary", this.isSanitary);
+      formData.append("announcePurpose", this.butAnnonce);
+      formData.append("billPeriod", this.bill_period);
+      formData.append("price", this.amount);
+      formData.append("counterType", this.counterType);
+      formData.append("waterDistribution", this.waterDistribution);
+      formData.append("hasTiles", this.hasTiles);
+      formData.append("hasWifi", this.wifi);
+      formData.append("hasBrewer", this.hasBrewer);
+      formData.append("hasAc", this.hasAc);
+      formData.append("showerNumber", this.showerNumber);
+      formData.append("hasPool", this.hasPool);
+      formData.append("hasWashingMachine", this.washMachine);
+      formData.append("hasGarden", this.garden);
+      formData.append("hasBalcony", this.balcony);
+      formData.append("roomNumber", this.roomNumber);
+      formData.append("pieceNumber", this.piecesNumber);
+      formData.append("kitchenNumber", this.kitchenNumber);
+      formData.append("hasTv", this.Tv);
+      formData.append("images", uploadImage);
+      axios
+          .post("http://localhost:8000/api/addAccomodation", formData, {
+            headers: {
+              "x-access-token": userData.accessToken,
+              "Content-Type": "multipart/form-data",
+            },
+          })
+          .then((data) => {
+            console.log(data);
+            this.$swal({
+              icon: "success",
+              title: "Votre annonce a bien été postée",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            //  this.$router.push("/logements")
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+
+      /* 
+       axios
+        .post(
+          "http://localhost:8000/api/addAccomodation",
+          {
+            type: this.typeLogement,
+            city: this.city,
+            neighborhood: this.neighborhood,
+            department: this.department,
+            description: this.description,
+            isSanitary: this.isSanitary,
+            announcePurpose: this.butAnnonce,
+            billPeriod: this.bill_period,
+            price: this.amount,
+            counterType: this.counterType,
+            waterDistribution: this.waterDistribution,
+            hasTiles: this.hasTiles,
+            hasWifi: this.wifi,
+            hasBrewer: this.hasBrewer,
+            hasAc: this.hasAc,
+            showerNumber: this.showerNumber,
+            hasPool: this.hasPool,
+            hasWashingMachine: this.washMachine,
+            hasGarden: this.garden,
+            hasBalcony: this.balcony,
+            roomNumber: this.roomNumber,
+            pieceNumber: this.piecesNumber,
+            kitchenNumber: this.kitchenNumber,
+            hasTv: this.Tv,
+            images: uploadImage
+
+          },
+          {
+            headers: {
+              "x-access-token": userData.accessToken,
+            },
+          }
+        )
+        .then((data) => {
+          console.log(data);
+          this.$swal({
+            icon: "success",
+            title: "Votre annonce a bien été postée",
+            showConfirmButton: false,
+            timer: 1500,
+
+          });
+        //  this.$router.push("/logements")
+        })
+        .catch((err) => {
+          console.log(err);
+        });  */
     },
   },
   computed: {
     disabled() {
-
       return this.e1 === 0
-        ? "prev"
-        : this.e1 === this.steps
-        ? "next"
-        : undefined;
+          ? "prev"
+          : this.e1 === this.steps
+              ? "next"
+              : undefined;
     },
     subtotal() {
       return this.products.reduce(
-        (acc, product) => acc + product.quantity * product.price,
-        0
+          (acc, product) => acc + product.quantity * product.price,
+          0
       );
     },
     total() {
@@ -734,12 +848,8 @@ export default {
       let description = this.description !== "";
       let payment = this.amount > 0;
       let objective = this.butAnnonce !== 0;
-      if (this.butAnnonce == "location") {
-        if (this.bill_period == 1) {
-          bill = false;
-        } else {
-          bill = true;
-        }
+      if (this.butAnnonce === "location") {
+        bill = this.bill_period !== 1;
       } else {
         bill = true;
       }
@@ -754,49 +864,30 @@ export default {
     step2Verification() {
       if (this.e1 < 2) {
         return true;
-      } else if (this.city && this.neighborhood) {
-        return true;
-      } else {
-        return false;
-      }
+      } else return !!(this.city && this.neighborhood);
     },
     step3Verification() {
       if (this.e1 < 3) {
         return true;
-      } else if (
-        this.hasTile !== "" &&
-        this.isSanitary !== "" &&
-        this.roomNumber > 0 &&
-        this.kitchenNumber > 0 &&
-        this.showerNumber > 0 &&
-        this.piecesNumber > 0 &&
-        this.waterDistribution !== "" &&
-        this.typeCounter !== ""
-      ) {
-        return true;
-      } else {
-        false;
-      }
+      } else return this.roomNumber > 0 &&
+          this.kitchenNumber > 0 &&
+          this.showerNumber > 0 &&
+          this.piecesNumber > 0;
     },
     checkData() {
-      if (
-        this.galleryImg.length > 0 &&
-        this.step1verification &&
-        this.step2Verification &&
-        this.step3Verification
-      ) {
-        return true;
-      } else {
-        return false;
-      }
+      return !!(this.galleryImg.length > 0 &&
+          this.step1verification &&
+          this.step2Verification &&
+          this.step3Verification);
     },
   },
 };
 
 /******Form */
 </script>
-<style scoped>
+<style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
+
 .v-btn {
   width: 25%;
   padding: 10px 20px;
@@ -805,6 +896,7 @@ export default {
 span {
   font-weight: 500;
 }
+
 .v-btn-group {
   width: 100%;
 }
@@ -821,6 +913,7 @@ span {
 .v-avatar {
   background: #10b981;
 }
+
 .v-btn__content {
   text-transform: initial;
 }
@@ -829,6 +922,7 @@ span {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+
 .hidden-btn {
   background-color: #10b981;
   right: 3%;
@@ -839,6 +933,7 @@ span {
 .hidden-btn:disabled {
   background-color: rgb(176, 0, 32);
 }
+
 .v-btn-group .v-btn:last-child {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -848,6 +943,7 @@ span {
   border-bottom: 1px solid #bdbdbd;
   padding-bottom: 15px;
 }
+
 .title {
   padding-bottom: 10px;
   border-bottom: 1px solid #bdbdbd;
@@ -870,6 +966,7 @@ header {
   color: #36417d;
   z-index: 6000;
 }
+
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;
@@ -879,6 +976,7 @@ header {
   position: fixed;
   border-bottom: 0.5px solid hsla(0, 0%, 100%, 0.3);
 }
+
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
@@ -892,6 +990,7 @@ header {
 .sub-menu li:hover .arrow {
   opacity: 1;
 }
+
 .navbar {
   background-color: #36417d;
 }
@@ -926,6 +1025,7 @@ header {
   padding: 15px;
   position: relative;
 }
+
 .list {
   position: absolute;
   display: block;
@@ -939,6 +1039,7 @@ header {
 .list li {
   display: none;
 }
+
 .header-title {
   color: white;
   font-size: 35px;
@@ -971,6 +1072,7 @@ header {
   opacity: 0;
   transition: 250ms;
 }
+
 .drop-text {
   color: #fff;
   font-size: 15px;
@@ -980,6 +1082,7 @@ header {
   transition: 0.5s;
   font-weight: bold;
 }
+
 .drop-text:hover {
   background-color: #fff;
   color: #36417d;
@@ -1005,6 +1108,7 @@ p {
   font-weight: 600;
   font-size: 18px;
 }
+
 nav {
   font-family: "Metrophobic", sans-serif;
   font-weight: 600;
@@ -1022,65 +1126,81 @@ nav {
   display: flex;
   align-items: center;
   transition: all 0.2s ease-in-out;
-  &.onScroll {
-    box-shadow: 0 0 10px #aaa;
-    background-color: #fff;
-    ul li {
-      color: #36417d;
-    }
 
-    .header-title {
-      color: #36417d;
-    }
-    .account-btn {
-      background-color: #3c9;
-    }
-    .account-btn:hover {
-      color: white;
-    }
-  }
+&
+.onScroll {
+  box-shadow: 0 0 10px #aaa;
+  background-color: #fff;
 
-  ul {
-    margin-left: 3em;
-    display: flex;
-    justify-content: space-between;
-    li {
-      cursor: pointer;
-      font-weight: 300;
-      list-style-type: none;
-      color: white;
-      border-right: 1px solid #ffffff36;
-    }
-  }
-  .u-block {
-    margin-left: 67%;
-  }
+ul li {
+  color: #36417d;
+}
+
+.header-title {
+  color: #36417d;
+}
+
+.account-btn {
+  background-color: #3c9;
+}
+
+.account-btn:hover {
+  color: white;
+}
+
+}
+
+ul {
+  margin-left: 3em;
+  display: flex;
+  justify-content: space-between;
+
+li {
+  cursor: pointer;
+  font-weight: 300;
+  list-style-type: none;
+  color: white;
+  border-right: 1px solid #ffffff36;
+}
+
+}
+.u-block {
+  margin-left: 67%;
+}
+
 }
 .spacer {
   padding: 40px;
   background-color: #f8f7f4;
 }
+
 .stepper-wrapper {
   max-width: 680px;
 }
+
 /*** Form ***/
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: #ccc;
 }
+
 #body {
   /* font-family: 'Tw Cen MT', sans-serif;*/
   background-color: #f8f7f4;
 }
+
 section {
   display: flex;
   justify-content: center;
 }
+
 #annonce {
   padding: 0 10%;
 }
+
 #annonce form {
   /* background-color: #ccc;*/
   margin: auto;
@@ -1088,6 +1208,7 @@ section {
   flex-direction: column;
   padding: 20px;
 }
+
 .left-right {
   display: flex;
   justify-content: space-between;
@@ -1095,26 +1216,32 @@ section {
   margin-bottom: 20px;
   margin-top: -250px;
 }
+
 .left-right .left,
 .left-right .right {
   display: flex;
   flex-direction: column;
   width: 49%;
 }
+
 .left-right .left {
   margin-top: 185px;
 }
+
 .left-right .right {
   margin-top: 224px;
 }
+
 #annonce form label {
   font-size: 16px;
   letter-spacing: 1.1px;
 }
+
 #annonce form input {
   padding: 6px;
   outline: 0;
 }
+
 input:not([type="checkbox"], [type="radio"]),
 select {
   border: 2px solid rgba(0, 0, 0, 0.1);
@@ -1125,6 +1252,7 @@ select {
   padding: 15px;
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 textarea {
   height: 125px;
   resize: none;

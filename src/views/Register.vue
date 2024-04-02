@@ -89,16 +89,75 @@
   </header>
   <div class="spacer"></div>
 
-  <body style="display: flex; align-items: center; justify-content: center">
+  <div
+    class="wrapper form-container"
+    style="display: flex; align-items: center; justify-content: center"
+  >
     <div class="login-page">
       <div class="form">
-        <form class="register-form" method="">
+        <Form
+          class="register-form"
+          @submit="signUp"
+          :validation-schema="schema"
+        >
           <h2 class="mb-2"><i class="fas fa-lock me-2"></i>S'enregistrer</h2>
           <p class="text-danger">{{ errorMsg }}</p>
-          <input type="text" v-model="username" placeholder="Nom *" required />
-          <input type="email" v-model="email" placeholder="Email *"  required/>
-          <input type="text" v-model="phone" placeholder="Téléphone *"  required/>
-          <input type="text" v-model="password" placeholder="Mot de passe *"  required />
+
+          <div class="form-group">
+            <Field
+              name="username"
+              type="text"
+              v-model="userName"
+              placeholder="Nom *"
+              class="form-control"
+            />
+            <ErrorMessage name="username" class="error-feedback text-danger" />
+          </div>
+
+          <div class="form-group">
+            <Field
+              name="userFirstName"
+              type="text"
+              v-model="userFirstName"
+              placeholder="Prénom *"
+              class="form-control"
+            />
+            <ErrorMessage name="userFirstName" class="error-feedback text-danger" />
+          </div>
+
+          <div class="form-group">
+            <Field
+              name="email"
+              type="email"
+              v-model="email"
+              placeholder="Email *"
+              class="form-control"
+            />
+            <ErrorMessage name="email" class="error-feedback text-danger" />
+          </div>
+
+          <div class="form-group">
+            <Field
+              name="phone"
+              type="text"
+              v-model="phone"
+              placeholder="Téléphone *"
+              class="form-control"
+            />
+            <ErrorMessage name="phone" class="error-feedback text-danger" />
+          </div>
+
+          <div class="form-group">
+            <Field
+              name="password"
+              type="text"
+              v-model="password"
+              placeholder="Mot de passe *"
+              class="form-control"
+            />
+            <ErrorMessage name="password" class="error-feedback text-danger" />
+          </div>
+
           <div class="wrapper">
             <input
               type="radio"
@@ -115,6 +174,7 @@
               name="select"
               id="option-2"
             />
+
             <label for="option-1" class="option option-1">
               <div class="dot"></div>
               <span>Démarcheur</span>
@@ -124,38 +184,74 @@
               <span>Propriétaire</span>
             </label>
           </div>
-          <button @click="signUp">Je m'inscris</button>
+          <button>Je m'inscris</button>
           <p class="message">
             Déja un compte?
             <router-link to="/login"> Se connecter </router-link>
           </p>
-        </form>
+        </Form>
       </div>
     </div>
-  </body>
+  </div>
 </template>
 
 <script>
+import { Form, Field, ErrorMessage } from "vee-validate";
+import * as yup from "yup";
 import axios from "axios";
 export default {
-  name: "HouseNavBar",
+  name: "Register",
   data() {
+    const schema = yup.object().shape({
+      username: yup
+        .string()
+        .required("Le nom est obligatoire!")
+        .min(3, "Must be at least 3 characters!")
+        .max(20, "Must be maximum 20 characters!"),
+      phone: yup
+        .string()
+        .required(" Numéro de téléphone est obligatoire!")
+        .min(3, "Must be at least 3 characters!")
+        .max(20, "Must be maximum 20 characters!"),
+      userFirstName: yup
+        .string()
+        .required("Le prénom est obligatoire!")
+        .min(3, "Must be at least 3 characters!")
+        .max(20, "Must be maximum 20 characters!"),
+      email: yup
+        .string()
+        .required("Email obligatoire!")
+        .email("Email non valide!")
+        .max(50, "Must be maximum 50 characters!"),
+      password: yup
+        .string()
+        .required("Mot de passe obligatoire!")
+        .min(6, "Must be at least 6 characters!")
+        .max(40, "Must be maximum 40 characters!"),
+    });
+
     return {
       view: {
         topOfPage: true,
       },
       disabled: false,
       picked: "Propriétaire",
-      username: "",
+      userName: "",
+      userFirstName: "",
       email: "",
       password: "",
       phone: "",
       errorMsg: "",
       isOpen: false,
       login: true,
+      schema,
     };
   },
-  components: {},
+  components: {
+    Form,
+    Field,
+    ErrorMessage,
+  },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
   },
@@ -165,32 +261,52 @@ export default {
       this.disabled = !this.disabled;
     },
 
-    signUp(e) {
-      e.preventDefault();
-      console.log("signUp")
-
+    signUp() {
+      // e.preventDefault();
       axios
         .post("http://localhost:8000/api/auth/signup", {
-          username: this.username,
-          firstName: this.firstName,
+          userName: this.userName,
+          userFirstName: this.userFirstName,
           email: this.email,
           password: this.password,
           phone: this.phone,
           role: this.picked,
         })
         .then((data) => {
-          this.$router.push("/");
-          (this.username = ""),
-            (this.email = ""),
-            (this.password = ""),
-            (this.phone = ""),
-            (this.role = "");
-          console.log(data.message);
+          const email = this.email;
+          const password = this.password;
+
+          axios
+            .post("http://localhost:8000/api/auth/signin", {
+              userData: email,
+              password: password,
+            })
+            .then((data) => {
+              this.userMailOrPhone = "";
+              this.password = "";
+
+              const userData = data.data;
+
+              this.$store.dispatch("login", JSON.stringify(userData));
+              this.$router.push("/");
+            })
+            .then(() => {
+              (this.username = ""),
+                (this.userFirstName = ""),
+                (this.email = ""),
+                (this.password = ""),
+                (this.phone = ""),
+                (this.role = "");
+              this.$router.push("/");
+            })
+
+            .catch((err) => {
+              this.errorMsg = err.response.data.message;
+            });
         })
         .catch((err) => {
-          console.log(err.response.data);
           this.errorMsg = err.response.data.message;
-        }); 
+        });
     },
   },
 };
@@ -210,6 +326,9 @@ export default {
 header {
   position: relative;
   z-index: 500;
+}
+.form-control:focus{
+  box-shadow: none;
 }
 
 .message a {
@@ -345,7 +464,7 @@ nav {
   z-index: 10;
   width: 100%;
   padding: 0 40px;
-  height: 60px;
+  height: 55px;
   color: black;
   background-color: transparent;
   display: flex;
@@ -390,15 +509,16 @@ nav {
 
 @import url(https://fonts.googleapis.com/css?family=Poppins:300);
 
-body {
-  height: 110vh;
+.wrapper.form-container {
+  min-height: 130vh;
   overflow: hidden;
   font-family: "Poppins";
   background: #0e2941;
+  margin-bottom: 0px;
 }
 .login-page {
-  width: 400px;
-  padding: 8% 0 0;
+  width: 420px;
+  padding: 1% 0 0;
   margin: auto;
 }
 
@@ -408,10 +528,14 @@ body {
   background: #ffffff;
   max-width: 400px;
   margin: 0 auto 100px;
-  padding: 40px;
+  padding: 25px 40px;
   text-align: center;
   border-radius: 15px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form-group{
+  margin: 0 0 15px;
 }
 .form input {
   font-family: "Poppins", sans-serif;
@@ -420,8 +544,8 @@ body {
   width: 100%;
   border: 0;
   border-radius: 7px;
-  margin: 0 0 15px;
-  padding: 15px;
+
+  padding: 11px;
   box-sizing: border-box;
   font-size: 14px;
 }
@@ -458,17 +582,17 @@ body {
 .wrapper {
   display: inline-flex;
   background: #f2f2f2;
-  height: 85px;
+  height: 55px;
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
   border-radius: 5px;
-  padding: 10px 5px;
+  padding: 5px;
   margin-bottom: 8px;
 }
 .wrapper .option {
   background: #fff;
-  height: 70%;
+  height: 90%;
   width: 100%;
   display: flex;
   align-items: center;

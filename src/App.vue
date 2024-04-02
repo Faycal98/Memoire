@@ -1,6 +1,5 @@
 <template>
   <main>
-   
     <Guest v-if="$route.meta.guestGuard"></Guest>
     <Default v-else-if="$store.state.isAuth"></Default>
     <Auth v-else></Auth>
@@ -55,6 +54,8 @@ body {
   outline: 0;
   box-shadow: none !important;
 }
+
+
 
 .form-check-input:checked {
   border-color: transparent !important;

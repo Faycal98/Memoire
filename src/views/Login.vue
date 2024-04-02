@@ -104,21 +104,24 @@
           <div class="input-wrapper position-relative">
             <input
               ref="InputPass"
+              type="password"
               v-model="password"
               placeholder="Mot de passe"
               required
             />
-            <span @click="changeInput" class="position-absolute eye-icon">
-              <i
-                v-if="showInput"
-                @click="changeInput"
-                class="fa-solid fa-eye"
-              ></i>
-
-              <i
-                v-else
-                class="fa-solid fa-eye-slash position-absolute eye-icon"
-              ></i>
+            <span
+              v-if="showInput == true"
+              @click="changeInput"
+              class="position-absolute eye-icon"
+            >
+              <i class="fa-solid fa-eye"></i>
+            </span>
+            <span
+              v-else
+              @click="changeInput"
+              class="position-absolute eye-icon"
+            >
+              <i class="fa-solid fa-eye-slash position-absolute eye-icon"></i>
             </span>
           </div>
 
@@ -127,7 +130,7 @@
           </button>
           <p class="message">
             Pas de compte?
-            <router-link to="/register">Creer un compte</router-link>
+            <router-link to="/register">Créer un compte</router-link>
           </p>
         </form>
       </div>
@@ -148,7 +151,7 @@ export default {
       userMailOrPhone: "",
       password: "",
       errorMsg: "",
-      showInput: true,
+      showInput: false,
       isOpen: false,
       login: true,
     };
@@ -165,7 +168,6 @@ export default {
 
     signIn(e) {
       e.preventDefault();
-      console.log("connect")
       axios
         .post("http://localhost:8000/api/auth/signin", {
           userData: this.userMailOrPhone,
@@ -174,17 +176,23 @@ export default {
         .then((data) => {
           this.userMailOrPhone = "";
           this.password = "";
-          console.log(data);
-        }).catch((err)=>{
-          console.log(err)
+          const userData = data.data;
+          this.$store.dispatch("login", JSON.stringify(userData));
+          this.$router.push("/");
+        })
+        .catch((err) => {
           this.errorMsg = err.response.data.message;
         });
     },
-
-    changeInput() {
+    change(value) {
+      this.showInput = value;
+    },
+    changeInput(value) {
       if (this.$refs.InputPass.type === "text") {
+        this.change(false);
         this.$refs.InputPass.type = "password";
       } else if (this.$refs.InputPass.type === "password") {
+        this.change(true);
         this.$refs.InputPass.type = "text";
       }
     },

@@ -9,6 +9,7 @@
       <input
         class="form file"
         id="upload-files"
+        name="image"
         type="file"
         accept="image/*"
         multiple="multiple"
@@ -19,7 +20,7 @@
 </template>
 <script>
 export default {
-  emits: ["updateAlbum"],
+  emits: ["updateAlbum","getfiles"],
   mounted() {
     const INPUT_FILE = document.querySelector("#upload-files");
     const INPUT_CONTAINER = document.querySelector("#upload-container");
@@ -69,8 +70,8 @@ export default {
 
 
             const files = [...INPUT_FILE.files];
-            console.log(INPUT_FILE.files.length);
             console.log("changed");
+            console.log(files)
             files.forEach((file) => {
               const fileURL = URL.createObjectURL(file);
               const fileName = file.name;
@@ -91,6 +92,7 @@ export default {
             this.photos = FILE_LIST;
             console.log(FILE_LIST, this.photos); //final list of uploaded files
             this.$emit("updateAlbum", this.photos);
+            this.$emit("getfiles", files)
             previewImages();
 
             UPLOADED_FILES = document.querySelectorAll(".js-remove-image");

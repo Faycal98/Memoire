@@ -276,7 +276,17 @@
             class="d-flex fx-justify-between fx-align-center b-top bg-bg-xweak p-4 mt-3"
           >
             <div></div>
-            <router-link :to="{path:'/chat', query:{current:'John',sender:'wick',idcurrent:'1234',idsender:'4321',}}">
+            <router-link
+              :to="{
+                path: '/chat',
+                query: {
+                  current: 'John',
+                  sender: 'wick',
+                  idcurrent: '1234',
+                  idsender: '4321',
+                },
+              }"
+            >
               <button
                 class="ButtonRectangle PropertyPage_contact js-popin-generic-open ButtonRectangle--bordered ButtonRectangle--s"
                 data-id="contact-popup"
@@ -300,7 +310,7 @@
   </div>
 </template>
 <script>
-import WhiteNav from "../components/WhiteNav.vue"
+import WhiteNav from "../components/WhiteNav.vue";
 import Gallery from "../components/Gallery.vue";
 export default {
   name: "HouseDetail",
@@ -312,7 +322,7 @@ export default {
   },
   mounted() {
     let desc = this.$refs.description;
-    console.log(desc);
+
     let description = this.$refs.description.innerHTML;
     let result = description.slice(0, 150);
     let end = description.slice(150);
@@ -329,7 +339,7 @@ export default {
   },
   components: {
     Gallery,
-    WhiteNav
+    WhiteNav,
   },
   methods: {
     seeMore() {
@@ -337,22 +347,14 @@ export default {
       let dots = document.querySelector(".dots");
       hiddenSpan.classList.remove("hidden");
       dots.classList.add("hidden");
-      //console.log(span)
       this.hidden = false;
-
-      //console.log(span2,desc)
     },
     seeLess() {
       let hiddenSpan = document.querySelector(".description-text");
-
       let dots = document.querySelector(".dots");
-
       dots.classList.remove("hidden");
-      console.log(dots);
       console.log(hiddenSpan);
       hiddenSpan.classList.add("hidden");
-      // console.log(hiddenSpan)
-      //console.log(span)
       this.hidden = true;
     },
     openChat() {

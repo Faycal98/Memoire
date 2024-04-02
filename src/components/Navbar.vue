@@ -24,8 +24,10 @@
         id="navbarSupportedContent"
       >
         <ul>
-          <li class="link">Trouver un logement</li>
-          <li class="link d-block">
+          <router-link to="/logements">
+            <li class="link">Trouver un logement</li>
+          </router-link>
+          <li class="link d-block" v-if="!userInitials">
             <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
             <div class="list">
               <ul>
@@ -37,7 +39,11 @@
               </ul>
             </div>
           </li>
-          <li class="link d-block">
+          <router-link v-else to="/annonce">
+            <li class="link">Deposer une annonce</li>
+          </router-link>
+
+          <li class="link d-block" v-if="!userInitials">
             <p class="drop-text dropdown-toggle">Je suis propriétaire</p>
             <div class="list">
               <ul>
@@ -52,11 +58,43 @@
         </ul>
 
         <div class="Header_buttons ms-3">
-          <router-link to="/login">
-          <button type="button" class="btn btn-outline-light account-btn">
-            Mon compte
-          </button>
-        </router-link>
+          <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
+            <ul class="sub-list d-block">
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><i class="fa-solid fa-user me-2 pt-2"></i>Voir le profil</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item text-black" href="#"
+                  ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
+                  annonces</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item text-black" @click="logout" href="#"
+                  ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Se
+                  deconnecter</a
+                >
+              </li>
+
+              <li>
+                <a class="dropdown-item last" href="#"
+                  ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
+                  contacter</a
+                >
+              </li>
+            </ul>
+          </div>
+          <v-avatar color="brown" @click="hide = !hide" v-if="userInitials">
+            <span class="text-h7 avatar">{{ userInitials }}</span>
+          </v-avatar>
+
+          <router-link to="/login" v-else>
+            <button type="button" class="btn btn-outline-light account-btn">
+              Mon compte
+            </button>
+          </router-link>
         </div>
       </div>
     </nav>
@@ -77,6 +115,31 @@
   align-items: center;
   padding: 15px;
   position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.sub-menu {
+  right: 2%;
+  top: 100%;
+  background: white;
+}
+
+.sub-menu::after {
+  content: "";
+  position: absolute;
+  right: 9%;
+  bottom: 100%;
+  border-width: 9px;
+
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+.sub-menu ul {
+  margin-left: 0 !important;
 }
 .list {
   position: absolute;
@@ -131,6 +194,10 @@
 .link:hover .list li {
   display: block;
 }
+
+.avatar {
+  cursor: pointer;
+}
 nav {
   font-family: "Metrophobic", sans-serif;
   font-weight: 600;
@@ -169,7 +236,7 @@ nav {
   ul {
     margin-left: 3em;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     li {
       cursor: pointer;
       font-weight: 300;
@@ -189,12 +256,27 @@ export default {
         topOfPage: true,
       },
       red: "red",
+      userInitials: "",
+      hide: true,
+      userData: "",
+      showHidden: false,
     };
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
   },
- 
+  mounted() {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+
+    if (userData) {
+      const userInitials =
+        userData.userName.charAt(0).toUpperCase() +
+        userData.userFirstName.charAt(0).toUpperCase();
+      this.userInitials = userInitials;
+      console.log(userInitials);
+    }
+  },
+
   methods: {
     handleScroll() {
       if (window.pageYOffset > 0) {
@@ -202,6 +284,10 @@ export default {
       } else {
         if (!this.view.topOfPage) this.view.topOfPage = true;
       }
+    },
+    logout() {
+      this.$store.dispatch("logout");
+      window.location.reload();
     },
   },
 };

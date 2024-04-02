@@ -194,9 +194,31 @@
 
         <div class="col col-lg-9 col-sm-12 ps-3">
           <div class="row">
-            <div class="col-lg-4 col-sm-8 mb-4" v-for="num in 15" :key="num">
+            <div
+              class="col-lg-4 col-sm-8 mb-4"
+              v-if="accomodationTab.length > 0"
+              v-for="accomodation in accomodationTab"
+              :key="accomodation"
+            >
+              <div
+                class="SearchPage_Block_Result"
+              >
+                <Card
+                  :imgArray="accomodation.images"
+                  :appartId="accomodation.id"
+                  :accomodationDetail="accomodation"
+                ></Card>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-sm-8 mb-4" v-else v-for="num in 10" :key="num">
               <div class="SearchPage_Block_Result">
-                <Card :imgArray="carrouselTab" :appartId="1"></Card>
+                <v-skeleton-loader
+                  class="mx-auto"
+                  elevation="12"
+                  max-width="300"
+                  type="table-heading, list-item-two-line, image, table-tfoot"
+                ></v-skeleton-loader>
               </div>
             </div>
           </div>
@@ -218,11 +240,10 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
-
+import axios from "axios";
 import HouseNav from "../components/HouseNavbar.vue";
 import Card from "../components/Card.vue";
 import ButtonGreen from "../components/ButtonGreen.vue";
@@ -261,6 +282,7 @@ export default {
           name: "Calavi",
         },
       ],
+      accomodationTab: [],
     };
   },
   components: {
@@ -268,10 +290,20 @@ export default {
     HouseNav,
     ButtonGreen,
     paginate: Paginate,
-   
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
+  },
+  mounted() {
+    axios
+      .get("http://localhost:8000/api/findAllAccomodation")
+      .then(({ data }) => {
+        console.log(data);
+        this.accomodationTab = data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 
   methods: {
@@ -373,7 +405,6 @@ export default {
 
 .FilterSection {
   padding: 0 16px;
- 
 }
 
 .AccordionFilter_Title {
@@ -713,7 +744,7 @@ header {
   border-bottom: 1px solid #f3f3ff;
 }
 .dropdown-item {
- /* color: #36417d !important;*/
+  /* color: #36417d !important;*/
   font-weight: 400;
 
   transition: background-color 5ms;

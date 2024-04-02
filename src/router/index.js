@@ -67,6 +67,14 @@ const routes = [
     component: () => import("../views/connexion_p.vue"),
   },
   {
+    path: "/login3",
+    name: "login3",
+    meta: {
+      guestGuard: true,
+    },
+    component: () => import("../components/Form.vue"),
+  },
+  {
     path: "/logins",
     name: "logins",
     meta: {
@@ -92,13 +100,14 @@ const routes = [
       guestGuard: true,
     },
     component: () => import("../views/Register.vue"),
+    beforeEnter: redirect,
   },
 
   {
     path: "/fileUpload",
     name: "upload",
-    meta: { requiresAuth: true },
-    component: () => import("../components/FileUpload.vue"),
+  
+    component: () => import("../components/CardSlider.vue"),
   },
   {
     path: "/annonce",
@@ -111,21 +120,21 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 };
+  },
 });
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
     if (store.state.isAuth) {
-      console.log("here")
+      console.log("here");
       next();
-    
     } else {
-      next({name: "login"});
-   
+      next({ name: "login" });
     }
-  }else{
+  } else {
     next();
-    
   }
 });
 

@@ -4,6 +4,8 @@ import "vuetify/styles";
 import { aliases, mdi } from "vuetify/iconsets/mdi";
 import colors from "vuetify/util/colors";
 import "@mdi/font/css/materialdesignicons.css";
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
@@ -38,5 +40,6 @@ createApp(App)
   .component("font-awesome-icon", FontAwesomeIcon)
   .use(store)
   .use(vuetify)
+  .use(VueSweetalert2)
   .use(router)
   .mount("#app");
