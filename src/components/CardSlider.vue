@@ -10,7 +10,7 @@
           @click="clickImg"
             class="carrou_img"
             :src="require(`../../../backend_app/uploads/${image}`)"
-            width="316px"
+            width="100%"
             height="218px"
           
           />
@@ -67,8 +67,12 @@ export default defineComponent({
       }, 1300);
       console.log("slide-start", data);
     }, */
-    clickImg(){
-      this.$emit("clickEvent")
+    clickImg(e){
+      console.log(e.target);
+      if(e.target){
+        this.$emit("clickEvent")
+      }
+    
     }
   },
 });
@@ -115,7 +119,7 @@ export default defineComponent({
 }
 .carousel__item {
   min-height: 200px;
-  width: fit-content;
+  width: 100%;
   color: #ffffff;
   font-size: 20px;
   border-radius: 8px;

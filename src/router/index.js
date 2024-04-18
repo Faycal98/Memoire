@@ -29,7 +29,7 @@ const routes = [
     component: () => import("../views/HouseView.vue"),
   },
   {
-    path: "/houseDetails",
+    path: "/houseDetails/:id",
     name: "houseDetails",
     meta: {
       guestGuard: true,
@@ -58,6 +58,7 @@ const routes = [
     },
     component: () => import("../components/Chat2.vue"),
   },
+
   {
     path: "/login2",
     name: "login",
@@ -104,10 +105,10 @@ const routes = [
   },
 
   {
-    path: "/fileUpload",
-    name: "upload",
-  
-    component: () => import("../components/CardSlider.vue"),
+    path: "/packs",
+    name: "packs",
+
+    component: () => import("../views/Packs.vue"),
   },
   {
     path: "/annonce",

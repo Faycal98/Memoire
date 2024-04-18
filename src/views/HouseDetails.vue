@@ -2,7 +2,7 @@
   <div class="">
     <WhiteNav></WhiteNav>
     <div class="gallery-description wrapper mt-4">
-      <Gallery></Gallery>
+      <Gallery :imgArray="galleryImg"></Gallery>
     </div>
     <div class="property-description mt-5 row">
       <div class="col-lg-8">
@@ -112,13 +112,13 @@
               <div class="PropertyPage_sidePrice d-block@s">
                 <p class="ft-2xs ft-medium color-ft-weak">à partir de</p>
                 <p class="ft-3xl line-1">
-                  <b>6720€</b><span class="ft-xs ml-5">/ mois</span>
+                  <b>{{ price }} Fcfa</b><span class="ft-xs ml-2">/ {{ billPeriod }}</span>
                 </p>
                 <div class="ft-xs">Charges comprises</div>
               </div>
             </div>
             <div class="col-lg-6">
-              <h3 class="status">Vente</h3>
+              <h3 class="status">{{ announcePurpose }}</h3>
             </div>
           </div>
 
@@ -244,7 +244,7 @@
               </div>
               <div class="fx-grow pl-10 pr-5">
                 <p class="PropertyPage_userName">
-                  <b>Studelites</b>
+                  <b>{{ announceOwner }}</b>
                 </p>
                 <p class="ft-xs color-ft-weak">
                   <span class="ft-medium ft-sm"
@@ -265,8 +265,8 @@
               <p class="mt-2">
                 <span class="bullet bg-b mr-5"></span> Contacts
               </p>
-              <p class="mt-2"><i class="fa-solid fa-phone"></i> 97864356</p>
-              <p class="mt-2">
+              <p class="mt-2 ms-2"><i class="fa-solid fa-phone"></i> 97864356</p>
+              <p class="mt-2 ms-2">
                 <i class="fa-brands fa-whatsapp me-1"></i>94765215
               </p>
             </div>
@@ -312,15 +312,33 @@
 <script>
 import WhiteNav from "../components/WhiteNav.vue";
 import Gallery from "../components/Gallery.vue";
+import axios from "axios";
 export default {
   name: "HouseDetail",
   data() {
     return {
       hidden: true,
       chat: false,
+      galleryImg: [],
+      announceOwner: "",
+      announcePurpose: "",
+      price: "",
+      billPeriod: "",
     };
   },
+  props: {},
   mounted() {
+    const idHouse = this.$route.params.id;
+    axios
+      .get(`http://localhost:8000/api/findOneAccomodation/${idHouse}`)
+      .then(({ data }) => {
+        console.log(data);
+        this.galleryImg = data.images;
+        this.announceOwner = data.announcements[0].user.userFirstName;
+        this.announcePurpose = data.announcePurpose;
+        this.price = data.price;
+        this.billPeriod = data.billPeriod;
+      });
     let desc = this.$refs.description;
 
     let description = this.$refs.description.innerHTML;
@@ -381,6 +399,10 @@ export default {
 .property-wrapper {
   margin-top: -18%;
   z-index: 60;
+}
+
+.line-1 {
+  min-width: 230px;
 }
 .ButtonRectangle--bordered {
   background-color: transparent;

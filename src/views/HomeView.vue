@@ -136,7 +136,7 @@ export default {
         },
         {
           src: "cotonou-room.jpg",
-          name: "Calavi",
+          name: "Ouidah",
         },
       ],
       userInfo: null,

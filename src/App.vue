@@ -12,6 +12,17 @@ body {
   margin: 0;
 }
 
+.my-gallery{
+  display: flex;
+}
+.my-gallery img{
+  height: 300px;
+  width:350px;
+}
+
+
+
+
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;

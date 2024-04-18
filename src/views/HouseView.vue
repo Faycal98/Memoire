@@ -200,9 +200,7 @@
               v-for="accomodation in accomodationTab"
               :key="accomodation"
             >
-              <div
-                class="SearchPage_Block_Result"
-              >
+              <div class="SearchPage_Block_Result">
                 <Card
                   :imgArray="accomodation.images"
                   :appartId="accomodation.id"
@@ -211,7 +209,12 @@
               </div>
             </div>
 
-            <div class="col-lg-4 col-sm-8 mb-4" v-else v-for="num in 10" :key="num">
+            <div
+              class="col-lg-4 col-sm-8 mb-4"
+              v-else
+              v-for="num in 10"
+              :key="num"
+            >
               <div class="SearchPage_Block_Result">
                 <v-skeleton-loader
                   class="mx-auto"
@@ -221,6 +224,15 @@
                 ></v-skeleton-loader>
               </div>
             </div>
+            <v-fab
+              v-show="scY > 300"
+              @click="toTop"
+              class="me-4"
+              icon="mdi-chevron-up"
+              location="middle end"
+              absolute
+              offset
+            ></v-fab>
           </div>
 
           <div class="row mb-5">
@@ -240,6 +252,7 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -258,6 +271,8 @@ export default {
       red: "red",
       minBudget: 1,
       maxBudget: 700000,
+      scTimer: 0,
+      scY: 0,
       disabled: false,
       isOpen: false,
       chambres: false,
@@ -279,7 +294,7 @@ export default {
         },
         {
           src: "cotonou-room.jpg",
-          name: "Calavi",
+          name: "Ouidah",
         },
       ],
       accomodationTab: [],
@@ -320,6 +335,23 @@ export default {
       } else {
         if (!this.view.topOfPage) this.view.topOfPage = true;
       }
+
+      this.handleScrollTop();
+    },
+
+    handleScrollTop: function () {
+      if (this.scTimer) return;
+      this.scTimer = setTimeout(() => {
+        this.scY = window.scrollY;
+        clearTimeout(this.scTimer);
+        this.scTimer = 0;
+      }, 100);
+    },
+    toTop: function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     },
   },
 };

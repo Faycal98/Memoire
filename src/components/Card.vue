@@ -1,9 +1,10 @@
 <template>
   <div class="sliderCard AccomodationBlock">
     <div class="carrousel-container">
-      <Carrousel @clickEvent="goDetails" :tabImg="imgArray"></Carrousel>
+      <Carrousel @click-event="goToDetails" :tabImg="imgArray"></Carrousel>
     </div>
-    <router-link :to="{ name: 'houseDetails' }">
+
+    <router-link :to="{ name: 'houseDetails', params: { id: appartId } }">
       <div class="card-description mt-1">
         <div class="AccomodationBlock_contentContainer">
           <div class="d-flex">
@@ -23,9 +24,12 @@
               <div>
                 <p class="line-1">à partir de</p>
                 <p class="ft-l mb-0 ft-m@s">
-                  <b>{{ accomodationDetail.price }} <span class="ft-2xs unit">FCFA</span></b>
+                  <b
+                    >{{ accomodationDetail.price }}
+                    <span class="ft-2xs unit">FCFA</span></b
+                  >
                 </p>
-                <p class="line-1">/ mois</p>
+                <p class="line-1">/ {{ accomodationDetail.billPeriod }}</p>
               </div>
             </div>
           </div>
@@ -33,8 +37,10 @@
           <div class="AccomodationBlock_location text-start mb-3">
             Meublé - Salle de sport
           </div>
-          <div class="ellipsis-2 text-start color-ft-weak">
-            Ouverture Janvier 2023 La résidence Ecla Paris Villejuif a été
+          <div
+            class="ellipsis-2 wrapper-description-full text-start color-ft-weak"
+          >
+            {{ accomodationDetail.description }}
           </div>
         </div>
 
@@ -43,7 +49,7 @@
           data-margin-top="30"
           class="AccomodationBlock_ctas"
         >
-          <p class="AccomodationBlock_availability">
+          <p class="AccomodationBlock_availability mb-0">
             <span class="AccomodationBlock_notif is-active"></span>
             <b class="fw-bolder me-5">Disponible immédiatement</b>
           </p>
@@ -75,8 +81,9 @@ export default {
     },
   },
   methods: {
-    goDetails() {
-      this.$router.push("/");
+    goToDetails() {
+      console.log("clicked");
+      this.$router.push({ name: "houseDetails", params: { id: this.appartId } });
     },
   },
 };
@@ -84,6 +91,11 @@ export default {
 <style scoped>
 .sliderCard {
   width: 310px;
+}
+
+.wrapper-description-full {
+  max-height: 50px;
+  overflow: hidden;
 }
 .ft-2xs.unit {
   color: #353535;
@@ -130,7 +142,6 @@ export default {
 .color-ft-weak {
   color: #6a73ad;
   font-size: 16px;
-
 }
 .ft-xs {
   font-size: 13px;

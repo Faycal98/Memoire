@@ -93,18 +93,17 @@
       </nav>
     </div>
     <div class="SearchPage_bread mb-40">
-      <ol class="breadcrumb">
-        <li class="bread">Accueil</li>
-        <li class="bread" aria-current="page">
-          <i class="fa-solid fa-chevron-right"></i> Logement
-        </li>
-      </ol>
+      <v-breadcrumbs :items="items">
+      <template v-slot:divider>
+        <v-icon icon="mdi-forward"></v-icon>
+      </template>
+    </v-breadcrumbs>
     </div>
     <h1 class="ft-2xl text-center my-3">
-      <b style=" font-size: 35px;">Trouver un logement partout au Bénin</b>
+      <b style=" font-size: 30px;">Trouver un logement partout au Bénin</b>
     </h1>
     <div class="text-center info-text">
-      <p style="font-size: 20px;" >BenApart est une plateforme de logement en ligne qui rend la location
+      <p style="font-size: 18px;" >BenApart est une plateforme de logement en ligne qui rend la location
       plus simple et humaine, quelle qu’en soit la durée.</p>
     </div>
     <div :class="[{ onScroll: !view.topOfPage }, 'searchBar_multiple']">
@@ -222,6 +221,19 @@ export default {
           src: "cotonou-room.jpg",
           name: "Calavi",
         },
+      ],
+      items: [
+        {
+          title: 'Accueil',
+          disabled: false,
+          href: '/',
+        },
+        {
+          title: 'Logements',
+          disabled: false,
+          href: 'logements',
+        },
+     
       ],
     };
   },
