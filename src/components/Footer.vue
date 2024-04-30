@@ -7,19 +7,16 @@
           <span class="Icon mb-20" style="--width: 180px; width: 180px"> </span>
           <ul>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">Espace propriétaire</a>
+              <a class="Footer_link" href="/login">Espace propriétaire</a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">Espace démarcheur</a>
+              <a class="Footer_link" href="/logins">Espace démarcheur</a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="#"> Comment ça marche ? </a>
+              <a class="Footer_link" href="/howitwork"> Comment ça marche ? </a>
             </li>
             <li class="Footer_item">
               <a class="Footer_link" href="#"> Nos astuces </a>
-            </li>
-            <li class="Footer_item">
-              <a class="Footer_link" href="#">Connexion</a>
             </li>
           </ul>
         </div>
@@ -39,16 +36,16 @@
           <h5 class="Footer_title">Trouver un logement</h5>
           <ul>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">Cotonou</a>
+              <a class="Footer_link" href="/logements">Cotonou</a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">Calavi</a>
+              <a class="Footer_link" href="/logements">Calavi</a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">Parakou</a>
+              <a class="Footer_link" href="/logements">Parakou</a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">Ouidah...</a>
+              <a class="Footer_link" href="/logements">Ouidah...</a>
             </li>
           </ul>
         </div>
@@ -65,6 +62,9 @@
             </li>
             <li class="Footer_item">
               <div class="Footer_link">Nous contacter</div>
+            </li>
+            <li class="Footer_item " id="icon">
+              <a class="Footer_link" href="#"><i class="fa-solid fa-circle-up" style="font-size: 30px; transition: all .4s ease;"></i></a>
             </li>
           </ul>
           <div class="SocialShare mt-40 SocialShare--light">
@@ -114,6 +114,11 @@
 
 .Footer_item {
   list-style-type: none;
+}
+#icon{
+  margin-left: 20%;
+    padding-bottom: -16%;
+    margin-top: 10%;
 }
 </style>
 <script>

@@ -18,16 +18,16 @@
         id="navbarSupportedContent"
       >
         <ul>
-          <li class="link">Trouver un logement</li>
+          <li class="link"><a href="/logements">Trouver un logement</a></li>
           <li class="link d-block">
             <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
             <div class="list">
               <ul>
                 <li>
-                  <a class="dropdown-item" href="#">Deposer une annonce</a>
+                  <a class="dropdown-item" href="/annonce">Deposer une annonce</a>
                 </li>
-                <li><a class="dropdown-item" href="#">Comment ça marche</a></li>
-                <li><a class="dropdown-item" href="#">Me connecter</a></li>
+                <li><a class="dropdown-item" href="/howitwork">Comment ça marche</a></li>
+                <li><a class="dropdown-item" href="/logins">Me connecter</a></li>
               </ul>
             </div>
           </li>
@@ -36,19 +36,21 @@
             <div class="list">
               <ul>
                 <li>
-                  <a class="dropdown-item" href="#">Deposer une annonce</a>
+                  <a class="dropdown-item" href="/annonce">Deposer une annonce</a>
                 </li>
-                <li><a class="dropdown-item" href="#">Comment ça marche</a></li>
-                <li><a class="dropdown-item" href="#">Me connecter</a></li>
+                <li><a class="dropdown-item" href="/howitwork">Comment ça marche</a></li>
+                <li><a class="dropdown-item" href="/login">Me connecter</a></li>
               </ul>
             </div>
           </li>
         </ul>
 
         <div class="Header_buttons ms-3">
+          
           <button type="button" class="btn btn-outline-light account-btn">
-            Mon compte
+            <a href="#"> Mon compte</a>
           </button>
+        
         </div>
       </div>
     </nav>

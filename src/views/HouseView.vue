@@ -42,16 +42,15 @@
                     class="AccordionFilter_Details mt-3 d-flex align-items-center"
                   >
                     <input
-                      class="form-input"
+                      class="form-check-input"
                       type="checkbox"
-                      v-model="Appartement"
+                      v-model="appartements"
                       id="flexCheckDefault"
                     />
                     <label
                       class="form-check-label ms-3 mt-1"
                       for="flexCheckDefault"
-                    >
-                      Appartements
+                      >Appartements
                     </label>
                   </div>
                   <div
@@ -66,7 +65,7 @@
                     <label
                       class="form-check-label ms-3 mt-1"
                       for="flexCheckDefault"
-                      >Chambres à loués
+                      >Chambres
                     </label>
                   </div>
                   <div
@@ -98,7 +97,7 @@
                     class="AccordionFilter_Details mt-3 d-flex align-items-center"
                   >
                     <input
-                      class="form-input"
+                      class="form-check-input"
                       type="checkbox"
                       v-model="proprietaires"
                       id="flexCheckDefault"
@@ -106,8 +105,7 @@
                     <label
                       class="form-check-label ms-3 mt-1"
                       for="flexCheckDefault"
-                    >
-                      Propriétaires
+                      >Proprietaires
                     </label>
                   </div>
                   <div
@@ -146,9 +144,9 @@
                   <div class="AccordionFilter_Title_Text d-flex">
                     Autres critères
                     <div class="ml-10">
-                      <span class="bg-r ft-bold icon-color">3</span>
+                      <span class="bg-r ft-bold icon-color">2</span>
                     </div>
-                  </div>
+                  </div><!---
                   <div
                     class="AccordionFilter_Details mt-3 d-flex align-items-center"
                   >
@@ -163,6 +161,21 @@
                       for="flexCheckDefault"
                     >
                       A vendre
+                    </label>
+                  </div>-->
+                  <div
+                    class="AccordionFilter_Details mt-3 d-flex align-items-center"
+                  >
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      v-model="proprietaires"
+                      id="flexCheckDefault"
+                    />
+                    <label
+                      class="form-check-label ms-3 mt-1"
+                      for="flexCheckDefault"
+                      >A vendre
                     </label>
                   </div>
                   <div
@@ -305,12 +318,12 @@ export default {
 }
 .bg-r {
   background-color: #ee5354;
-}
-.form-input:checked {
+}/*
+.form-input:checked {/*
   background-color: red;
   accent-color: red;
   border-color: none;
-}
+}*/
 
 .SearchPage_Header_title {
   font-size: 20px;

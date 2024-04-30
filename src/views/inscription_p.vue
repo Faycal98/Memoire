@@ -76,15 +76,15 @@
             </div>
             <div class="radio">
                 <div class="radio-2">
-                    <input  type="radio" name="m" style="margin-right: 5px;"><label><strong>Homme</strong></label>
+                    <input  type="radio" name="sexe" style="margin-right: 5px;" required><label><strong>Homme</strong></label>
                 </div>
                 <div class="radio-2">
-                    <input  type="radio" name="f" style="margin-right: 5px;"><label><strong>Femme</strong></label>
+                    <input  type="radio" name="sexe" style="margin-right: 5px;" required><label><strong>Femme</strong></label>
                 </div>
                   
             </div>
             <div class="inputBox">
-                <input type="text" required="required">
+                <input type="text" required>
                 <i class="fa-solid fa-user" style="position: absolute ;
                                                     top: 16px;
                                                     left: 14px;
@@ -170,7 +170,7 @@
                     <a id="watpp" href="#"><i id="watp" class="fa-brands fa-whatsapp"></i></a>
             </div>
             <p>Vous avez déja un compte ? 
-              <a href="#" class="login" style = "color: #36417d !important;">
+              <a href="/login" class="login" style = "color: #36417d !important;">
                 Je me connecte
               </a>
             </p>

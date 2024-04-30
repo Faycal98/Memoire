@@ -3,7 +3,9 @@
     <div id="navbar">
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
+          
           <h1 class="ms-5 header-title">BenApart</h1>
+          
         </router-link>
         <div class="header-right justify-content-between align-items-center collapse navbar-collapse" id="navbarSupportedContent">
           <ul>
@@ -16,9 +18,9 @@
                     <a class="dropdown-item" href="#">Deposer une annonce</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">Comment ça marche</a>
+                    <a class="dropdown-item" href="/howitwork">Comment ça marche</a>
                   </li>
-                  <li><a class="dropdown-item" href="#">Me connecter</a></li>
+                  <li><a class="dropdown-item" href="/logins">Me connecter</a></li>
                 </ul>
               </div>
             </li>
@@ -30,9 +32,9 @@
                     <a class="dropdown-item" href="#">Deposer une annonce</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">Comment ça marche</a>
+                    <a class="dropdown-item" href="/howitwork">Comment ça marche</a>
                   </li>
-                  <li><a class="dropdown-item" href="#">Me connecter</a></li>
+                  <li><a class="dropdown-item" href="/login">Me connecter</a></li>
                 </ul>
               </div>
             </li>
@@ -75,7 +77,7 @@
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item last" href="#"
+                    <a class="dropdown-item last" href="/howitwork"
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment ça marche ?</a
                     >
                   </li>
@@ -101,7 +103,6 @@
       </ol>
     </div>
     <h1 class="ft-2xl text-center my-3">
-      <b>Trouver un logement partout au Bénin</b>
       <b style=" font-size: 35px;">Trouver un logement partout au Bénin</b>
     </h1>
     <div class="text-center info-text">

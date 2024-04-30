@@ -62,7 +62,7 @@ const routes = [
     meta: {
       guestGuard: true,
     },
-    component:  () => import('../views/connexion_l.vue')
+    component:  () => import('../views/connexion_d.vue')
   },
   {
     path: '/connect',
@@ -78,7 +78,7 @@ const routes = [
     meta: {
       guestGuard: true,
     },
-    component:  () => import('../views/inscription_l.vue')
+    component:  () => import('../views/inscription_d.vue')
   },
   {
     path: '/annonce',
@@ -88,6 +88,7 @@ const routes = [
     },
     component:  () => import('../views/Annonce.vue')
   },
+  
 ]
 
 const router = createRouter({
