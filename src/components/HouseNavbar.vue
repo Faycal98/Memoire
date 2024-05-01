@@ -5,7 +5,10 @@
         <router-link to="/">
           <h1 class="ms-5 header-title">BenApart</h1>
         </router-link>
-        <div class="header-right justify-content-between align-items-center collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          class="header-right justify-content-between align-items-center collapse navbar-collapse"
+          id="navbarSupportedContent"
+        >
           <ul>
             <li class="link d-block">
               <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
@@ -13,12 +16,20 @@
               <div class="list">
                 <ul>
                   <li>
-                    <a class="dropdown-item" href="#">Deposer une annonce</a>
+                    <router-link to="/annonce" class="dropdown-item">
+                      Déposer une annonce
+                    </router-link>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">Comment ça marche</a>
+                    <router-link to="/howitwork" class="dropdown-item">
+                      Comment ça marche
+                    </router-link>
                   </li>
-                  <li><a class="dropdown-item" href="#">Me connecter</a></li>
+                  <li>
+                    <router-link to="/login" class="dropdown-item">
+                      Me connecter</router-link
+                    >
+                  </li>
                 </ul>
               </div>
             </li>
@@ -27,12 +38,20 @@
               <div class="list">
                 <ul>
                   <li>
-                    <a class="dropdown-item" href="#">Deposer une annonce</a>
+                    <router-link to="/annonce" class="dropdown-item">
+                      Déposer une annonce
+                    </router-link>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">Comment ça marche</a>
+                    <router-link to="/howitwork" class="dropdown-item">
+                      Comment ça marche
+                    </router-link>
                   </li>
-                  <li><a class="dropdown-item" href="#">Me connecter</a></li>
+                  <li>
+                    <router-link to="/login" class="dropdown-item">
+                      Me connecter</router-link
+                    >
+                  </li>
                 </ul>
               </div>
             </li>
@@ -70,13 +89,14 @@
                   </li>
                   <li>
                     <a class="dropdown-item" href="#"
-                      ><i class="fa-regular fa-circle-question me-2"></i>
-                      Aide et accompagnement</a
+                      ><i class="fa-regular fa-circle-question me-2"></i> Aide
+                      et accompagnement</a
                     >
                   </li>
                   <li>
                     <a class="dropdown-item last" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment ça marche ?</a
+                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment
+                      ça marche ?</a
                     >
                   </li>
                   <li>
@@ -94,17 +114,19 @@
     </div>
     <div class="SearchPage_bread mb-40">
       <v-breadcrumbs :items="items">
-      <template v-slot:divider>
-        <v-icon icon="mdi-forward"></v-icon>
-      </template>
-    </v-breadcrumbs>
+        <template v-slot:divider>
+          <v-icon icon="mdi-forward"></v-icon>
+        </template>
+      </v-breadcrumbs>
     </div>
     <h1 class="ft-2xl text-center my-3">
-      <b style=" font-size: 30px;">Trouver un logement partout au Bénin</b>
+      <b style="font-size: 30px">Trouver un logement partout au Bénin</b>
     </h1>
     <div class="text-center info-text">
-      <p style="font-size: 18px;" >BenApart est une plateforme de logement en ligne qui rend la location
-      plus simple et humaine, quelle qu’en soit la durée.</p>
+      <p style="font-size: 18px">
+        BenApart est une plateforme de logement en ligne qui rend la location
+        plus simple et humaine, quelle qu’en soit la durée.
+      </p>
     </div>
     <div :class="[{ onScroll: !view.topOfPage }, 'searchBar_multiple']">
       <div class="Header_placeAutocomplete Header_placeAutocomplete--search">
@@ -181,10 +203,7 @@
               class="ButtonFilter_actions w-100 d-flex align-items-center justify-content-between"
             >
               <div>Effacer</div>
-              <ButtonGreen
-                class="searchpage"
-                :content="'Appliquer'"
-              ></ButtonGreen>
+              <OrangeBtn class="searchpage" :content="'Appliquer'"></OrangeBtn>
             </div>
           </div>
         </div>
@@ -194,7 +213,7 @@
 </template>
 
 <script>
-import ButtonGreen from "../components/ButtonGreen.vue";
+import OrangeBtn from "../components/OrangeBtn.vue";
 
 export default {
   name: "HouseNavBar",
@@ -224,21 +243,20 @@ export default {
       ],
       items: [
         {
-          title: 'Accueil',
+          title: "Accueil",
           disabled: false,
-          href: '/',
+          href: "/",
         },
         {
-          title: 'Logements',
+          title: "Logements",
           disabled: false,
-          href: 'logements',
+          href: "logements",
         },
-     
       ],
     };
   },
   components: {
-    ButtonGreen,
+    OrangeBtn,
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
@@ -261,7 +279,7 @@ export default {
   },
 };
 </script>
-<style scoped >
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
 
 * {
@@ -648,7 +666,6 @@ nav {
       font-weight: 300;
       color: white;
       list-style-type: none;
-
     }
   }
 }

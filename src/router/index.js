@@ -52,11 +52,11 @@ const routes = [
     component: () => import("../components/AdvancedChat.vue"),
   },
   {
-    path: "/chat2",
+    path: "/chat3",
     meta: {
       guestGuard: true,
     },
-    component: () => import("../components/Chat2.vue"),
+    component: () => import("../components/Chat3.vue"),
   },
 
   {

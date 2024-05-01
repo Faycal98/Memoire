@@ -120,6 +120,7 @@ export default defineComponent({
 .carousel__item {
   min-height: 200px;
   width: 100%;
+  max-width: 700px;
   color: #ffffff;
   font-size: 20px;
   border-radius: 8px;

@@ -42,7 +42,7 @@
                     class="AccordionFilter_Details mt-3 d-flex align-items-center"
                   >
                     <input
-                      class="form-input"
+                      class="form-check-input"
                       type="checkbox"
                       v-model="Appartement"
                       id="flexCheckDefault"
@@ -66,7 +66,7 @@
                     <label
                       class="form-check-label ms-3 mt-1"
                       for="flexCheckDefault"
-                      >Chambres à loués
+                      >Chambres
                     </label>
                   </div>
                   <div
@@ -98,7 +98,7 @@
                     class="AccordionFilter_Details mt-3 d-flex align-items-center"
                   >
                     <input
-                      class="form-input"
+                      class="form-check-input"
                       type="checkbox"
                       v-model="proprietaires"
                       id="flexCheckDefault"
@@ -153,9 +153,9 @@
                     class="AccordionFilter_Details mt-3 d-flex align-items-center"
                   >
                     <input
-                      class="form-input"
+                      class="form-check-input"
                       type="checkbox"
-                      v-model="proprietaires"
+                      v-model="buy"
                       id="flexCheckDefault"
                     />
                     <label
@@ -171,7 +171,7 @@
                     <input
                       class="form-check-input"
                       type="checkbox"
-                      v-model="demarcheurs"
+                      v-model="rent"
                       id="flexCheckDefault"
                     />
                     <label
@@ -182,10 +182,10 @@
                   </div>
                 </div>
                 <div class="ButtonFilterAccordion_actions">
-                  <ButtonGreen
+                  <OrangeBtn
                     class="text-end mt-2 mb-2 px-0 filtre-btn"
                     :content="'Appliquer'"
-                  ></ButtonGreen>
+                  ></OrangeBtn>
                 </div>
               </div>
             </div>
@@ -194,6 +194,7 @@
 
         <div class="col col-lg-9 col-sm-12 ps-3">
           <div class="row">
+        
             <div
               class="col-lg-4 col-sm-8 mb-4"
               v-if="accomodationTab.length > 0"
@@ -212,7 +213,7 @@
             <div
               class="col-lg-4 col-sm-8 mb-4"
               v-else
-              v-for="num in 10"
+              v-for="num in 20"
               :key="num"
             >
               <div class="SearchPage_Block_Result">
@@ -224,15 +225,7 @@
                 ></v-skeleton-loader>
               </div>
             </div>
-            <v-fab
-              v-show="scY > 300"
-              @click="toTop"
-              class="me-4"
-              icon="mdi-chevron-up"
-              location="middle end"
-              absolute
-              offset
-            ></v-fab>
+         
           </div>
 
           <div class="row mb-5">
@@ -253,13 +246,24 @@
     </div>
   </div>
 
+  <v-fab
+            
+            v-show="scY > 300"
+            @click="toTop"
+            class="me-4 floating-btn"
+            icon="mdi-chevron-up"
+            location="bottom end"
+            absolute
+            offset
+          ></v-fab>
 </template>
 
 <script>
 import axios from "axios";
+
 import HouseNav from "../components/HouseNavbar.vue";
 import Card from "../components/Card.vue";
-import ButtonGreen from "../components/ButtonGreen.vue";
+import OrangeBtn from "../components/OrangeBtn.vue";
 import Paginate from "vuejs-paginate-next";
 export default {
   name: "NavbarVue",
@@ -270,19 +274,21 @@ export default {
       },
       red: "red",
       minBudget: 1,
+      rent:true,
+      buy:true,
       maxBudget: 700000,
       scTimer: 0,
       scY: 0,
       disabled: false,
       isOpen: false,
-      chambres: false,
+      chambres: true,
       maisons: true,
       agencesImmo: true,
-      proprietaires: false,
+      proprietaires: true,
       demarcheurs: true,
       isLoading: false,
       selected: "",
-      Appartement: false,
+      Appartement: true,
       carrouselTab: [
         {
           src: "cotonou-room.jpg",
@@ -303,7 +309,7 @@ export default {
   components: {
     Card,
     HouseNav,
-    ButtonGreen,
+    OrangeBtn,
     paginate: Paginate,
   },
   beforeMount() {

@@ -20,8 +20,15 @@ body {
   width:350px;
 }
 
+main{
+  position: relative;
+}
 
-
+.floating-btn{
+  position: fixed!important;
+  bottom: 35%;
+  right: 0px;
+}
 
 .v-enter-active,
 .v-leave-active {
@@ -33,10 +40,6 @@ body {
 
 .info-container .v-input {
   width: 70%;
-}
-
-.v-text-field .v-input__details {
- /*  display: none; */
 }
 
 .v-stepper-item.v-stepper-item--error.v-stepper-item--selected

@@ -32,26 +32,48 @@
             <div class="list">
               <ul>
                 <li>
-                  <a class="dropdown-item" href="#">Deposer une annonce</a>
+                  <router-link to="/annonce" class="dropdown-item"
+                    >Déposer une annonce
+                  </router-link>
                 </li>
-                <li><a class="dropdown-item" href="#">Comment ça marche</a></li>
-                <li><a class="dropdown-item" href="#">Me connecter</a></li>
+                <li>
+                  <router-link to="/howitwork" class="dropdown-item"
+                    >Comment ça marche</router-link
+                  >
+                </li>
+                <li>
+                  <router-link to="/login" class="dropdown-item"
+                    >Me connecter</router-link
+                  >
+                </li>
               </ul>
             </div>
           </li>
           <router-link v-else to="/annonce">
-            <li class="link">Deposer une annonce</li>
+            <li class="link">Déposer une annonce</li>
           </router-link>
 
           <li class="link d-block" v-if="!userInitials">
-            <p class="drop-text dropdown-toggle">Je suis propriétaire</p>
+            <router-link to="/login">
+              <p class="drop-text dropdown-toggle">Je suis propriétaire</p>
+            </router-link>
             <div class="list">
               <ul>
                 <li>
-                  <a class="dropdown-item" href="#">Deposer une annonce</a>
+                  <router-link to="/annonce" class="dropdown-item">
+                    Déposer une annonce
+                  </router-link>
                 </li>
-                <li><a class="dropdown-item" href="#">Comment ça marche</a></li>
-                <li><a class="dropdown-item" href="#">Me connecter</a></li>
+                <li>
+                  <router-link to="/howitwork" class="dropdown-item">
+                    Comment ça marche ?
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/login" class="dropdown-item">
+                    Me connecter
+                  </router-link>
+                </li>
               </ul>
             </div>
           </li>
@@ -91,7 +113,10 @@
           </v-avatar>
 
           <router-link to="/login" v-else>
-            <button type="button" class="btn btn-outline-light account-btn">
+            <button
+              type="button"
+              class="btn btn-outline-light account-btn px-1 py-2"
+            >
               Mon compte
             </button>
           </router-link>
@@ -209,7 +234,7 @@ nav {
   z-index: 10;
   width: 100%;
   padding: 0 40px;
-  height: 60px;
+  height: 68px;
   color: black;
   background-color: transparent;
   display: flex;
