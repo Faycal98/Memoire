@@ -3,7 +3,7 @@
     <div id="navbar">
       <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
         <router-link to="/">
-          <h1 class="ms-5 header-title">BenApart</h1>
+          <h1 class="ms-5 header-title">ChezVous</h1>
         </router-link>
         <div
           class="header-right justify-content-between align-items-center collapse navbar-collapse"
@@ -12,16 +12,23 @@
           <ul>
             <li class="link d-block">
               <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
-
               <div class="list">
                 <ul>
                   <li>
                     <a class="dropdown-item" href="#">Déposer une annonce</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">Comment ça marche</a>
+                    <router-link to="/howitwork">
+                      <a class="dropdown-item" href="#">Comment ça marche</a>
+                    </router-link>
+                    
                   </li>
-                  <li><a class="dropdown-item" href="#">Me connecter</a></li>
+
+                  <li><router-link to="/login">
+                    <a class="dropdown-item" href="#">Me connecter</a>
+                  </router-link>
+                    
+                  </li>
                 </ul>
               </div>
             </li>
@@ -33,9 +40,16 @@
                     <a class="dropdown-item" href="#">Déposer une annonce</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#">Comment ça marche</a>
+                    <router-link to="/howitwork">
+                      <a class="dropdown-item" href="#">Comment ça marche</a>
+                    </router-link>
+                    
                   </li>
-                  <li><a class="dropdown-item" href="#">Me connecter</a></li>
+                  
+                  <li>
+                    <router-link to="/login">
+                      <a class="dropdown-item" href="#">Me connecter</a>
+                    </router-link></li>
                 </ul>
               </div>
             </li>
@@ -60,10 +74,11 @@
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item text-black" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i
-                      >Connexion</a
-                    >
+                    <router-link to="/login">
+                      <a class="dropdown-item text-black" href="#">
+                        <i class="fa-solid fa-arrow-right me-2 arrow"></i>Connexion</a>
+                    </router-link>
+                    
                   </li>
                   <li>
                     <a class="dropdown-item last" href="#"
@@ -78,10 +93,13 @@
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item last" href="#"
+                    <router-link to="/howitwork">
+                      <a class="dropdown-item last" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment
                       ça marche ?</a
                     >
+                    </router-link>
+                    
                   </li>
                   <li>
                     <a class="dropdown-item last" href="#"

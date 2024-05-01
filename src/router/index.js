@@ -75,14 +75,8 @@ const routes = [
     },
     component: () => import("../components/Form.vue"),
   },
-  {
-    path: "/logins",
-    name: "logins",
-    meta: {
-      guestGuard: true,
-    },
-    component: () => import("../views/connexion_l.vue"),
-  },
+  
+ 
 
   {
     path: "/login",

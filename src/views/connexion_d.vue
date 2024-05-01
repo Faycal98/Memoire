@@ -54,18 +54,30 @@
     <div class="vrapper">
         <section class="form login">
             <h2 class="title" style="color:#36417d;font-size: 1.5rem;"><strong>Espace démarcheur</strong></h2>
-            <form action="#">
+            <form action="#" method="">
                 <div class="field input">
-                    <input type="text" placeholder="E-email">
+                    <input type="text" name="email" placeholder="E-mail" required>
                 </div>
                 <div class="field input">
-                    <input type="password" placeholder="Entrer nouveau mot de passe">
-                    <i class="fa-solid fa-eye" style="position: absolute;
+                    <input type="password" id="password" name="password" placeholder="Mot de passe" required>
+                    <span id="showPassword">
+                      <i class="fa-solid fa-eye" style="position: absolute;
                                                       right: 15px;
                                                       color: #ccc;
                                                       top: 53%;
                                                       transform: translateY(-50%);
-                                                      cursor: pointer;"></i>
+                                                      cursor: pointer;
+                                                      "></i>
+                  <i class="fa-regular fa-eye-slash" style="position: absolute;
+                                                      right: 15px;
+                                                      color: #ccc;
+                                                      top: 53%;
+                                                      transform: translateY(-50%);
+                                                      cursor: pointer;
+                                                      display: none;
+                                                      "></i>
+                    </span>
+                    
                 </div>
                     <a href="#" class="oublier" style="margin-left: 57%;
                                                       color: #36417d !important;">
@@ -78,12 +90,12 @@
                   <div class="icon">
                     <i class="fa-brands fa-google"></i> 
                   </div>
-                    <strong>Me connecter avec Google</strong>
+                    <a href="#"><strong>Me connecter avec Google</strong> </a> 
                 </div> 
                 <div class="verify">
                   <p><strong>Vous n'avez pas encore de compte ?</strong></p>
                 <p class="inscris" style="color: #36417d !important; font-weight:700;
-                    margin-left: 5px;"><a href="#">Inscrivez-vous</a></p>
+                    margin-left: 5px;"><a href="/connects">Inscrivez-vous</a></p>
                 </div> 
                 
             </form>
@@ -96,7 +108,21 @@
   </template>
   
   <script>
-  
+
+  //form script
+/*
+  let showPassword = document.getElementById('showPassword');
+  let inputPassword = document.getElementById('password');
+  showPassword.onclick = function(){
+    if(inputPassword.type == 'password'){
+        inputPassword.type = 'text';
+       showPassword.classList.add('show');
+    }else{
+        inputPassword.type = 'password';
+        showPassword.classList.remove('show');
+    }
+}
+  */
   export default {
     name: "HouseNavBar",
     data() {
@@ -437,6 +463,15 @@ form .name-details .field:last-child{
 }
 .inscris:hover{
   text-decoration: underline;
+}
+span i:nth-child(2){
+    display: none;
+}
+span.show i:nth-child(2){
+    display: block;
+}
+span.show i:nth-child(1){
+    display: none;
 }
   </style>
   

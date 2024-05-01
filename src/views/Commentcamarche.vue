@@ -1,97 +1,106 @@
 <template>
     <div id="navbar">
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
-      <h1 class="ms-5 header-title"><strong>B</strong>en<span id="letter"><strong>A</strong></span>part</h1>
-
+      <a data-v-9c6758da href="/">
+      <h1 class="ms-5 header-title"><strong>C</strong>hez<span id="letter"><strong>V</strong></span>ous</h1>
+    </a>
       <div
         class="header-right justify-content-end align-items-center collapse navbar-collapse" id="navbarSupportedContent">
         <ul>
-          <li class="link">Me connecter</li>
+          <router-link to="/login">
+            <li class="link">Me connecter</li>
+          </router-link>
+          <router-link to="/">
+            <a data-v-9c6758da href="">
           <li class="link links">Je suis locataire</li>
+        </a>
+          </router-link>
+          
         </ul>
       </div>
     </nav>
   </div>
-  <div class="rows">
-    <div class="col-2">
-      <h1 class="color"><strong>METTRE SON LOGEMENT EN LOCATION !</strong></h1>
-    </div>
-
-    <div class="col-2">
-      <div id="left">
-        <h4 class="color"><strong>Une expérience locative simple et humaine ! BenApart est une
-         plateforme de réservation d'appartement, de chambre et de maison a louer en 
-         ligne qui rend la location plus simple et humaine.</strong></h4>
-         <a href="#" class="annonce"> Déposer mon annonce ⩗</a> 
+  <div class="head">
+    <div class="head-child">
+      <div class="head-child1">
+        <h1 class="color">METTRE SON LOGEMENT EN LOCATION !</h1>
       </div>
-      <h2><strong>Louer avec <span class="sigle">BenApart</span>, c’est protéger gratuitement votre logement et vos loyers!</strong></h2>   
+      <div class="head-child2">
+        <h3 class="color">Une expérience locative simple et humaine ! <br>ChezVous est une
+         plateforme de réservation d'appartement, de chambre et de maison a louer en 
+         ligne qui rend la location plus simple et humaine.</h3>
+      </div>
+      <div class="head-child3">
+        <a href="/annonce" class="annonce" style=" color: #fff !important;"> Déposer mon annonce </a>
+      </div>
+      <div class="head-child4">
+        <h2 style="color: #fff;">Louer avec <router-link to="/"><span class="sigle">ChezVous</span></router-link>, c’est protéger gratuitement votre logement et vos loyers!</h2>
+      </div>
+       
     </div>
  </div>
  <div class="service">
-            <div class="containt">
-              <h2 class="color"><strong>Profitez d’un service défiant toute concurrence</strong></h2>
+            <div class="containt" style="padding: 1px;">
+              <h2 class="color">Profitez d’un service défiant toutes concurrences !</h2>
                <div class="rower">
                   <div class="coll">
                      <i class="fa-solid fa-house-laptop"></i>
-                     <h4><strong>1ere plateforme de location au Bénin !</strong></h4>
+                     <h4>1ère plateforme de location vous permettant d'être chez vous !</h4>
                   </div>
                   <div class="coll">
                     <i class="fa-solid fa-house-lock"></i>
-                    <h4><strong>Des demandes qualifiées et sécurisées partout au Bénin !</strong></h4>
+                    <h4>Des demandes qualifiées et sécurisées partout au Bénin !</h4>
                   </div>
                   <div class="coll">
                     <circul ></circul>
                     <i class="fa-solid fa-map-location-dot"></i>
-                    <h4><strong>Nos services sont disponibles partout au Bénin !</strong></h4>
+                    <h4>Nos services sont disponibles dans toutes les localités du territoire !</h4>
                   </div>
                </div>
             </div>
         </div>
-  <section class="wrapper" style="margin: -13px 0;">
-    <div class="container">
-      <h1><strong class="sigle">B</strong>en<span class="sigle"><strong>A</strong></span>part</h1>
-      <h2 class="color"><strong>Comment ça marche ?</strong></h2>
-      <h4 class="etapes"><strong>4 étapes et votre logement est loué !</strong></h4>
-    </div>
+    <section class="wrapper" style="margin: -13px 0;">
+      <div class="contai">
+        
+        <h1 class="color">Chez ChezVous, comment ça marche ?</h1>
+        <h3 class="etapes">4 étapes et votre logement est loué !</h3>
+      </div>
 
-      <section class="work" id="work">  
-        <div class="work-row">
-            <div class="work-column">
-                <div class="work-box">
-                    <div class="work-content">
+      <div class="etape" id="etape">  
+        <div class="etape-row">
+            <div class="etape-column">
+                <div class="etape-box">
+                    <div class="etape-content">
                         <div class="content">
-                            <div class="year"> <h3><strong>Je dépose mon annonce</strong></h3></div>
-                                <p class="color"><strong>Validation et publication automatique en un clic si toutes les informations necessaires sont bien renseignées.</strong></p>
+                            <div class="year"> <h3>Je dépose mon annonce</h3></div>
+                                <h4 class="color">Validation et publication automatique en un clic si toutes les informations necessaires sont bien renseignées.</h4>
                         </div>
                     </div>
-                    <div class="work-content">
+                    <div class="etape-content">
                         <div class="content">
-                            <div class="year"> <h3><strong>Je reçois des demandes</strong></h3></div>                      
-                              <p class="color"><strong>Adaptées à vos critères : date d’entrée, accès aux dossiers des locataires en un clic.</strong></p>
+                            <div class="year"> <h3>Je reçois des demandes</h3></div>                      
+                              <h4 class="color">Adaptées à vos critères : vous pouvez communiquer avce vos directement sur la plateforme.</h4>
                         </div>
                     </div>
-                    <div class="work-content">
+                    <div class="etape-content">
                         <div class="content">
-                            <div class="year"> <h3><strong>Je fais visiter mon logement </strong></h3></div>                     
-                            <p class="color"><strong>En physique avec le loueur apres la fixation d'un rendez-vous.</strong></p>   
+                            <div class="year"> <h3>Je fais visiter mon logement </h3></div>                     
+                            <h4 class="color">En physique avec le locataire apres la fixation d'un rendez-vous via la communication par messagerie.</h4>   
                         </div>
                     </div>
-                    <div class="work-content">
+                    <div class="etape-content">
                         <div class="content">
-                            <div class="year"> <h3><strong>Je finalise la réservation</strong>  </h3> 
+                            <div class="year"> <h3>Je finalise la réservation</h3> 
                             </div>
-                            <p class="color" ><strong>Le locataire réserve apres avoir éffectuer son choix sur la plateforme.</strong></p>   
+                            <h4 class="color" >Le locataire réserve apres avoir éffectuer son choix  sur la plateforme.</h4>   
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+      </div>
     </section>
-    </section>
 
-
-
-  
     <Footer></Footer>
 </template>
 
@@ -209,34 +218,36 @@ nav {
   }
 }
 
-.rows{
-  background-image: url(../assets/accueuil.jpg);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  width: 100%;
-    height: 100vh;
+.head{
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 35%,
+   rgba(0, 0, 0, 0.5) 35%),url(../assets/float-1.avif);
+    width: 100%;
+    height: 88vh;
+    padding: 95px;
     background-position-x: center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-.col-2{
-  flex-basis:50% ;
-  min-width: 300px;
+.head-child{
+  margin: 0px;
+  margin-bottom: 97px;
 }
-.col-2 h1{
-  margin-bottom: 55%;
-  font-size: 50px;
-  line-height: 60px;
-  margin-left: 3%;
+.head-child1{
+  margin-top: 30px;
 }
-.col-2 h4{
-  margin-bottom: 5%;
+.head-child2{
+  margin-top: 30px;
+}
+.head-child3{
+  margin-top: 30px;
+}
+.head-child4{
+
 }
 
-.col-2 a{
+.head-child3 a{
+  font-size: 17px;
   display: inline-block;
   text-decoration: none;
   padding: 10px 30px;
@@ -244,11 +255,12 @@ nav {
   color: #fff;
   border-radius: 30px;
   margin: 52px;
-  margin-bottom: 97px;
+  border: 10px solid rgb(221, 88, 55);
+ /* margin-bottom: 97px;*/
   transition: all  0.3s ease-in-out;
 }
-.col-2 a:hover{
-  background: rgb(196, 79, 50);
+.head-child3 a:hover{
+  background: rgb(109, 39, 21);
 }
 
 .wrappe-3 img{
@@ -258,42 +270,53 @@ nav {
   color: rgb(196, 79, 50);
 }
 .color{
-  color: #36417d;
+  color: #fff;
+  
 }
 .etapes{
-  color: rgb(196, 79, 50);
+  color: rgb(168, 52, 23);
 }
 
-/*****les etapes------------- */
 
-.work{
+
+/*****les etapes------------- */
+section{
+  background-image: linear-gradient(200deg,rgba(219, 90, 58, 0.336),
+  rgba(230, 73, 34, 0.767),
+                    #7141e249,
+                    #26358b59
+                    );
+                    padding: 10px;
+}
+.etape{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: auto;
     padding-bottom: 1rem;
+   /* background-color: red;*/
 }
-.work .work-row{
+.etape .etape-row{
     display: flex;
     flex-wrap: wrap;
     gap: 5rem;
 }
-.work-row .work-column{
+.etape-row .etape-column{
     flex: 1 1 40rem;
 }
-.work-column .titles{
+.etape-column .titles{
     font-size: 2.5rem;
     margin: 0 0 1.5rem 2rem;
 }
-.work-column .work-box{
+.etape-column .etape-box{
     border-left: .2rem solid rgb(221, 88, 55);
 }
-.work-box .work-content{
+.etape-box .etape-content{
     position: relative;
     padding-left: 2rem;
 }
-.work-box .work-content::before{
+.etape-box .etape-content::before{
     content: '';
     position: absolute;
     top: 0;
@@ -303,7 +326,7 @@ nav {
     background: #36417d;;
     border-radius: 50%;
 }
-.work-content .content{
+.etape-content .content{
     position: relative;
     padding: 1.5rem;
     border: .2rem solid #36417d;
@@ -311,7 +334,7 @@ nav {
     margin-bottom: 2rem;
     overflow: hidden;
 }
-.work-content .content::before{
+.etape-content .content::before{
     content: '';
     position: absolute;
     top: 0;
@@ -322,26 +345,30 @@ nav {
     z-index: -1;
     transition: all 0.6s ease;
 }
-.work-content .content:hover::before{
+.etape-content .content:hover::before{
     width: 100%;
 }
-.work-content .content .year{
+.etape-content .content .year{
     font-size: 1.5rem;
     color: #36417d;
     padding-bottom: .5rem;
     padding: 0;
 }
-.work-content .content .year i{
+.etape-content .content .year i{
     padding-right: .5rem;
 }
-.work-content .content h3{
+.etape-content .content h3{
     font-size: 2rem;
 }
 
 .service{
-    margin: 30px 0;
-    background-color: rgba(247, 245, 243, 0.493);
+  margin: 0px 0px 13px;
+  background-image: linear-gradient(200deg,rgba(219, 91, 58, 0.767),
+                    #7141e28f,
+                    #36417d86,
+                    rgba(230, 73, 34, 0.767));
 }
+
 .coll{
     flex-basis: 30px;
     min-width: 285px;
@@ -355,12 +382,17 @@ nav {
     text-align: center;
     font-size:2.2rem ;
     margin: 50px 0;
+    margin-top: 20px;
 }
 .rower{
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   margin-left: 7%;
   margin-right: 7%;
+  margin-top: -40px;
+}
+h4{
+  margin-top: 12px;
 }
 svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa{
   border: 18px solid rgb(221, 88, 55);
@@ -368,8 +400,8 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa{
     font-size: 80px;
     background-color: rgb(221, 88, 55);
     color: white;
-}
+}/*
 .container{
   background-color: rgba(247, 245, 243, 0.493);
-}
+}*/
 </style>

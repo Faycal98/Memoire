@@ -2,6 +2,93 @@
   <header>
     <div id="navbar">
   <Navbar></Navbar>
+      <nav class="navbar navbar-expand-lg">
+        <router-link to="/">
+          <h1 class="ms-5 header-title">ChezVous</h1>
+        </router-link>
+        <div
+          class="header-right justify-content-between align-items-center collapse navbar-collapse"
+          id="navbarSupportedContent"
+        >
+          <ul class="u-block">
+            <li class="link d-block">
+              <router-link to="/">
+                <p class="drop-text">Retour a l'accueuil</p>
+              </router-link>
+              
+            </li>
+          </ul>
+          <div class="Header_buttons ms-3 position relative">
+            <button
+              type="button"
+              @click="warnClicked"
+              class="btn btn-outline-light account-btn p-2"
+            >
+              Menu
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <Transition>
+              <div v-if="disabled" class="sub-menu position-absolute">
+                <ul class="sub-list d-block">
+                  <li class="houser">
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      style="background-color: #36417d; color: white !important"
+                      ><i class="fa-solid fa-house me-2 pt-2"></i>Je suis
+                      Propriétaire</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-black" href="#"
+                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i
+                      >Connexion</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item last" href="#"
+                      ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
+                      >Inscription</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      style="background-color: #36417d; color: white !important"
+                      ><i class="fa-solid fa-house me-2 pt-2"></i>Je suis
+                      Démarcheur</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item text-black" href="#"
+                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i
+                      >Connexion</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item last" href="#"
+                      ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
+                      >Inscription</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#"
+                      ><i class="fa-regular fa-circle-question me-2"></i>Aide</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item last" href="#"
+                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
+                      contacter</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </Transition>
+          </div>
+        </div>
+      </nav>
     </div>
   </header>
   <div class="spacer"></div>
@@ -126,21 +213,29 @@ export default {
         .required("Le nom est obligatoire!")
         .min(3, "Doit contenir au moins 3 caractères!")
         .max(20, "Maximum 20 caracterès!"),
+        .min(3, "Le nom doit comporter 3 caractères au minimum !")
+        .max(20, "Le prénom doit comporter 20 caractères au maximum !"),
       phone: yup
         .string()
         .required(" le numéro de téléphone est obligatoire!")
         .min(6, "Doit contenir au moins 6 caractères!")
         .max(20, "Maximum 20 caracterès!"),
+        .required("Le numéro de téléphone est obligatoire!")
+        .min(3, "Le numéro doit comporter 3 caractères au minimum !")
+        .max(20, "Le numéro doit comporter 20 caractères au maximum !"),
       userFirstName: yup
         .string()
         .required("Le prénom est obligatoire!")
         .min(3, "Doit contenir au moins 3 caractères!")
         .max(20, "Maximum 20 caracterès!"),
+        .min(3, "Le prénom doit comporter 3 caractères au minimum !")
+        .max(20, "Le prénom doit comporter 20 caractères au maximum !"),
       email: yup
         .string()
         .required("L'email est obligatoire!")
         .email("Email non valide!")
         .max(50, "Maximum 50 caractères!"),
+        .max(50, "Votre email doit comporter 50 caractères au maximum !"),
       password: yup
         .string()
         .required("Mot de passe obligatoire!")

@@ -3,7 +3,9 @@
     <div id="navbar">
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
-          <h1 class="ms-5 header-title">BenApart</h1>
+          
+          <h1 class="ms-5 header-title">ChezVous</h1>
+          
         </router-link>
         <div
           class="header-right justify-content-between align-items-center collapse navbar-collapse"
@@ -75,17 +77,13 @@
                       propriétaire</a
                     >
                   </li>
-                  <li>
-                    <a class="dropdown-item text-black" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i
-                      >Connexion</a
-                    >
+                  <li><router-link to="/login">
+                    <a class="dropdown-item text-black" href="#"><i class="fa-solid fa-arrow-right me-2 arrow"></i>Connexion</a>
+                  </router-link>
+                    
                   </li>
-                  <li>
-                    <a class="dropdown-item last" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
-                      >Inscription</a
-                    >
+                  <li><router-link to="/register"></router-link>
+                    <a class="dropdown-item last" href="#"><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i>Inscription</a>
                   </li>
                   <li>
                     <a class="dropdown-item" href="#"
@@ -120,13 +118,11 @@
       </v-breadcrumbs>
     </div>
     <h1 class="ft-2xl text-center my-3">
-      <b style="font-size: 30px">Trouver un logement partout au Bénin</b>
+      <b style=" font-size: 30px;">Trouver un logement partout au Bénin et soyez chez vous !</b>
     </h1>
     <div class="text-center info-text">
-      <p style="font-size: 18px">
-        BenApart est une plateforme de logement en ligne qui rend la location
-        plus simple et humaine, quelle qu’en soit la durée.
-      </p>
+      <p style="font-size: 18px;" >ChezVous est une plateforme de logement en ligne qui rend la location
+      plus simple et humaine, quelle qu’en soit la durée.</p>
     </div>
     <div :class="[{ onScroll: !view.topOfPage }, 'searchBar_multiple']">
       <div class="Header_placeAutocomplete Header_placeAutocomplete--search">

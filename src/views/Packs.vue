@@ -1,15 +1,18 @@
 <template>
   <WhiteNav></WhiteNav>
   <main>
-    <div class="wrapper mt-5">
-      <h1>Choisissez votre pack</h1>
+    <div class="wrapp">
+      <h1 style="font-weight: bold;">Choisissez votre pack annonces !</h1>
       <div class="container">
         <div class="price-section">
+
           <article class="price-table">
-            <div class="price"><small>$</small>249</div>
+            <div class="price">
+              1,500 <span style="font-size: 20px;">Fcfa</span>
+            </div>
             <span class="title">Basique</span>
             <span class="description"
-              >A single license for solo designers, developers and freelancers.
+              >Pack à 5 annonces
             </span>
             <div class="features">
               <details class="feature">
@@ -28,25 +31,9 @@
                       ></path>
                     </svg>
                   </i>
-                  <span class="name">Free updates</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
+                  <span class="name">Disponibles pendant 25 jours</span>  
                 </summary>
-                <div class="answer">
-                  You will gain access to every future update.
-                </div>
+                 
               </details>
               <details class="feature">
                 <summary>
@@ -64,141 +51,23 @@
                       ></path>
                     </svg>
                   </i>
-                  <span class="name">Use on unlimited projects</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
+                  <span class="name">Analysées et approuvées</span>
+                  
                 </summary>
-                <div class="answer">Create as many projects as you want.</div>
+                
               </details>
-              <details class="feature">
-                <summary>
-                  <i aria-hidden="true" class="checkmark">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
-                      ></path>
-                    </svg>
-                  </i>
-                  <span class="name">Asset Hosting</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
-                </summary>
-                <div class="answer">
-                  Keep your files for easy access and management. 5GB space
-                  included. Scale when necessary.
-                </div>
-              </details>
-              <details class="feature">
-                <summary>
-                  <i aria-hidden="true" class="checkmark">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
-                      ></path>
-                    </svg>
-                  </i>
-                  <span class="name">Community support</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
-                </summary>
-                <div class="answer">
-                  Get help and learn new things in our community Slack with over
-                  5,000 contributors.
-                </div>
-              </details>
-              <details class="feature">
-                <summary>
-                  <i aria-hidden="true" class="checkmark">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
-                      ></path>
-                    </svg>
-                  </i>
-                  <span class="name">Version control</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
-                </summary>
-                <div class="answer">Instant rollbacks to any version</div>
-              </details>
+              <div style="margin-bottom: 125px;"></div>
             </div>
+            
+            <button id="bottone1"><strong>Acheter</strong></button>
           </article>
 
 
           <article class="price-table silver">
-            <div class="price"><small>$</small>249</div>
+            <div class="price">2,500<span style="font-size: 20px;">Fcfa</span></div>
             <span class="title">Argent</span>
-            <span class="description"
-              >A single license for solo designers, developers and freelancers.
+            <span class="description">
+              Pack à 10 annonces
             </span>
             <div class="features">
               <details class="feature">
@@ -217,25 +86,10 @@
                       ></path>
                     </svg>
                   </i>
-                  <span class="name">Free updates</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
+                  <span class="name">Disponible pendant 60 jours</span>
+                  
                 </summary>
-                <div class="answer">
-                  You will gain access to every future update.
-                </div>
+                
               </details>
               <details class="feature">
                 <summary>
@@ -253,23 +107,10 @@
                       ></path>
                     </svg>
                   </i>
-                  <span class="name">Use on unlimited projects</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
+                  <span class="name">Analysées et approuvées</span>
+                  
                 </summary>
-                <div class="answer">Create as many projects as you want.</div>
+                
               </details>
               <details class="feature">
                 <summary>
@@ -287,107 +128,23 @@
                       ></path>
                     </svg>
                   </i>
-                  <span class="name">Asset Hosting</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
+                  <span class="name">Disponible sur les premières pages</span>
+                  
                 </summary>
-                <div class="answer">
-                  Keep your files for easy access and management. 5GB space
-                  included. Scale when necessary.
-                </div>
+                
               </details>
-              <details class="feature">
-                <summary>
-                  <i aria-hidden="true" class="checkmark">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
-                      ></path>
-                    </svg>
-                  </i>
-                  <span class="name">Community support</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
-                </summary>
-                <div class="answer">
-                  Get help and learn new things in our community Slack with over
-                  5,000 contributors.
-                </div>
-              </details>
-              <details class="feature">
-                <summary>
-                  <i aria-hidden="true" class="checkmark">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
-                      ></path>
-                    </svg>
-                  </i>
-                  <span class="name">Version control</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
-                </summary>
-                <div class="answer">Instant rollbacks to any version</div>
-              </details>
+              
             </div>
+            <div style="margin-bottom: 60px;"></div>
+            <button id="bottone1"><strong>Acheter</strong></button>
           </article>
 
 
           <article class="price-table premium">
-            <div class="price"><small>$</small>249</div>
+            <div class="price"> 5,000<span style="font-size: 20px;">Fcfa</span></div>
             <span class="title">Premium</span>
-            <span class="description"
-              >A single license for solo designers, developers and freelancers.
+            <span class="description">
+              Pack à 25 annonces
             </span>
             <div class="features">
               <details class="feature">
@@ -406,25 +163,26 @@
                       ></path>
                     </svg>
                   </i>
-                  <span class="name">Free updates</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                  <span class="name">Disponible pendant 130 jours</span>
+                  
+                </summary>
+                
+              </details>
+              <details class="feature">
+                <summary>
+                  <i aria-hidden="true" class="checkmark">
+                    <svg xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       width="24"
-                      height="24"
-                    >
+                      height="24">
                       <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
+                      <path fill="currentColor" d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                     </svg>
                   </i>
+                  <span class="name">Disponible sur la première page</span>
+                  
                 </summary>
-                <div class="answer">
-                  You will gain access to every future update.
-                </div>
+                
               </details>
               <details class="feature">
                 <summary>
@@ -442,23 +200,10 @@
                       ></path>
                     </svg>
                   </i>
-                  <span class="name">Use on unlimited projects</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
+                  <span class="name">A la tête de la liste des annonces</span>
+                  
                 </summary>
-                <div class="answer">Create as many projects as you want.</div>
+                
               </details>
               <details class="feature">
                 <summary>
@@ -476,107 +221,26 @@
                       ></path>
                     </svg>
                   </i>
-                  <span class="name">Asset Hosting</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
+                  <span class="name">Ananlysées et approuvées</span>
+                  
                 </summary>
-                <div class="answer">
-                  Keep your files for easy access and management. 5GB space
-                  included. Scale when necessary.
-                </div>
+                
               </details>
-              <details class="feature">
-                <summary>
-                  <i aria-hidden="true" class="checkmark">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
-                      ></path>
-                    </svg>
-                  </i>
-                  <span class="name">Community support</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
-                </summary>
-                <div class="answer">
-                  Get help and learn new things in our community Slack with over
-                  5,000 contributors.
-                </div>
-              </details>
-              <details class="feature">
-                <summary>
-                  <i aria-hidden="true" class="checkmark">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"
-                      ></path>
-                    </svg>
-                  </i>
-                  <span class="name">Version control</span>
-                  <i aria-hidden="true" class="question-icon">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path
-                        fill="currentColor"
-                        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-1-5h2v2h-2v-2zm2-1.645V14h-2v-1.5a1 1 0 0 1 1-1 1.5 1.5 0 1 0-1.471-1.794l-1.962-.393A3.501 3.501 0 1 1 13 13.355z"
-                      ></path>
-                    </svg>
-                  </i>
-                </summary>
-                <div class="answer">Instant rollbacks to any version</div>
-              </details>
+              <div style="margin-bottom: 18px;"></div>
+ 
             </div>
+            <button id="bottone1"><strong>Acheter</strong></button>
           </article>
 
         </div>
       </div>
     </div>
   </main>
+
 </template>
+
 <script>
+
 import WhiteNav from "../components/WhiteNav.vue";
 export default {
   name: "Pack",
@@ -590,7 +254,16 @@ export default {
 </script>
 <style scoped>
 /*  */
-
+main/*{
+  background-color:#bfc0ee;
+}*/{
+  background-image: linear-gradient(200deg,rgba(219, 90, 58, 0.336),
+  rgba(230, 73, 34, 0.767),
+                    #7141e249,
+                    #26358b59
+                    );
+                    padding: 10px;
+}
 .price-section {
   color: #fff;
   display: flex;
@@ -609,15 +282,15 @@ export default {
   );
 }
 .price-table.silver{
-    background-color: rgb(122, 48, 143);
+    background-color: rgba(123, 71, 138, 0.205);
   background-image: radial-gradient(
       circle at 0% 0%,
-      rgb(37, 7, 44) 15%,
-      rgba(0, 0, 0, 0) 75%
+      rgba(66, 26, 75, 0.404) 15%,
+      rgba(41, 39, 39, 0) 75%
     ),
     radial-gradient(
       circle at 100% 100%,
-      rgb(25, 2, 31, 0.9) 15%,
+      rgba(45, 9, 54, 0.486) 15%,
       rgba(0, 0, 0, 0) 150%
     ),
     linear-gradient(
@@ -628,9 +301,9 @@ export default {
     );
 }
 .price-table {
-  background-color: #152148;
+  background-color: #152148d7;
   border-radius: 16px;
-  max-width: 355px;
+  max-width: 345px;
   padding: 25px;
   display: flex;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
@@ -642,15 +315,15 @@ export default {
     rgba(74, 222, 128, 0.15),
     rgba(29, 123, 219, 0.1) 20%,
     #152148 40%,
-    #152148 100%
+    #152148e1 100%
   );
 }
 
 
-.price-table:hover {
+.price-table:hover{
   box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
   border-color: #0974f1;
-  transform: translateY(-20px);
+  /*transform: translateY(-20px);*/
 }
 
 
@@ -687,7 +360,7 @@ export default {
 }
 
 .price-table .description {
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-align: center;
   margin-top: 2px;
 }
@@ -695,7 +368,7 @@ export default {
 .features {
   margin-top: 22px;
   text-align: left;
-    padding-left: 30px;
+  padding-left: 30px;
 }
 
 .feature {
@@ -736,7 +409,7 @@ export default {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: #4ade80;
+  background-color: rgb(221, 88, 55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -756,20 +429,7 @@ export default {
   cursor: pointer;
 }
 
-.feature .answer {
-  padding: 12px;
-  background-color: #111b40;
-  border-radius: 6px;
-  position: absolute;
-  top: -12px;
-  z-index: 100;
-  transform: translatey(-100%) translatex(-50%);
-  transform-origin: bottom center;
-  width: 80%;
-  left: 50%;
-  border: 1px solid #293359;
-  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.1);
-}
+
 
 @-webkit-keyframes scale {
   0% {
@@ -789,5 +449,28 @@ export default {
   100% {
     transform: translatey(-100%) translatex(-50%) scale(1);
   }
+}
+/*-----------Bouton-----------------*/
+#bottone1 {
+ padding-left: 33px;
+ padding-right: 33px;
+ padding-bottom: 16px;
+ padding-top: 16px;
+ border-radius: 9px;
+ background: rgba(8, 75, 151, 0.8);
+ border: none;
+ font-family: inherit;
+ text-align: center;
+ cursor: pointer;
+ transition: 0.4s;
+}
+
+#bottone1:hover {
+ box-shadow: 7px 5px 56px -14px rgb(207, 61, 24);
+}
+
+#bottone1:active {
+ transform: scale(0.97);
+ box-shadow: 7px 5px 56px -10px rgb(221, 70, 32);
 }
 </style>
