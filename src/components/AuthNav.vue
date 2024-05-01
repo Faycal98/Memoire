@@ -1,21 +1,22 @@
 <template>
       <div id="navbar">
-      <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg">
         <router-link to="/">
-          <h1 class="ms-5 header-title text-white">BenApart</h1>
+          <h1 class="ms-5 header-title text-white">ChezVous</h1>
         </router-link>
         <div
-          class="header-right justify-content-between align-items-center"
+          class="header-right justify-content-between align-items-center "
           id="navbarSupportedContent"
         >
           <ul class="u-block">
             <li class="link d-block">
-              <router-link to="/" >
-              <p class="drop-text">Retour a l'accueil</p>
+              <router-link to="/">
+                <p class="drop-text">Retour a l'accueil</p>
               </router-link>
+              
             </li>
           </ul>
-         
+          
         </div>
       </nav>
     </div>
