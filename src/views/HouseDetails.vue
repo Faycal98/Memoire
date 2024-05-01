@@ -1,7 +1,8 @@
 <template>
-  <div class="container-fluid">
+  <div class="">
+    <WhiteNav></WhiteNav>
     <div class="gallery-description wrapper mt-4">
-      <Gallery></Gallery>
+      <Gallery :imgArray="galleryImg"></Gallery>
     </div>
     <div class="property-description mt-5 row">
       <div class="col-lg-8">
@@ -111,13 +112,13 @@
               <div class="PropertyPage_sidePrice d-block@s">
                 <p class="ft-2xs ft-medium color-ft-weak">à partir de</p>
                 <p class="ft-3xl line-1">
-                  <b>6720€</b><span class="ft-xs ml-5">/ mois</span>
+                  <b>{{ price }} Fcfa</b><span class="ft-xs ml-2">/ {{ billPeriod }}</span>
                 </p>
                 <div class="ft-xs">Charges comprises</div>
               </div>
             </div>
             <div class="col-lg-6">
-              <h3 class="status">Vente</h3>
+              <h3 class="status">{{ announcePurpose }}</h3>
             </div>
           </div>
 
@@ -243,7 +244,7 @@
               </div>
               <div class="fx-grow pl-10 pr-5">
                 <p class="PropertyPage_userName">
-                  <b>Studelites</b>
+                  <b>{{ announceOwner }}</b>
                 </p>
                 <p class="ft-xs color-ft-weak">
                   <span class="ft-medium ft-sm"
@@ -264,8 +265,8 @@
               <p class="mt-2">
                 <span class="bullet bg-b mr-5"></span> Contacts
               </p>
-              <p class="mt-2"><i class="fa-solid fa-phone"></i> 97864356</p>
-              <p class="mt-2">
+              <p class="mt-2 ms-2"><i class="fa-solid fa-phone"></i> 97864356</p>
+              <p class="mt-2 ms-2">
                 <i class="fa-brands fa-whatsapp me-1"></i>94765215
               </p>
             </div>
@@ -275,12 +276,21 @@
             class="d-flex fx-justify-between fx-align-center b-top bg-bg-xweak p-4 mt-3"
           >
             <div></div>
-            <router-link to="/chat">
+            <router-link
+              :to="{
+                path: '/chat',
+                query: {
+                  current: 'John',
+                  sender: 'wick',
+                  idcurrent: '1234',
+                  idsender: '4321',
+                },
+              }"
+            >
               <button
                 class="ButtonRectangle PropertyPage_contact js-popin-generic-open ButtonRectangle--bordered ButtonRectangle--s"
                 data-id="contact-popup"
                 data-test="contactModal"
-                @click="openChat"
               >
                 <span class="ButtonRectangle_content">
                   <span class="ButtonRectangle_text">
@@ -300,18 +310,37 @@
   </div>
 </template>
 <script>
+import WhiteNav from "../components/WhiteNav.vue";
 import Gallery from "../components/Gallery.vue";
+import axios from "axios";
 export default {
   name: "HouseDetail",
   data() {
     return {
       hidden: true,
       chat: false,
+      galleryImg: [],
+      announceOwner: "",
+      announcePurpose: "",
+      price: "",
+      billPeriod: "",
     };
   },
+  props: {},
   mounted() {
+    const idHouse = this.$route.params.id;
+    axios
+      .get(`http://localhost:8000/api/findOneAccomodation/${idHouse}`)
+      .then(({ data }) => {
+        console.log(data);
+        this.galleryImg = data.images;
+        this.announceOwner = data.announcements[0].user.userFirstName;
+        this.announcePurpose = data.announcePurpose;
+        this.price = data.price;
+        this.billPeriod = data.billPeriod;
+      });
     let desc = this.$refs.description;
-    console.log(desc);
+
     let description = this.$refs.description.innerHTML;
     let result = description.slice(0, 150);
     let end = description.slice(150);
@@ -328,6 +357,7 @@ export default {
   },
   components: {
     Gallery,
+    WhiteNav,
   },
   methods: {
     seeMore() {
@@ -335,22 +365,14 @@ export default {
       let dots = document.querySelector(".dots");
       hiddenSpan.classList.remove("hidden");
       dots.classList.add("hidden");
-      //console.log(span)
       this.hidden = false;
-
-      //console.log(span2,desc)
     },
     seeLess() {
       let hiddenSpan = document.querySelector(".description-text");
-
       let dots = document.querySelector(".dots");
-
       dots.classList.remove("hidden");
-      console.log(dots);
       console.log(hiddenSpan);
       hiddenSpan.classList.add("hidden");
-      // console.log(hiddenSpan)
-      //console.log(span)
       this.hidden = true;
     },
     openChat() {
@@ -375,8 +397,12 @@ export default {
 }
 
 .property-wrapper {
-  margin-top: -90px;
+  margin-top: -18%;
   z-index: 60;
+}
+
+.line-1 {
+  min-width: 230px;
 }
 .ButtonRectangle--bordered {
   background-color: transparent;

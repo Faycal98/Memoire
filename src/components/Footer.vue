@@ -3,7 +3,7 @@
     <div class="Wrapper">
       <div class="Footer_container d-flex flex-wrap">
         <div class="Footer_column col-3 col-6@s col-12@xs">
-          <h4 class="Footer_title">BenApart</h4>
+          <h4 class="Footer_title">ChezVous</h4>
           <span class="Icon mb-20" style="--width: 180px; width: 180px"> </span>
           <ul>
             <li class="Footer_item">

@@ -1,20 +1,22 @@
 <template>
   <div class="sliderCard AccomodationBlock">
     <div class="carrousel-container">
-      <Carrousel @clickEvent="goDetails" :tabImg="imgArray"></Carrousel>
+      <Carrousel @click-event="goToDetails" :tabImg="imgArray"></Carrousel>
     </div>
-    <router-link :to="{ name: 'houseDetails' }">
-      <div class="card-description mt-3">
+
+    <router-link :to="{ name: 'houseDetails', params: { id: appartId } }">
+      <div class="card-description mt-1">
         <div class="AccomodationBlock_contentContainer">
           <div class="d-flex">
             <div class="AccomodationBlock_contentLeft">
               <div class="text-start">
                 <p class="pt-2 mb-0">
                   <!---->
-                Appartement 
+                  {{ accomodationDetail.type }}
                 </p>
                 <p class="AccomodationBlock_title mb-2 fw-bold ellipsis-2">
-                  UXCO Le 124
+                  {{ accomodationDetail.city }},
+                  {{ accomodationDetail.neighborhood }}
                 </p>
               </div>
             </div>
@@ -22,9 +24,12 @@
               <div>
                 <p class="line-1">à partir de</p>
                 <p class="ft-l mb-0 ft-m@s">
-                  <b>15000Fcfa</b>
+                  <b
+                    >{{ accomodationDetail.price }}
+                    <span class="ft-2xs unit">FCFA</span></b
+                  >
                 </p>
-                <p class="line-1">/ mois</p>
+                <p class="line-1">/ {{ accomodationDetail.billPeriod }}</p>
               </div>
             </div>
           </div>
@@ -32,8 +37,10 @@
           <div class="AccomodationBlock_location text-start mb-3">
             Meublé - Salle de sport
           </div>
-          <div class="ellipsis-2 text-start color-ft-weak">
-            Ouverture Janvier 2023 La résidence Ecla Paris Villejuif a été
+          <div
+            class="ellipsis-2 wrapper-description-full text-start color-ft-weak"
+          >
+            {{ accomodationDetail.description }}
           </div>
         </div>
 
@@ -42,7 +49,7 @@
           data-margin-top="30"
           class="AccomodationBlock_ctas"
         >
-          <p class="AccomodationBlock_availability">
+          <p class="AccomodationBlock_availability mb-0">
             <span class="AccomodationBlock_notif is-active"></span>
             <b class="fw-bolder me-5">Disponible immédiatement</b>
           </p>
@@ -57,22 +64,7 @@ import Carrousel from "./CardSlider.vue";
 export default {
   name: "CardVue",
   data() {
-    return {
-      carrouselTab: [
-        {
-          src: "cotonou-room.jpg",
-          name: "Cotonou",
-        },
-        {
-          src: "cotonou-room.jpg",
-          name: "Calavi",
-        },
-        {
-          src: "cotonou-room.jpg",
-          name: "Calavi",
-        },
-      ],
-    };
+    return {};
   },
   components: {
     Carrousel,
@@ -84,11 +76,15 @@ export default {
     appartId: {
       type: Number,
     },
+    accomodationDetail: {
+      type: Object,
+    },
   },
   methods: {
-    goDetails(){
-      this.$router.push("/")
-    }
+    goToDetails() {
+      console.log("clicked");
+      this.$router.push({ name: "houseDetails", params: { id: this.appartId } });
+    },
   },
 };
 </script>
@@ -97,6 +93,17 @@ export default {
   width: 310px;
 }
 
+.wrapper-description-full {
+  max-height: 50px;
+  overflow: hidden;
+}
+.ft-2xs.unit {
+  color: #353535;
+}
+.carrousel-container {
+  height: 218px !important;
+  overflow: hidden;
+}
 .sliderCard .carousel__pagination-button::after {
   display: block;
   content: "";

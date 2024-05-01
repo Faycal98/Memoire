@@ -2,15 +2,20 @@
     <div id="navbar">
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <a data-v-9c6758da href="/">
-      <h1 class="ms-5 header-title"><strong>B</strong>en<span id="letter"><strong>A</strong></span>part</h1>
+      <h1 class="ms-5 header-title"><strong>C</strong>hez<span id="letter"><strong>V</strong></span>ous</h1>
     </a>
       <div
         class="header-right justify-content-end align-items-center collapse navbar-collapse" id="navbarSupportedContent">
         <ul>
-          <li class="link">Me connecter</li>
-          <a data-v-9c6758da href="/">
+          <router-link to="/login">
+            <li class="link">Me connecter</li>
+          </router-link>
+          <router-link to="/">
+            <a data-v-9c6758da href="">
           <li class="link links">Je suis locataire</li>
         </a>
+          </router-link>
+          
         </ul>
       </div>
     </nav>
@@ -21,15 +26,15 @@
         <h1 class="color">METTRE SON LOGEMENT EN LOCATION !</h1>
       </div>
       <div class="head-child2">
-        <h3 class="color">Une expérience locative simple et humaine ! <br>BenApart est une
+        <h3 class="color">Une expérience locative simple et humaine ! <br>ChezVous est une
          plateforme de réservation d'appartement, de chambre et de maison a louer en 
          ligne qui rend la location plus simple et humaine.</h3>
       </div>
       <div class="head-child3">
-        <a href="#" class="annonce" style=" color: #fff !important;"> Déposer mon annonce </a>
+        <a href="/annonce" class="annonce" style=" color: #fff !important;"> Déposer mon annonce </a>
       </div>
       <div class="head-child4">
-        <h2 style="color: #fff;">Louer avec <span class="sigle">BenApart</span>, c’est protéger gratuitement votre logement et vos loyers!</h2>
+        <h2 style="color: #fff;">Louer avec <router-link to="/"><span class="sigle">ChezVous</span></router-link>, c’est protéger gratuitement votre logement et vos loyers!</h2>
       </div>
        
     </div>
@@ -40,7 +45,7 @@
                <div class="rower">
                   <div class="coll">
                      <i class="fa-solid fa-house-laptop"></i>
-                     <h4>1ere plateforme de location au Bénin !</h4>
+                     <h4>1ère plateforme de location vous permettant d'être chez vous !</h4>
                   </div>
                   <div class="coll">
                     <i class="fa-solid fa-house-lock"></i>
@@ -55,9 +60,9 @@
             </div>
         </div>
     <section class="wrapper" style="margin: -13px 0;">
-      <div class="container">
+      <div class="contai">
         
-        <h1 class="color">Chez BenApart, comment ça marche ?</h1>
+        <h1 class="color">Chez ChezVous, comment ça marche ?</h1>
         <h3 class="etapes">4 étapes et votre logement est loué !</h3>
       </div>
 
@@ -74,20 +79,20 @@
                     <div class="etape-content">
                         <div class="content">
                             <div class="year"> <h3>Je reçois des demandes</h3></div>                      
-                              <h4 class="color">Adaptées à vos critères : date d’entrée, accès aux dossiers des locataires en un clic.</h4>
+                              <h4 class="color">Adaptées à vos critères : vous pouvez communiquer avce vos directement sur la plateforme.</h4>
                         </div>
                     </div>
                     <div class="etape-content">
                         <div class="content">
                             <div class="year"> <h3>Je fais visiter mon logement </h3></div>                     
-                            <h4 class="color">En physique avec le loueur apres la fixation d'un rendez-vous.</h4>   
+                            <h4 class="color">En physique avec le locataire apres la fixation d'un rendez-vous via la communication par messagerie.</h4>   
                         </div>
                     </div>
                     <div class="etape-content">
                         <div class="content">
                             <div class="year"> <h3>Je finalise la réservation</h3> 
                             </div>
-                            <h4 class="color" >Le locataire réserve apres avoir éffectuer son choix sur la plateforme.</h4>   
+                            <h4 class="color" >Le locataire réserve apres avoir éffectuer son choix  sur la plateforme.</h4>   
                         </div>
                     </div>
                 </div>
@@ -128,7 +133,7 @@ export default {
 
 };
 </script>
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
 
 * {
@@ -225,7 +230,7 @@ nav {
     background-repeat: no-repeat;
 }
 .head-child{
-  margin: 52px;
+  margin: 0px;
   margin-bottom: 97px;
 }
 .head-child1{
@@ -236,6 +241,9 @@ nav {
 }
 .head-child3{
   margin-top: 30px;
+}
+.head-child4{
+
 }
 
 .head-child3 a{
@@ -252,7 +260,7 @@ nav {
   transition: all  0.3s ease-in-out;
 }
 .head-child3 a:hover{
-  background: rgb(196, 79, 50);
+  background: rgb(109, 39, 21);
 }
 
 .wrappe-3 img{

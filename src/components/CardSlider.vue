@@ -4,14 +4,15 @@
       :wrap-around="true"
 
     >
-      <Slide v-for="slide in tabImg" :key="slide">
+      <Slide v-for="image in tabImg" :key="image">
         <div class="carousel__item">
           <img 
           @click="clickImg"
             class="carrou_img"
-            :src="require(`@/assets/${slide.src}`)"
+            :src="require(`../../../backend_app/uploads/${image}`)"
             width="100%"
-            height="100%"
+            height="218px"
+          
           />
         </div>
       </Slide>
@@ -48,8 +49,13 @@ export default defineComponent({
   data() {
     return {
       clicked: false,
+      tab:[],
+      img: "images.jpg"
     };
   },
+
+
+
   methods: {
     handleInit() {
       console.log("created");
@@ -61,10 +67,12 @@ export default defineComponent({
       }, 1300);
       console.log("slide-start", data);
     }, */
-    clickImg(){
-      console.log('5fkfk');
-
-      this.$emit("clickEvent")
+    clickImg(e){
+      console.log(e.target);
+      if(e.target){
+        this.$emit("clickEvent")
+      }
+    
     }
   },
 });
@@ -111,7 +119,7 @@ export default defineComponent({
 }
 .carousel__item {
   min-height: 200px;
-  width: fit-content;
+  width: 100%;
   color: #ffffff;
   font-size: 20px;
   border-radius: 8px;
@@ -130,6 +138,7 @@ export default defineComponent({
 }
 .carousel__slide {
   padding: 0px;
+  overflow: hidden;
 }
 
 .carrousel_slider .carousel:hover .carousel__prev,
@@ -159,7 +168,6 @@ export default defineComponent({
   border-radius: 50%;
 
 }
-
 .carousel__pagination-button--active:after {
   background-color: black;
 }

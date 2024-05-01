@@ -8,11 +8,13 @@
     <div class="d-flex flex-row justify-content-center">
       <div class="p-2 mb-2 img-container">
         <a href="#" class="Homepage_city ctn">
-          <h4 class="Homepage_cityTitle boost boost-xl"><span>Cotonou</span></h4>
+          <h4 class="Homepage_cityTitle boost boost-xl">
+            <span>Cotonou</span>
+          </h4>
         </a>
       </div>
 
-      <div class="p-2 mb-2 img-container ">
+      <div class="p-2 mb-2 img-container">
         <a href="#" class="Homepage_city calavi">
           <h4 class="Homepage_cityTitle boost boost-xl"><span>Calavi</span></h4>
         </a>
@@ -20,7 +22,9 @@
 
       <div class="p-2 mb-2 img-container">
         <a href="#" class="Homepage_city porto">
-          <h4 class="Homepage_cityTitle boost boost-xl"><span>Porto-Novo</span></h4>
+          <h4 class="Homepage_cityTitle boost boost-xl">
+            <span>Porto-Novo</span>
+          </h4>
         </a>
       </div>
 
@@ -32,13 +36,17 @@
 
       <div class="p-2 mb-2 img-container">
         <a href="#" class="Homepage_city malanville">
-          <h4 class="Homepage_cityTitle boost boost-xl"><span>Malaville</span></h4>
+          <h4 class="Homepage_cityTitle boost boost-xl">
+            <span>Malaville</span>
+          </h4>
         </a>
       </div>
 
       <div class="p-2 mb-2 img-container">
         <a href="#" class="Homepage_city parakou">
-          <h4 class="Homepage_cityTitle boost boost-xl"><span>Parakou</span></h4>
+          <h4 class="Homepage_cityTitle boost boost-xl">
+            <span>Parakou</span>
+          </h4>
         </a>
       </div>
 
@@ -55,17 +63,19 @@
       </div>
     </div>
     <router-link to="/logements">
-    <ButtonGreen
-      class="text-center"
-      :content="' Voir d\'autres villes '"
-    ></ButtonGreen>
-  </router-link>
+      <ButtonGreen
+        class="text-center"
+        :content="' Voir d\'autres villes '"
+      ></ButtonGreen>
+    </router-link>
   </div>
   <HomepageStep></HomepageStep>
   <div class="Homepage_ads bg-bg-light">
     <div class="Wrapper Wrapper--m pv-60 pt-60@xs pb-40@xs">
       <h2 class="max-width-s m-auto text-center">
-        <b class="ft-2xl ft-bold color-ft-strong">Quelques de nos meilleurs appartements et locations</b>
+        <b class="ft-2xl ft-bold color-ft-strong"
+          >Quelques de nos meilleurs appartements et locations</b
+        >
       </h2>
     </div>
   </div>
@@ -77,11 +87,12 @@
   <Footer></Footer>
 </template>
 <script>
+import axios from "axios";
 import ButtonGreen from "@/components/ButtonGreen.vue";
 import Carrousel from "../components/Carrousel.vue";
 import HomepageStep from "../components/HomepageStep.vue";
 import HomePageHeader from "../components/HomePageHeader.vue";
-import AccordionAnnonce from "../components/AccordionAnnonce.vue"
+import AccordionAnnonce from "../components/AccordionAnnonce.vue";
 
 import Footer from "../components/Footer.vue";
 export default {
@@ -93,6 +104,25 @@ export default {
     Footer,
     HomepageStep,
   },
+  mounted() {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+
+    if (userData) {
+      axios
+        .get("http://localhost:8000/api/user", {
+          headers: {
+            "x-access-token": userData.accessToken,
+          },
+        })
+        .then((data) => {
+          console.log(data);
+          this.$store.dispatch("login", JSON.stringify(userData));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  },
   data() {
     return {
       carrouselTab: [
@@ -103,12 +133,13 @@ export default {
         {
           src: "cotonou-room.jpg",
           name: "Calavi",
-        },  
+        },
         {
           src: "cotonou-room.jpg",
-          name: "Calavi",
+          name: "Ouidah",
         },
       ],
+      userInfo: null,
     };
   },
   methods: {
@@ -133,7 +164,6 @@ nav {
 .strong-blue {
   color: #36417d;
 }
-
 
 .Homepage_city {
   display: block;
@@ -164,11 +194,11 @@ nav {
   color: #353535;
 }
 
-.homepage-carrousel-container{
+.homepage-carrousel-container {
   min-height: 370px;
 }
-.Homepage_city:hover::after{
- content: "";
+.Homepage_city:hover::after {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -258,7 +288,6 @@ nav {
   font-size: 20px;
 }
 
-
 a {
   background-color: transparent;
   text-decoration: none;
@@ -299,8 +328,8 @@ a {
   color: #36417d;
 }
 .justify-content-center {
-    justify-content: center!important;
-    flex-wrap: wrap;
+  justify-content: center !important;
+  flex-wrap: wrap;
 }
 .wrapper-city {
   width: 70%;

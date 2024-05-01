@@ -1,7 +1,12 @@
 <template>
   <div id="navbar">
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
-     <router-link to="/"> <h1 class="ms-5 header-title"><strong>B</strong>en<span id="letter"><strong>A</strong></span>part</h1></router-link>
+      <router-link to="/">
+        <h1 class="ms-5 header-title">
+          <strong style="color:rgb(221, 88, 55) ;">C</strong>hez<span id="letter"><strong>V</strong></span
+          >ous
+        </h1></router-link
+      >
       <button
         class="navbar-toggler"
         type="button"
@@ -9,7 +14,8 @@
         data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
-        aria-label="Toggle navigation">
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -18,8 +24,10 @@
         id="navbarSupportedContent"
       >
         <ul>
-          <li class="link"><a href="/logements">Trouver un logement</a></li>
-          <li class="link d-block">
+          <router-link to="/logements">
+            <li class="link">Trouver un logement</li>
+          </router-link>
+          <li class="link d-block" v-if="!userInitials">
             <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
             <div class="list">
               <ul>
@@ -31,7 +39,11 @@
               </ul>
             </div>
           </li>
-          <li class="link d-block">
+          <router-link v-else to="/annonce">
+            <li class="link">Deposer une annonce</li>
+          </router-link>
+
+          <li class="link d-block" v-if="!userInitials">
             <p class="drop-text dropdown-toggle">Je suis propriétaire</p>
             <div class="list">
               <ul>
@@ -46,11 +58,43 @@
         </ul>
 
         <div class="Header_buttons ms-3">
-          
-          <button type="button" class="btn btn-outline-light account-btn">
-            <a href="#"> Mon compte</a>
-          </button>
-        
+          <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
+            <ul class="sub-list d-block">
+              <li>
+                <a class="dropdown-item" href="#"
+                  ><i class="fa-solid fa-user me-2 pt-2"></i>Voir le profil</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item text-black" href="#"
+                  ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
+                  annonces</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item text-black" @click="logout" href="#"
+                  ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Se
+                  deconnecter</a
+                >
+              </li>
+
+              <li>
+                <a class="dropdown-item last" href="#"
+                  ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
+                  contacter</a
+                >
+              </li>
+            </ul>
+          </div>
+          <v-avatar color="brown" @click="hide = !hide" v-if="userInitials">
+            <span class="text-h7 avatar">{{ userInitials }}</span>
+          </v-avatar>
+
+          <router-link to="/login" v-else>
+            <button type="button" class="btn btn-outline-light account-btn">
+              Mon compte
+            </button>
+          </router-link>
         </div>
       </div>
     </nav>
@@ -63,14 +107,39 @@
   padding: 0;
   margin: 0;
 }
-#letter{
-  color: rgb(221, 88, 55);;
+#letter {
+  color: rgb(221, 88, 55);
 }
 .link {
   display: flex;
   align-items: center;
   padding: 15px;
   position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.sub-menu {
+  right: 2%;
+  top: 100%;
+  background: white;
+}
+
+.sub-menu::after {
+  content: "";
+  position: absolute;
+  right: 9%;
+  bottom: 100%;
+  border-width: 9px;
+
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+.sub-menu ul {
+  margin-left: 0 !important;
 }
 .list {
   position: absolute;
@@ -90,7 +159,7 @@
   font-size: 35px;
 }
 .dropdown-item {
-  color: #36417d!important;
+  color: #36417d !important;
   font-weight: 400;
   border-bottom: 1px solid #f3f3ff;
   transition: background-color 5ms;
@@ -104,7 +173,7 @@
   background-color: #6a73ad;
   text-decoration: none;
 
-  color: inherit;
+  color: white !important;
 }
 .Header_navList {
   position: absolute;
@@ -124,6 +193,10 @@
 .link:hover .list,
 .link:hover .list li {
   display: block;
+}
+
+.avatar {
+  cursor: pointer;
 }
 nav {
   font-family: "Metrophobic", sans-serif;
@@ -156,14 +229,14 @@ nav {
       background-color: rgb(221, 88, 55);
     }
     .account-btn:hover {
-     color: white;
+      color: white;
     }
   }
 
   ul {
     margin-left: 3em;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     li {
       cursor: pointer;
       font-weight: 300;
@@ -183,11 +256,27 @@ export default {
         topOfPage: true,
       },
       red: "red",
+      userInitials: "",
+      hide: true,
+      userData: "",
+      showHidden: false,
     };
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
   },
+  mounted() {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+
+    if (userData) {
+      const userInitials =
+        userData.userName.charAt(0).toUpperCase() +
+        userData.userFirstName.charAt(0).toUpperCase();
+      this.userInitials = userInitials;
+      console.log(userInitials);
+    }
+  },
+
   methods: {
     handleScroll() {
       if (window.pageYOffset > 0) {
@@ -195,6 +284,10 @@ export default {
       } else {
         if (!this.view.topOfPage) this.view.topOfPage = true;
       }
+    },
+    logout() {
+      this.$store.dispatch("logout");
+      window.location.reload();
     },
   },
 };

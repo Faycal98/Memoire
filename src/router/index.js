@@ -1,99 +1,136 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import redirect from "./redirect";
+import store from "../store";
 const routes = [
   {
-    path: '/',
-    name: 'home',
+    path: "/",
+    name: "homed",
     meta: {
       guestGuard: true,
     },
-    component: HomeView
+    component: HomeView,
   },
   {
-    path: '/about',
-    name: 'about',
+    path: "/about",
+    name: "about",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
-    path: '/logements',
-    name: 'logements',
+    path: "/logements",
+    name: "logements",
     meta: {
       guestGuard: true,
     },
-    component:  () => import('../views/HouseView.vue')
+    component: () => import("../views/HouseView.vue"),
   },
   {
-    path: '/houseDetails',
-    name: 'houseDetails',
+    path: "/houseDetails/:id",
+    name: "houseDetails",
     meta: {
       guestGuard: true,
     },
-    component:  () => import('../views/HouseDetails.vue')
+    component: () => import("../views/HouseDetails.vue"),
   },
   {
-    path: '/howitwork',
-    name: 'howitwork',
+    path: "/howitwork",
+    name: "howitwork",
     meta: {
       guestGuard: true,
     },
-    component:  () => import('../views/Commentcamarche.vue')
+    component: () => import("../views/Commentcamarche.vue"),
   },
   {
-    path: '/chat',
+    path: "/chat",
     meta: {
       guestGuard: true,
     },
-    component:  () => import('../components/AdvancedChat.vue')
-  },{
-    path: '/login',
-    name: 'login',
-    meta: {
-      guestGuard: true,
-    },
-    component:  () => import('../views/connexion_p.vue')
+    component: () => import("../components/AdvancedChat.vue"),
   },
   {
-    path: '/logins',
-    name: 'logins',
+    path: "/chat2",
     meta: {
       guestGuard: true,
     },
-    component:  () => import('../views/connexion_d.vue')
+    component: () => import("../components/Chat2.vue"),
+  },
+
+  {
+    path: "/login2",
+    name: "login",
+    meta: {
+      guestGuard: true,
+    },
+    component: () => import("../views/connexion_p.vue"),
   },
   {
-    path: '/connect',
-    name: 'connect',
+    path: "/login3",
+    name: "login3",
     meta: {
       guestGuard: true,
     },
-    component:  () => import('../views/inscription_p.vue')
-  },
-  {
-    path: '/connects',
-    name: 'connects',
-    meta: {
-      guestGuard: true,
-    },
-    component:  () => import('../views/inscription_d.vue')
-  },
-  {
-    path: '/annonce',
-    name: 'annonce',
-    meta: {
-      guestGuard: true,
-    },
-    component:  () => import('../views/Annonce.vue')
+    component: () => import("../components/Form.vue"),
   },
   
-]
+ 
+
+  {
+    path: "/login",
+    name: "login",
+    meta: {
+      guestGuard: true,
+    },
+    component: () => import("../views/Login.vue"),
+    beforeEnter: redirect,
+  },
+
+  {
+    path: "/register",
+    name: "register",
+    meta: {
+      guestGuard: true,
+    },
+    component: () => import("../views/Register.vue"),
+    beforeEnter: redirect,
+  },
+
+  {
+    path: "/packs",
+    name: "packs",
+
+    component: () => import("../views/Packs.vue"),
+  },
+  {
+    path: "/annonce",
+    name: "annonce",
+    meta: { requiresAuth: true },
+    component: () => import("../views/Annonce.vue"),
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 };
+  },
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+    if (store.state.isAuth) {
+      console.log("here");
+      next();
+    } else {
+      next({ name: "login" });
+    }
+  } else {
+    next();
+  }
+});
+
+export default router;

@@ -1,34 +1,37 @@
 <template>
   <header>
     <div id="navbar">
-      <nav class="navbar navbar-expand-lg">
+      <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
         <router-link to="/">
-          
           <h1 class="ms-5 header-title">ChezVous</h1>
-          
         </router-link>
-        <div class="header-right justify-content-between align-items-center collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          class="header-right justify-content-between align-items-center collapse navbar-collapse"
+          id="navbarSupportedContent"
+        >
           <ul>
             <li class="link d-block">
               <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
-
               <div class="list">
                 <ul>
                   <li>
                     <router-link to="/annonce">
-                      <a class="dropdown-item" href="">Deposer une annonce</a>
+                      <a class="dropdown-item" href="#">Deposer une annonce</a>
                     </router-link>
                     
                   </li>
                   <li>
                     <router-link to="/howitwork">
-                      <a class="dropdown-item" href="">Comment ça marche</a>
-                    </router-link>                   
+                      <a class="dropdown-item" href="#">Comment ça marche</a>
+                    </router-link>
+                    
                   </li>
-                  
-                  <li>
-                    <router-link to="/howitwork"><a class="dropdown-item" href="/login">Me connecter</a></router-link>
-                    </li>
+
+                  <li><router-link to="/login">
+                    <a class="dropdown-item" href="#">Me connecter</a>
+                  </router-link>
+                    
+                  </li>
                 </ul>
               </div>
             </li>
@@ -37,12 +40,19 @@
               <div class="list">
                 <ul>
                   <li>
-                    <a class="dropdown-item" href="/annonce">Deposer une annonce</a>
+                    <a class="dropdown-item" href="#">Deposer une annonce</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/howitwork">Comment ça marche</a>
+                    <router-link to="/howitwork">
+                      <a class="dropdown-item" href="#">Comment ça marche</a>
+                    </router-link>
+                    
                   </li>
-                  <li><a class="dropdown-item" href="/login">Me connecter</a></li>
+                  
+                  <li>
+                    <router-link to="/login">
+                      <a class="dropdown-item" href="#">Me connecter</a>
+                    </router-link></li>
                 </ul>
               </div>
             </li>
@@ -52,7 +62,7 @@
             <button
               type="button"
               @click="warnClicked"
-              class="btn btn-outline-light account-btn p-2"
+              class="btn btn-outline-light account-btn"
             >
               Menu
               <i class="fa-solid fa-bars"></i>
@@ -66,24 +76,33 @@
                       propriétaire</a
                     >
                   </li>
-                  <li><router-link to="/login">
-                    <a class="dropdown-item text-black" href="#"><i class="fa-solid fa-arrow-right me-2 arrow"></i>Connexion</a>
-                  </router-link>
+                  <li>
+                    <router-link to="/login">
+                      <a class="dropdown-item text-black" href="#">
+                        <i class="fa-solid fa-arrow-right me-2 arrow"></i>Connexion</a>
+                    </router-link>
                     
                   </li>
-                  <li><router-link to="/register"></router-link>
-                    <a class="dropdown-item last" href="#"><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i>Inscription</a>
+                  <li>
+                    <a class="dropdown-item last" href="#"
+                      ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
+                      >Inscription</a
+                    >
                   </li>
                   <li>
                     <a class="dropdown-item" href="#"
-                      ><i class="fa-regular fa-circle-question me-2"></i>
-                      Aide et accompagnement</a
+                      ><i class="fa-regular fa-circle-question me-2"></i> Aide
+                      et accompagnement</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item last" href="/howitwork"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment ça marche ?</a
+                    <router-link to="/howitwork">
+                      <a class="dropdown-item last" href="#"
+                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment
+                      ça marche ?</a
                     >
+                    </router-link>
+                    
                   </li>
                   <li>
                     <a class="dropdown-item last" href="#"
@@ -97,104 +116,6 @@
           </div>
         </div>
       </nav>
-    </div>
-    <div class="SearchPage_bread mb-40">
-      <v-breadcrumbs :items="items">
-      <template v-slot:divider>
-        <v-icon icon="mdi-forward"></v-icon>
-      </template>
-    </v-breadcrumbs>
-    </div>
-    <h1 class="ft-2xl text-center my-3">
-      <b style=" font-size: 30px;">Trouver un logement partout au Bénin et soyez chez vous !</b>
-    </h1>
-    <div class="text-center info-text">
-      <p style="font-size: 18px;" >ChezVous est une plateforme de logement en ligne qui rend la location
-      plus simple et humaine, quelle qu’en soit la durée.</p>
-    </div>
-    <div :class="[{ onScroll: !view.topOfPage }, 'searchBar_multiple']">
-      <div class="Header_placeAutocomplete Header_placeAutocomplete--search">
-        <div class="LocationPlaceholder_search">
-          <i class="fa-solid fa-magnifying-glass strong-blue"></i>
-          <input
-            type="text"
-            class="LocationPlaceholder_input"
-            placeholder="Où souhaitez-vous habiter ? Ville..."
-          />
-        </div>
-      </div>
-      <div class="ButtonFilter_Budget SearchOptions_filter position-relative">
-        <div class="ButtonRectangle">
-          <button class="no-border-btn" @click="openPopup">
-            Votre budget <i class="ms-3 fa-solid fa-chevron-down"></i>
-          </button>
-        </div>
-
-        <div v-if="isOpen" class="ButtonFilter_popin position-absolute">
-          <div class="close-btn position-absolute" @click="openPopup">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-          <div class="pt-5 pb-4 px-3 pop-container flex-column">
-            <div class="row budget gx-5">
-              <div class="col">
-                <div class="InputNumber" type="number">
-                  <div
-                    class="InputNumber_panel Form_widget js-validator is-value is-init"
-                  >
-                    <label class="Form_label">Budget min.</label>
-                    <input
-                      type="number"
-                      min="4000"
-                      v-model="minBudget"
-                      max="20000000"
-                      id="numberId"
-                      placeholder=""
-                      name=""
-                      step="any"
-                      class="Input"
-                    />
-                    <!---->
-                  </div>
-                  <!---->
-                  <!---->
-                </div>
-              </div>
-              <div class="col">
-                <div class="InputNumber" type="number">
-                  <div
-                    class="InputNumber_panel Form_widget js-validator is-value is-init"
-                  >
-                    <label class="Form_label">Budget max.</label>
-                    <input
-                      type="number"
-                      min="4000"
-                      v-model="maxBudget"
-                      max="20000000"
-                      id="numberId"
-                      placeholder=""
-                      name=""
-                      step="any"
-                      class="Input"
-                    />
-                    <!---->
-                  </div>
-                  <!---->
-                  <!---->
-                </div>
-              </div>
-            </div>
-            <div
-              class="ButtonFilter_actions w-100 d-flex align-items-center justify-content-between"
-            >
-              <div>Effacer</div>
-              <ButtonGreen
-                class="searchpage"
-                :content="'Appliquer'"
-              ></ButtonGreen>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </header>
 </template>
@@ -210,8 +131,8 @@ export default {
         topOfPage: true,
       },
       red: "red",
-      minBudget: 4000,
-      maxBudget: 20000000,
+      minBudget: 1,
+      maxBudget: 700000,
       disabled: false,
       isOpen: false,
       carrouselTab: [
@@ -227,19 +148,6 @@ export default {
           src: "cotonou-room.jpg",
           name: "Calavi",
         },
-      ],
-      items: [
-        {
-          title: 'Accueil',
-          disabled: false,
-          href: '/',
-        },
-        {
-          title: 'Logements',
-          disabled: false,
-          href: 'logements',
-        },
-     
       ],
     };
   },
@@ -258,7 +166,7 @@ export default {
       this.isOpen = !this.isOpen;
     },
     handleScroll() {
-      if (window.pageYOffset > 100) {
+      if (window.pageYOffset > 10) {
         if (this.view.topOfPage) this.view.topOfPage = false;
       } else {
         if (!this.view.topOfPage) this.view.topOfPage = true;
@@ -267,7 +175,7 @@ export default {
   },
 };
 </script>
-<style scoped >
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
 
 * {
@@ -303,45 +211,6 @@ header {
 
 .searchpage {
   margin-top: 0px;
-}
-.ButtonFilter_actions {
-  align-items: center;
-  background-color: #f8f8ff;
-  border-top: 1px solid #ededff;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 10px 10px 20px;
-}
-
-.InputNumber_panel input {
-  border: none !important;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-  flex-grow: 1;
-  min-height: 45px;
-  min-width: 60px;
-  border-radius: 4px;
-  color: var(--color-ft);
-  display: flex;
-  font: var(--ft-m);
-  background-color: #f8f8ff;
-  height: auto;
-  outline: 0;
-  padding: 10px 30px 10px 12px;
-  position: relative;
-  transition: background-color 0.15s, border-color 0.15s;
-  width: 100%;
-}
-.InputNumber_panel {
-  align-items: center;
-  background-color: #f8f8ff;
-  border: 1px solid #ededff;
-  /* border-radius: 4px; */
-  display: flex;
-}
-
-.Form_widget {
-  position: relative;
 }
 
 .is-focused .Form_label,
@@ -478,17 +347,19 @@ header {
 .onScroll {
   position: fixed;
   top: 9%;
-  padding-bottom: 20px;
+ 
   background-color: #36417d;
 }
 h1.header-title {
   font-size: 27px;
+  margin-top: 3px;
   margin-bottom: 10px;
 }
 .navbar {
   position: fixed;
-  border-bottom: 0.5px solid hsla(0, 0%, 100%, 0.3);
 
+  height: 60px;
+  align-items: center;
   top: 0;
 }
 .v-enter-from,
@@ -512,7 +383,7 @@ h1.header-title {
   opacity: 1;
 }
 .navbar {
-  background-color: #36417d;
+  background-color: white;
 }
 
 .sub-list {
@@ -520,8 +391,8 @@ h1.header-title {
 }
 
 header {
-  background-color: #36417d;
-  min-height: 300px;
+  background-color: white;
+  min-height: 60px;
   display: flex;
   color: white;
   flex-direction: column;
@@ -555,7 +426,6 @@ header {
 .list {
   position: absolute;
   display: block;
-  color: red;
   transition: ease-in-out 1s;
   background: white;
   margin-top: 10px;
@@ -566,8 +436,15 @@ header {
   display: none;
 }
 .header-title {
-  color: white;
+  color: black;
   font-size: 35px;
+}
+
+.btn {
+  color: black;
+  border: 1px solid #ededff;
+  padding: 10px 15px;
+  border-radius: 10px;
 }
 
 .dropdown-item.last {
@@ -636,12 +513,10 @@ nav {
     .header-title {
       color: #36417d;
     }
-    .account-btn {
-      background-color: #3c9;
+    .navbar {
+      box-shadow: 0 3px 6px 0 rgba(69, 97, 251, 0.12);
     }
-    .account-btn:hover {
-      color: white;
-    }
+  
   }
 
   ul {
@@ -652,9 +527,9 @@ nav {
     li {
       cursor: pointer;
       font-weight: 300;
-      color: white;
-      list-style-type: none;
 
+      list-style-type: none;
+      color: black;
     }
   }
 }
