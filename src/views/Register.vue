@@ -206,8 +206,8 @@ export default {
 
               const userData = data.data;
 
-              this.$store.dispatch("login", JSON.stringify(userData));
-              this.$router.push("/");
+              this.$store.dispatch("login", userData);
+              this.$router.push("/owner");
             })
             .then(() => {
               (this.username = ""),

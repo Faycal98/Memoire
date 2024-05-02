@@ -84,7 +84,7 @@
             <ul class="sub-list d-block">
               <li>
                 <a class="dropdown-item" href="#"
-                  ><i class="fa-solid fa-user me-2 pt-2"></i>Voir le profil</a
+                  ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon profil</a
                 >
               </li>
               <li>

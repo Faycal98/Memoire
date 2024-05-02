@@ -93,8 +93,8 @@ components:{
           this.userMailOrPhone = "";
           this.password = "";
           const userData = data.data;
-          this.$store.dispatch("login", JSON.stringify(userData));
-          this.$router.push("/");
+          this.$store.dispatch("login", userData);
+          this.$router.push("/owner");
         })
         .catch((err) => {
           this.errorMsg = err.response.data.message;

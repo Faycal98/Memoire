@@ -105,6 +105,12 @@ const routes = [
     component: () => import("../views/Packs.vue"),
   },
   {
+    path: "/owner",
+    name: "owner",
+    meta: { requiresAuth: true },
+    component: () => import("../views/Owner.vue"),
+  },
+  {
     path: "/annonce",
     name: "annonce",
     meta: { requiresAuth: true },
@@ -122,7 +128,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
-    if (store.state.isAuth) {
+    if (store.state.isLogged) {
       console.log("here");
       next();
     } else {

@@ -106,23 +106,8 @@ export default {
     HomepageStep,
   },
   mounted() {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-
-    if (userData) {
-      axios
-        .get("http://localhost:8000/api/user", {
-          headers: {
-            "x-access-token": userData.accessToken,
-          },
-        })
-        .then((data) => {
-          console.log(data);
-          this.$store.dispatch("login", JSON.stringify(userData));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    console.log("homeview")
+   
   },
   data() {
     return {
