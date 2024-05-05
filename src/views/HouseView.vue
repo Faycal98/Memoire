@@ -291,6 +291,7 @@ export default {
       buy:true,
       maxBudget: 700000,
       scTimer: 0,
+      appartements:true,
       scY: 0,
       disabled: false,
       isOpen: false,

@@ -94,12 +94,14 @@
                 </div>
                 <div class="col-4 col-12@s mb-4">
                   <div class="icon-highlight">
-                    <div> <img
+                    <div>
+                      <img
                         src="../assets/sanitary.svg"
                         alt=""
                         width="29px"
                         height="29px"
-                      /></div>
+                      />
+                    </div>
                     <div>
                       <p class="ellipsis-1">Sanitaire</p>
                     </div>
@@ -123,12 +125,14 @@
                 </div>
                 <div class="col-4 col-12@s mb-4">
                   <div class="icon-highlight">
-                    <div><img
+                    <div>
+                      <img
                         src="../assets/garden.svg"
                         alt=""
                         width="29px"
                         height="29px"
-                      /></div>
+                      />
+                    </div>
                     <div>
                       <p class="ellipsis-1">Jardin</p>
                     </div>
@@ -189,7 +193,7 @@
             </div>
           </div>
 
-          <div class="" >
+          <div class="">
             <p class="ft-2xs ft-medium color-ft-weak my-3">
               Informations supplémentaires
             </p>
@@ -200,7 +204,7 @@
               </div>
 
               <p class="ft-3xl line-1">
-                <b>{{ waterDeposit || 0}} Fcfa</b>
+                <b>{{ waterDeposit || 0 }} Fcfa</b>
               </p>
             </div>
             <div class="caution-detail d-flex align-items-baseline mb-3">
@@ -220,7 +224,7 @@
               </div>
 
               <p class="ft-3xl line-1">
-                <b>{{ rentAdvance ||0  }} Fcfa</b>
+                <b>{{ rentAdvance || 0 }} Fcfa</b>
               </p>
             </div>
           </div>
@@ -346,15 +350,8 @@
           >
             <div></div>
             <router-link
-              :to="{
-                path: '/chat',
-                query: {
-                  current: 'John',
-                  sender: 'wick',
-                  idcurrent: '1234',
-                  idsender: '4321',
-                },
-              }"
+              v-if="$store.state.user.id !== ownerId"
+              to="/chat"
             >
               <button
                 class="ButtonRectangle PropertyPage_contact js-popin-generic-open ButtonRectangle--bordered ButtonRectangle--s"
@@ -379,7 +376,6 @@
   </div>
 </template>
 <script>
-
 import WhiteNav from "../components/WhiteNav.vue";
 import Gallery from "../components/Gallery.vue";
 import axios from "axios";
@@ -393,6 +389,7 @@ export default {
       announceOwner: "",
       announcePurpose: "",
       price: "",
+      ownerId: "",
       billPeriod: "",
       waterDeposit: "",
       electricityDeposit: "",
@@ -406,9 +403,11 @@ export default {
       .get(`http://localhost:8000/api/findOneAccomodation/${idHouse}`)
       .then(({ data }) => {
         console.log(data);
+
         this.galleryImg = data.images;
         this.announceOwner = data.announcements[0].user.userFirstName;
         this.announcePurpose = data.announcePurpose;
+        this.ownerId = data.announcements[0].user.id;
         this.price = data.price;
         this.billPeriod = data.billPeriod;
         this.waterDeposit = data.waterDeposit;

@@ -5,11 +5,18 @@ import store from "../store";
 const routes = [
   {
     path: "/",
-    name: "homed",
+    name: "home",
     meta: {
       guestGuard: true,
     },
     component: HomeView,
+    beforeEnter: (to, from, next) => {
+      if (store.state.isLogged) {
+        next("/owner");
+      } else {
+        next();
+      }
+    },
   },
   {
     path: "/about",
@@ -75,8 +82,6 @@ const routes = [
     },
     component: () => import("../components/Form.vue"),
   },
-  
- 
 
   {
     path: "/login",
