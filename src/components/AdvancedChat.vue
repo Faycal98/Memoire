@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ channelNames }}
+    {{ chatChannelName }}
 
     <vue-advanced-chat
       height="calc(100vh - 20px)"
@@ -45,7 +45,7 @@ register();
 const userData = JSON.parse(localStorage.getItem("userData"));
 console.log(userData.id);
 const messageEventName = "client-new-message";
-const chatChannelName = "presence-groupChat4";
+const chatChannelName = ref("presence-groupChat4");
 let channelNames = ref("");
 const route = useRoute();
 let currentUserId = ref(userData.id.toString());
@@ -118,23 +118,7 @@ var pusher = new Pusher("8b8fd82e17f918d8a881", {
 
 onMounted(() => {
   Pusher.logToConsole = true;
-  pusher.signin();
-
-  const channel = pusher.subscribe(chatChannelName);
-  channel.bind("pusher:subscription_succeeded", () => {
-    let me = channel.members.me;
-  });
-
-  channel.bind(messageEventName, (data) => {
-    console.log(data);
-    messages.value.push({
-      _id: data._id,
-      content: data.content,
-      senderId: data.senderId,
-      timestamp: data.timestamp,
-      date: data.date,
-    });
-  });
+  subscribe();
 
   // Pusher.logToConsole = true;
   /*   console.log("mounted", channelNames.value);
@@ -158,7 +142,7 @@ let fetchMessages = ({ room, options = {} }) => {
   let id1 = parseInt(room.users[0]._id);
   let id2 = parseInt(room.users[1]._id);
   console.log(id2);
-  channelNames.value = `chat${id1 + id2}`;
+  chatChannelName.value = `presence-chat${id1 + id2}`;
 
   setTimeout(() => {
     if (options.reset) {
@@ -172,26 +156,24 @@ let fetchMessages = ({ room, options = {} }) => {
   console.log(messages.value);
 };
 
-/* watch(channelNames, async (newQuestion, oldQuestion) => {
+watch(chatChannelName, async (newQuestion, oldQuestion) => {
   console.log("watch", oldQuestion, newQuestion);
-  if (oldQuestion) {
-    pusher.unsubscribe(oldQuestion);
-    const channel = pusher.subscribe(newQuestion);
-    channel.bind("message", function (data) {
-      //alert(JSON.stringify(data));
-      //this.messages.push(data);
-      console.log("cc");
-      messages.value.push({
-        _id: messages.value.length + 1,
-        content: data.message,
-        senderId: data.senderId,
-        username: data.username,
-        date: data.date,
-        timestamp: data.timestamp,
-      });
+  if (newQuestion) {
+    
+    // pusher.unsubscribe(oldQuestion);
+    /*  const channel = pusher.subscribe(newQuestion);
+  channel.bind(messageEventName, (data) => {
+    console.log(data);
+    messages.value.push({
+      _id: data._id,
+      content: data.content,
+      senderId: data.senderId,
+      timestamp: data.timestamp,
+      date: data.date,
     });
+  }); */
   }
-}); */
+});
 let addMessages = (reset) => {
   const messages = ref([]);
 
@@ -208,6 +190,25 @@ let addMessages = (reset) => {
 
   return messages.value;
 };
+let subscribe = () => {
+  pusher.signin();
+
+  const channel = pusher.subscribe(chatChannelName.value);
+  channel.bind("pusher:subscription_succeeded", () => {
+    let me = channel.members.me;
+  });
+
+  channel.bind(messageEventName, (data) => {
+    console.log(data);
+    messages.value.push({
+      _id: data._id,
+      content: data.content,
+      senderId: data.senderId,
+      timestamp: data.timestamp,
+      date: data.date,
+    });
+  });
+};
 
 let sendMessage = async (message) => {
   //console.log(channelNames.value);
@@ -219,7 +220,7 @@ let sendMessage = async (message) => {
     timestamp: new Date().toString().substring(16, 21),
     date: new Date().toDateString(),
   });
-  const channel = pusher.channel(chatChannelName);
+  const channel = pusher.channel(chatChannelName.value);
   channel.trigger(messageEventName, {
     _id: messages.value.length,
     content: message.content,
@@ -230,9 +231,7 @@ let sendMessage = async (message) => {
 
   /* await axios.post("http://localhost:8000/api/messages", ); */
 };
-let listen = () => {
-  console.log("lISTEN");
-};
+
 let addNewMessage = () => {
   setTimeout(() => {
     this.messages = [
