@@ -46,9 +46,7 @@ const routes = [
   },
   {
     path: "/chat",
-    meta: {
-      guestGuard: true,
-    },
+    meta: { requiresAuth: true },
     component: () => import("../components/AdvancedChat.vue"),
   },
   {

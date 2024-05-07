@@ -301,7 +301,7 @@ export default {
       demarcheurs: true,
       isLoading: false,
       selected: "",
-      Appartement: true,
+      appartements: true,
       carrouselTab: [
         {
           src: "cotonou-room.jpg",
