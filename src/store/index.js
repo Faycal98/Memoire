@@ -2,25 +2,29 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    isAuth: localStorage.getItem("userData") !== null,
+    isLogged: false,
+    user: null,
   },
   getters: {},
   mutations: {
-    UPDATE_AUTH(state,payload){
-      localStorage.setItem("userData", payload);
-      state.isAuth = localStorage.getItem("userData") !== null
+    UPDATE_AUTH(state, payload) {
+      localStorage.setItem("userData", JSON.stringify(payload));
+      state.isLogged = true;
+      state.user = payload;
     },
-    REMOVE_AUTH(state){
-      localStorage.removeItem("userData")
-    }
-
+    REMOVE_AUTH(state) {
+      localStorage.removeItem("userData");
+    },
   },
   actions: {
-    login({commit},payload){
+    login({ commit }, payload) {
       commit("UPDATE_AUTH", payload);
     },
-    logout({commit}){
+    logout({ commit }) {
       commit("REMOVE_AUTH");
+    },
+    updateUser({commit},payload){
+      commit("UPDATE_AUTH", payload);
     }
   },
   modules: {},

@@ -10,9 +10,9 @@
           et bénéficiez d’un accompagnement personnalisé.
         </p>
         <router-link to="/logements">
-        <ButtonGreen
+        <OrangeBtn
           :content="'Je commence les recherches'"
-        ></ButtonGreen>
+        ></OrangeBtn>
         </router-link>
         <div class="Homepage_floatSteps">
           <img
@@ -131,11 +131,11 @@
   </div>
 </template>
 <script>
-import ButtonGreen from "@/components/ButtonGreen.vue";
+import OrangeBtn from "@/components/OrangeBtn.vue";
 export default {
   name: "HomepageStep",
   components: {
-    ButtonGreen,
+    OrangeBtn,
   },
 };
 </script>

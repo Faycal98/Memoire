@@ -7,22 +7,22 @@
           On connaît des milliers de logements qui cherchent quelqu'un comme
           vous.
         </h1>
-        <ButtonGreen
+        <OrangeBtn
           @click="goToSearch"
           :content="'Voir les annonces →'"
           :link="'/'"
-        ></ButtonGreen>
+        ></OrangeBtn>
       </div>
     </div>
   </div>
 </template>
 <script>
-import ButtonGreen from "@/components/ButtonGreen.vue";
+import OrangeBtn from "@/components/OrangeBtn.vue";
 import Navbar from "@/components/Navbar.vue"
 export default {
     name:"HomePageHeader",
     components: {
-    ButtonGreen,
+    OrangeBtn,
     Navbar
   }
   ,methods: {

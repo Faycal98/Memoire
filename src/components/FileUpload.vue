@@ -29,6 +29,7 @@ export default {
     );
     let FILE_LIST = [];
     let UPLOADED_FILES = [];
+    let allFiles = [];
 
     const multipleEvents = (element, eventNames, listener) => {
       const events = eventNames.split(" ");
@@ -71,7 +72,7 @@ export default {
 
             const files = [...INPUT_FILE.files];
             console.log("changed");
-            console.log(files)
+           
             files.forEach((file) => {
               const fileURL = URL.createObjectURL(file);
               const fileName = file.name;
@@ -85,6 +86,7 @@ export default {
                 };
 
                 FILE_LIST.push(uploadedFiles);
+                allFiles.push(file)
               }
             });
 
@@ -92,7 +94,7 @@ export default {
             this.photos = FILE_LIST;
             console.log(FILE_LIST, this.photos); //final list of uploaded files
             this.$emit("updateAlbum", this.photos);
-            this.$emit("getfiles", files)
+            this.$emit("getfiles", allFiles)
             previewImages();
 
             UPLOADED_FILES = document.querySelectorAll(".js-remove-image");
@@ -111,6 +113,7 @@ export default {
             const fileIndex = this.getAttribute("data-index");
 
             FILE_LIST.splice(fileIndex, 1);
+            allFiles.splice(fileIndex, 1);
             previewImages();
             removeFile();
           });

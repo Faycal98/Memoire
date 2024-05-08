@@ -40,6 +40,7 @@
             <span>Malaville</span>
           </h4>
         </a>
+        
       </div>
 
       <div class="p-2 mb-2 img-container">
@@ -63,10 +64,10 @@
       </div>
     </div>
     <router-link to="/logements">
-      <ButtonGreen
+      <OrangeBtn
         class="text-center"
         :content="' Voir d\'autres villes '"
-      ></ButtonGreen>
+      ></OrangeBtn>
     </router-link>
   </div>
   <HomepageStep></HomepageStep>
@@ -88,7 +89,7 @@
 </template>
 <script>
 import axios from "axios";
-import ButtonGreen from "@/components/ButtonGreen.vue";
+import OrangeBtn from "@/components/OrangeBtn.vue";
 import Carrousel from "../components/Carrousel.vue";
 import HomepageStep from "../components/HomepageStep.vue";
 import HomePageHeader from "../components/HomePageHeader.vue";
@@ -98,30 +99,15 @@ import Footer from "../components/Footer.vue";
 export default {
   components: {
     Carrousel,
-    ButtonGreen,
+    OrangeBtn,
     HomePageHeader,
     AccordionAnnonce,
     Footer,
     HomepageStep,
   },
   mounted() {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-
-    if (userData) {
-      axios
-        .get("http://localhost:8000/api/user", {
-          headers: {
-            "x-access-token": userData.accessToken,
-          },
-        })
-        .then((data) => {
-          console.log(data);
-          this.$store.dispatch("login", JSON.stringify(userData));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    console.log("homeview")
+   
   },
   data() {
     return {
@@ -369,12 +355,5 @@ a {
   max-width: 700px;
   position: relative;
 }
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

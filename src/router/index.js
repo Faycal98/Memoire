@@ -46,17 +46,15 @@ const routes = [
   },
   {
     path: "/chat",
-    meta: {
-      guestGuard: true,
-    },
+    meta: { requiresAuth: true },
     component: () => import("../components/AdvancedChat.vue"),
   },
   {
-    path: "/chat2",
+    path: "/chat3",
     meta: {
       guestGuard: true,
     },
-    component: () => import("../components/Chat2.vue"),
+    component: () => import("../components/Chat3.vue"),
   },
 
   {
@@ -105,6 +103,12 @@ const routes = [
     component: () => import("../views/Packs.vue"),
   },
   {
+    path: "/owner",
+    name: "owner",
+    meta: { requiresAuth: true },
+    component: () => import("../views/Owner.vue"),
+  },
+  {
     path: "/annonce",
     name: "annonce",
     meta: { requiresAuth: true },
@@ -128,7 +132,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
-    if (store.state.isAuth) {
+    if (store.state.isLogged) {
       console.log("here");
       next();
     } else {

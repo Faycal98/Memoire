@@ -46,7 +46,7 @@
 
                 <div class="col-4 col-12@s mb-4">
                   <div class="icon-highlight">
-                    <div><i class="fa-solid fa-camera"></i></div>
+                    <div><i class="fa-solid fa-video"></i></div>
                     <div>
                       <p class="ellipsis-1">Video surveilllance</p>
                     </div>
@@ -60,11 +60,77 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="col-4 col-12@s mb-4">
                   <div class="icon-highlight">
-                    <div><i class="fa-solid fa-check"></i></div>
+                    <div>
+                      <img
+                        src="../assets/washing.svg"
+                        alt=""
+                        width="29px"
+                        height="29px"
+                      />
+                    </div>
+                    <div>
+                      <p class="ellipsis-1">Machine à lavé</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-4 col-12@s mb-4">
+                  <div class="icon-highlight">
+                    <div>
+                      <img
+                        src="../assets/balcony.svg"
+                        alt=""
+                        width="29px"
+                        height="29px"
+                      />
+                    </div>
+                    <div>
+                      <p class="ellipsis-1">Balcon</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 col-12@s mb-4">
+                  <div class="icon-highlight">
+                    <div> <img
+                        src="../assets/sanitary.svg"
+                        alt=""
+                        width="29px"
+                        height="29px"
+                      /></div>
                     <div>
                       <p class="ellipsis-1">Sanitaire</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 col-12@s mb-4">
+                  <div class="icon-highlight">
+                    <div><i class="fa-solid fa-tv"></i></div>
+                    <div>
+                      <p class="ellipsis-1">Télévision</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 col-12@s mb-4">
+                  <div class="icon-highlight">
+                    <div><i class="fa-solid fa-person-swimming"></i></div>
+                    <div>
+                      <p class="ellipsis-1">Piscine</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 col-12@s mb-4">
+                  <div class="icon-highlight">
+                    <div><img
+                        src="../assets/garden.svg"
+                        alt=""
+                        width="29px"
+                        height="29px"
+                      /></div>
+                    <div>
+                      <p class="ellipsis-1">Jardin</p>
                     </div>
                   </div>
                 </div>
@@ -112,7 +178,8 @@
               <div class="PropertyPage_sidePrice d-block@s">
                 <p class="ft-2xs ft-medium color-ft-weak">à partir de</p>
                 <p class="ft-3xl line-1">
-                  <b>{{ price }} Fcfa</b><span class="ft-xs ml-2">/ {{ billPeriod }}</span>
+                  <b>{{ price }} Fcfa</b
+                  ><span class="ft-xs ml-2">/ {{ billPeriod }}</span>
                 </p>
                 <div class="ft-xs">Charges comprises</div>
               </div>
@@ -122,28 +189,28 @@
             </div>
           </div>
 
-          <div class="">
+          <div class="" >
             <p class="ft-2xs ft-medium color-ft-weak my-3">
-              INFORMATIONS FINANCIÈRES
+              Informations supplémentaires
             </p>
             <div class="caution-detail d-flex align-items-baseline mb-3">
               <div class="icon d-flex align-items-baseline">
                 <i class="fa-solid fa-faucet-drip me-1"></i>
-                <p class="mb-0 ellipsis-1">Caution eau</p>
+                <p class="mb-0 ellipsis-1">Caution d'eau</p>
               </div>
 
               <p class="ft-3xl line-1">
-                <b>520€</b>
+                <b>{{ waterDeposit || 0}} Fcfa</b>
               </p>
             </div>
             <div class="caution-detail d-flex align-items-baseline mb-3">
               <div class="icon d-flex align-items-baseline">
                 <i class="fa-solid fa-bolt me-1"></i>
-                <p class="mb-0 ellipsis-1">Caution electricité</p>
+                <p class="mb-0 ellipsis-1">Caution électricité</p>
               </div>
 
               <p class="ft-3xl line-1">
-                <b>520€</b>
+                <b>{{ electricityDeposit || 0 }} Fcfa</b>
               </p>
             </div>
             <div class="caution-detail d-flex align-items-baseline mb-3">
@@ -153,7 +220,7 @@
               </div>
 
               <p class="ft-3xl line-1">
-                <b>52000€</b>
+                <b>{{ rentAdvance ||0  }} Fcfa</b>
               </p>
             </div>
           </div>
@@ -265,7 +332,9 @@
               <p class="mt-2">
                 <span class="bullet bg-b mr-5"></span> Contacts
               </p>
-              <p class="mt-2 ms-2"><i class="fa-solid fa-phone"></i> 97864356</p>
+              <p class="mt-2 ms-2">
+                <i class="fa-solid fa-phone"></i> 97864356
+              </p>
               <p class="mt-2 ms-2">
                 <i class="fa-brands fa-whatsapp me-1"></i>94765215
               </p>
@@ -310,6 +379,7 @@
   </div>
 </template>
 <script>
+
 import WhiteNav from "../components/WhiteNav.vue";
 import Gallery from "../components/Gallery.vue";
 import axios from "axios";
@@ -324,6 +394,9 @@ export default {
       announcePurpose: "",
       price: "",
       billPeriod: "",
+      waterDeposit: "",
+      electricityDeposit: "",
+      rentAdvance: "",
     };
   },
   props: {},
@@ -338,6 +411,9 @@ export default {
         this.announcePurpose = data.announcePurpose;
         this.price = data.price;
         this.billPeriod = data.billPeriod;
+        this.waterDeposit = data.waterDeposit;
+        this.electricityDeposit = data.electricityDeposit;
+        this.rentAdvance = data.rentAdvance;
       });
     let desc = this.$refs.description;
 

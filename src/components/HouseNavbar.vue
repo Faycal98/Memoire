@@ -7,7 +7,10 @@
           <h1 class="ms-5 header-title">ChezVous</h1>
           
         </router-link>
-        <div class="header-right justify-content-between align-items-center collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          class="header-right justify-content-between align-items-center collapse navbar-collapse"
+          id="navbarSupportedContent"
+        >
           <ul>
             <li class="link d-block">
               <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
@@ -15,20 +18,20 @@
               <div class="list">
                 <ul>
                   <li>
-                    <router-link to="/annonce">
-                      <a class="dropdown-item" href="">Deposer une annonce</a>
+                    <router-link to="/annonce" class="dropdown-item">
+                      Déposer une annonce
                     </router-link>
-                    
                   </li>
                   <li>
-                    <router-link to="/howitwork">
-                      <a class="dropdown-item" href="">Comment ça marche</a>
-                    </router-link>                   
+                    <router-link to="/howitwork" class="dropdown-item">
+                      Comment ça marche
+                    </router-link>
                   </li>
-                  
                   <li>
-                    <router-link to="/howitwork"><a class="dropdown-item" href="/login">Me connecter</a></router-link>
-                    </li>
+                    <router-link to="/login" class="dropdown-item">
+                      Me connecter</router-link
+                    >
+                  </li>
                 </ul>
               </div>
             </li>
@@ -37,12 +40,20 @@
               <div class="list">
                 <ul>
                   <li>
-                    <a class="dropdown-item" href="/annonce">Deposer une annonce</a>
+                    <router-link to="/annonce" class="dropdown-item">
+                      Déposer une annonce
+                    </router-link>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="/howitwork">Comment ça marche</a>
+                    <router-link to="/howitwork" class="dropdown-item">
+                      Comment ça marche
+                    </router-link>
                   </li>
-                  <li><a class="dropdown-item" href="/login">Me connecter</a></li>
+                  <li>
+                    <router-link to="/login" class="dropdown-item">
+                      Me connecter</router-link
+                    >
+                  </li>
                 </ul>
               </div>
             </li>
@@ -78,8 +89,8 @@
                   </li>
                   <li>
                     <a class="dropdown-item" href="#"
-                      ><i class="fa-regular fa-circle-question me-2"></i>
-                      Aide et accompagnement</a
+                      ><i class="fa-regular fa-circle-question me-2"></i> Aide
+                      et accompagnement</a
                     >
                   </li>
                   <li><router-link to="/howitwork">
@@ -104,10 +115,10 @@
     </div>
     <div class="SearchPage_bread mb-40">
       <v-breadcrumbs :items="items">
-      <template v-slot:divider>
-        <v-icon icon="mdi-forward"></v-icon>
-      </template>
-    </v-breadcrumbs>
+        <template v-slot:divider>
+          <v-icon icon="mdi-forward"></v-icon>
+        </template>
+      </v-breadcrumbs>
     </div>
     <h1 class="ft-2xl text-center my-3">
       <b style=" font-size: 30px;">Trouver un logement partout au Bénin et soyez chez vous !</b>
@@ -191,10 +202,7 @@
               class="ButtonFilter_actions w-100 d-flex align-items-center justify-content-between"
             >
               <div>Effacer</div>
-              <ButtonGreen
-                class="searchpage"
-                :content="'Appliquer'"
-              ></ButtonGreen>
+              <OrangeBtn class="searchpage" :content="'Appliquer'"></OrangeBtn>
             </div>
           </div>
         </div>
@@ -204,7 +212,7 @@
 </template>
 
 <script>
-import ButtonGreen from "../components/ButtonGreen.vue";
+import OrangeBtn from "../components/OrangeBtn.vue";
 
 export default {
   name: "HouseNavBar",
@@ -234,21 +242,20 @@ export default {
       ],
       items: [
         {
-          title: 'Accueil',
+          title: "Accueil",
           disabled: false,
-          href: '/',
+          href: "/",
         },
         {
-          title: 'Logements',
+          title: "Logements",
           disabled: false,
-          href: 'logements',
+          href: "logements",
         },
-     
       ],
     };
   },
   components: {
-    ButtonGreen,
+    OrangeBtn,
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
@@ -271,7 +278,7 @@ export default {
   },
 };
 </script>
-<style scoped >
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
 
 * {
@@ -658,7 +665,6 @@ nav {
       font-weight: 300;
       color: white;
       list-style-type: none;
-
     }
   }
 }

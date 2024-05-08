@@ -15,10 +15,7 @@
               <div class="list">
                 <ul>
                   <li>
-                    <router-link to="/annonce">
-                      <a class="dropdown-item" href="#">Deposer une annonce</a>
-                    </router-link>
-                    
+                    <a class="dropdown-item" href="#">Déposer une annonce</a>
                   </li>
                   <li>
                     <router-link to="/howitwork">
@@ -40,7 +37,7 @@
               <div class="list">
                 <ul>
                   <li>
-                    <a class="dropdown-item" href="#">Deposer une annonce</a>
+                    <a class="dropdown-item" href="#">Déposer une annonce</a>
                   </li>
                   <li>
                     <router-link to="/howitwork">
@@ -121,7 +118,7 @@
 </template>
 
 <script>
-import ButtonGreen from "../components/ButtonGreen.vue";
+import OrangeBtn from "../components/OrangeBtn.vue";
 
 export default {
   name: "HouseNavBar",
@@ -152,7 +149,7 @@ export default {
     };
   },
   components: {
-    ButtonGreen,
+    OrangeBtn,
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
