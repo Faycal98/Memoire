@@ -38,17 +38,21 @@
                       Propriétaire</a
                     >
                   </li>
-                  <li>
+                  <li><router-link to="/login">
                     <a class="dropdown-item text-black" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i
                       >Connexion</a
                     >
+                  </router-link>
+                    
                   </li>
-                  <li>
+                  <li><router-link to="/register">
                     <a class="dropdown-item last" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
                       >Inscription</a
                     >
+                  </router-link>
+                    
                   </li>
                   <li>
                     <a
@@ -59,17 +63,21 @@
                       Démarcheur</a
                     >
                   </li>
-                  <li>
+                  <li><router-link to="/login">
                     <a class="dropdown-item text-black" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i
                       >Connexion</a
                     >
+                  </router-link>
+                    
                   </li>
-                  <li>
+                  <li><router-link to="/register">
                     <a class="dropdown-item last" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
                       >Inscription</a
                     >
+                  </router-link>
+                    
                   </li>
                   <li>
                     <a class="dropdown-item" href="#"
@@ -189,7 +197,7 @@
           </div>
           <button>Je m'inscris</button>
           <p class="message">
-            Déja un compte?
+            Déja un compte ?
             <router-link to="/login"> Se connecter </router-link>
           </p>
         </Form>

@@ -242,9 +242,6 @@ nav {
 .head-child3{
   margin-top: 30px;
 }
-.head-child4{
-
-}
 
 .head-child3 a{
   font-size: 17px;

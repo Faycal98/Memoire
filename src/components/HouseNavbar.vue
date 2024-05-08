@@ -71,8 +71,10 @@
                   </router-link>
                     
                   </li>
-                  <li><router-link to="/register"></router-link>
+                  <li><router-link to="/register">
                     <a class="dropdown-item last" href="#"><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i>Inscription</a>
+                  </router-link>
+                    
                   </li>
                   <li>
                     <a class="dropdown-item" href="#"
@@ -80,10 +82,12 @@
                       Aide et accompagnement</a
                     >
                   </li>
-                  <li>
-                    <a class="dropdown-item last" href="/howitwork"
+                  <li><router-link to="/howitwork">
+                    <a class="dropdown-item last" href=""
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment ça marche ?</a
                     >
+                  </router-link>
+                    
                   </li>
                   <li>
                     <a class="dropdown-item last" href="#"

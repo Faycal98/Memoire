@@ -110,6 +110,12 @@ const routes = [
     meta: { requiresAuth: true },
     component: () => import("../views/Annonce.vue"),
   },
+  {
+    path: "/profil",
+    name: "profil",
+
+    component: () => import("../views/Profil.vue"),
+  },
 ];
 
 const router = createRouter({

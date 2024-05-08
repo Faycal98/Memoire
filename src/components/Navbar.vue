@@ -60,21 +60,24 @@
         <div class="Header_buttons ms-3">
           <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
             <ul class="sub-list d-block">
-              <li>
+              <li><router-link to="/profil">
                 <a class="dropdown-item" href="#"
-                  ><i class="fa-solid fa-user me-2 pt-2"></i>Voir le profil</a
+                  ><i class="fa-solid fa-user me-2 pt-2"></i>Mon profil</a
                 >
+              </router-link>
+                
               </li>
-              <li>
+              <li><router-link to="/profil">
                 <a class="dropdown-item text-black" href="#"
                   ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
                   annonces</a
                 >
+              </router-link>
+                
               </li>
               <li>
                 <a class="dropdown-item text-black" @click="logout" href="#"
-                  ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Se
-                  deconnecter</a
+                  ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Déconnexion</a
                 >
               </li>
 

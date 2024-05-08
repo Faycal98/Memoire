@@ -38,17 +38,19 @@
                       propriétaire</a
                     >
                   </li>
-                  <li>
+                  <li><router-link to="/login">
                     <a class="dropdown-item text-black" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i
                       >Connexion</a
                     >
+                  </router-link>
+                    
                   </li>
-                  <li>
-                    <a class="dropdown-item last" href="#"
+                  <li><router-link to="/register"><a class="dropdown-item last" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
                       >Inscription</a
-                    >
+                    ></router-link>
+                    
                   </li>
                   <li>
                     <a
@@ -59,17 +61,21 @@
                       démarcheur</a
                     >
                   </li>
-                  <li>
+                  <li><router-link to="/login">
                     <a class="dropdown-item text-black" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i
                       >Connexion</a
                     >
+                  </router-link>
+                    
                   </li>
-                  <li>
+                  <li><router-link to="/register">
                     <a class="dropdown-item last" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
                       >Inscription</a
                     >
+                  </router-link>
+                    
                   </li>
                   <li>
                     <a class="dropdown-item" href="#"
@@ -132,7 +138,7 @@
             Se connecter
           </button>
           <p class="message">
-            Pas de compte?
+            Pas de compte ?
             <router-link to="/register">Créer un compte</router-link>
           </p>
         </form>
@@ -204,7 +210,7 @@ export default {
 
 /******Form */
 </script>
-<script></script>
+
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
 

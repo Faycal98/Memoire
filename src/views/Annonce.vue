@@ -3,7 +3,7 @@
     <div id="navbar">
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
-          <h1 class="ms-5 header-title">BenApart</h1>
+          <h1 class="ms-5 header-title">ChezVous</h1>
         </router-link>
         <div
             class="header-right justify-content-between align-items-center collapse navbar-collapse"
@@ -32,17 +32,21 @@
                       démarcheur</a
                     >
                   </li>
-                  <li>
+                  <li><router-link to="/login">
                     <a class="dropdown-item text-black" href="#"
                     ><i class="fa-solid fa-arrow-right me-2 arrow"></i
                     >Connexion</a
                     >
+                  </router-link>
+                    
                   </li>
-                  <li>
+                  <li><router-link to="/register">
                     <a class="dropdown-item last" href="#"
                     ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
                     >Inscription</a
                     >
+                  </router-link>
+                    
                   </li>
                   <li>
                     <a class="dropdown-item" href="#"
@@ -74,7 +78,7 @@
         color: #36417d;
       "
     >
-      Faite votre annonce en toute sécurité avec BenApart !
+      Faite votre annonce en toute sécurité avec ChezVous !
     </h1>
 
     <section id="annonce">
@@ -252,7 +256,7 @@
                     Emplacement du logement
                   </h2>
                   <span class="text-start"
-                  >Veuillez fourir des donnees correctes.<b
+                  >Veuillez fournir des donnees correctes.<b
                   >Il sera difficile de les modifier plus tard</b
                   ></span
                   >
