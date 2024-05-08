@@ -349,10 +349,10 @@
             class="d-flex fx-justify-between fx-align-center b-top bg-bg-xweak p-4 mt-3"
           >
             <div></div>
-            <router-link
+         <!--    <router-link
               v-if="$store.state.user.id !== ownerId"
               to="/chat"
-            >
+            > -->
               <button
                 class="ButtonRectangle PropertyPage_contact js-popin-generic-open ButtonRectangle--bordered ButtonRectangle--s"
                 data-id="contact-popup"
@@ -367,8 +367,8 @@
                 <div class="ButtonRectangle_loader">
                   <i class="fal fa-spinner-third"></i>
                 </div>
-              </button>
-            </router-link>
+              </button><!-- 
+            </router-link> -->
           </div>
         </div>
       </div>
