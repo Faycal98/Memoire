@@ -46,28 +46,22 @@ export default {
     const messages = ref([]);
     const message = ref("");
 
-    var pusherClient = new Pusher("8b8fd82e17f918d8a881", {
-      userAuthentication: {
-        endpoint: "http://localhost:8000/pusher/user-auth",
-        transport: "jsonp",
-      },
-      channelAuthorization: {
+    var pusher = new Pusher("8b8fd82e17f918d8a881", {
+   /*    channelAuthorization: {
         endpoint: "http://localhost:8000/pusher/auth",
-      },
+        headers: {
+          "x-access-token": "hhidddddddddddd838",
+        },
+      }, */
+
       cluster: "mt1",
       forceTLS: true,
     });
 
     onMounted(() => {
       Pusher.logToConsole = true;
-      var pusher = new Pusher("8b8fd82e17f918d8a881", {
-        authEndpoint: "http://localhost:8000/pusher/auth",
-        cluster: "mt1",
-        forceTLS: true,
-      });
-
-      pusher.subscribe("presence-groupChat");
-
+      pusher.subscribe("presence-groupChat2");
+      /* 
       const channel2 = pusher.subscribe("channel-1");
       channel2.bind("test_event", (data) => {
         console.log(data);
@@ -80,7 +74,7 @@ export default {
         console.log(messages.value);
         console.log(data);
         messages.value.push(data);
-      });
+      }); */
     });
 
     const submit = async () => {
@@ -93,18 +87,18 @@ export default {
         }),
       });
  */
-
-      const channel = pusherClient.channel("presence-groupChat");
+      /* 
+      const channel = pusher.channel("presence-groupChat");
       channel.trigger("client-new-message", {
         sender: "chat.owner",
         text: "message",
       
       });
-      message.value = "";
+      message.value = ""; */
     };
 
     const submit2 = (e) => {
-      e.preventDefault();
+      /*    e.preventDefault();
 
       pusherClient.signin();
 
@@ -115,7 +109,7 @@ export default {
         var userId = me.id;
         var userInfo = me.info;
       });
-
+ */
       /*   presenceChannel.trigger("client-new-message", {
         sender: "Saul",
         text: "jdjd",

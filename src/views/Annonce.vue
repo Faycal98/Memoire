@@ -171,7 +171,7 @@
                           class="text-none text-subtitle-1"
                           size="small"
                           variant="flat"
-                          value="Chambres"
+                          value="Chambre"
                         >
                           Chambre
                         </v-btn>
@@ -851,7 +851,7 @@ export default {
   watch: {
     butAnnonce(newVal) {
       if (newVal == "vente") {
-        this.bill_period = 1;
+        this.bill_period = null;
       }
     },
   },
@@ -902,6 +902,7 @@ export default {
       formData.append("hasBrewer", this.hasBrewer);
       formData.append("hasAc", this.hasAc);
       formData.append("showerNumber", this.showerNumber);
+      formData.append("hasFurniture", this.furniture);
       formData.append("hasPool", this.hasPool);
       formData.append("hasWashingMachine", this.washMachine);
       formData.append("hasGarden", this.garden);

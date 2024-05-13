@@ -5,20 +5,27 @@ import store from "../store";
 const routes = [
   {
     path: "/",
-    name: "homed",
+    name: "home",
     meta: {
       guestGuard: true,
     },
     component: HomeView,
+    beforeEnter: (to, from, next) => {
+      if (store.state.isLogged && store.state.user.role !== "Locataire") {
+        next("/owner");
+      } else {
+        next();
+      }
+    },
   },
   {
-    path: "/about",
+    path: "/gallery",
     name: "about",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      import(/* webpackChunkName: "about" */ "../components/GalleryCarrousel.vue"),
   },
   {
     path: "/logements",
@@ -57,24 +64,7 @@ const routes = [
     component: () => import("../components/Chat3.vue"),
   },
 
-  {
-    path: "/login2",
-    name: "login",
-    meta: {
-      guestGuard: true,
-    },
-    component: () => import("../views/connexion_p.vue"),
-  },
-  {
-    path: "/login3",
-    name: "login3",
-    meta: {
-      guestGuard: true,
-    },
-    component: () => import("../components/Form.vue"),
-  },
-  
- 
+
 
   {
     path: "/login",
@@ -113,6 +103,12 @@ const routes = [
     name: "annonce",
     meta: { requiresAuth: true },
     component: () => import("../views/Annonce.vue"),
+  },
+  {
+    path: "/user/annonce/:id",
+    name: "annonceList",
+    meta: { requiresAuth: true },
+    component: () => import("../views/AnnonceList.vue"),
   },
   {
     path: "/profil",

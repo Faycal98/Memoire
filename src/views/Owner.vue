@@ -97,7 +97,9 @@
       <img src="../assets/red.svg" alt="" class="position-absolute" />
     </div>
     <div class="slider-wrapper">
-      <h2 class="p-relative ft-2xl text-start ft-bold max-width-xs m-auto color-b mt-60">
+      <h2
+        class="p-relative ft-2xl text-start ft-bold max-width-xs m-auto color-b mt-60"
+      >
         Comment louer votre logement ?
       </h2>
 
@@ -111,11 +113,139 @@
       </div>
     </div>
   </div>
+
+  <div class="question-wrapper">
+    <div class="accordion-container">
+      <h3 class="ft-3xl@s ft-2xl fw-bold blue text-center mb-40">
+        Questions fréquentes
+      </h3>
+      <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne"
+            >
+              La plateforme ChezVous est-elle une agence de location immobilière
+              ?
+            </button>
+          </h2>
+          <div
+            id="flush-collapseOne"
+            class="accordion-collapse collapse"
+            aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div class="accordion-body">
+              Non, la plateforme ChezVous n’est pas une agence immobilière de
+              location ou de gestion locative en ligne. C’est une plateforme de
+              réservation de logements en ligne. ChezVous vous permet ainsi de
+              trouver un locataire fiable sans passer par une agence !
+              Contrairement à une agence immobilière traditionnelle (ou un
+              gestionnaire immobilier en ligne),ChezVous ne vous remplace pas
+              dans la gestion de votre bien : vous gérez vous-même votre
+              location, mais pas tout seul. Afin de gérer au mieux la location
+              de votre bien immobilier, nos conseillers dédiés vous épaulent
+              tout le long de la location à votre demande. De la rédaction de
+              l'annonce grâce à nos conseils sur les termes à utiliser, au prix
+              des loyers à fixer, en passant par les mises en avant des qualités
+              de votre bien locatif jusqu'au choix du locataire et la signature
+              du bail, nous vous fournissons tous les conseils nécessaires pour
+              optimiser votre expérience locative. Vous gardez la main sur le
+              paiement des loyers (en dehors du 1er loyer payé par le locataire
+              sur la plateforme), ou encore sur le choix définitif du locataire.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseTwo"
+              aria-expanded="false"
+              aria-controls="panelsStayOpen-collapseTwo"
+            >
+              Faut-il être propriétaire bailleur pour louer un logement avec
+              ChezVous ?
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingTwo"
+          >
+            <div class="accordion-body">
+              Notre plateforme est disponible pour les propriétaires bailleurs,
+              mais pas uniquement ! La plateforme est disponible pour d'autres
+              types de loueurs tels que les résidences étudiantes, les
+              colivings, et les professionnels de l'immobilier (agences
+              immobilières, etc.).
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item last">
+          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseThree"
+              aria-expanded="false"
+              aria-controls="panelsStayOpen-collapseThree"
+            >
+              Dois-je payer des frais au moment de la mise en location chez
+              ChezVous ?
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingThree"
+          >
+            <div class="accordion-body">
+              ChezVous est un service sans frais pour le propriétaire. Le
+              business model de ChezVous repose sur la réservation en ligne et
+              permet à la plateforme de financer la sécurisation de la location
+              en plus du service en prélevant des frais de réservation payés par
+              le locataire, qui varient entre 179 et 400€ selon la tension
+              locative dans le secteur géographique. Ces frais permettent de
+              financer le travail de 60 passionnés qui s'affairent à : modérer
+              les annonces, les profils, relancer les propriétaires et
+              locataires pour assurer une forte réactivité et à accompagner
+              chacun d'entre vous. Grâce aux frais, on apporte également des
+              garanties contre les annulations de dernière minute tant côté
+              propriétaire que locataire. Nos services complémentaires
+              sur-mesure et à votre demande pour faciliter votre gestion
+              locative peuvent en revanche avoir un coût pour le propriétaire.
+              Ce service est à la carte et optionnel. Pour en savoir plus,
+              consultez la page de l’offre > Pour l’ensemble de nos services,
+              nous ne nous rémunérons qu’au succès pour un modèle de
+              rémunération plus juste, soit à la condition que le propriétaire
+              trouve le locataire idéal, et que le locataire trouve son
+              logement.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-container mt-5">
+    <Footer></Footer>
+  </div>
 </template>
 <script>
+import Footer from "../components/Footer.vue";
 import Navbar from "../components/OwnerNavbar.vue";
 import StepSlider from "../components/StepSlider.vue";
 import GreenBtn from "../components/GreenBtn.vue";
+
 export default {
   data() {
     return {
@@ -126,6 +256,7 @@ export default {
     Navbar,
     GreenBtn,
     StepSlider,
+    Footer,
   },
   created() {
     console.log("created");
@@ -310,5 +441,75 @@ p.description {
 .Paragraph_highlight.Paragraph_highlight--green {
   color: #fff;
   background-color: #3c9;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.question-wrapper {
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  font-family: "Metrophobic", sans-serif;
+
+  justify-content: center;
+  padding: 40px 0;
+  align-items: center;
+}
+.accordion-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.accordion {
+  max-width: 760px;
+  width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.05);
+}
+
+.accordion-button::after {
+  background-color: #effffb;
+  border-radius: 50%;
+  background-image: url("../assets/téléch.svg");
+  width: 1.3rem;
+  padding: 5px;
+  height: 1.2rem;
+  margin-left: auto;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.accordion-item {
+  border: 1px solid #ededff;
+  margin-bottom: 10px;
+
+  border-radius: calc(0.375rem - (1px));
+  border-top-right-radius: calc(0.375rem - (1px));
+  border-bottom-right-radius: calc(0.375rem - (1px));
+  border-bottom-left-radius: calc(0.375rem - (1px));
+}
+
+.accordion-item.last {
+  margin-bottom: 0;
+}
+
+.blue{
+  color: #36417d;
+}
+
+.accordion-button {
+  font-size: 18px;
+  font-weight: 500;
+  color: #36417d;
+}
+
+.accordion-body {
+  text-align: justify;
 }
 </style>

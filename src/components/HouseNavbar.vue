@@ -3,9 +3,7 @@
     <div id="navbar">
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
-          
           <h1 class="ms-5 header-title">ChezVous</h1>
-          
         </router-link>
         <div
           class="header-right justify-content-between align-items-center collapse navbar-collapse"
@@ -72,20 +70,16 @@
               <div v-if="disabled" class="sub-menu position-absolute">
                 <ul class="sub-list d-block">
                   <li>
-                    <a class="dropdown-item" href="#"
-                      ><i class="fa-solid fa-house me-2 pt-2"></i>Je suis
-                      propriétaire</a
-                    >
+                    <router-link to="/login" class="dropdown-item text-black">
+                      <i class="fa-solid fa-arrow-right me-2 arrow"></i>
+                      Connexion
+                    </router-link>
                   </li>
-                  <li><router-link to="/login">
-                    <a class="dropdown-item text-black" href="#"><i class="fa-solid fa-arrow-right me-2 arrow"></i>Connexion</a>
-                  </router-link>
-                    
-                  </li>
-                  <li><router-link to="/register">
-                    <a class="dropdown-item last" href="#"><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i>Inscription</a>
-                  </router-link>
-                    
+                  <li>
+                    <router-link to="/register" class="dropdown-item last">
+                      <i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
+                      >Inscription
+                    </router-link>
                   </li>
                   <li>
                     <a class="dropdown-item" href="#"
@@ -93,12 +87,11 @@
                       et accompagnement</a
                     >
                   </li>
-                  <li><router-link to="/howitwork">
-                    <a class="dropdown-item last" href=""
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment ça marche ?</a
-                    >
-                  </router-link>
-                    
+                  <li>
+                    <router-link to="/howitwork" class="dropdown-item last">
+                      <i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment
+                      ça marche ?
+                    </router-link>
                   </li>
                   <li>
                     <a class="dropdown-item last" href="#"
@@ -121,11 +114,15 @@
       </v-breadcrumbs>
     </div>
     <h1 class="ft-2xl text-center my-3">
-      <b style=" font-size: 30px;">Trouver un logement partout au Bénin et soyez chez vous !</b>
+      <b style="font-size: 30px"
+        >Trouver un logement partout au Bénin et soyez chez vous !</b
+      >
     </h1>
     <div class="text-center info-text">
-      <p style="font-size: 18px;" >ChezVous est une plateforme de logement en ligne qui rend la location
-      plus simple et humaine, quelle qu’en soit la durée.</p>
+      <p style="font-size: 18px">
+        ChezVous est une plateforme de logement en ligne qui rend la location
+        plus simple et humaine, quelle qu’en soit la durée.
+      </p>
     </div>
     <div :class="[{ onScroll: !view.topOfPage }, 'searchBar_multiple']">
       <div class="Header_placeAutocomplete Header_placeAutocomplete--search">
@@ -134,7 +131,9 @@
           <input
             type="text"
             class="LocationPlaceholder_input"
+            v-model="city"
             placeholder="Où souhaitez-vous habiter ? Ville..."
+            @keyup.enter="submit"
           />
         </div>
       </div>
@@ -202,7 +201,11 @@
               class="ButtonFilter_actions w-100 d-flex align-items-center justify-content-between"
             >
               <div>Effacer</div>
-              <OrangeBtn class="searchpage" :content="'Appliquer'"></OrangeBtn>
+              <OrangeBtn
+                class="searchpage"
+                :content="'Appliquer'"
+                @click="getBudget"
+              ></OrangeBtn>
             </div>
           </div>
         </div>
@@ -216,6 +219,7 @@ import OrangeBtn from "../components/OrangeBtn.vue";
 
 export default {
   name: "HouseNavBar",
+  emits: ["getBudget", "submit"],
   data() {
     return {
       view: {
@@ -226,6 +230,7 @@ export default {
       maxBudget: 20000000,
       disabled: false,
       isOpen: false,
+      city: "",
       carrouselTab: [
         {
           src: "cotonou-room.jpg",
@@ -267,6 +272,13 @@ export default {
     },
     openPopup() {
       this.isOpen = !this.isOpen;
+    },
+    submit() {
+      this.$emit("submit", this.city);
+    },
+    getBudget() {
+      this.isOpen = !this.isOpen;
+      this.$emit("getBudget", [this.minBudget, this.maxBudget]);
     },
     handleScroll() {
       if (window.pageYOffset > 100) {
@@ -423,7 +435,7 @@ header {
   color: #36417d;
   flex-grow: 1;
   font: var(--ft-s);
-  font-weight: 600;
+  font-weight: 300;
   height: 30px;
   margin: 0 0 0 10px;
   min-width: 150px;

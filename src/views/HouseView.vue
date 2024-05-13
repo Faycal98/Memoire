@@ -1,5 +1,5 @@
 <template>
-  <HouseNav></HouseNav>
+  <HouseNav @getBudget="sendBudget" @submit="submitCity"></HouseNav>
   <div class="wrapper">
     <div class="container-fluid px-4 pt-4">
       <div class="row mb-3">
@@ -12,7 +12,7 @@
             <h2>Recherche en cours</h2>
           </div>
           <div class="ps-3 SearchPage_Header_title" v-else>
-            200 logements sont disponibles
+            10 logements sont disponibles
           </div>
           <div class="me-4 select-container">
             <select v-model="selected">
@@ -146,7 +146,8 @@
                     <div class="ml-10">
                       <span class="bg-r ft-bold icon-color">2</span>
                     </div>
-                  </div><!---
+                  </div>
+                  <!---
                   <div
                     class="AccordionFilter_Details mt-3 d-flex align-items-center"
                   >
@@ -169,7 +170,7 @@
                     <input
                       class="form-check-input"
                       type="checkbox"
-                      v-model="proprietaires"
+                      v-model="sell"
                       id="flexCheckDefault"
                     />
                     <label
@@ -196,6 +197,7 @@
                 </div>
                 <div class="ButtonFilterAccordion_actions">
                   <OrangeBtn
+                    @click="getFilterData"
                     class="text-end mt-2 mb-2 px-0 filtre-btn"
                     :content="'Appliquer'"
                   ></OrangeBtn>
@@ -206,11 +208,21 @@
         </div>
 
         <div class="col col-lg-9 col-sm-12 ps-3">
-          <div class="row">
-        
+          <div class="alert-container">
+            <v-alert
+              v-if="!getType"
+              closable
+              density="compact"
+              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima, at placeat totam, magni doloremque veniam neque porro libero rerum unde voluptatem!"
+              title="Alert title"
+              type="warning"
+            ></v-alert>
+          </div>
+
+          <div class="row" v-if="accomodationTab.length > 0">
             <div
               class="col-lg-4 col-sm-8 mb-4"
-              v-if="accomodationTab.length > 0"
+              v-if="!isLoading"
               v-for="accomodation in accomodationTab"
               :key="accomodation"
             >
@@ -238,20 +250,22 @@
                 ></v-skeleton-loader>
               </div>
             </div>
-         
+          </div>
+          <div class="row" v-else>
+            <h1>Aucun resultat correspondant</h1>
           </div>
 
           <div class="row mb-5">
             <div class="col">
-              <paginate
-                :page-count="10"
-                :margin-pages="10"
-                :prev-text="'Prev'"
-                :next-text="'Next'"
-                :container-class="'pagination'"
-                :page-class="'page-item'"
-              >
-              </paginate>
+              <div class="text-center">
+                <v-pagination
+                  v-model="page"
+                  @input="handlePageChange"
+                  :length="4"
+                  next-icon="mdi-menu-right"
+                  prev-icon="mdi-menu-left"
+                ></v-pagination>
+              </div>
             </div>
           </div>
         </div>
@@ -260,15 +274,14 @@
   </div>
 
   <v-fab
-            
-            v-show="scY > 300"
-            @click="toTop"
-            class="me-4 floating-btn"
-            icon="mdi-chevron-up"
-            location="bottom end"
-            absolute
-            offset
-          ></v-fab>
+    v-show="scY > 300"
+    @click="toTop"
+    class="me-4 floating-btn"
+    icon="mdi-chevron-up"
+    location="bottom end"
+    absolute
+    offset
+  ></v-fab>
 </template>
 
 <script>
@@ -277,7 +290,7 @@ import axios from "axios";
 import HouseNav from "../components/HouseNavbar.vue";
 import Card from "../components/Card.vue";
 import OrangeBtn from "../components/OrangeBtn.vue";
-import Paginate from "vuejs-paginate-next";
+
 export default {
   name: "NavbarVue",
   data() {
@@ -286,18 +299,21 @@ export default {
         topOfPage: true,
       },
       red: "red",
-      minBudget: 1,
-      rent:true,
-      buy:true,
-      maxBudget: 700000,
+
+      rent: true,
+      buy: true,
+      budget: [4000, 20000000],
+      page: 1,
       scTimer: 0,
+      appartements: true,
       scY: 0,
       disabled: false,
       isOpen: false,
+      proprietaires: true,
       chambres: true,
       maisons: true,
       agencesImmo: true,
-      proprietaires: true,
+      sell: true,
       demarcheurs: true,
       isLoading: false,
       selected: "",
@@ -323,7 +339,6 @@ export default {
     Card,
     HouseNav,
     OrangeBtn,
-    paginate: Paginate,
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
@@ -344,9 +359,72 @@ export default {
     warnClicked() {
       this.disabled = !this.disabled;
     },
-
+    handlePageChange(value) {
+      this.currentPage = value;
+    },
+    sendBudget(value) {
+      this.budget = value;
+      this.getFilterData();
+    },
     openPopup() {
       this.isOpen = !this.isOpen;
+    },
+    submitCity(city) {
+      console.log(city);
+
+      let filter = {
+        type: {
+          Chambre: this.chambres,
+          Appartement: this.appartements,
+          Maison: this.maisons,
+        },
+        proposedBy: {
+          Démarcheur: this.demarcheurs,
+          AgenceImmo: this.agencesImmo,
+          Propriétaire: this.proprietaires,
+        },
+
+        purpose: {
+          location: this.rent,
+          vente: this.sell,
+        },
+      };
+
+      let type = [];
+      let proposedBy = [];
+      let purpose = [];
+
+      let query = {};
+      Object.keys(filter.proposedBy).forEach((key) => {
+        if (filter.proposedBy[key]) {
+          proposedBy.push({ proposedBy: key });
+        }
+      });
+      Object.keys(filter.type).forEach((key) => {
+        if (filter.type[key]) {
+          type.push({ type: key });
+        }
+      });
+
+      Object.keys(filter.purpose).forEach((key) => {
+        if (filter.purpose[key]) {
+          purpose.push({ purpose: key });
+        }
+      });
+      let budget = this.budget.join();
+      type = type.map((el) => el.type);
+      proposedBy = proposedBy.map((el) => el.proposedBy);
+      purpose = purpose.map((el) => el.purpose);
+     
+
+      axios
+        .get(
+          `http://localhost:8000/api/findSpecificAccomodation?city=${city}&type=${type}&proposedBy=${proposedBy}&purpose=${purpose}&budget=${budget}`
+        )
+        .then(({ data }) => {
+          console.log(data);
+          this.accomodationTab = data;
+        });
     },
     handleScroll() {
       if (window.pageYOffset > 100) {
@@ -372,6 +450,78 @@ export default {
         behavior: "smooth",
       });
     },
+
+    getFilterData() {
+      let filter = {
+        type: {
+          Chambre: this.chambres,
+          Appartement: this.appartements,
+          Maison: this.maisons,
+        },
+        proposedBy: {
+          Démarcheur: this.demarcheurs,
+          AgenceImmo: this.agencesImmo,
+          Propriétaire: this.proprietaires,
+        },
+
+        purpose: {
+          location: this.rent,
+          vente: this.sell,
+        },
+      };
+
+      let type = [];
+      let proposedBy = [];
+      let purpose = [];
+
+      let query = {};
+      Object.keys(filter.proposedBy).forEach((key) => {
+        if (filter.proposedBy[key]) {
+          proposedBy.push({ proposedBy: key });
+        }
+      });
+      Object.keys(filter.type).forEach((key) => {
+        if (filter.type[key]) {
+          type.push({ type: key });
+        }
+      });
+
+      Object.keys(filter.purpose).forEach((key) => {
+        if (filter.purpose[key]) {
+          purpose.push({ purpose: key });
+        }
+      });
+      let budget = this.budget.join();
+      type = type.map((el) => el.type);
+      proposedBy = proposedBy.map((el) => el.proposedBy);
+      purpose = purpose.map((el) => el.purpose);
+      console.log(proposedBy);
+      console.log(type);
+      console.log(purpose);
+
+      this.$router.push({
+        name: "logements",
+        query: {
+          type: type.join(),
+          proposedBy: proposedBy.join(),
+          purpose: purpose.join(),
+          budget: budget,
+        },
+      });
+      axios
+        .get(
+          `http://localhost:8000/api/findSpecificAccomodation?type=${type}&proposedBy=${proposedBy}&purpose=${purpose}&budget=${budget}`
+        )
+        .then(({ data }) => {
+          console.log(data);
+          this.accomodationTab = data;
+        });
+    },
+  },
+  computed: {
+    getType() {
+      return this.appartements || this.maisons || this.chambres;
+    },
   },
 };
 </script>
@@ -382,13 +532,18 @@ export default {
   padding: 0;
   margin: 0;
 }
-
+.alert-container .v-alert {
+  width: 642px;
+  height: 150px;
+  margin-bottom: 20px;
+  text-align: left;
+}
 .ml-10 {
   margin-left: 10px;
 }
 .bg-r {
   background-color: #ee5354;
-}/*
+} /*
 .form-input:checked {/*
   background-color: red;
   accent-color: red;
@@ -627,23 +782,6 @@ select {
   min-width: 380px;
 }
 
-.LocationPlaceholder_input {
-  background-color: transparent;
-  border: none;
-  color: #36417d;
-  flex-grow: 1;
-  font: var(--ft-s);
-  font-weight: 600;
-  height: 30px;
-  margin: 0 0 0 10px;
-  min-width: 150px;
-  outline: 0;
-  overflow: hidden;
-  padding: 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 ::placeholder {
   color: #36417d;
   font-weight: 200;
@@ -831,54 +969,5 @@ header {
 .link:hover .list,
 .link:hover .list li {
   display: block;
-}
-nav {
-  font-family: "Metrophobic", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  position: fixed;
-  margin-right: auto;
-  justify-content: space-between;
-  margin-left: auto;
-  z-index: 10;
-  width: 100%;
-  padding: 0 40px;
-  height: 60px;
-  color: black;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  transition: all 0.2s ease-in-out;
-  &.onScroll {
-    box-shadow: 0 0 10px #aaa;
-    background-color: #fff;
-    ul li {
-      color: #36417d;
-    }
-
-    .header-title {
-      color: #36417d;
-    }
-    .account-btn {
-      background-color: #3c9;
-    }
-    .account-btn:hover {
-      color: white;
-    }
-  }
-
-  ul {
-    margin-left: 3em;
-
-    display: flex;
-    justify-content: space-between;
-    li {
-      cursor: pointer;
-      font-weight: 300;
-      color: red;
-      list-style-type: none;
-      color: white;
-    }
-  }
 }
 </style>
