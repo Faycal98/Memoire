@@ -141,12 +141,12 @@
             data-bs-parent="#accordionFlushExample"
           >
             <div class="accordion-body">
-              Non, la plateforme Studapart n’est pas une agence immobilière de
+              Non, la plateforme ChezVous n’est pas une agence immobilière de
               location ou de gestion locative en ligne. C’est une plateforme de
-              réservation de logements en ligne. Studapart vous permet ainsi de
+              réservation de logements en ligne. ChezVous vous permet ainsi de
               trouver un locataire fiable sans passer par une agence !
               Contrairement à une agence immobilière traditionnelle (ou un
-              gestionnaire immobilier en ligne), Studapart ne vous remplace pas
+              gestionnaire immobilier en ligne),ChezVous ne vous remplace pas
               dans la gestion de votre bien : vous gérez vous-même votre
               location, mais pas tout seul. Afin de gérer au mieux la location
               de votre bien immobilier, nos conseillers dédiés vous épaulent
@@ -172,7 +172,7 @@
               aria-controls="panelsStayOpen-collapseTwo"
             >
               Faut-il être propriétaire bailleur pour louer un logement avec
-              Studapart ?
+              ChezVous ?
             </button>
           </h2>
           <div
@@ -200,7 +200,7 @@
               aria-controls="panelsStayOpen-collapseThree"
             >
               Dois-je payer des frais au moment de la mise en location chez
-              Studapart ?
+              ChezVous ?
             </button>
           </h2>
           <div
@@ -209,8 +209,8 @@
             aria-labelledby="panelsStayOpen-headingThree"
           >
             <div class="accordion-body">
-              Studapart est un service sans frais pour le propriétaire. Le
-              business model de Studapart repose sur la réservation en ligne et
+              ChezVous est un service sans frais pour le propriétaire. Le
+              business model de ChezVous repose sur la réservation en ligne et
               permet à la plateforme de financer la sécurisation de la location
               en plus du service en prélevant des frais de réservation payés par
               le locataire, qui varient entre 179 et 400€ selon la tension

@@ -10,6 +10,48 @@
           <div class="Block p-20 mt-20 mb-10">
             <div class="mb-1">
               <h2 class="Title Title--s mb-10 color-ft-strong">
+                Détails du bien
+              </h2>
+              <div class="row property-container mb-2 mb-0@s">
+                <div class="col-12 col-12@s mb-10@s mb-2">
+                  <div class="icon-highlight">
+                    <div><i class="fa-solid fa-bed"></i></div>
+                    <div>
+                      <p class="f<!-- t-medium --> location">
+                        {{ announceDetail.roomNumber }}
+                        Chambres
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-12@s mb-2">
+                  <div class="icon-highlight">
+                    <div><i class="fa-solid fa-kitchen-set"></i></div>
+                    <div>
+                      <p class="ellipsis-1">
+                        {{ announceDetail.kitchenNumber }}
+                        Cuisines
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-4 col-12@s mb-4">
+                  <div class="icon-highlight">
+                    <div><i class="fa-solid fa-shower"></i></div>
+                    <div>
+                      <p class="ellipsis-1">
+                        {{ announceDetail.showerNumber }} douche(s)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+      
+            </div>
+            <div class="mb-1">
+              <h2 class="Title Title--s mb-10 color-ft-strong">
                 Caractéristiques du logement
               </h2>
               <div class="row property-container mb-2 mb-0@s">
@@ -18,12 +60,16 @@
                     <div><i class="fa-solid fa-location-dot"></i></div>
                     <div>
                       <p class="f<!-- t-medium --> location">
-                        284 Rue Saint-Pierre, 13005 Marseille, France
+                        {{ announceDetail.city }} ,
+                        {{ announceDetail.neighborhood }}
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="col-4 col-12@s mb-4">
+                <div
+                  class="col-4 col-12@s mb-4"
+                  v-if="announceDetail.hasBrewer"
+                >
                   <div class="icon-highlight">
                     <div><i class="fa-solid fa-fan"></i></div>
                     <div>
@@ -35,7 +81,7 @@
                   </div>
                 </div>
 
-                <div class="col-4 col-12@s mb-4">
+                <div class="col-4 col-12@s mb-4" v-if="announceDetail.hasWifi">
                   <div class="icon-highlight">
                     <div><i class="fa-solid fa-wifi"></i></div>
                     <div>
@@ -44,7 +90,10 @@
                   </div>
                 </div>
 
-                <div class="col-4 col-12@s mb-4">
+                <div
+                  class="col-4 col-12@s mb-4"
+                  v-if="announceDetail.hasMonitoring"
+                >
                   <div class="icon-highlight">
                     <div><i class="fa-solid fa-video"></i></div>
                     <div>
@@ -52,16 +101,19 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-4 col-12@s mb-4">
+                <!--    <div class="col-4 col-12@s mb-4">
                   <div class="icon-highlight">
                     <div><i class="fa-solid fa-chair"></i></div>
                     <div>
                       <p class="ellipsis-1">Meuble</p>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
-                <div class="col-4 col-12@s mb-4">
+                <div
+                  class="col-4 col-12@s mb-4"
+                  v-if="announceDetail.hasWashingMachine"
+                >
                   <div class="icon-highlight">
                     <div>
                       <img
@@ -77,7 +129,10 @@
                   </div>
                 </div>
 
-                <div class="col-4 col-12@s mb-4">
+                <div
+                  class="col-4 col-12@s mb-4"
+                  v-if="announceDetail.hasBalcony"
+                >
                   <div class="icon-highlight">
                     <div>
                       <img
@@ -92,7 +147,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-4 col-12@s mb-4">
+                <div
+                  class="col-4 col-12@s mb-4"
+                  v-if="announceDetail.isSanitary"
+                >
                   <div class="icon-highlight">
                     <div>
                       <img
@@ -107,7 +165,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-4 col-12@s mb-4">
+                <div class="col-4 col-12@s mb-4" v-if="announceDetail.hasTv">
                   <div class="icon-highlight">
                     <div><i class="fa-solid fa-tv"></i></div>
                     <div>
@@ -115,7 +173,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-4 col-12@s mb-4">
+                <div class="col-4 col-12@s mb-4" v-if="announceDetail.hasPool">
                   <div class="icon-highlight">
                     <div><i class="fa-solid fa-person-swimming"></i></div>
                     <div>
@@ -123,7 +181,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-4 col-12@s mb-4">
+                <div
+                  class="col-4 col-12@s mb-4"
+                  v-if="announceDetail.hasGarden"
+                >
                   <div class="icon-highlight">
                     <div>
                       <img
@@ -150,23 +211,18 @@
                 ref="description"
                 class="PropertyPage_descriptionContent js-truncate-content text-start"
               >
-                LES PLUS DE LA RÉSIDENCE POUR ÉTUDIANTS ET JEUNES ACTIFS LE
-                PRYTANÉE – BOUCHES-DU-RHÔNE (13)À proximité immédiate du campus
-                universitaire de Marseille La Timone.Bus 12 et 40 pratiquement
-                au pied de la résidence (arrêt St Pierre Ste Thérèse).Tramway
-                T1À environ 10 mn à pied des facultés de médecine, de pharmacie
-                et d’ontologie.À environ 10 mn en voiture du Vieux-Port.
+                {{ announceDetail.description }}
               </div>
               <button
                 @click="seeMore"
-                v-if="hidden"
+                v-if="hidden && descriptionLength > 200"
                 class="ButtonLink mt-2 d-none@hidden js-truncate-show"
               >
                 Voir plus
               </button>
               <button
                 @click="seeLess"
-                v-else
+                v-else-if="!hidden && descriptionLength > 200"
                 class="ButtonLink mt-2 is-hidden d-none@hidden js-truncate-hide"
               >
                 Voir moins
@@ -178,12 +234,14 @@
       <div class="col-lg-4 text-start property-wrapper">
         <div class="PropertyPage_sideBlock PropertyPage_sideBlock--intro p-20">
           <div class="row wrapper_price">
-            <div class="col-lg-6">
+            <div class="col-lg-10">
               <div class="PropertyPage_sidePrice d-block@s">
                 <p class="ft-2xs ft-medium color-ft-weak">à partir de</p>
                 <p class="ft-3xl line-1">
                   <b>{{ price }} Fcfa</b
-                  ><span class="ft-xs ml-2">/ {{ billPeriod }}</span>
+                  ><span v-if="announcePurpose !== 'vente'" class="ft-xs ml-2"
+                    >/ {{ billPeriod }}</span
+                  >
                 </p>
                 <div class="ft-xs">Charges comprises</div>
               </div>
@@ -349,25 +407,25 @@
             class="d-flex fx-justify-between fx-align-center b-top bg-bg-xweak p-4 mt-3"
           >
             <div></div>
-         <!--    <router-link
+            <!--    <router-link
               v-if="$store.state.user.id !== ownerId"
               to="/chat"
             > -->
-              <button
-                class="ButtonRectangle PropertyPage_contact js-popin-generic-open ButtonRectangle--bordered ButtonRectangle--s"
-                data-id="contact-popup"
-                data-test="contactModal"
-              >
-                <span class="ButtonRectangle_content">
-                  <span class="ButtonRectangle_text">
-                    Envoyer un message à la résidence
-                  </span>
+            <button
+              class="ButtonRectangle PropertyPage_contact js-popin-generic-open ButtonRectangle--bordered ButtonRectangle--s"
+              data-id="contact-popup"
+              data-test="contactModal"
+            >
+              <span class="ButtonRectangle_content">
+                <span class="ButtonRectangle_text">
+                  Envoyer un message à la résidence
                 </span>
+              </span>
 
-                <div class="ButtonRectangle_loader">
-                  <i class="fal fa-spinner-third"></i>
-                </div>
-              </button><!-- 
+              <div class="ButtonRectangle_loader">
+                <i class="fal fa-spinner-third"></i>
+              </div></button
+            ><!-- 
             </router-link> -->
           </div>
         </div>
@@ -384,10 +442,12 @@ export default {
   data() {
     return {
       hidden: true,
+      descriptionLength: 0,
       chat: false,
       galleryImg: [],
       announceOwner: "",
       announcePurpose: "",
+      announceDetail: {},
       price: "",
       ownerId: "",
       billPeriod: "",
@@ -403,7 +463,7 @@ export default {
       .get(`http://localhost:8000/api/findOneAccomodation/${idHouse}`)
       .then(({ data }) => {
         console.log(data);
-
+        this.announceDetail = data;
         this.galleryImg = data.images;
         this.announceOwner = data.announcements[0].user.userFirstName;
         this.announcePurpose = data.announcePurpose;
@@ -417,18 +477,21 @@ export default {
     let desc = this.$refs.description;
 
     let description = this.$refs.description.innerHTML;
-    let result = description.slice(0, 150);
-    let end = description.slice(150);
-    let span1 = document.createElement("span");
-    span1.classList.add("dots");
-    span1.innerHTML = "....";
-    let span2 = document.createElement("span");
-    span2.classList.add("hidden");
-    span2.classList.add("description-text");
-    span2.innerHTML = end;
-    desc.innerHTML = result;
-    desc.append(span1);
-    desc.append(span2);
+    if (description.length > 200) {
+      this.descriptionLength = description.length;
+      let result = description.slice(0, 150);
+      let end = description.slice(150);
+      let span1 = document.createElement("span");
+      span1.classList.add("dots");
+      span1.innerHTML = "....";
+      let span2 = document.createElement("span");
+      span2.classList.add("hidden");
+      span2.classList.add("description-text");
+      span2.innerHTML = end;
+      desc.innerHTML = result;
+      desc.append(span1);
+      desc.append(span2);
+    }
   },
   components: {
     Gallery,
@@ -606,7 +669,8 @@ p.ellipsis-1 {
 }
 .Title.mb-10 {
   font-weight: 400;
-  margin-bottom: 30px;
+
+  margin-bottom: 20px !important;
   text-align: left;
   color: #36417d;
   font-size: 20px;

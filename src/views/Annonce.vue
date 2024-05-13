@@ -3,7 +3,7 @@
     <div id="navbar">
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
-          <h1 class="ms-5 header-title">BenApart</h1>
+          <h1 class="ms-5 header-title">ChezVous</h1>
         </router-link>
         <div
           class="header-right justify-content-between align-items-center collapse navbar-collapse"
@@ -74,7 +74,7 @@
         color: #36417d;
       "
     >
-      Faite votre annonce en toute sécurité avec BenApart !
+      Faite votre annonce en toute sécurité avec ChezVous !
     </h1>
 
     <section id="annonce">
@@ -167,7 +167,7 @@
                           class="text-none text-subtitle-1"
                           size="small"
                           variant="flat"
-                          value="Chambres"
+                          value="Chambre"
                         >
                           Chambre
                         </v-btn>
@@ -847,7 +847,7 @@ export default {
   watch: {
     butAnnonce(newVal) {
       if (newVal == "vente") {
-        this.bill_period = 1;
+        this.bill_period = null;
       }
     },
   },
@@ -898,6 +898,7 @@ export default {
       formData.append("hasBrewer", this.hasBrewer);
       formData.append("hasAc", this.hasAc);
       formData.append("showerNumber", this.showerNumber);
+      formData.append("hasFurniture", this.furniture);
       formData.append("hasPool", this.hasPool);
       formData.append("hasWashingMachine", this.washMachine);
       formData.append("hasGarden", this.garden);

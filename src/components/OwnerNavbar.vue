@@ -3,7 +3,8 @@
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <router-link to="/owner">
         <h1 class="ms-5 header-title">
-          <strong style="color: #3cd7a3 ;">C</strong>hez<span id="letter"><strong>V</strong></span
+          <strong style="color: #3cd7a3">C</strong>hez<span id="letter"
+            ><strong>V</strong></span
           >ous
         </h1></router-link
       >
@@ -27,7 +28,7 @@
           <router-link to="/logements">
             <li class="link">Trouver un logement</li>
           </router-link>
-       
+
           <router-link to="/annonce">
             <li class="link">Mes annonces</li>
           </router-link>
@@ -41,8 +42,8 @@
                   ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon profil</a
                 >
               </li>
-              <li>
-                <a class="dropdown-item text-black" href="#"
+              <li @click="handleClick">
+                <a class="dropdown-item text-black"
                   ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
                   annonces</a
                 >
@@ -62,8 +63,8 @@
               </li>
             </ul>
           </div>
-          <v-avatar color="brown" @click="hide = !hide" v-if="userInitials">
-            <span class="text-h7 avatar">{{ userInitials }}</span>
+          <v-avatar color="#3cd7a3" @click="hide = !hide" v-if="userInitials">
+            <span class="text-h7 text-white avatar">{{ userInitials }}</span>
           </v-avatar>
 
           <router-link to="/login" v-else>
@@ -89,6 +90,7 @@ export default {
         topOfPage: true,
       },
       red: "red",
+      userId: "",
       userInitials: "",
       hide: true,
       userData: "",
@@ -100,7 +102,7 @@ export default {
   },
   mounted() {
     const userData = this.$store.state.user;
-
+    this.userId = userData.id;
     if (userData) {
       const userInitials =
         userData.userName.charAt(0).toUpperCase() +
@@ -121,6 +123,9 @@ export default {
     logout() {
       this.$store.dispatch("logout");
       window.location.reload();
+    },
+    handleClick() {
+      this.$router.push({ name: "annonceList", params: { id: this.userId } });
     },
   },
 };

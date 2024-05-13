@@ -1,7 +1,7 @@
 <template>
   <header>
     <div id="navbar">
-    <Navbar></Navbar>
+      <Navbar></Navbar>
     </div>
   </header>
   <div class="spacer"></div>
@@ -56,13 +56,12 @@
 </template>
 
 <script>
-import Navbar from "../components/AuthNav.vue"
+import Navbar from "../components/AuthNav.vue";
 import axios from "axios";
 export default {
   name: "HouseNavBar",
   data() {
     return {
-     
       disabled: false,
       userMailOrPhone: "",
       password: "",
@@ -72,10 +71,9 @@ export default {
       login: true,
     };
   },
-components:{
-  Navbar
-},
- 
+  components: {
+    Navbar,
+  },
 
   methods: {
     warnClicked() {
@@ -94,7 +92,11 @@ components:{
           this.password = "";
           const userData = data.data;
           this.$store.dispatch("login", userData);
-          this.$router.push("/owner");
+          if (userData.role === "Locataire") {
+            this.$router.push("/");
+          } else {
+            this.$router.push("/owner");
+          }
         })
         .catch((err) => {
           this.errorMsg = err.response.data.message;
@@ -120,8 +122,6 @@ components:{
 <script></script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
-
-
 
 /*** Form ***/
 

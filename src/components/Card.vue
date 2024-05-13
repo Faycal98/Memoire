@@ -10,11 +10,11 @@
           <div class="d-flex">
             <div class="AccomodationBlock_contentLeft">
               <div class="text-start">
-                <p class="pt-2 mb-0">
+                <p class="pt-2 mb-0 AccomodationType ">
                   <!---->
                   {{ accomodationDetail.type }}
                 </p>
-                <p class="AccomodationBlock_title mb-2 fw-bold ellipsis-2">
+                <p class="AccomodationBlock_title mb-2 fw-bold ellipsis-2 ft">
                   {{ accomodationDetail.city }},
                   {{ accomodationDetail.neighborhood }}
                 </p>
@@ -24,18 +24,24 @@
               <div>
                 <p class="line-1">à partir de</p>
                 <p class="ft-l mb-0 ft-m@s">
-                  <b
+                  <b class="ft"
                     >{{ accomodationDetail.price }}
                     <span class="ft-2xs unit">FCFA</span></b
                   >
                 </p>
-                <p class="line-1">/ {{ accomodationDetail.billPeriod }}</p>
+
+                <p
+                  v-if="accomodationDetail.announcePurpose !== 'vente'"
+                  class="line-1"
+                >
+                  / {{ accomodationDetail.billPeriod }}
+                </p>
               </div>
             </div>
           </div>
 
           <div class="AccomodationBlock_location text-start mb-3">
-            Meublé - Salle de sport
+            {{accomodationDetail.hasFurniture?"Meublé": "Non meublé"}} - {{ accomodationDetail.roomNumber }} chambres
           </div>
           <div
             class="ellipsis-2 wrapper-description-full text-start color-ft-weak"
@@ -83,7 +89,10 @@ export default {
   methods: {
     goToDetails() {
       console.log("clicked");
-      this.$router.push({ name: "houseDetails", params: { id: this.appartId } });
+      this.$router.push({
+        name: "houseDetails",
+        params: { id: this.appartId },
+      });
     },
   },
 };
@@ -111,6 +120,15 @@ export default {
   height: 6px;
   border-radius: 50%;
   background-color: var(--vc-pgn-background-color);
+}
+
+.ft {
+  font-family: "Metrophobic", sans-serif;
+}
+
+.AccomodationType {
+  color: #36417d;
+  font-size: 19px;
 }
 
 .line-1 {

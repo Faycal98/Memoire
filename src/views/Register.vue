@@ -1,8 +1,7 @@
 <template>
   <header>
     <div id="navbar">
-  <Navbar></Navbar>
-   
+      <Navbar></Navbar>
     </div>
   </header>
   <div class="spacer"></div>
@@ -40,7 +39,10 @@
               placeholder="Prénom *"
               class="form-control"
             />
-            <ErrorMessage name="userFirstName" class="error-feedback text-danger" />
+            <ErrorMessage
+              name="userFirstName"
+              class="error-feedback text-danger"
+            />
           </div>
 
           <div class="form-group">
@@ -76,30 +78,39 @@
             <ErrorMessage name="password" class="error-feedback text-danger" />
           </div>
 
-          <div class="wrapper">
-            <input
-              type="radio"
-              v-model="picked"
-              value="Démarcheur"
-              name="select"
-              id="option-1"
-              checked
-            />
-            <input
-              type="radio"
-              v-model="picked"
-              value="Propriétaire"
-              name="select"
-              id="option-2"
-            />
-
-            <label for="option-1" class="option option-1">
-              <div class="dot"></div>
-              <span>Démarcheur</span>
+          <div class="radio-inputs wrapper">
+            <label class="radio">
+              <input
+                type="radio"
+                name="radio"
+                v-model="picked"
+                value="Locataire"
+                id="option-1"
+                checked
+              />
+              <span class="name">Locataire</span>
             </label>
-            <label for="option-2" class="option option-2">
-              <div class="dot"></div>
-              <span>Propriétaire</span>
+            <label class="radio">
+              <input
+                type="radio"
+                name="radio"
+                v-model="picked"
+                value="Démarcheur"
+                id="option-1"
+                checked
+              />
+              <span class="name">Démarcheur</span>
+            </label>
+
+            <label class="radio">
+              <input
+                type="radio"
+                name="radio"
+                v-model="picked"
+                value="Propriétaire"
+                id="option-2"
+              />
+              <span class="name">Propriétaire</span>
             </label>
           </div>
           <button>Je m'inscris</button>
@@ -127,13 +138,13 @@ export default {
         .required("Le nom est obligatoire!")
         .min(3, "Doit contenir au moins 3 caractères!")
         .max(20, "Maximum 20 caracterès!"),
-    
+
       phone: yup
         .string()
         .required(" le numéro de téléphone est obligatoire!")
         .min(6, "Doit contenir au moins 6 caractères!")
         .max(20, "Maximum 20 caracterès!"),
- 
+
       userFirstName: yup
         .string()
         .required("Le prénom est obligatoire!")
@@ -145,7 +156,7 @@ export default {
         .required("L'email est obligatoire!")
         .email("Email non valide!")
         .max(50, "Maximum 50 caractères!"),
- 
+
       password: yup
         .string()
         .required("Mot de passe obligatoire!")
@@ -174,12 +185,10 @@ export default {
     Form,
     Field,
     ErrorMessage,
-    Navbar
+    Navbar,
   },
 
   methods: {
-  
-
     signUp() {
       // e.preventDefault();
       axios
@@ -201,23 +210,18 @@ export default {
               password: password,
             })
             .then((data) => {
-              this.userMailOrPhone = "";
-              this.password = "";
+             
 
               const userData = data.data;
-
               this.$store.dispatch("login", userData);
-              this.$router.push("/owner");
+              console.log(userData.role)
+              if (userData.role === "Locataire") {
+               this.$router.push("/");
+              } else {
+                this.$router.push("/owner");
+              }
             })
-            .then(() => {
-              (this.username = ""),
-                (this.userFirstName = ""),
-                (this.email = ""),
-                (this.password = ""),
-                (this.phone = ""),
-                (this.role = "");
-              this.$router.push("/");
-            })
+            
 
             .catch((err) => {
               this.errorMsg = err.response.data.message;
@@ -246,17 +250,13 @@ header {
   position: relative;
   z-index: 500;
 }
-.form-control:focus{
+.form-control:focus {
   box-shadow: none;
 }
 
 .message a {
   color: #36417d;
 }
-
-
-
-
 
 /*** Form ***/
 
@@ -287,7 +287,7 @@ header {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-.form-group{
+.form-group {
   margin: 0 0 15px;
 }
 .form input {
@@ -402,5 +402,44 @@ input[type="radio"] {
 #option-1:checked:checked ~ .option-1 span,
 #option-2:checked:checked ~ .option-2 span {
   color: #fff;
+}
+
+.radio-inputs {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  background-color: #eee;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem;
+
+  font-size: 14px;
+}
+
+.radio-inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.radio-inputs .radio input {
+  display: none;
+}
+
+.radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem 0;
+  color: rgba(51, 65, 85, 1);
+  transition: all 0.15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked + .name {
+  background-color: #fff;
+  font-weight: 600;
 }
 </style>
