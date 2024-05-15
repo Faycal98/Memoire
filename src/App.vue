@@ -79,7 +79,7 @@ main {
 html {
   overflow: scroll;
 }
-::-webkit-scrollbar {
+.sidebar::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
@@ -129,14 +129,13 @@ body {
 .stepperSlider .carousel__pagination-button--active:after {
   background-color: #3c9;
   color: #fff;
-
 }
 
 .stepperSlider .carousel__pagination-button--active:hover::after {
-  background-color: #3c9!important;
-  color: #fff!important;
-  transform: translateY(-1px)!important;
-  box-shadow: 0 3px 6px 0 rgba(69, 97, 251, 0.2)!important;
+  background-color: #3c9 !important;
+  color: #fff !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 3px 6px 0 rgba(69, 97, 251, 0.2) !important;
 }
 
 .stepperSlider .carousel__pagination-button:hover::after {

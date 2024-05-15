@@ -60,12 +60,13 @@ export default defineComponent({
 </script>
 <style scoped>
 #gallery .carousel__item {
-  height: 300px;
+  height: 200px;
 }
 
 .gallery-wrapper {
   width: 340px;
-  height: 340px;
+  height: 200px;
+  overflow-y: scroll
 }
 
 .carousel * {

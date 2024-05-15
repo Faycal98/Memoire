@@ -3,7 +3,8 @@
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <router-link to="/">
         <h1 class="ms-5 header-title">
-          <strong style="color:rgb(221, 88, 55) ;">C</strong>hez<span id="letter"><strong>V</strong></span
+          <strong style="color: rgb(221, 88, 55)">C</strong>hez<span id="letter"
+            ><strong>V</strong></span
           >ous
         </h1></router-link
       >
@@ -49,7 +50,7 @@
               </ul>
             </div>
           </li>
-          <router-link v-else to="/annonce">
+          <router-link v-else to="/annonce" v-if="userRole !== 'Locataire'">
             <li class="link">Déposer une annonce</li>
           </router-link>
 
@@ -281,6 +282,7 @@ export default {
         topOfPage: true,
       },
       red: "red",
+      userRole: "",
       userInitials: "",
       hide: true,
       userData: "",
@@ -294,6 +296,8 @@ export default {
     const userData = JSON.parse(localStorage.getItem("userData"));
 
     if (userData) {
+      this.userRole = userData.role;
+      console.log(this.userRole);
       const userInitials =
         userData.userName.charAt(0).toUpperCase() +
         userData.userFirstName.charAt(0).toUpperCase();

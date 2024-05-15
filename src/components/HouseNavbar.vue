@@ -10,7 +10,7 @@
           id="navbarSupportedContent"
         >
           <ul>
-            <li class="link d-block">
+            <li class="link d-block" v-if="!userInitials">
               <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
 
               <div class="list">
@@ -33,7 +33,7 @@
                 </ul>
               </div>
             </li>
-            <li class="link d-block">
+            <li class="link d-block" v-if="!userInitials">
               <p class="drop-text dropdown-toggle">Je suis propriétaire</p>
               <div class="list">
                 <ul>
@@ -55,9 +55,21 @@
                 </ul>
               </div>
             </li>
+            <li class="link d-block" v-if="userInitials && userRole !== 'locataire'">
+              <p class="drop-text">Deposer une annonce</p>
+            </li>
+            <li class="link d-block" v-if="userInitials">
+              <p class="drop-text">Acheter un pack</p>
+            </li>
+            <li class="link d-block" v-if="userInitials">
+              <p class="drop-text">Mes annonces</p>
+            </li>
           </ul>
 
-          <div class="Header_buttons ms-3 position relative">
+          <div
+            class="Header_buttons ms-3 position relative"
+            v-if="!userInitials"
+          >
             <button
               type="button"
               @click="warnClicked"
@@ -102,6 +114,50 @@
                 </ul>
               </div>
             </Transition>
+          </div>
+
+          <div class="Header_buttons ms-3">
+            <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
+              <ul class="sub-list d-block">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon
+                    profil</a
+                  >
+                </li>
+                <li @click="handleClick">
+                  <a class="dropdown-item text-black"
+                    ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
+                    annonces</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item text-black" @click="logout" href="#"
+                    ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Se
+                    deconnecter</a
+                  >
+                </li>
+
+                <li>
+                  <a class="dropdown-item last" href="#"
+                    ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
+                    contacter</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <v-avatar color="#3cd7a3" @click="hide = !hide" v-if="userInitials">
+              <span class="text-h7 text-white avatar">{{ userInitials }}</span>
+            </v-avatar>
+
+            <router-link to="/login" v-else>
+              <button
+                type="button"
+                class="btn btn-outline-light account-btn px-1 py-2"
+              >
+                Mon compte
+              </button>
+            </router-link>
           </div>
         </div>
       </nav>
@@ -226,9 +282,12 @@ export default {
         topOfPage: true,
       },
       red: "red",
+      userRole:"",
       minBudget: 4000,
+      hide: true,
       maxBudget: 20000000,
       disabled: false,
+      userInitials: "",
       isOpen: false,
       city: "",
       carrouselTab: [
@@ -264,6 +323,21 @@ export default {
   },
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
+  },
+  mounted() {
+    const userData = this.$store.state.user;
+   
+    console.log(userData)
+    if (userData) {
+      console.log(userData,123)
+      this.userId = userData.id;
+    this.userRole = userData.role
+      const userInitials =
+        userData.userName.charAt(0).toUpperCase() +
+        userData.userFirstName.charAt(0).toUpperCase();
+      this.userInitials = userInitials;
+      console.log(userInitials);
+    }
   },
 
   methods: {
@@ -558,6 +632,24 @@ header {
   right: 4%;
 }
 
+
+.sub-menu {
+    right: 2%;
+    top: 100%;
+    background: white;
+}
+
+
+
+.sub-menu[data-v-23e61d23] {
+    content: "";
+    position: absolute;
+    right: 9%;
+    bottom: 100%;
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
 .sub-menu::after {
   content: "";
   position: absolute;

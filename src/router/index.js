@@ -107,10 +107,18 @@ const routes = [
     component: () => import("../views/Annonce.vue"),
   },
   {
-    path: "/user/annonce/:id",
+    path: "/user/:id/annonces",
     name: "annonceList",
     meta: { requiresAuth: true },
     component: () => import("../views/AnnonceList.vue"),
+  },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+    component: () => import("@/views/HospitalDash"),
+    meta: {
+      hospitalGuard: true,
+    },
   },
 ];
 

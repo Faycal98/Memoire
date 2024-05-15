@@ -19,7 +19,7 @@
                     <div>
                       <p class="f<!-- t-medium --> location">
                         {{ announceDetail.roomNumber }}
-                        Chambres
+                        Chambre(s)
                       </p>
                     </div>
                   </div>
@@ -30,7 +30,7 @@
                     <div>
                       <p class="ellipsis-1">
                         {{ announceDetail.kitchenNumber }}
-                        Cuisines
+                        Cuisine(s)
                       </p>
                     </div>
                   </div>
