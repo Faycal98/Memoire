@@ -3,7 +3,7 @@
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <router-link to="/owner">
         <h1 class="ms-5 header-title">
-          <strong style="color: #3cd7a3">C</strong>hez<span id="letter"
+          <strong style="color: rgb(221, 88, 55);">C</strong>hez<span id="letter"
             ><strong>V</strong></span
           >ous
         </h1></router-link
@@ -29,8 +29,9 @@
             <li class="link">Trouver un logement</li>
           </router-link>
 
-          <router-link to="/annonce">
-            <li class="link">Mes annonces</li>
+         
+         <router-link to="#">
+            <li class="link">Nous contacter</li>
           </router-link>
         </ul>
 
@@ -39,12 +40,12 @@
             <ul class="sub-list d-block">
               <li>
                 <a class="dropdown-item" href="#"
-                  ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon profil</a
+                  ><i class="fa-solid fa-user me-2 pt-2"></i>Mon profil</a
                 >
               </li>
               <li @click="handleClick">
                 <a class="dropdown-item text-black"
-                  ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
+                  ><i class="fa-solid fa-list me-2 arrow"></i>Mes
                   annonces</a
                 >
               </li>
@@ -55,15 +56,10 @@
                 >
               </li>
 
-              <li>
-                <a class="dropdown-item last" href="#"
-                  ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
-                  contacter</a
-                >
-              </li>
+              
             </ul>
           </div>
-          <v-avatar color="#3cd7a3" @click="hide = !hide" v-if="userInitials">
+          <v-avatar color="rgb(221, 88, 55)" @click="hide = !hide" v-if="userInitials">
             <span class="text-h7 text-white avatar">{{ userInitials }}</span>
           </v-avatar>
 
@@ -138,7 +134,7 @@ export default {
   margin: 0;
 }
 #letter {
-  color: #3cd7a3;
+  color: #36417d;
 }
 .link {
   display: flex;
@@ -253,10 +249,10 @@ nav {
     }
 
     .header-title {
-      color: #36417d;
+      color: black;
     }
     .account-btn {
-      background-color: #3cd7a3;
+      background-color: rgb(221, 88, 55);
     }
     .account-btn:hover {
       color: white;

@@ -27,7 +27,7 @@
       </div>
       <div class="head-child2">
         <h3 class="color">Une expérience locative simple et humaine ! <br>ChezVous est une
-         plateforme de réservation d'appartement, de chambre et de maison a louer en 
+         plateforme de recherche d'appartement, de chambre  et de maison en 
          ligne qui rend la location plus simple et humaine.</h3>
       </div>
       <div class="head-child3">

@@ -23,12 +23,12 @@ export default {
 }
 .ButtonRectangle--green.is-hover,
 .ButtonRectangle--green:hover {
-  background-color: #3cd7a3;
+  background-color: rgb(187, 80, 53);
   transform: translateY(-1px);
   box-shadow: 0 3px 6px 0 rgba(69,97,251,.2);
 }
 .searching a {
-  background-color: #3cd7a3;
+  background-color: rgb(221, 88, 55);
   text-decoration: none;
   color: white;
   font-family: "Metrophobic", sans-serif;
