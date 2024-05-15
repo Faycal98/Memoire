@@ -25,7 +25,9 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../components/GalleryCarrousel.vue"),
+      import(
+        /* webpackChunkName: "about" */ "../components/GalleryCarrousel.vue"
+      ),
   },
   {
     path: "/logements",
@@ -63,8 +65,6 @@ const routes = [
     },
     component: () => import("../components/Chat3.vue"),
   },
-
-
 
   {
     path: "/login",
@@ -117,9 +117,10 @@ const routes = [
     meta: {
       hospitalGuard: true,
     },
+  },
+  {
     path: "/profil",
     name: "profil",
-
     component: () => import("../views/Profil.vue"),
   },
 ];
