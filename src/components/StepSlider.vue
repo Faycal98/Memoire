@@ -32,16 +32,16 @@ export default defineComponent({
       steps: [
         {
           title: "<strong>Je dépose mon annonce<strong>",
-          text: "100% des annonces sont vérifiées et validées en 12h max. Notre équipe d’experts s’assure que votre logement est conforme à sa description et respecte les règles de location. À la demande, bénéficiez de services en plus pour maximiser le potentiel de votre annonce : boost de visibilité avec le Studaboost, shooting photo professionnel avec LightShop.",
+          text: "100% des annonces sont vérifiées et validées automaticament. En cas d'une dénonciation par un client, notre équipe d’experts vous bloque afin de s'assurer qu'il s'agit bien d'une fausse alert mais dans le cas contraire vous serez supprimer tout simplement.",
         },
 
         {
           title: "<strong>Je reçois des demandes</strong>",
-          text: "Chez Studapart, on vise la compatibilité : vous recevez des demandes de profils de locataires qui correspondent à vos critères toute l’année (date d’entrée, durée, dossier de location), partout en France. Vous accédez aux dossiers des locataires en un clic. Notre messagerie sécurisée permet ensuite de gérer votre location de A à Z.",
+          text: "Chez ChezVous, on vise la compatibilité : vous recevez des demandes de profils de locataires qui correspondent à vos critères et tout moment partout au Bénin. Notre messagerie sécurisée vous permet d'avoir une première prise avec votre locataire.",
         },
         {
-          title: "<strong>Je finalise la réservation en ligne<strong>",
-          text: "Une fois le locataire idéal trouvé, hop ! Proposez-lui de réserver votre logement en ligne depuis votre messagerie. Le locataire paye le 1er mois de loyer et les frais de réservation sur la plateforme. Vous êtes ainsi protégé en cas de pépin (annulation, dégradations, impayés). À la demande, réalisez vos états des lieux à distance et à moindre coût avec notre partenaire Check & Visit.",
+          title: "<strong>Je finalise la location de mon bien immobilier<strong>",
+          text: "Une fois le locataire idéal trouvé, hop ! Proposez-lui de réserver votre logement en ligne depuis votre messagerie. Vous êtes ainsi protégé en cas de pépin. À la demande, réalisez vos états des lieux avec votre afin e finaliser la location ou la vente de votre bien immobilier.",
         },
       ],
     };
@@ -71,7 +71,7 @@ text-align: left;
 .carousel__item  h3{
     width: 100%;
     font-size: 20px;
-    color: #36417D;
+    color: #36417d;
     font-family: "Metrophobic", sans-serif;
     font-weight: 700;
 }

@@ -9,10 +9,10 @@
         </h1>
 
         <h2 class="ft-3xl text-white fw-bold color-b mt-20@s">
-          On a le locataire idéal, les garanties et des services à la carte
+          On a le locataire idéal, les garanties et des services pour vous satisfaire.
         </h2>
         <p class="text-white description">
-          ChezVous est une <strong>plateforme de réservation</strong> de
+          <router-link to="/"><strong style="color:#aeb6eb; font-size: 20px">ChezVous</strong></router-link> est une <strong>plateforme de recherche</strong> de
           logements en ligne gratuite. On vous outille pour louer votre logement
           rapidement, en toute sérénité et à moindre coût. C’est du sur-mesure :
           on vous accompagne à chaque étape de la location selon vos besoins.
@@ -27,12 +27,20 @@
   </header>
 
   <div class="Wrapper mt-4">
+    <h2 class="ft-2xl ft-bold ft-bold@s text-center m-auto color-b" style="color: rgb(221, 88, 55) !important;">
+      Un service complet et fiable pour mettre en location votre logement en
+      toute autonomie
+    </h2>
+    
     <div class="servcesContainer pv-60">
+        
       <div class="ServicesBlock">
+        
         <div class="ServicesBlock-Item">
+          
           <div class="ServicesBlock-Item__Logo-block">
             <img
-              src="https://www.studapart.com/themes/custom/iw_bootstrap4/assets/img/owner_lp/target.svg?frz-v=3403"
+              src=""
               alt="target icon"
             />
           </div>
@@ -44,31 +52,31 @@
         <div class="ServicesBlock-Item">
           <div class="ServicesBlock-Item__Logo-block">
             <img
-              src="https://www.studapart.com/themes/custom/iw_bootstrap4/assets/img/owner_lp/security.svg?frz-v=3403"
+              src=""
               alt="security icon"
             />
           </div>
           <p class="text-center">
-            <span class="ft-m ft-bold">Des garanties gratuites</span><br />
-            <span class="ft-s">contre les impayés et dégradations</span>
+            <span class="ft-m ft-bold">Des garanties</span><br />
+            <span class="ft-s">pour toutes vos annonces</span>
           </p>
         </div>
         <div class="ServicesBlock-Item">
           <div class="ServicesBlock-Item__Logo-block">
             <img
-              src="https://www.studapart.com/themes/custom/iw_bootstrap4/assets/img/owner_lp/add.svg?frz-v=3403"
+              src=""
               alt="add icon"
             />
           </div>
           <p class="text-center">
-            <span class="ft-m ft-bold">Des services à la carte</span><br />
+            <span class="ft-m ft-bold">Des services conçus </span><br />
             <span class="ft-s">pour faciliter votre gestion locative</span>
           </p>
         </div>
         <div class="ServicesBlock-Item">
           <div class="ServicesBlock-Item__Logo-block">
             <img
-              src="https://www.studapart.com/themes/custom/iw_bootstrap4/assets/img/owner_lp/contact.svg?frz-v=3403"
+              src=""
               alt="contact icon"
             />
           </div>
@@ -79,17 +87,14 @@
         </div>
       </div>
     </div>
-
     <h2 class="ft-2xl ft-bold ft-bold@s text-center m-auto color-b">
-      Un service complet et gratuit pour mettre en location votre logement en
-      toute autonomie
+      Pour votre recherche de locataires, on a tout ce qu’il vous
+          faut ! Déposez votre annonce et bénéficiez d’une expérience sur-mesure
+          depuis notre plateforme sécurisée.
     </h2>
+    
 
-    <p class="text-center mt-10">
-      De la recherche de locataire, à la reservation, on a tout ce qu’il vous
-      faut ! Déposez votre annonce et bénéficiez d’une expérience sur-mesure
-      depuis notre plateforme sécurisée
-    </p>
+    
   </div>
 
   <div class="OwnerLandingPage_SliderBlock content_wrapper d-flex">
@@ -130,7 +135,7 @@
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              La plateforme ChezVous est-elle une agence de location immobilière
+              La plateforme   ChezVous  est-elle une agence de location immobilière
               ?
             </button>
           </h2>
@@ -141,23 +146,20 @@
             data-bs-parent="#accordionFlushExample"
           >
             <div class="accordion-body">
-              Non, la plateforme ChezVous n’est pas une agence immobilière de
+              Non, la plateforme <strong style="color:#36417d ;">ChezVous</strong> n’est pas une agence immobilière de
               location ou de gestion locative en ligne. C’est une plateforme de
-              réservation de logements en ligne. ChezVous vous permet ainsi de
+              recherche de logements en ligne. <strong style="color:#36417d ;">ChezVous</strong> vous permet ainsi de
               trouver un locataire fiable sans passer par une agence !
               Contrairement à une agence immobilière traditionnelle (ou un
-              gestionnaire immobilier en ligne),ChezVous ne vous remplace pas
+              gestionnaire immobilier en ligne), <strong style="color:#36417d ;">ChezVous</strong> ne vous remplace pas
               dans la gestion de votre bien : vous gérez vous-même votre
               location, mais pas tout seul. Afin de gérer au mieux la location
               de votre bien immobilier, nos conseillers dédiés vous épaulent
               tout le long de la location à votre demande. De la rédaction de
-              l'annonce grâce à nos conseils sur les termes à utiliser, au prix
-              des loyers à fixer, en passant par les mises en avant des qualités
+              l'annonce grâce à notre système, en passant par les mises en avant des qualités
               de votre bien locatif jusqu'au choix du locataire et la signature
               du bail, nous vous fournissons tous les conseils nécessaires pour
-              optimiser votre expérience locative. Vous gardez la main sur le
-              paiement des loyers (en dehors du 1er loyer payé par le locataire
-              sur la plateforme), ou encore sur le choix définitif du locataire.
+              optimiser votre expérience locative.
             </div>
           </div>
         </div>
@@ -171,7 +173,7 @@
               aria-expanded="false"
               aria-controls="panelsStayOpen-collapseTwo"
             >
-              Faut-il être propriétaire bailleur pour louer un logement avec
+              Faut-il être propriétaire bailleur pour louer un logement avec 
               ChezVous ?
             </button>
           </h2>
@@ -182,8 +184,8 @@
           >
             <div class="accordion-body">
               Notre plateforme est disponible pour les propriétaires bailleurs,
-              mais pas uniquement ! La plateforme est disponible pour d'autres
-              types de loueurs tels que les résidences étudiantes, les
+              mais pas uniquement ! La plateforme <strong style="color:#36417d ;">ChezVous</strong> est disponible pour d'autres
+              types de loueurs tels que les démarcheurs, les structures, les
               colivings, et les professionnels de l'immobilier (agences
               immobilières, etc.).
             </div>
@@ -199,8 +201,8 @@
               aria-expanded="false"
               aria-controls="panelsStayOpen-collapseThree"
             >
-              Dois-je payer des frais au moment de la mise en location chez
-              ChezVous ?
+              Dois-je payer des frais au moment de la mise en location chez 
+               ChezVous  ?
             </button>
           </h2>
           <div
@@ -209,26 +211,14 @@
             aria-labelledby="panelsStayOpen-headingThree"
           >
             <div class="accordion-body">
-              ChezVous est un service sans frais pour le propriétaire. Le
-              business model de ChezVous repose sur la réservation en ligne et
-              permet à la plateforme de financer la sécurisation de la location
-              en plus du service en prélevant des frais de réservation payés par
-              le locataire, qui varient entre 179 et 400€ selon la tension
-              locative dans le secteur géographique. Ces frais permettent de
-              financer le travail de 60 passionnés qui s'affairent à : modérer
-              les annonces, les profils, relancer les propriétaires et
-              locataires pour assurer une forte réactivité et à accompagner
-              chacun d'entre vous. Grâce aux frais, on apporte également des
-              garanties contre les annulations de dernière minute tant côté
-              propriétaire que locataire. Nos services complémentaires
-              sur-mesure et à votre demande pour faciliter votre gestion
-              locative peuvent en revanche avoir un coût pour le propriétaire.
-              Ce service est à la carte et optionnel. Pour en savoir plus,
-              consultez la page de l’offre > Pour l’ensemble de nos services,
-              nous ne nous rémunérons qu’au succès pour un modèle de
-              rémunération plus juste, soit à la condition que le propriétaire
-              trouve le locataire idéal, et que le locataire trouve son
-              logement.
+              <strong style="color:#36417d ;">ChezVous</strong> est une plateforme de recherche disponible pour toutes personnes
+              volant mettre son bien immobilier en location. Le business model pour ne
+              pas dire la politique économique de <strong style="color:#36417d ;">ChezVous</strong> repose sur l'achat des packs
+              annonces. Cela permet à la plateforme de financer la sécurisation, les mises
+              à jour et autres permettant à ces différents utilisateurs d'être en sécurité.
+                Nos services complémentaires sur-mesure et à votre demande pour faciliter 
+              votre gestion locative peuvent en revanche avoir un coût pour le propriétaire.
+              
             </div>
           </div>
         </div>
@@ -249,7 +239,7 @@ import GreenBtn from "../components/GreenBtn.vue";
 export default {
   data() {
     return {
-      msg: "Deposer mon annonce",
+      msg: "Déposer mon annonce",
     };
   },
   components: {
@@ -314,7 +304,7 @@ header {
 
 .Rotated.RotatedGreen,
 .Rotated.RotatedInversed {
-  background: #3cd7a3;
+  background: rgb(221, 88, 55);
 }
 
 .Rotated.Small span {
@@ -341,7 +331,7 @@ p.description {
   padding: 30px 40px;
   gap: 40px;
   border-radius: 16px;
-  background: #36417d;
+  background: #36417d ;
 }
 
 .ServicesBlock > .ServicesBlock-Item {
@@ -402,9 +392,9 @@ p.description {
   background-repeat: no-repeat !important;
   background-size: cover !important;
   border-radius: 50%;
-  border: 20px solid #3cd7a3;
+  border: 20px solid rgb(221, 88, 55);
   position: relative;
-  background: url("../assets/bussinessman.jpg");
+  background: url("../assets/bussinessman1.jpg");
   width: 600px;
 }
 
@@ -440,7 +430,7 @@ p.description {
 }
 .Paragraph_highlight.Paragraph_highlight--green {
   color: #fff;
-  background-color: #3c9;
+  background-color: rgb(238, 79, 39);
 }
 
 .mb-40 {
@@ -448,6 +438,7 @@ p.description {
 }
 
 .question-wrapper {
+  background-color: rgba(233, 185, 173, 0.404);
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -473,7 +464,7 @@ p.description {
 }
 
 .accordion-button::after {
-  background-color: #effffb;
+  background-color: rgba(167, 83, 62, 0.185);  
   border-radius: 50%;
   background-image: url("../assets/téléch.svg");
   width: 1.3rem;

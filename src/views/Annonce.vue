@@ -32,17 +32,21 @@
                       démarcheur</a
                     >
                   </li>
-                  <li>
+                  <li><router-link to="/login">
                     <a class="dropdown-item text-black" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i
                       >Connexion</a
                     >
+                  </router-link>
+                    
                   </li>
-                  <li>
+                  <li><router-link to="/register">
                     <a class="dropdown-item last" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
                       >Inscription</a
                     >
+                  </router-link>
+                    
                   </li>
                   <li>
                     <a class="dropdown-item" href="#"
@@ -323,9 +327,9 @@
                     Emplacement du logement
                   </h2>
                   <span class="text-start"
-                    >Veuillez fourir des donnees correctes.<b
-                      >Il sera difficile de les modifier plus tard</b
-                    ></span
+                  >Veuillez fournir des donnees correctes.<b
+                  >Il sera difficile de les modifier plus tard</b
+                  ></span
                   >
                   <div class="stepper-bottom">
                     <v-row justify="space-between" no-gutters>

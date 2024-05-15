@@ -46,7 +46,7 @@
             Se connecter
           </button>
           <p class="message">
-            Pas de compte?
+            Pas de compte ?
             <router-link to="/register">Créer un compte</router-link>
           </p>
         </form>
@@ -119,7 +119,7 @@ export default {
 
 /******Form */
 </script>
-<script></script>
+
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Metrophobic&display=swap");
 

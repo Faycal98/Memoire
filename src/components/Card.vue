@@ -139,7 +139,7 @@ export default {
   margin-bottom: 0px;
 }
 .ft-2xs {
-  color: #6a73ad;
+  color: #36417d;
   font-family: "Metrophobic", sans-serif;
   font-size: 13px;
   text-align: end;
@@ -147,7 +147,7 @@ export default {
 }
 
 .AccomodationBlock_notif.is-active {
-  background-color: #3c9;
+  background-color: rgba(33, 175, 40, 0.959);   
 }
 
 .AccomodationBlock_notif {
@@ -158,7 +158,7 @@ export default {
   border-radius: 50%;
 }
 .color-ft-weak {
-  color: #6a73ad;
+  color: #36417d;
   font-size: 16px;
 }
 .ft-xs {

@@ -115,7 +115,7 @@
           </div>
           <button>Je m'inscris</button>
           <p class="message">
-            Déja un compte?
+            Déja un compte ?
             <router-link to="/login"> Se connecter </router-link>
           </p>
         </Form>

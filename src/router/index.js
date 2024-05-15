@@ -53,9 +53,7 @@ const routes = [
   },
   {
     path: "/chat",
-    meta: {
-      guestGuard: true,
-    },
+    meta: { requiresAuth: true },
     component: () => import("../components/AdvancedChat.vue"),
   },
   {
@@ -119,6 +117,10 @@ const routes = [
     meta: {
       hospitalGuard: true,
     },
+    path: "/profil",
+    name: "profil",
+
+    component: () => import("../views/Profil.vue"),
   },
 ];
 

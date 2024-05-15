@@ -27,7 +27,7 @@
       </div>
       <div class="head-child2">
         <h3 class="color">Une expérience locative simple et humaine ! <br>ChezVous est une
-         plateforme de réservation d'appartement, de chambre et de maison a louer en 
+         plateforme de recherche d'appartement, de chambre  et de maison en 
          ligne qui rend la location plus simple et humaine.</h3>
       </div>
       <div class="head-child3">
@@ -241,9 +241,6 @@ nav {
 }
 .head-child3{
   margin-top: 30px;
-}
-.head-child4{
-
 }
 
 .head-child3 a{

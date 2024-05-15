@@ -108,7 +108,7 @@ a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: rgb(221, 88, 55); 
 }
 body {
   counter-reset: section;
@@ -127,11 +127,15 @@ body {
 }
 
 .stepperSlider .carousel__pagination-button--active:after {
-  background-color: #3c9;
+  background-color: rgb(221, 88, 55);   
   color: #fff;
 }
 
 .stepperSlider .carousel__pagination-button--active:hover::after {
+  background-color: #36417d!important;
+  color: #fff!important;
+  transform: translateY(-1px)!important;
+  box-shadow: 0 3px 6px 0 #36417d !important;
   background-color: #3c9 !important;
   color: #fff !important;
   transform: translateY(-1px) !important;
