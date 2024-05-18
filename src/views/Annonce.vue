@@ -18,9 +18,9 @@
           </ul>
 
           <ul class="u-block">
-            <li>
+            <li v-if="userInitials">
               <router-link to="/profil" class="dropdown-item text-white">
-          Acheter un pack
+          Acheter un pack d'annonces
               </router-link>
             </li>
           </ul>

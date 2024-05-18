@@ -141,7 +141,7 @@ export default {
   mounted() {
     const userData = JSON.parse(localStorage.getItem("userData"));
     if (userData) {
-      this.loadUsers(userData);
+      this.loadUsers();
     }
   },
 
@@ -192,7 +192,9 @@ export default {
         });
     },
 
-    loadUsers(userData) {
+    loadUsers() {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+console.log(userData)
       axios
         .get("http://localhost:8000/api/users", {
           headers: {

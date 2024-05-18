@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import redirect from "./redirect";
 import store from "../store";
-import Admin from "@/Layouts/Admin.vue";
+
 const routes = [
   {
     path: "/",
@@ -12,6 +12,7 @@ const routes = [
     },
     component: HomeView,
     beforeEnter: (to, from, next) => {
+      console.log("home");
       if (store.state.isLogged && store.state.user.role !== "Locataire") {
         next("/owner");
       } else {
@@ -90,7 +91,7 @@ const routes = [
   {
     path: "/packs",
     name: "packs",
-
+    meta: { requiresAuth: true },
     component: () => import("../views/Packs.vue"),
   },
   {
@@ -116,13 +117,15 @@ const routes = [
     name: "dashboard",
     component: () => import("@/views/HospitalDash"),
     meta: {
-     admin: true,
+      admin: true,
     },
+  
   },
   {
     path: "/profil",
     name: "profil",
     component: () => import("../views/Profil.vue"),
+    meta: { requiresAuth: true },
   },
 ];
 
@@ -137,6 +140,11 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
     if (store.state.isLogged) {
+      if (!store.state.user.isAllowed) {
+        store.dispatch("logout");
+        window.location.reload();
+      }
+      console.log(store.state.user.isAllowed);
       console.log("here");
       next();
     } else {

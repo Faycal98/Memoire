@@ -3,7 +3,7 @@
   
   <div class="temp">
     <div class="templ"> 
-      <h1 class="mt-4" style="padding-top: 98px; font-weight: bold; color:#0d2e31 !important;">Mes annonces</h1>
+      <h1 class="mt-4 text-white" style="padding-top: 98px; font-weight: bold;">Mes annonces</h1>
       <div class="wrapper d-flex align-items-center flex-column parter">
         <div class="mb-5" v-for="accomodation in accomodationTab">
           <AnnonceCard
@@ -93,10 +93,12 @@ export default {
 <style scoped>
 .temp{
   background-color:rgba(241, 143, 118, 0.801);
+  min-height: 100vh
 
 }
 .templ{
   margin-top: -24px;
+
 }
 .parter{
   margin-top: 20px;

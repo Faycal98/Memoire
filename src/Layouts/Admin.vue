@@ -41,7 +41,6 @@
             class="header-right justify-content-end align-items-center collapse navbar-collapse"
             id="navbarSupportedContent"
           >
-           
             <div class="Header_buttons ms-3">
               <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
                 <ul class="sub-list d-block">
@@ -95,7 +94,7 @@ export default {
   data() {
     return {
       hide: true,
-      userInitials: ""
+      userInitials: "",
     };
   },
   mounted() {
@@ -110,6 +109,14 @@ export default {
       this.userInitials = userInitials;
       console.log(userInitials);
     }
+  },
+  methods: {
+    logout() {
+      console.log("log out");
+
+      this.$store.dispatch("logout");
+      window.location.reload();
+    },
   },
 };
 </script>

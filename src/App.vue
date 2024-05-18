@@ -25,8 +25,8 @@ body {
   display: flex;
 }
 
-ul{
-  margin-bottom: 0px!important;
+ul {
+  margin-bottom: 0px !important;
 }
 .my-gallery img {
   height: 300px;
@@ -185,12 +185,22 @@ export default {
     Auth,
   },
   mounted() {
-    // console.log(this.$store.status)
-    console.log("homeview");
+
+
     const userData = JSON.parse(localStorage.getItem("userData"));
 
     if (userData) {
-      /*       axios
+      
+      this.$store.dispatch("updateUser", userData);
+    }
+  },
+  updated() {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    if (userData) {
+      console.log("see", userData);
+      this.$store.dispatch("updateUser", userData);
+      console.log("updated");
+      axios
         .get("http://localhost:8000/api/user", {
           headers: {
             "x-access-token": userData.accessToken,
@@ -198,14 +208,9 @@ export default {
         })
         .then(({ data }) => {
           console.log(data);
-
-          this.$store.dispatch("updateUser", data);
-          console.log(this.$store.state.user);
-        })
-        .catch((err) => {
-          console.log(err);
-        });*/
-      this.$store.dispatch("updateUser", userData);
+          userData.isAllowed = data.isAllowed;
+          this.$store.dispatch("updateUser", userData);
+        });
     }
   },
 };
