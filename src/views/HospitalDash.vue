@@ -4,9 +4,9 @@
       <div class="col-12 px-5">
         <div class="">
           <div class="row gap-4 md:col-span-6">
-            <div class="widget-area col proclinic-box-shadow color-red">
+            <div class="widget-area col proclinic-box-shadow color-red"style="background: rgb(251, 233, 233) !important;">
               <div class="widget-left">
-                <span class="ti-user">
+                <span class="ti-user" style="background: rgb(251, 233, 233) !important;">
                   <font-awesome-icon :icon="['fas', 'user']" />
                 </span>
               </div>
@@ -19,9 +19,9 @@
               </div>
             </div>
 
-            <div class="widget-area col proclinic-box-shadow color-green">
+            <div class="widget-area col proclinic-box-shadow color-green" style="background: rgb(235, 254, 235) !important;">
               <div class="widget-left">
-                <span class="ti-bar-chart">
+                <span class="ti-bar-chart" style="background: rgb(235, 254, 235) !important;">
                   <font-awesome-icon :icon="['fas', 'user']" />
                 </span>
               </div>
@@ -34,9 +34,9 @@
               </div>
             </div>
 
-            <div class="widget-area col proclinic-box-shadow color-yellow">
+            <div class="widget-area col proclinic-box-shadow color-yellow" style="background:rgb(254, 247, 235) !important;">
               <div class="widget-left">
-                <span class="ti-money">
+                <span class="ti-money" style="background: rgb(254, 247, 235) !important;">
                   <font-awesome-icon :icon="['fas', 'user']" />
                 </span>
               </div>
@@ -106,6 +106,7 @@ export default {
 <style scoped>
 .color-green {
   color: #3cb371;
+  
 }
 
 tr:nth-child(even) {
@@ -150,13 +151,13 @@ tr:nth-child(even) {
   border-width: 0px;
   border-style: initial;
   border-color: initial;
-  border-image: initial;
+  
 }
 .table-bordered {
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(222, 226, 230);
-  border-image: initial;
+  border-color: black;
+  
 }
 
 table.table tbody td,
@@ -165,7 +166,8 @@ table.table thead th {
 }
 
 .table th {
-  text-align: left;
+  font-weight:bold !important;
+  /*text-align: center;*/
 }
 
 .table {
@@ -173,6 +175,7 @@ table.table thead th {
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: transparent;
+  border:1px solid black;
 }
 
 .table td,
@@ -184,7 +187,7 @@ table.table thead th {
 .table-bordered th {
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(222, 226, 230);
+  border-color: black;
   border-image: initial;
 }
 
@@ -223,7 +226,7 @@ table.table thead th {
 h4.wiget-title {
   margin-bottom: 0.5rem;
   font-size: 16px;
-  font-weight:bolder;
+  font-weight:boldero;
   letter-spacing: 0.5px;
 }
 .nav-help {
@@ -266,6 +269,7 @@ p {
 
 .color-red {
   color: #e57498;
+  /*color: #cf829aef;*/
 }
 
 .proclinic-box-shadow.table-container {
@@ -273,13 +277,17 @@ p {
 }
 
 .proclinic-box-shadow {
-  border-radius: 0;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   border: 0;
-border: 1px solid  #eeeeee;
+  border: 1px solid  #eeeeee;
   background: #fff;
   margin-top: 20px;
+  transition: all 0.5s ease-in-out;
+}
+.proclinic-box-shadow:hover{
+  transform: translateY(-5px);
 }
 
 .menu-link.activeMenu > ul {

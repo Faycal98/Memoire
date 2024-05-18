@@ -13,7 +13,13 @@ body {
   margin: 0;
 }
 .table {
-  border: 1px solid #f3f3ff !important;
+  border: 1px solid black !important;
+}
+.table th{
+  text-align:center;
+  font-weight:bold;
+  background:#36417d;
+
 }
 .my-gallery {
   display: flex;

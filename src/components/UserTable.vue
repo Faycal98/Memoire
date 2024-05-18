@@ -4,7 +4,7 @@
       <v-text-field
         v-model="search"
         density="compact"
-        label="Search"
+        label="Recherche"
         prepend-inner-icon="mdi-magnify"
         variant="solo-filled"
         flat
@@ -43,7 +43,7 @@
       </template>
 
       <template v-slot:item.stock="{ item }">
-        <div clas>
+        <div class="">
           <v-chip
             :color="item.stock ? 'green' : 'red'"
             :text="item.stock ? 'In stock' : 'Out of stock'"
@@ -89,7 +89,7 @@
         <v-icon size="x-large"> mdi-delete </v-icon>
       </template>
       <template v-slot:no-data>
-        <v-btn color="primary"> Reset </v-btn>
+        <v-btn color="primary"> Actualiser </v-btn>
       </template>
     </v-data-table>
   </v-card>
@@ -115,108 +115,24 @@ export default {
           rating: 5,
           stock: true,
         },
-        {
-          name: "Nebula GTX 3080",
-          image: "1.png",
-          price: 699.99,
-          rating: 5,
-          stock: true,
-        },
-        {
-          name: "Nebula GTX 3080",
-          image: "1.png",
-          price: 699.99,
-          rating: 5,
-          stock: true,
-        },
-        {
-          name: "Nebula GTX 3080",
-          image: "1.png",
-          price: 699.99,
-          rating: 5,
-          stock: true,
-        },
-        {
-          name: "Nebula GTX 3080",
-          image: "1.png",
-          price: 699.99,
-          rating: 5,
-          stock: true,
-        },
-        {
-          name: "Nebula GTX 3080",
-          image: "1.png",
-          price: 699.99,
-          rating: 5,
-          stock: true,
-        },
-        {
-          name: "Nebula GTX 3080",
-          image: "1.png",
-          price: 699.99,
-          rating: 5,
-          stock: true,
-        },
-        {
-          name: "Nebula GTX 3080",
-          image: "1.png",
-          price: 699.99,
-          rating: 5,
-          stock: true,
-        },
-        {
-          name: "Nebula GTX 3080",
-          image: "1.png",
-          price: 699.99,
-          rating: 5,
-          stock: true,
-        },
-
-        {
-          name: "Galaxy RTX 3080",
-          image: "2.png",
-          price: 799.99,
-          rating: 4,
-          stock: false,
-        },
-        {
-          name: "Orion RX 6800 XT",
-          image: "3.png",
-          price: 649.99,
-          rating: 3,
-          stock: true,
-        },
-        {
-          name: "Vortex RTX 3090",
-          image: "4.png",
-          price: 1499.99,
-          rating: 4,
-          stock: true,
-        },
-        {
-          name: "Cosmos GTX 1660 Super",
-          image: "5.png",
-          price: 299.99,
-          rating: 4,
-          stock: false,
-        },
+        
       ],
       users: [],
       headers: [
         {
           key: "id",
           sortable: false,
-          title: "ID",
+          title: "Id",
         },
         { key: "userName", title: "Nom" },
-        { key: "userFirstName", title: "Prenom" },
-        { key: "role", title: "Role" },
-        { key: "email", title: "Email" },
+        { key: "userFirstName", title: "Prénom" },
+        { key: "role", title: "Rôle" },
+        { key: "email", title: "E-mail" },
         { key: "phone", title: "Contact" },
-        { key: "isAllowed", title: "Compte" },
+        { key: "isAllowed", title: "Status du Compte" },
         {
           key: "nbreAnnouncement",
-          title: "Annonce restantes",
+          title: "Annonces restantes",
         },
         { title: "Actions", key: "actions", sortable: false },
       ],
@@ -294,4 +210,18 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.table{
+  border-radius:10px;
+  border: 1px solid black;
+}
+/*.table .align-center{
+  font-weight: bold;
+  color:#fff;
+}*/
+
+.title{
+  font-weight: bold;
+}
+
+</style>
