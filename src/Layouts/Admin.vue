@@ -115,7 +115,7 @@ export default {
 </script>
 <style scoped>
 .sidebar {
-  background-color: rgb(122, 48, 143);
+  background-color: #36417d;
   color: white;
 }
 #letter {

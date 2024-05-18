@@ -7,7 +7,7 @@
             <div class="widget-area col proclinic-box-shadow color-red">
               <div class="widget-left">
                 <span class="ti-user">
-                  <font-awesome-icon :icon="['far', 'user']" />
+                  <font-awesome-icon :icon="['fas', 'user']" />
                 </span>
               </div>
               <div class="widget-right">
@@ -22,7 +22,7 @@
             <div class="widget-area col proclinic-box-shadow color-green">
               <div class="widget-left">
                 <span class="ti-bar-chart">
-                  <font-awesome-icon :icon="['fas', 'chart-simple']" />
+                  <font-awesome-icon :icon="['fas', 'user']" />
                 </span>
               </div>
               <div class="widget-right">
@@ -37,7 +37,7 @@
             <div class="widget-area col proclinic-box-shadow color-yellow">
               <div class="widget-left">
                 <span class="ti-money">
-                  <font-awesome-icon :icon="['fas', 'user-doctor']" />
+                  <font-awesome-icon :icon="['fas', 'user']" />
                 </span>
               </div>
               <div class="widget-right">
@@ -222,7 +222,8 @@ table.table thead th {
 
 h4.wiget-title {
   margin-bottom: 0.5rem;
-  font-size: 13px;
+  font-size: 16px;
+  font-weight:bolder;
   letter-spacing: 0.5px;
 }
 .nav-help {

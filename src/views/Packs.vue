@@ -243,7 +243,7 @@
                         sm="12"
                         class="d-flex justify-content-between"
                       >
-                        <p class="text-h5">validite :</p>
+                        <p class="text-h5">validité :</p>
                         <span class="text-h5">{{ time }} jours</span>
                       </v-col>
                       <v-col
