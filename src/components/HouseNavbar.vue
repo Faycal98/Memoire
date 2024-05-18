@@ -3,7 +3,9 @@
     <div id="navbar">
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
-          <h1 class="ms-5 header-title"><strong>C</strong>hez<strong>V</strong>ous</h1>
+          <h1 class="ms-5 header-title">
+            <strong>C</strong>hez<strong>V</strong>ous
+          </h1>
         </router-link>
         <div
           class="header-right justify-content-between align-items-center collapse navbar-collapse"
@@ -55,19 +57,19 @@
                 </ul>
               </div>
             </li>
-            <li class="link d-block" v-if="userInitials && userRole !== 'locataire'">
+            <li
+              class="link d-block"
+              v-if="userInitials && userRole !== 'Locataire'"
+            >
               <router-link to="/annonce">
                 <p class="drop-text">Déposer une annonce</p>
               </router-link>
-              
             </li>
-            <li class="link d-block" v-if="userInitials">
+            <li class="link d-block" v-if="userRole !== 'Locataire'">
               <router-link to="/packs">
                 <p class="drop-text">Acheter un pack annonces</p>
               </router-link>
-              
             </li>
-            
           </ul>
 
           <div
@@ -120,43 +122,30 @@
             </Transition>
           </div>
 
-          <div class="Header_buttons ms-3">
+          <div class="Header_buttons ms-3" v-show="userInitials">
             <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
               <ul class="sub-list d-block">
-                <li >
-                  <a class="dropdown-item" 
-                    ><i class="fa-solid fa-user me-2 pt-2"></i>Mon
-                    profil</a
+                <li>
+                  <a class="dropdown-item"
+                    ><i class="fa-solid fa-user me-2 pt-2"></i>Mon profil</a
                   >
                 </li>
-                <li v-if="userInitials">
+                <li v-if="userRole !== 'Locataire'" @click="handleClick">
                   <a class="dropdown-item text-black"
-                    ><router-link to="/user/:id/annonces"><i class="fa-solid fa-list me-2 pt-2"></i>Mes
-                    annonces</router-link></a
+                    ><i class="fa-solid fa-list me-2 pt-2"></i>Mes annonces</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item text-black" @click="logout" 
+                  <a class="dropdown-item text-black" @click="logout"
                     ><i class="fa-solid fa-right-from-bracket me-2 pt-2"></i>Se
                     deconnecter</a
                   >
                 </li>
-
-                
               </ul>
             </div>
             <v-avatar color="#3cd7a3" @click="hide = !hide" v-if="userInitials">
               <span class="text-h7 text-white avatar">{{ userInitials }}</span>
             </v-avatar>
-
-            <router-link to="/login" v-else>
-              <button
-                type="button"
-                class="btn btn-outline-light account-btn px-1 py-2"
-              >
-                Mon compte
-              </button>
-            </router-link>
           </div>
         </div>
       </nav>
@@ -281,7 +270,7 @@ export default {
         topOfPage: true,
       },
       red: "red",
-      userRole:"",
+      userRole: "",
       minBudget: 4000,
       hide: true,
       maxBudget: 20000000,
@@ -325,12 +314,12 @@ export default {
   },
   mounted() {
     const userData = this.$store.state.user;
-   
-    console.log(userData)
+
+    console.log(userData);
     if (userData) {
-      console.log(userData,123)
+      console.log(userData, 123);
       this.userId = userData.id;
-    this.userRole = userData.role
+      this.userRole = userData.role;
       const userInitials =
         userData.userName.charAt(0).toUpperCase() +
         userData.userFirstName.charAt(0).toUpperCase();
@@ -359,6 +348,13 @@ export default {
       } else {
         if (!this.view.topOfPage) this.view.topOfPage = true;
       }
+    },
+    handleClick() {
+      this.$router.push({ name: "annonceList", params: { id: this.userId } });
+    },
+    logout() {
+      this.$store.dispatch("logout");
+      window.location.reload();
     },
   },
 };
@@ -631,23 +627,20 @@ header {
   right: 4%;
 }
 
-
 .sub-menu {
-    right: 2%;
-    top: 100%;
-    background: white;
+  right: 2%;
+  top: 100%;
+  background: white;
 }
 
-
-
 .sub-menu[data-v-23e61d23] {
-    content: "";
-    position: absolute;
-    right: 9%;
-    bottom: 100%;
-    border-width: 9px;
-    border-style: solid;
-    border-color: transparent transparent white transparent;
+  content: "";
+  position: absolute;
+  right: 9%;
+  bottom: 100%;
+  border-width: 9px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
 }
 .sub-menu::after {
   content: "";

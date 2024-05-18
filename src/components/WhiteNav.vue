@@ -76,13 +76,9 @@
                     >
                   </router-link>
                 </li>
-                <li>
-                  <router-link to="/profil">
-                    <a class="dropdown-item text-black" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
-                      annonces</a
-                    >
-                  </router-link>
+                <li class="dropdown-item text-black" v-if="userRole !== 'Locataire'" @click="handleClick" >
+                  <i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
+                    annonces
                 </li>
                 <li>
                   <a class="dropdown-item text-black" @click="logout" href="#"
@@ -131,7 +127,8 @@ export default {
       red: "red",
       minBudget: 1,
       userInitials: "",
-      hide:true,
+      userRole: "",
+      hide: true,
       maxBudget: 700000,
       disabled: false,
       isOpen: false,
@@ -188,6 +185,9 @@ export default {
     logout() {
       this.$store.dispatch("logout");
       window.location.reload();
+    },
+    handleClick() {
+      this.$router.push({ name: "annonceList", params: { id: this.userId } });
     },
   },
 };
@@ -248,8 +248,6 @@ header {
   border-style: solid;
   border-color: transparent transparent white transparent;
 }
-
-
 
 .close-btn {
   right: 2%;

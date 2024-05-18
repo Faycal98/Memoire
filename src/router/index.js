@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import redirect from "./redirect";
 import store from "../store";
-import Admin from "@/Layouts/Admin.vue";
+
 const routes = [
   {
     path: "/",
@@ -12,6 +12,7 @@ const routes = [
     },
     component: HomeView,
     beforeEnter: (to, from, next) => {
+      console.log("home")
       if (store.state.isLogged && store.state.user.role !== "Locataire") {
         next("/owner");
       } else {
@@ -116,7 +117,20 @@ const routes = [
     name: "dashboard",
     component: () => import("@/views/HospitalDash"),
     meta: {
-     admin: true,
+      admin: true,
+    },
+    beforeEnter: (to, from, next) => {
+      if(store.state.isLogged){
+        if (store.state.user.role === "Admin") {
+          console.log(store.state.isLogged)
+          next()
+        }else{
+          next("/owner")
+        }
+      }else{
+        next("/")
+      }
+     
     },
   },
   {

@@ -94,6 +94,8 @@ export default {
           this.$store.dispatch("login", userData);
           if (userData.role === "Locataire") {
             this.$router.push("/");
+          } else if (userData.role === "Admin") {
+            this.$router.push("/dashboard");
           } else {
             this.$router.push("/owner");
           }
