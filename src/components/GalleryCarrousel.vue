@@ -64,9 +64,9 @@ export default defineComponent({
 }
 
 .gallery-wrapper {
-  width: 340px;
-  height: 200px;
-  overflow-y: scroll
+  width: 372px;
+  height: 293px;
+ /* overflow-y: scroll;*/
 }
 
 .carousel * {

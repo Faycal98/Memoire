@@ -5,7 +5,7 @@
         <div class="Accordion_head js-accordion-toggle text-start">
           <div class="Accordion_title fw-bolder">
             <h2 class="ft-l">
-              <b>100% des annonces vérifiées</b>
+              <b>100% des annonces sécurisées et sans faille</b>
             </h2>
           </div>
           <span
@@ -22,8 +22,7 @@
         </div>
         <div class="Accordion_content mt-4 text-start">
           On évalue l'authenticité des annonces et des profils de nos
-          utilisateurs. On encourage même nos loueurs à vous rendre heureux avec
-          un taux de réponse record, un profil complet et des logements de
+          utilisateurs. On encourage même nos loueurs à vous rendre heureux grâce à nos services, un profil complet et des logements de
           qualité.
         </div>
       </div>
@@ -50,9 +49,7 @@
         </div>
         <div class="Accordion_content mt-4 text-start">
           Au placard la paperasse! Les documents requis sont réduits au strict
-          minimum et accessibles à tout moment sur la plateforme. Du dossier de
-          location à la signature du bail, on simplifie vos démarches en les
-          digitalisant.
+          minimum et accessibles à tout moment. Nous vous permettons d'effectuer des recherches strictes et précises.
         </div>
       </div>
     </div>
@@ -61,7 +58,7 @@
         <div class="Accordion_head js-accordion-toggle text-start">
           <div class="Accordion_title fw-bolder">
             <h2 class="ft-l">
-              <b>Accompagnés même après la réservation</b>
+              <b>Accompagnés pendant tout votre processus de recherche </b>
             </h2>
           </div>
           <span
@@ -79,7 +76,7 @@
         <div class="Accordion_content mt-4 text-start">
           On prend en compte vos envies et vos contraintes pour vous trouver le
           logement idéal. On vous reloge en cas d’imprévus et vous propose des
-          services post-réservation comme l’assurance habitation. Sérénité
+          services dignes du nom. Sérénité
           garantie !
         </div>
       </div>

@@ -134,6 +134,7 @@ export default {
   margin: 0;
 }
 #letter {
+  
   color: #36417d;
 }
 .link {
@@ -141,6 +142,13 @@ export default {
   align-items: center;
   padding: 15px;
   position: relative;
+  transition: .5s all;
+  font-weight: bold;
+}
+.link:hover{
+  color: #838fcf !important;
+  font-weight: bold;
+
 }
 
 .hidden {

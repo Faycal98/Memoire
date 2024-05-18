@@ -24,7 +24,10 @@
           <h5 class="Footer_title">Notre partenaire</h5>
           <ul>
             <li class="Footer_item">
-              <a class="Footer_link" href="#"> Ola Technology </a>
+              <a class="Footer_link" href="#"> OLA TECHNOLOGY </a>
+            </li>
+            <li class="Footer_item">
+              <a class="Footer_link" href="#"> CAVE TECH </a>
             </li>
             
             <li class="Footer_item">
@@ -94,6 +97,7 @@
   color: #fff;
   cursor: pointer;
   text-decoration: none;
+  transition: .5s all;
 }
 .Footer_link:hover {
   

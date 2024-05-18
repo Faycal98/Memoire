@@ -3,7 +3,7 @@
     <div id="navbar">
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
-          <h1 class="ms-5 header-title">ChezVous</h1>
+          <h1 class="ms-5 header-title"><strong>C</strong>hez<strong>V</strong>ous</h1>
         </router-link>
         <div
           class="header-right justify-content-between align-items-center collapse navbar-collapse"
@@ -56,14 +56,18 @@
               </div>
             </li>
             <li class="link d-block" v-if="userInitials && userRole !== 'locataire'">
-              <p class="drop-text">Deposer une annonce</p>
+              <router-link to="/annonce">
+                <p class="drop-text">Déposer une annonce</p>
+              </router-link>
+              
             </li>
             <li class="link d-block" v-if="userInitials">
-              <p class="drop-text">Acheter un pack</p>
+              <router-link to="/packs">
+                <p class="drop-text">Acheter un pack annonces</p>
+              </router-link>
+              
             </li>
-            <li class="link d-block" v-if="userInitials">
-              <p class="drop-text">Mes annonces</p>
-            </li>
+            
           </ul>
 
           <div
@@ -119,31 +123,26 @@
           <div class="Header_buttons ms-3">
             <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
               <ul class="sub-list d-block">
-                <li>
-                  <a class="dropdown-item" href="#"
-                    ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon
+                <li >
+                  <a class="dropdown-item" 
+                    ><i class="fa-solid fa-user me-2 pt-2"></i>Mon
                     profil</a
                   >
                 </li>
-                <li @click="handleClick">
+                <li v-if="userInitials">
                   <a class="dropdown-item text-black"
-                    ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
-                    annonces</a
+                    ><router-link to="/user/:id/annonces"><i class="fa-solid fa-list me-2 pt-2"></i>Mes
+                    annonces</router-link></a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item text-black" @click="logout" href="#"
-                    ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Se
+                  <a class="dropdown-item text-black" @click="logout" 
+                    ><i class="fa-solid fa-right-from-bracket me-2 pt-2"></i>Se
                     deconnecter</a
                   >
                 </li>
 
-                <li>
-                  <a class="dropdown-item last" href="#"
-                    ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
-                    contacter</a
-                  >
-                </li>
+                
               </ul>
             </div>
             <v-avatar color="#3cd7a3" @click="hide = !hide" v-if="userInitials">
@@ -752,7 +751,7 @@ nav {
       color: #36417d;
     }
     .account-btn {
-      background-color: #3c9;
+      background-color: rgb(221, 88, 55);
     }
     .account-btn:hover {
       color: white;

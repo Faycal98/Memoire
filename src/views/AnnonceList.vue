@@ -1,19 +1,33 @@
-<template>
-  <div>
-    <h1 class="mt-4">Mes annonces</h1>
-    <div class="wrapper d-flex align-items-center flex-column">
-      <div class="mb-5" v-for="accomodation in accomodationTab">
-        <AnnonceCard
-          :imgArray="accomodation.images"
-          :accomodation-detail="accomodation"
-          @delete-announce="deleteAnnounce"
-        ></AnnonceCard>
+<template >
+ <Navbar></Navbar>
+  
+  <div class="temp">
+    <div class="templ"> 
+      <h1 class="mt-4" style="padding-top: 98px; font-weight: bold; color:#0d2e31 !important;">Mes annonces</h1>
+      <div class="wrapper d-flex align-items-center flex-column parter">
+        <div class="mb-5" v-for="accomodation in accomodationTab">
+          <AnnonceCard
+            :imgArray="accomodation.images"
+            :accomodation-detail="accomodation"
+            @delete-announce="deleteAnnounce"
+          ></AnnonceCard>
+        </div>
       </div>
     </div>
   </div>
+  <v-fab
+    v-show="scY > 300"
+    @click="toTop"
+    class="me-4 floating-btn"
+    icon="mdi-chevron-up"
+    location="bottom end"
+    absolute
+    offset
+  ></v-fab>
 </template>
 <script>
 import axios from "axios";
+import Navbar from "../components/OwnerNavbar.vue";
 import AnnonceCard from "../components/AnnonceCard.vue";
 
 export default {
@@ -25,6 +39,7 @@ export default {
   },
   components: {
     AnnonceCard,
+    Navbar,
   },
   mounted() {
     let userId = parseInt(this.$route.params.id);
@@ -75,4 +90,15 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.temp{
+  background-color:rgba(241, 143, 118, 0.801);
+
+}
+.templ{
+  margin-top: -24px;
+}
+.parter{
+  margin-top: 20px;
+}
+</style>
