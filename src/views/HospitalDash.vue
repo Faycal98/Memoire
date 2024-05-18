@@ -175,13 +175,15 @@ table.table thead th {
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: transparent;
-  border:1px solid black;
+  border:1px solid #fff7f7;
 }
 
 .table td,
 .table th {
   padding: 0.75rem;
 }
+
+
 
 .table-bordered td,
 .table-bordered th {
