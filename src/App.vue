@@ -81,7 +81,7 @@ main {
 }
 .v-stepper-item--selected .v-stepper-item__avatar.v-avatar,
 .v-stepper-item--complete .v-stepper-item__avatar.v-avatar {
-  background: rgb(16, 185, 129) !important;
+  background: rgb(221, 88, 55) !important;
 }
 html {
   overflow: scroll;
@@ -96,7 +96,7 @@ html {
 }
 
 .equipement-wrapper .form-check-input:checked {
-  background-color: rgb(16, 185, 129);
+  background-color: rgb(221, 88, 55);
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -151,7 +151,7 @@ body {
   color: #fff !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 3px 6px 0 #36417d !important;
-  background-color: #3c9 !important;
+  background-color: #36417d !important;
   color: #fff !important;
   transform: translateY(-1px) !important;
   box-shadow: 0 3px 6px 0 rgba(69, 97, 251, 0.2) !important;

@@ -6,12 +6,11 @@
           Une expérience de location plus efficace et sereine.
         </h2>
         <p class="mt-4 text-start light-black">
-          De 1 à 24 mois, réservez votre logement auprès de loueurs de confiance
-          et bénéficiez d’un accompagnement personnalisé.
+          Faites vos recherches en toute confiance et sérénité afin de bénéficier d'un service et d’un accompagnement personnalisé selon vos critères, vos goûts sans oublier votre budget.
         </p>
         <router-link to="/logements">
         <OrangeBtn
-          :content="'Je commence les recherches'"
+          :content="'Je commence mes recherches'"
         ></OrangeBtn>
         </router-link>
         <div class="Homepage_floatSteps">
@@ -82,7 +81,7 @@
                     ></path>
                     <path
                       d="M18 24.04l-.84-.84C14.04 20.44 12 18.58 12 16.3c0-1.86 1.44-3.3 3.3-3.3 1.02 0 2.04.48 2.7 1.26A3.604 3.604 0 0120.7 13c1.86 0 3.3 1.44 3.3 3.3 0 2.28-2.04 4.14-5.16 6.9l-.84.84z"
-                      fill="#FF4355"
+                      fill="rgb(221, 88, 55)"
                     ></path>
                   </g>
                 </svg>
@@ -117,10 +116,10 @@
             </div>
             <div class="Step_content">
               <p class="Step_title strong-blue text-start">
-                3. Réservez en ligne
+                3. Communiquer directemnt en ligne
               </p>
               <p class="text-start">
-                Finalisez votre réservation en communiquant via notre boite de messagerie 
+                Finalisez votre location en communiquant via notre boite de messagerie 
                 sur la plateforme, en toute sécurité.
               </p>
             </div>

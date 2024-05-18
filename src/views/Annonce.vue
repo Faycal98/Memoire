@@ -1193,7 +1193,7 @@ span {
 }
 
 .v-avatar {
-  background: #10b981;
+  background: rgb(221, 88, 55);
 }
 
 .v-btn__content {
@@ -1206,7 +1206,7 @@ span {
 }
 
 .hidden-btn {
-  background-color: #10b981;
+  background-color: rgb(55, 221, 110);
   right: 3%;
   color: white;
   z-index: 123;
@@ -1415,7 +1415,7 @@ nav {
     }
 
     .account-btn {
-      background-color: #3c9;
+      background-color: rgb(55, 221, 110);
     }
 
     .account-btn:hover {

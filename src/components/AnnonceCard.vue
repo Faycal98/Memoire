@@ -4,21 +4,11 @@
     <div class="PropertyBlock_content">
       <div class="property ps-4">
         <div class="d-flex justify-content-between">
-          <span class="location"
-            >{{ accomodationDetail.city }},{{
+         <!--<span class="location"
+            >Dans {{ accomodationDetail.city }} à {{
               accomodationDetail.neighborhood
-            }}</span
-          >
-          <span class="text-black price ft fs-6"
-            >Fr {{ accomodationDetail.price }}
-            <span v-if="accomodationDetail.announcePurpose == 'location'">
-              par
-              {{ accomodationDetail.billPeriod }}</span
-            >
-          </span>
-        </div>
-
-        <div class="text-start mt-2 mb-3 fs-5">
+            }}
+          </span>---> 
           <span class="type ft"
             >{{ accomodationDetail.type }}
             {{
@@ -27,6 +17,30 @@
                 : "à vendre"
             }}</span
           >
+          <span class="text-black price ft fs-6" style="font-weight: bold; font-size: 20px !important">
+             {{ accomodationDetail.price }} Fcfa
+            <span v-if="accomodationDetail.announcePurpose == 'location'">
+              /
+              {{ accomodationDetail.billPeriod }}
+            </span>
+          </span>
+        </div>
+
+        <div class="text-start mt-2 mb-3 fs-5">
+          <span class="location" style="font-size: 16px;"
+            >Dans {{ accomodationDetail.city }} à {{
+              accomodationDetail.neighborhood
+            }}
+          </span>
+<!--<span class="type ft"
+            >{{ accomodationDetail.type }}
+            {{
+              accomodationDetail.announcePurpose == "location"
+                ? "à louer"
+                : "à vendre"
+            }}</span
+          >-->
+          
         </div>
 
         <div class="mb-1">
@@ -117,7 +131,7 @@
                   />
                 </div>
                 <div>
-                  <p class="ellipsis-1 ms-2">Machine à lavé</p>
+                  <p class="ellipsis-1 ms-2">Machine à laver</p>
                 </div>
               </div>
             </div>
@@ -195,7 +209,7 @@
           </div>
         </div>
         <div class="d-flex justify-content-end align-items-center red">
-          <span @click="deleteAnnounce(accomodationDetail.id)">
+          <span @click="deleteAnnounce(accomodationDetail.id)" style="font-weight:bold">
             <i class="fa-solid fa-trash me-2"></i>
             Supprimer
           </span>
@@ -239,27 +253,42 @@ export default {
   width: fit-content;
   overflow: hidden;
 }
-
+/*
 .location {
-  color: #36417d;
-}
+  color: #36417d !important;
+}*/
 
 .details {
-  max-height: 120px;
+  max-width: 500px;
+  max-height: 150px;
 }
 .red {
-  color: #de4e4e;
+  color: #fff;
+  
   cursor: pointer;
+  border: 3px solid red;
+    margin: 2px 302px 16px;
+    padding: 5px;
+    border-radius: 8px;
+    margin-top: 20px;
+    background-color:red;
+  transition: .5s ease;
+}
+.red:hover{
+color: red;
+background-color:#fff;
 }
 .type {
-  color: #26bac9;
+  color: #17707a;
+  font-weight:bold;
+  font-size:23px;
 }
 
 .ft {
   font-family: "Metrophobic", sans-serif;
 }
 .PropertyBlock_content {
-  min-width: 520px;
+  min-width: 740px;
 }
 
 .icon-highlight {

@@ -75,7 +75,7 @@
     <div class="Wrapper Wrapper--m pv-60 pt-60@xs pb-40@xs">
       <h2 class="max-width-s m-auto text-center">
         <b class="ft-2xl ft-bold color-ft-strong"
-          >Quelques de nos meilleurs appartements et locations</b
+          >Quelques uns de nos meilleurs appartements et locations</b
         >
       </h2>
     </div>
@@ -113,17 +113,18 @@ export default {
     return {
       carrouselTab: [
         {
-          src: "cotonou-room.jpg",
+          src: "part.jpg",
           name: "Cotonou",
         },
         {
-          src: "cotonou-room.jpg",
+          src: "partt.jpg",
           name: "Calavi",
         },
         {
           src: "cotonou-room.jpg",
           name: "Ouidah",
         },
+        
       ],
       userInfo: null,
     };
