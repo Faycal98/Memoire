@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import redirect from "./redirect";
 import store from "../store";
+import Admin from "@/Layouts/Admin.vue";
 const routes = [
   {
     path: "/",
@@ -115,7 +116,7 @@ const routes = [
     name: "dashboard",
     component: () => import("@/views/HospitalDash"),
     meta: {
-      hospitalGuard: true,
+     admin: true,
     },
   },
   {

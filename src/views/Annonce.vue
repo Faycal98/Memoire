@@ -6,64 +6,71 @@
           <h1 class="ms-5 header-title">ChezVous</h1>
         </router-link>
         <div
-          class="header-right justify-content-between align-items-center collapse navbar-collapse"
+          class="header-right justify-content-end align-items-center d-flex"
           id="navbarSupportedContent"
         >
           <ul class="u-block">
-            <li class="link d-block">
-              <p class="drop-text"></p>
+            <li>
+              <router-link to="/annonce" class="dropdown-item text-white">
+               Mes annonces
+              </router-link>
             </li>
           </ul>
-          <div class="Header_buttons ms-3 position relative">
+
+          <ul class="u-block">
+            <li>
+              <router-link to="/profil" class="dropdown-item text-white">
+          Acheter un pack
+              </router-link>
+            </li>
+          </ul>
+          <div class="Header_buttons ms-3">
+          <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
+            <ul class="sub-list d-block">
+              <li><router-link to="/profil">
+                <a class="dropdown-item" href="#"
+                  ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon profil</a
+                >
+              </router-link>
+                
+              </li>
+              <li><router-link to="/profil">
+                <a class="dropdown-item text-black" href="#"
+                  ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
+                  annonces</a
+                >
+              </router-link>
+                
+              </li>
+              <li>
+                <a class="dropdown-item text-black" @click="logout" href="#"
+                  ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Déconnexion</a
+                >
+              </li>
+
+              <li>
+                <a class="dropdown-item last" href="#"
+                  ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
+                  contacter</a
+                >
+              </li>
+            </ul>
+          </div>
+          <v-avatar color="brown" @click="hide = !hide" v-if="userInitials">
+            <span class="text-h7 avatar">{{ userInitials }}</span>
+          </v-avatar>
+
+          <router-link to="/login" v-else>
             <button
               type="button"
-              @click="warnClicked"
-              class="btn btn-outline-light account-btn p-2"
+              class="btn btn-outline-light account-btn px-1 py-2"
             >
-              Menu
-              <i class="fa-solid fa-bars"></i>
+              Mon compte
             </button>
-            <Transition>
-              <div v-if="disabled_nav" class="sub-menu position-absolute">
-                <ul class="sub-list d-block">
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      ><i class="fa-solid fa-house me-2 pt-2"></i>Je suis
-                      démarcheur</a
-                    >
-                  </li>
-                  <li><router-link to="/login">
-                    <a class="dropdown-item text-black" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i
-                      >Connexion</a
-                    >
-                  </router-link>
-                    
-                  </li>
-                  <li><router-link to="/register">
-                    <a class="dropdown-item last" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
-                      >Inscription</a
-                    >
-                  </router-link>
-                    
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      ><i class="fa-regular fa-circle-question me-2"></i>Aide</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item last" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
-                      contacter</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </Transition>
-          </div>
+          </router-link>
         </div>
+        </div>
+        
       </nav>
     </div>
   </header>
@@ -327,9 +334,9 @@
                     Emplacement du logement
                   </h2>
                   <span class="text-start"
-                  >Veuillez fournir des donnees correctes.<b
-                  >Il sera difficile de les modifier plus tard</b
-                  ></span
+                    >Veuillez fournir des donnees correctes.<b
+                      >Il sera difficile de les modifier plus tard</b
+                    ></span
                   >
                   <div class="stepper-bottom">
                     <v-row justify="space-between" no-gutters>
@@ -343,22 +350,39 @@
                       </v-col>
                       <v-col class="py-2 text-start" md="5" sm="5">
                         <p class="mb-2">Département(Optionnel)</p>
-                        <v-text-field
-                          clearable
-                          label=""
-                          v-model="department"
-                          placeholder="Littoral"
+                        <v-select
+                          density="compact"
+                          class="city-select"
                           variant="outlined"
-                        ></v-text-field>
+                          item-title="name"
+                          v-model="department"
+                          :items="[
+                            { id: 1, name: 'Alibori' },
+                            { id: 2, name: 'Atacora' },
+                            { id: 3, name: 'Atlantique' },
+                            { id: 4, name: 'Borgou' },
+                            { id: 5, name: 'Collines' },
+                            { id: 6, name: 'Couffo' },
+                            { id: 7, name: 'Donga' },
+                            { id: 8, name: 'Littoral' },
+                            { id: 9, name: 'Mono' },
+                            { id: 10, name: 'Ouémé' },
+                            { id: 11, name: 'Plateau' },
+                            { id: 12, name: 'Zou' },
+                          ]"
+                        ></v-select>
                       </v-col>
 
                       <v-col class="py-2 text-start" md="5" sm="5">
-                        <p class="mb-2">Ville</p>
-                        <v-text-field
-                          placeholder="Cotonou"
-                          v-model="city"
+                        <p class="mb-2">Ville/Arrondissement</p>
+                        <v-select
+                          density="compact"
+                          class="city-select"
                           variant="outlined"
-                        ></v-text-field>
+                          item-title="name"
+                          v-model="city"
+                          :items="cityTab"
+                        ></v-select>
                       </v-col>
 
                       <v-col class="py-2 text-start" md="5" sm="5">
@@ -384,8 +408,9 @@
                       <div class="mr-2 info-container">
                         <p>Nombre de pièces</p>
                         <v-text-field
+                          readonly
                           type="number"
-                          v-model="piecesNumber"
+                          v-model.number="piecesNumber"
                           variant="outlined"
                         >
                         </v-text-field>
@@ -397,7 +422,7 @@
                         <p>Nombre chambres</p>
                         <v-text-field
                           type="number"
-                          v-model="roomNumber"
+                          v-model.number="roomNumber"
                           variant="outlined"
                         >
                         </v-text-field>
@@ -409,7 +434,7 @@
                         <p>Nombre de douches</p>
                         <v-text-field
                           type="number"
-                          v-model="showerNumber"
+                          v-model.number="showerNumber"
                           variant="outlined"
                         >
                         </v-text-field>
@@ -421,7 +446,7 @@
                         <p>Nombre de Cuisines</p>
                         <v-text-field
                           type="number"
-                          v-model="kitchenNumber"
+                          v-model.number="kitchenNumber"
                           variant="outlined"
                         >
                         </v-text-field>
@@ -472,7 +497,7 @@
                       <v-radio
                         label="Compteur a cartes"
                         color="rgb(16, 185, 129)"
-                        value="Compteur a cartes"
+                        value="Compteur à cartes"
                       ></v-radio>
                       <v-radio
                         label="Compteur traditionnel"
@@ -772,7 +797,6 @@ export default {
       hasMonitoring: false,
       amount: undefined,
 
-
       userName: "",
       userFirstName: "",
       email: "",
@@ -780,7 +804,9 @@ export default {
       phone: "",
       errorMsg: "",
       schema,
-
+      userRole: "",
+      userInitials: "",
+      hide: true,
 
       description: "",
       e1: 0,
@@ -791,10 +817,9 @@ export default {
       rentAdvance: "",
       Tv: false,
       hasPool: false,
-      showerNumber: undefined,
-      roomNumber: undefined,
-      kitchenNumber: undefined,
-      piecesNumber: undefined,
+      showerNumber: 0,
+      roomNumber: 0,
+      kitchenNumber: 0,
       counterType: "Compteur traditionnel",
       hasAc: false,
       hasBrewer: false,
@@ -807,8 +832,9 @@ export default {
       balcony: false,
       garden: false,
       waterDistribution: "Soneb",
+      cityTab: [],
       nextName: "Suivant",
-      department: "",
+      department: { id: 8, name: "Littoral" },
       hasTiles: false,
       isSanitary: false,
       steps: 4,
@@ -820,18 +846,7 @@ export default {
       },
       step: 1,
       items: ["Détails", "Localisation", "Submit"],
-      products: [
-        {
-          name: "Product 1",
-          price: 10,
-          quantity: 2,
-        },
-        {
-          name: "Product 2",
-          price: 15,
-          quantity: 10,
-        },
-      ],
+
       typeLogement: "Appartement",
     };
   },
@@ -841,6 +856,22 @@ export default {
   },
   mounted() {
     (this.rawfiles = []), (this.galleryImg = []);
+    console.log(this.department);
+    let id = this.department.id;
+    this.getCities(id);
+
+
+    const userData = JSON.parse(localStorage.getItem("userData"));
+
+if (userData) {
+  this.userRole = userData.role;
+  console.log(this.userRole);
+  const userInitials =
+    userData.userName.charAt(0).toUpperCase() +
+    userData.userFirstName.charAt(0).toUpperCase();
+  this.userInitials = userInitials;
+  console.log(userInitials);
+}
   },
   components: {
     FileUpload,
@@ -852,6 +883,29 @@ export default {
     butAnnonce(newVal) {
       if (newVal == "vente") {
         this.bill_period = null;
+      }
+    },
+
+    department(value) {
+      let departments = [
+        { id: 1, name: "Alibori" },
+        { id: 2, name: "Atacora" },
+        { id: 3, name: "Atlantique" },
+        { id: 4, name: "Borgou" },
+        { id: 5, name: "Collines" },
+        { id: 6, name: "Couffo" },
+        { id: 7, name: "Donga" },
+        { id: 8, name: "Littoral" },
+        { id: 9, name: "Mono" },
+        { id: 10, name: "Ouémé" },
+        { id: 11, name: "Plateau" },
+        { id: 12, name: "Zou" },
+      ];
+      if (value) {
+        let id = departments.find((department) => department.name == value);
+        id = id.id;
+        console.log(id);
+        this.getCities(id);
       }
     },
   },
@@ -866,6 +920,18 @@ export default {
 
     getfiles(val) {
       this.rawfiles = val;
+    },
+
+    getCities(id) {
+      axios
+        .get(`http://localhost:8000/api/cities/${id}`)
+        .then(({ data }) => {
+          this.cityTab = data;
+          this.city = this.cityTab[0];
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
 
     submitInfo(e) {
@@ -887,7 +953,7 @@ export default {
       }
 
       formData.append("type", this.typeLogement);
-      formData.append("city", this.city);
+      formData.append("city", this.city.name);
       formData.append("neighborhood", this.neighborhood);
       formData.append("department", this.department);
       formData.append("description", this.description);
@@ -1078,13 +1144,7 @@ export default {
     step3Verification() {
       if (this.e1 < 3) {
         return true;
-      } else
-        return (
-          this.roomNumber > 0 &&
-          this.kitchenNumber > 0 &&
-          this.showerNumber > 0 &&
-          this.piecesNumber > 0
-        );
+      } else return this.piecesNumber > 0;
     },
     checkData() {
       return !!(
@@ -1093,6 +1153,10 @@ export default {
         this.step2Verification &&
         this.step3Verification
       );
+    },
+    piecesNumber() {
+      let pieces = this.roomNumber + this.showerNumber + this.kitchenNumber;
+      return pieces;
     },
   },
 };
@@ -1122,6 +1186,10 @@ span {
 
 .info-container input {
   width: 70%;
+}
+
+.v-field.v-field--appended {
+  padding: 16px;
 }
 
 .v-avatar {
@@ -1260,7 +1328,6 @@ header {
 }
 
 .dropdown-item {
-  color: #36417d !important;
   font-weight: 400;
   transition: background-color 5ms;
   text-align: left;
@@ -1268,12 +1335,6 @@ header {
   cursor: pointer;
 }
 
-.dropdown-item:hover {
-  background-color: #6a73ad;
-  text-decoration: none;
-
-  color: white !important;
-}
 
 .Header_navList {
   position: absolute;
@@ -1290,7 +1351,7 @@ header {
 .drop-text {
   color: #fff;
   font-size: 15px;
-  border: 1px solid #fff;
+
   border-radius: 5px;
   padding: 6px 18px;
   transition: 0.5s;
@@ -1372,12 +1433,10 @@ nav {
       font-weight: 300;
       list-style-type: none;
       color: white;
-      border-right: 1px solid #ffffff36;
+    
     }
   }
-  .u-block {
-    margin-left: 67%;
-  }
+ 
 }
 .spacer {
   padding: 40px;

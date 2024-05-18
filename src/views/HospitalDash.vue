@@ -1,159 +1,68 @@
 <template>
-  <div class="containe">
+  <div class="container">
     <div class="row">
-    <div class="col-3">sidebar</div>
-    <div class="col-9">
-      <div class="">
-        <div class="row gap-4 md:col-span-6">
-          <div class="widget-area col proclinic-box-shadow color-red">
-            <div class="widget-left">
-              <span class="ti-user">
-                <font-awesome-icon :icon="['far', 'user']" />
-              </span>
-            </div>
-            <div class="widget-right">
-              <h4 class="wiget-title">Patients</h4>
-              <span class="numeric color-red">348</span>
-              <p class="inc-dec mb-0">
-                <span class="ti-angle-up"></span> +20% Increased
-              </p>
-            </div>
-          </div>
-
-          <div class="widget-area col proclinic-box-shadow color-green">
-            <div class="widget-left">
-              <span class="ti-bar-chart">
-                <font-awesome-icon :icon="['fas', 'chart-simple']" />
-              </span>
-            </div>
-            <div class="widget-right">
-              <h4 class="wiget-title">Admissions</h4>
-              <span class="numeric color-green">1585</span>
-              <p class="inc-dec mb-0">
-                <span class="ti-angle-down"></span> -15% Decreased
-              </p>
-            </div>
-          </div>
-
-          <div class="widget-area col proclinic-box-shadow color-yellow">
-            <div class="widget-left">
-              <span class="ti-money">
-                <font-awesome-icon :icon="['fas', 'user-doctor']" />
-              </span>
-            </div>
-            <div class="widget-right">
-              <h4 class="wiget-title">Docteurs</h4>
-              <span class="numeric color-yellow">73</span>
-              <p class="inc-dec mb-0">
-                <span class="ti-angle-up"></span> +10% Increased
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row gap-4">
-          <div class="urgence-container col-5 widget-area-2">
-            <h3 class="widget-title">Admission par année</h3>
-            <ChartBar :type="bar" :data="barData"></ChartBar>
-          </div>
-
-          <div class="urgence-container col-6 widget-area-2">
-            <h3 class="widget-title">Admission par année</h3>
-            <PatientChart :type="bar3" :data="barData3"></PatientChart>
-          </div>
-        </div>
-        <div class="table-container mt-9">
-          <div class="widget-area-2 proclinic-box-shadow table-container">
-            <h3 class="widget-title">Admissions</h3>
-            <table class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>Nom du patient</th>
-                  <th>Docteur</th>
-                  <th>Service</th>
-                  <th>Date</th>
-                  <th>Heure</th>
-                  <th>Statut</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Rajesh</td>
-                  <td>Manoj Kumar</td>
-                  <td>Dental</td>
-                  <td>12-10-2018</td>
-                  <td>12:10PM</td>
-                  <td>
-                    <span class="badge badge-success">Completed</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Riya</td>
-                  <td>Daniel</td>
-                  <td>Ortho</td>
-                  <td>12-10-2018</td>
-                  <td>1:10PM</td>
-                  <td>
-                    <span class="badge badge-warning">Pending</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Siri</td>
-                  <td>Daniel</td>
-                  <td>Ortho</td>
-                  <td>12-10-2018</td>
-                  <td>1:30PM</td>
-                  <td>
-                    <span class="badge badge-danger">Cancelled</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Rajesh</td>
-                  <td>Manoj Kumar</td>
-                  <td>Dental</td>
-                  <td>12-10-2018</td>
-                  <td>12:10PM</td>
-                  <td>
-                    <span class="badge badge-success">Completed</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Riya</td>
-                  <td>Daniel</td>
-                  <td>Ortho</td>
-                  <td>12-10-2018</td>
-                  <td>1:10PM</td>
-                  <td>
-                    <span class="badge badge-warning">Pending</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Siri</td>
-                  <td>Daniel</td>
-                  <td>Ortho</td>
-                  <td>12-10-2018</td>
-                  <td>1:30PM</td>
-                  <td>
-                    <span class="badge badge-danger">Cancelled</span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+      <div class="col-12 px-5">
         <div class="">
-          <UserTable></UserTable>
+          <div class="row gap-4 md:col-span-6">
+            <div class="widget-area col proclinic-box-shadow color-red">
+              <div class="widget-left">
+                <span class="ti-user">
+                  <font-awesome-icon :icon="['far', 'user']" />
+                </span>
+              </div>
+              <div class="widget-right">
+                <h4 class="wiget-title">Locataires</h4>
+                <span class="numeric color-red">348</span>
+                <p class="inc-dec mb-0">
+                  <span class="ti-angle-up"></span> +20% Increased
+                </p>
+              </div>
+            </div>
+
+            <div class="widget-area col proclinic-box-shadow color-green">
+              <div class="widget-left">
+                <span class="ti-bar-chart">
+                  <font-awesome-icon :icon="['fas', 'chart-simple']" />
+                </span>
+              </div>
+              <div class="widget-right">
+                <h4 class="wiget-title">Propriétaires</h4>
+                <span class="numeric color-green">1585</span>
+                <p class="inc-dec mb-0">
+                  <span class="ti-angle-down"></span> -15% Decreased
+                </p>
+              </div>
+            </div>
+
+            <div class="widget-area col proclinic-box-shadow color-yellow">
+              <div class="widget-left">
+                <span class="ti-money">
+                  <font-awesome-icon :icon="['fas', 'user-doctor']" />
+                </span>
+              </div>
+              <div class="widget-right">
+                <h4 class="wiget-title">Démarcheur</h4>
+                <span class="numeric color-yellow">73</span>
+                <p class="inc-dec mb-0">
+                  <span class="ti-angle-up"></span> +10% Increased
+                </p>
+              </div>
+            </div>
+          </div>
+
+       
+
+          <div class="mt-5">
+            <UserTable></UserTable>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
- 
 </template>
 <script>
 import UserTable from "../components/UserTable.vue";
-import PatientChart from "@/components/PatientChart.vue";
-import ChartBar from "@/components/UrgenceChart.vue";
+
 
 export default {
   data() {
@@ -189,9 +98,8 @@ export default {
     };
   },
   components: {
-    ChartBar,
-    PatientChart,
-    UserTable
+   
+    UserTable,
   },
 };
 </script>
@@ -368,8 +276,7 @@ p {
   display: flex;
   align-items: center;
   border: 0;
-  -webkit-box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
-  box-shadow: 0 0 0 1px #dce3ec, 0 8px 16px 0 #dce3ec;
+border: 1px solid  #eeeeee;
   background: #fff;
   margin-top: 20px;
 }

@@ -2,6 +2,7 @@
   <main>
     <Guest v-if="$route.meta.guestGuard"></Guest>
     <Default v-else-if="$store.state.isAuth"></Default>
+    <Admin v-else-if="$route.meta.admin"></Admin>
     <Auth v-else></Auth>
   </main>
 </template>
@@ -11,9 +12,15 @@
 body {
   margin: 0;
 }
-
+.table {
+  border: 1px solid #f3f3ff !important;
+}
 .my-gallery {
   display: flex;
+}
+
+ul{
+  margin-bottom: 0px!important;
 }
 .my-gallery img {
   height: 300px;
@@ -84,6 +91,10 @@ html {
   background: transparent; /* make scrollbar transparent */
 }
 
+.city-select .v-field__input {
+  padding: 16px;
+}
+
 .equipement-wrapper .form-check-input:checked {
   background-color: rgb(16, 185, 129);
 }
@@ -99,6 +110,10 @@ a {
   color: inherit !important;
 }
 
+td {
+  text-align: center !important;
+}
+
 .page-item {
   color: white;
 }
@@ -108,7 +123,7 @@ a {
 }
 
 nav a.router-link-exact-active {
-  color: rgb(221, 88, 55); 
+  color: rgb(221, 88, 55);
 }
 body {
   counter-reset: section;
@@ -127,14 +142,14 @@ body {
 }
 
 .stepperSlider .carousel__pagination-button--active:after {
-  background-color: rgb(221, 88, 55);   
+  background-color: rgb(221, 88, 55);
   color: #fff;
 }
 
 .stepperSlider .carousel__pagination-button--active:hover::after {
-  background-color: #36417d!important;
-  color: #fff!important;
-  transform: translateY(-1px)!important;
+  background-color: #36417d !important;
+  color: #fff !important;
+  transform: translateY(-1px) !important;
   box-shadow: 0 3px 6px 0 #36417d !important;
   background-color: #3c9 !important;
   color: #fff !important;
@@ -153,12 +168,14 @@ body {
 import axios from "axios";
 import Guest from "./Layouts/Guest.vue";
 import Default from "./Layouts/Default.vue";
+import Admin from "./Layouts/Admin.vue";
 import Auth from "./Layouts/Auth.vue";
 export default {
   components: {
     name: "App",
     Guest,
     Default,
+    Admin,
     Auth,
   },
   mounted() {

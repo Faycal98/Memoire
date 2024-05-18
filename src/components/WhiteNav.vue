@@ -10,106 +10,107 @@
           id="navbarSupportedContent"
         >
           <ul>
-            <li class="link d-block">
+            <router-link to="/logements">
+              <li class="link">Trouver un logement</li>
+            </router-link>
+            <li class="link d-block" v-if="!userInitials">
               <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
               <div class="list">
                 <ul>
                   <li>
-                    <a class="dropdown-item" href="#">Déposer une annonce</a>
+                    <router-link to="/annonce" class="dropdown-item"
+                      >Déposer une annonce
+                    </router-link>
                   </li>
                   <li>
-                    <router-link to="/howitwork">
-                      <a class="dropdown-item" href="#">Comment ça marche</a>
-                    </router-link>
-                    
+                    <router-link to="/howitwork" class="dropdown-item"
+                      >Comment ça marche</router-link
+                    >
                   </li>
-
-                  <li><router-link to="/login">
-                    <a class="dropdown-item" href="#">Me connecter</a>
-                  </router-link>
-                    
+                  <li>
+                    <router-link to="/login" class="dropdown-item"
+                      >Me connecter</router-link
+                    >
                   </li>
                 </ul>
               </div>
             </li>
-            <li class="link d-block">
-              <p class="drop-text dropdown-toggle">Je suis propriétaire</p>
+            <router-link v-else to="/annonce" v-if="userRole !== 'Locataire'">
+              <li class="link">Déposer une annonce</li>
+            </router-link>
+
+            <li class="link d-block" v-if="!userInitials">
+              <router-link to="/login">
+                <p class="drop-text dropdown-toggle">Je suis propriétaire</p>
+              </router-link>
               <div class="list">
                 <ul>
                   <li>
-                    <a class="dropdown-item" href="#">Déposer une annonce</a>
-                  </li>
-                  <li>
-                    <router-link to="/howitwork">
-                      <a class="dropdown-item" href="#">Comment ça marche</a>
+                    <router-link to="/annonce" class="dropdown-item">
+                      Déposer une annonce
                     </router-link>
-                    
                   </li>
-                  
                   <li>
-                    <router-link to="/login">
-                      <a class="dropdown-item" href="#">Me connecter</a>
-                    </router-link></li>
+                    <router-link to="/howitwork" class="dropdown-item">
+                      Comment ça marche ?
+                    </router-link>
+                  </li>
+                  <li>
+                    <router-link to="/login" class="dropdown-item">
+                      Me connecter
+                    </router-link>
+                  </li>
                 </ul>
               </div>
             </li>
           </ul>
 
-          <div class="Header_buttons ms-3 position relative">
-            <button
-              type="button"
-              @click="warnClicked"
-              class="btn btn-outline-light account-btn"
-            >
-              Menu
-              <i class="fa-solid fa-bars"></i>
-            </button>
-            <Transition>
-              <div v-if="disabled" class="sub-menu position-absolute">
-                <ul class="sub-list d-block">
-                  <li>
+          <div class="Header_buttons ms-3">
+            <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
+              <ul class="sub-list d-block">
+                <li>
+                  <router-link to="/profil">
                     <a class="dropdown-item" href="#"
-                      ><i class="fa-solid fa-house me-2 pt-2"></i>Je suis
-                      propriétaire</a
+                      ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon
+                      profil</a
                     >
-                  </li>
-                  <li>
-                    <router-link to="/login">
-                      <a class="dropdown-item text-black" href="#">
-                        <i class="fa-solid fa-arrow-right me-2 arrow"></i>Connexion</a>
-                    </router-link>
-                    
-                  </li>
-                  <li>
-                    <a class="dropdown-item last" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
-                      >Inscription</a
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/profil">
+                    <a class="dropdown-item text-black" href="#"
+                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
+                      annonces</a
                     >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      ><i class="fa-regular fa-circle-question me-2"></i> Aide
-                      et accompagnement</a
-                    >
-                  </li>
-                  <li>
-                    <router-link to="/howitwork">
-                      <a class="dropdown-item last" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment
-                      ça marche ?</a
-                    >
-                    </router-link>
-                    
-                  </li>
-                  <li>
-                    <a class="dropdown-item last" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
-                      contacter</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </Transition>
+                  </router-link>
+                </li>
+                <li>
+                  <a class="dropdown-item text-black" @click="logout" href="#"
+                    ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i
+                    >Déconnexion</a
+                  >
+                </li>
+
+                <li>
+                  <a class="dropdown-item last" href="#"
+                    ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
+                    contacter</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <v-avatar color="brown" @click="hide = !hide" v-if="userInitials">
+              <span class="text-h7 avatar">{{ userInitials }}</span>
+            </v-avatar>
+
+            <router-link to="/login" v-else>
+              <button
+                type="button"
+                class="btn btn-outline-light account-btn px-1 py-2"
+              >
+                Mon compte
+              </button>
+            </router-link>
           </div>
         </div>
       </nav>
@@ -129,6 +130,8 @@ export default {
       },
       red: "red",
       minBudget: 1,
+      userInitials: "",
+      hide:true,
       maxBudget: 700000,
       disabled: false,
       isOpen: false,
@@ -154,6 +157,19 @@ export default {
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
   },
+  mounted() {
+    const userData = JSON.parse(localStorage.getItem("userData"));
+
+    if (userData) {
+      this.userRole = userData.role;
+      console.log(this.userRole);
+      const userInitials =
+        userData.userName.charAt(0).toUpperCase() +
+        userData.userFirstName.charAt(0).toUpperCase();
+      this.userInitials = userInitials;
+      console.log(userInitials);
+    }
+  },
 
   methods: {
     warnClicked() {
@@ -168,6 +184,10 @@ export default {
       } else {
         if (!this.view.topOfPage) this.view.topOfPage = true;
       }
+    },
+    logout() {
+      this.$store.dispatch("logout");
+      window.location.reload();
     },
   },
 };
@@ -184,6 +204,52 @@ header {
   position: relative;
   z-index: 500;
 }
+.link {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+.sub-menu {
+  right: 2%;
+  top: 100%;
+  background: white;
+}
+
+.sub-menu ul {
+  margin-left: 0 !important;
+}
+.list {
+  position: absolute;
+  display: block;
+  color: red;
+  transition: ease-in-out 1s;
+  background: white;
+  margin-top: 10px;
+}
+
+.list,
+.list li {
+  display: none;
+}
+
+.sub-menu::after {
+  content: "";
+  position: absolute;
+  right: 9%;
+  bottom: 100%;
+  border-width: 9px;
+
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+
+
 
 .close-btn {
   right: 2%;
@@ -344,7 +410,7 @@ header {
 .onScroll {
   position: fixed;
   top: 9%;
- 
+
   background-color: #36417d;
 }
 h1.header-title {
@@ -513,7 +579,6 @@ nav {
     .navbar {
       box-shadow: 0 3px 6px 0 rgba(69, 97, 251, 0.12);
     }
-  
   }
 
   ul {

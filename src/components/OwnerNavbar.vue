@@ -3,7 +3,7 @@
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <router-link to="/owner">
         <h1 class="ms-5 header-title">
-          <strong style="color: rgb(221, 88, 55);">C</strong>hez<span id="letter"
+          <strong style="color: rgb(221, 88, 55)">C</strong>hez<span id="letter"
             ><strong>V</strong></span
           >ous
         </h1></router-link
@@ -28,9 +28,13 @@
           <router-link to="/logements">
             <li class="link">Trouver un logement</li>
           </router-link>
+          <router-link to="/annonce" a class="link">
+            <li>
+              Déposer une annonce
+            </li>
+          </router-link>
 
-         
-         <router-link to="#">
+          <router-link to="#">
             <li class="link">Nous contacter</li>
           </router-link>
         </ul>
@@ -39,14 +43,13 @@
           <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
             <ul class="sub-list d-block">
               <li>
-                <a class="dropdown-item" href="#"
-                  ><i class="fa-solid fa-user me-2 pt-2"></i>Mon profil</a
-                >
+                <router-link to="/profil" class="dropdown-item">
+                  <i class="fa-solid fa-user me-2 pt-2"></i>Mon profil
+                </router-link>
               </li>
               <li @click="handleClick">
                 <a class="dropdown-item text-black"
-                  ><i class="fa-solid fa-list me-2 arrow"></i>Mes
-                  annonces</a
+                  ><i class="fa-solid fa-list me-2 arrow"></i>Mes annonces</a
                 >
               </li>
               <li>
@@ -55,11 +58,13 @@
                   deconnecter</a
                 >
               </li>
-
-              
             </ul>
           </div>
-          <v-avatar color="rgb(221, 88, 55)" @click="hide = !hide" v-if="userInitials">
+          <v-avatar
+            color="rgb(221, 88, 55)"
+            @click="hide = !hide"
+            v-if="userInitials"
+          >
             <span class="text-h7 text-white avatar">{{ userInitials }}</span>
           </v-avatar>
 
