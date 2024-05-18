@@ -43,7 +43,7 @@ import { register } from "vue-advanced-chat";
 register();
 
 const userData = JSON.parse(localStorage.getItem("userData"));
-console.log(userData.id);
+
 const messageEventName = "client-new-message";
 const chatChannelName = ref("presence-groupChat4");
 let channelNames = ref("");

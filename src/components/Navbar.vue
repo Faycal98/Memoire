@@ -24,7 +24,7 @@
         class="header-right justify-content-end align-items-center collapse navbar-collapse"
         id="navbarSupportedContent"
       >
-        <ul>
+        <ul class="d-flex">
           <router-link to="/logements">
             <li class="link">Trouver un logement</li>
           </router-link>

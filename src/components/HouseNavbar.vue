@@ -65,9 +65,9 @@
                 <p class="drop-text">Déposer une annonce</p>
               </router-link>
             </li>
-            <li class="link d-block" v-if="userRole !== 'Locataire'">
+            <li class="link d-block" v-if="userRole !== 'Locataire' && userInitials">
               <router-link to="/packs">
-                <p class="drop-text">Acheter un pack annonces</p>
+                <p class="drop-text">Acheter un pack d'annonces</p>
               </router-link>
             </li>
           </ul>

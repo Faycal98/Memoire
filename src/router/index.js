@@ -12,7 +12,7 @@ const routes = [
     },
     component: HomeView,
     beforeEnter: (to, from, next) => {
-      console.log("home")
+      console.log("home");
       if (store.state.isLogged && store.state.user.role !== "Locataire") {
         next("/owner");
       } else {
@@ -91,7 +91,7 @@ const routes = [
   {
     path: "/packs",
     name: "packs",
-
+    meta: { requiresAuth: true },
     component: () => import("../views/Packs.vue"),
   },
   {
@@ -119,24 +119,13 @@ const routes = [
     meta: {
       admin: true,
     },
-    beforeEnter: (to, from, next) => {
-      if(store.state.isLogged){
-        if (store.state.user.role === "Admin") {
-          console.log(store.state.isLogged)
-          next()
-        }else{
-          next("/owner")
-        }
-      }else{
-        next("/")
-      }
-     
-    },
+  
   },
   {
     path: "/profil",
     name: "profil",
     component: () => import("../views/Profil.vue"),
+    meta: { requiresAuth: true },
   },
 ];
 
@@ -151,6 +140,11 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
     if (store.state.isLogged) {
+      if (!store.state.user.isAllowed) {
+        store.dispatch("logout");
+        window.location.reload();
+      }
+      console.log(store.state.user.isAllowed);
       console.log("here");
       next();
     } else {
