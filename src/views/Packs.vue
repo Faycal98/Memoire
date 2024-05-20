@@ -62,6 +62,7 @@
                         name: 'Basique',
                         price: 1500,
                         nb: 5,
+                        id: 1,
                         valid: 25,
                       })
                     "
@@ -121,7 +122,18 @@
                       Annuler
                     </v-btn>
 
-                    <v-btn @click="dialog1 = false" color="green">
+                    <v-btn
+                      @click="
+                        buyPack({
+                          name: 'Basique',
+                          id: 1,
+                          price: 1500,
+                          nb: 5,
+                          valid: 25,
+                        })
+                      "
+                      color="green"
+                    >
                       Confirmer
                     </v-btn>
                   </template>
@@ -205,6 +217,7 @@
                       getPack({
                         name: 'Argent',
                         price: 2500,
+                        id: 2,
                         nb: 10,
                         valid: 60,
                       })
@@ -265,7 +278,18 @@
                       Annuler
                     </v-btn>
 
-                    <v-btn @click="dialog2 = false" color="green">
+                    <v-btn
+                      @click="
+                        buyPack({
+                          name: 'Argent',
+                          id: 2,
+                          price: 2500,
+                          nb: 10,
+                          valid: 60,
+                        })
+                      "
+                      color="green"
+                    >
                       Confirmer
                     </v-btn>
                   </template>
@@ -471,6 +495,7 @@ export default {
       userId: "",
       name: undefined,
       endDate: "",
+      subscription: false,
       time: undefined,
       NbrAnnounce: "",
       price: undefined,
@@ -488,6 +513,8 @@ export default {
   methods: {
     buyPack(data) {
       this.dialog3 = false;
+      this.dialog1 = false;
+      this.dialog2 = false;
       var now = dayjs(new Date());
       var endDate = now.add(data.valid, "day");
       now = now.format("YYYY-MM-DD");
@@ -499,19 +526,83 @@ export default {
         userId: this.userId,
         packCode: data.id,
       };
+
       console.log(subscription_data);
       axios
-        .post("http://localhost:8000/api/subscribe", subscription_data, {
+        .get(`http://localhost:8000/api/getUserSubscription/${this.userId}`, {
           headers: {
             "x-access-token": this.userData.accessToken,
           },
         })
-        .then((data) => {
+        .then(({ data }) => {
           console.log(data);
-        })
-        .catch((err) => {
-          console.log(err);
+          if (data.length !== 0) {
+            let user = data[0].user;
+            console.log(user);
+            if (data[0] && user.nbreAnnouncement > 0) {
+              this.$swal
+                .fire({
+                  icon: "warning",
+                  title: "Vous avez toujours un abonnement en cours",
+                  allowOutsideClick: false,
+                  confirmButtonColor: "#218838",
+                  showCancelButton: true,
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Oui",
+                  cancelButtonText: "Non",
+                  text: "Voulez-vous toujours continuer? Vous allez perdre l'abonnement en cours",
+                })
+                .then((result) => {
+                  if (result.isConfirmed) {
+                    console.log(subscription_data);
+                    axios
+                      .post(
+                        "http://localhost:8000/api/updateSubscription",
+                        subscription_data,
+                        {
+                          headers: {
+                            "x-access-token": this.userData.accessToken,
+                          },
+                        }
+                      )
+                      .then((data) => {
+                        console.log(data);
+                        this.$swal.fire({
+                          icon: "success",
+                          title: "Pack acheté",
+                          showConfirmButton: false,
+                          timer: 1500,
+                        });
+                      });
+                  } else if (
+                    result.dismiss === this.$swal.DismissReason.cancel
+                  ) {
+                  }
+                });
+            }
+          } else {
+            axios
+              .post("http://localhost:8000/api/subscribe", subscription_data, {
+                headers: {
+                  "x-access-token": this.userData.accessToken,
+                },
+              })
+              .then((data) => {
+                console.log(data);
+                this.$swal.fire({
+                  icon: "success",
+                  title: "Pack acheté",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          }
         });
+
+      /* */
     },
     getPack(val) {
       var now = dayjs(new Date());

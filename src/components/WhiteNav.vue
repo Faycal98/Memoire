@@ -18,7 +18,9 @@
               <div class="list">
                 <ul>
                   <li>
-                    <router-link to="/annonce" class="dropdown-item"
+                    <router-link
+                      :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
+                      class="dropdown-item"
                       >Déposer une annonce
                     </router-link>
                   </li>
@@ -35,7 +37,11 @@
                 </ul>
               </div>
             </li>
-            <router-link v-else to="/annonce" v-if="userRole !== 'Locataire'">
+            <router-link
+              :to="{ name: 'annonce', params: { id: parseInt(userId) } }"
+              v-else
+              v-if="userRole !== 'Locataire'"
+            >
               <li class="link">Déposer une annonce</li>
             </router-link>
 
@@ -46,7 +52,10 @@
               <div class="list">
                 <ul>
                   <li>
-                    <router-link to="/annonce" class="dropdown-item">
+                    <router-link
+                      :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
+                      class="dropdown-item"
+                    >
                       Déposer une annonce
                     </router-link>
                   </li>
@@ -76,9 +85,12 @@
                     >
                   </router-link>
                 </li>
-                <li class="dropdown-item text-black" v-if="userRole !== 'Locataire'" @click="handleClick" >
-                  <i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
-                    annonces
+                <li
+                  class="dropdown-item text-black"
+                  v-if="userRole !== 'Locataire'"
+                  @click="handleClick"
+                >
+                  <i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes annonces
                 </li>
                 <li>
                   <a class="dropdown-item text-black" @click="logout" href="#"
@@ -128,6 +140,7 @@ export default {
       minBudget: 1,
       userInitials: "",
       userRole: "",
+      userId: "",
       hide: true,
       maxBudget: 700000,
       disabled: false,
@@ -159,6 +172,7 @@ export default {
 
     if (userData) {
       this.userRole = userData.role;
+      this.userId = userData.id;
       console.log(this.userRole);
       const userInitials =
         userData.userName.charAt(0).toUpperCase() +

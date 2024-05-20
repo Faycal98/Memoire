@@ -3,8 +3,7 @@
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <router-link to="/">
         <h1 class="ms-5 header-title">
-          <strong>C</strong>hez<span id="letter"
-            ><strong>V</strong></span
+          <strong>C</strong>hez<span id="letter"><strong>V</strong></span
           >ous
         </h1></router-link
       >
@@ -33,7 +32,9 @@
             <div class="list">
               <ul>
                 <li>
-                  <router-link to="/annonce" class="dropdown-item"
+                  <router-link
+                    :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
+                    class="dropdown-item"
                     >Déposer une annonce
                   </router-link>
                 </li>
@@ -50,7 +51,11 @@
               </ul>
             </div>
           </li>
-          <router-link v-else to="/annonce" v-if="userRole !== 'Locataire'">
+          <router-link
+            :to="{ name: 'annonce', params: { id: parseInt(userId) } }"
+            v-else
+            v-if="userRole !== 'Locataire'"
+          >
             <li class="link">Déposer une annonce</li>
           </router-link>
 
@@ -61,7 +66,10 @@
             <div class="list">
               <ul>
                 <li>
-                  <router-link to="/annonce" class="dropdown-item">
+                  <router-link
+                    :to="{ name: 'annonce', params: { id: parseInt(userId) } }"
+                    class="dropdown-item"
+                  >
                     Déposer une annonce
                   </router-link>
                 </li>
@@ -83,24 +91,26 @@
         <div class="Header_buttons ms-3">
           <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
             <ul class="sub-list d-block">
-              <li><router-link to="/profil">
-                <a class="dropdown-item" href="#"
-                  ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon profil</a
-                >
-              </router-link>
-                
+              <li>
+                <router-link to="/profil">
+                  <a class="dropdown-item" href="#"
+                    ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon
+                    profil</a
+                  >
+                </router-link>
               </li>
-              <li><router-link to="/profil">
-                <a class="dropdown-item text-black" href="#"
-                  ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
-                  annonces</a
-                >
-              </router-link>
-                
+              <li>
+                <router-link to="/profil">
+                  <a class="dropdown-item text-black" href="#"
+                    ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
+                    annonces</a
+                  >
+                </router-link>
               </li>
               <li>
                 <a class="dropdown-item text-black" @click="logout" href="#"
-                  ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Déconnexion</a
+                  ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i
+                  >Déconnexion</a
                 >
               </li>
 
@@ -286,6 +296,7 @@ export default {
       },
       red: "red",
       userRole: "",
+      userId: "",
       userInitials: "",
       hide: true,
       userData: "",
@@ -300,6 +311,7 @@ export default {
 
     if (userData) {
       this.userRole = userData.role;
+      this.userId = userData.id;
       console.log(this.userRole);
       const userInitials =
         userData.userName.charAt(0).toUpperCase() +
