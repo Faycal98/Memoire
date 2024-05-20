@@ -4,7 +4,7 @@
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
           <h1 class="ms-5 header-title">
-            <strong>C</strong>hez<strong>V</strong>ous
+            
           </h1>
         </router-link>
         <div
@@ -264,7 +264,7 @@
         </div>
       </div>
     </div>
-  </header>
+  </header> 
 </template>
 
 <script>

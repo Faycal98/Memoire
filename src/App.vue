@@ -13,16 +13,25 @@
 body {
   margin: 0;
 }
-.table {
-  border: 1px solid black !important;
-}
-.table th {
-  text-align: center;
-  font-weight: bold;
-  background: #36417d;
-}
+
 .my-gallery {
   display: flex;
+}
+.table th{
+  text-align:center;
+  font-size: 15px;
+  font-weight: bold;
+  background:#36417d;
+  color: #fff;
+}
+
+
+.table tr:nth-child(even) {
+  background: #ededff;
+}
+    
+.table td{
+  text-align: left !important;
 }
 
 ul {

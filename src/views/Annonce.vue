@@ -260,7 +260,6 @@
                               type="number"
                               min="0"
                               max="50000000"
-                              min="0"
                               prefix="Fcfa"
                               variant="outlined"
                             >
@@ -282,7 +281,6 @@
                               type="number"
                               min="0"
                               max="50000000"
-                              min="0"
                               prefix="Fcfa"
                               variant="outlined"
                             >

@@ -42,27 +42,7 @@
             id="navbarSupportedContent"
           >
             <div class="Header_buttons ms-3">
-              <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
-                <ul class="sub-list d-block">
-                  <li>
-                    <router-link to="/profil" class="dropdown-item">
-                      <i class="fa-solid fa-user me-2 pt-2"></i>Mon profil
-                    </router-link>
-                  </li>
-                  <li @click="handleClick">
-                    <a class="dropdown-item text-black"
-                      ><i class="fa-solid fa-list me-2 arrow"></i>Mes
-                      annonces</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item text-black" @click="logout" href="#"
-                      ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i
-                      >Se deconnecter</a
-                    >
-                  </li>
-                </ul>
-              </div>
+           
               <v-avatar
                 color="rgb(221, 88, 55)"
                 @click="hide = !hide"
