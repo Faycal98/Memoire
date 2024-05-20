@@ -18,7 +18,10 @@
               <div class="list">
                 <ul>
                   <li>
-                    <router-link to="/annonce" class="dropdown-item">
+                    <router-link
+                      :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
+                      class="dropdown-item"
+                    >
                       Déposer une annonce
                     </router-link>
                   </li>
@@ -40,7 +43,10 @@
               <div class="list">
                 <ul>
                   <li>
-                    <router-link to="/annonce" class="dropdown-item">
+                    <router-link
+                      :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
+                      class="dropdown-item"
+                    >
                       Déposer une annonce
                     </router-link>
                   </li>
@@ -61,11 +67,14 @@
               class="link d-block"
               v-if="userInitials && userRole !== 'Locataire'"
             >
-              <router-link to="/annonce">
+              <router-link :to="{ name: 'annonce', params: { id: parseInt(userId) } }">
                 <p class="drop-text">Déposer une annonce</p>
               </router-link>
             </li>
-            <li class="link d-block" v-if="userRole !== 'Locataire' && userInitials">
+            <li
+              class="link d-block"
+              v-if="userRole !== 'Locataire' && userInitials"
+            >
               <router-link to="/packs">
                 <p class="drop-text">Acheter un pack d'annonces</p>
               </router-link>

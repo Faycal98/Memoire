@@ -101,7 +101,7 @@ const routes = [
     component: () => import("../views/Owner.vue"),
   },
   {
-    path: "/annonce",
+    path: "/user/:id/",
     name: "annonce",
     meta: { requiresAuth: true },
     component: () => import("../views/Annonce.vue"),
@@ -138,7 +138,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.meta.requiresAuth) {
+  if (to.meta.requiresAuth || to.meta.admin) {
     if (store.state.isLogged) {
       if (!store.state.user.isAllowed) {
         store.dispatch("logout");

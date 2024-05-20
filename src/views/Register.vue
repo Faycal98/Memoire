@@ -174,6 +174,7 @@ export default {
       userFirstName: "",
       email: "",
       password: "",
+      age:"",
       phone: "",
       errorMsg: "",
       isOpen: false,

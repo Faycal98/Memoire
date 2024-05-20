@@ -1,5 +1,6 @@
 <template>
   <main>
+    <notifications position="top right" />
     <Guest v-if="$route.meta.guestGuard"></Guest>
     <Default v-else-if="$store.state.isAuth"></Default>
     <Admin v-else-if="$route.meta.admin"></Admin>
@@ -15,11 +16,10 @@ body {
 .table {
   border: 1px solid black !important;
 }
-.table th{
-  text-align:center;
-  font-weight:bold;
-  background:#36417d;
-
+.table th {
+  text-align: center;
+  font-weight: bold;
+  background: #36417d;
 }
 .my-gallery {
   display: flex;
@@ -37,6 +37,16 @@ main {
   position: relative;
 }
 
+.notification-title {
+  font-size: 20px;
+}
+
+.vue-notification-wrapper {
+  font-family: "Metrophobic", sans-serif;
+}
+.notification-content {
+  font-size: 18px;
+}
 .floating-btn {
   position: fixed !important;
   bottom: 35%;
@@ -185,12 +195,9 @@ export default {
     Auth,
   },
   mounted() {
-
-
     const userData = JSON.parse(localStorage.getItem("userData"));
 
     if (userData) {
-      
       this.$store.dispatch("updateUser", userData);
     }
   },

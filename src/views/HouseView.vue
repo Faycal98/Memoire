@@ -292,7 +292,7 @@ import Card from "../components/Card.vue";
 import OrangeBtn from "../components/OrangeBtn.vue";
 
 export default {
-  name: "NavbarVue",
+  name: "HouseVue",
   data() {
     return {
       view: {

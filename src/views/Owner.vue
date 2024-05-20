@@ -9,15 +9,21 @@
         </h1>
 
         <h2 class="ft-3xl text-white fw-bold color-b mt-20@s">
-          On a le locataire idéal, les garanties et des services pour vous satisfaire.
+          On a le locataire idéal, les garanties et des services pour vous
+          satisfaire.
         </h2>
         <p class="text-white description">
-          <router-link to="/"><strong style="color:#aeb6eb; font-size: 20px">ChezVous</strong></router-link> est une <strong>plateforme de recherche</strong> de
-          logements en ligne gratuite. On vous outille pour louer votre logement
-          rapidement, en toute sérénité et à moindre coût. C’est du sur-mesure :
-          on vous accompagne à chaque étape de la location selon vos besoins.
+          <router-link to="/"
+            ><strong style="color: #aeb6eb; font-size: 20px"
+              >ChezVous</strong
+            ></router-link
+          >
+          est une <strong>plateforme de recherche</strong> de logements en ligne
+          gratuite. On vous outille pour louer votre logement rapidement, en
+          toute sérénité et à moindre coût. C’est du sur-mesure : on vous
+          accompagne à chaque étape de la location selon vos besoins.
         </p>
-        <router-link to="/annonce">
+        <router-link :to="{ name: 'annonce', params: { id: 1 } }">
           <GreenBtn :content="msg">
             <i class="fa-regular fa-circle-check me-2"></i>
           </GreenBtn>
@@ -27,20 +33,23 @@
   </header>
 
   <div class="Wrapper mt-4">
-    <h2 class="ft-2xl ft-bold ft-bold@s text-center m-auto color-b" style="color: rgb(221, 88, 55) !important;">
+    <h2
+      class="ft-2xl ft-bold ft-bold@s text-center m-auto color-b"
+      style="color: rgb(221, 88, 55) !important"
+    >
       Un service complet et fiable pour mettre en location votre logement en
       toute autonomie
     </h2>
-    
+
     <div class="servcesContainer pv-60">
-        
       <div class="ServicesBlock">
-        
         <div class="ServicesBlock-Item">
-          
-          <div class="ServicesBlock-Item__Logo-block" >
+          <div class="ServicesBlock-Item__Logo-block">
             <div class="Step_head not-last d-flex align-items-center">
-              <span class="Icon" style="--width: 35px; width: 35px; margin-left:41px ">
+              <span
+                class="Icon"
+                style="--width: 35px; width: 35px; margin-left: 41px"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
                   <g fill="none" fill-rule="evenodd">
                     <path
@@ -62,9 +71,12 @@
           </p>
         </div>
         <div class="ServicesBlock-Item">
-          <div class="ServicesBlock-Item__Logo-block" >
+          <div class="ServicesBlock-Item__Logo-block">
             <div class="Step_head not-last d-flex align-items-center">
-              <span class="Icon" style="--width: 28px; width: 28px;margin-left:41px">
+              <span
+                class="Icon"
+                style="--width: 28px; width: 28px; margin-left: 41px"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -105,9 +117,12 @@
           </p>
         </div>
         <div class="ServicesBlock-Item">
-          <div class="ServicesBlock-Item__Logo-block" >
+          <div class="ServicesBlock-Item__Logo-block">
             <div class="Step_head not-last d-flex align-items-center">
-              <span class="Icon" style="--width: 35px; width: 35px; margin-left:41px ">
+              <span
+                class="Icon"
+                style="--width: 35px; width: 35px; margin-left: 41px"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
                   <g fill="none" fill-rule="evenodd">
                     <path
@@ -129,9 +144,12 @@
           </p>
         </div>
         <div class="ServicesBlock-Item">
-          <div class="ServicesBlock-Item__Logo-block" >
+          <div class="ServicesBlock-Item__Logo-block">
             <div class="Step_head not-last d-flex align-items-center">
-              <span class="Icon" style="--width: 32px; width: 32px;  margin-left:41px">
+              <span
+                class="Icon"
+                style="--width: 32px; width: 32px; margin-left: 41px"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 36">
                   <g fill="none" fill-rule="evenodd">
                     <path
@@ -155,13 +173,10 @@
       </div>
     </div>
     <h2 class="ft-2xl ft-bold ft-bold@s text-center m-auto color-b">
-      Pour votre recherche de locataires, on a tout ce qu’il vous
-          faut ! Déposez votre annonce et bénéficiez d’une expérience sur-mesure
-          depuis notre plateforme sécurisée.
+      Pour votre recherche de locataires, on a tout ce qu’il vous faut ! Déposez
+      votre annonce et bénéficiez d’une expérience sur-mesure depuis notre
+      plateforme sécurisée.
     </h2>
-    
-
-    
   </div>
 
   <div class="OwnerLandingPage_SliderBlock content_wrapper d-flex">
@@ -202,7 +217,7 @@
               aria-expanded="false"
               aria-controls="flush-collapseOne"
             >
-              La plateforme   ChezVous  est-elle une agence de location immobilière
+              La plateforme ChezVous est-elle une agence de location immobilière
               ?
             </button>
           </h2>
@@ -213,20 +228,23 @@
             data-bs-parent="#accordionFlushExample"
           >
             <div class="accordion-body">
-              Non, la plateforme <strong style="color:#36417d ;">ChezVous</strong> n’est pas une agence immobilière de
-              location ou de gestion locative en ligne. C’est une plateforme de
-              recherche de logements en ligne. <strong style="color:#36417d ;">ChezVous</strong> vous permet ainsi de
-              trouver un locataire fiable sans passer par une agence !
+              Non, la plateforme
+              <strong style="color: #36417d">ChezVous</strong> n’est pas une
+              agence immobilière de location ou de gestion locative en ligne.
+              C’est une plateforme de recherche de logements en ligne.
+              <strong style="color: #36417d">ChezVous</strong> vous permet ainsi
+              de trouver un locataire fiable sans passer par une agence !
               Contrairement à une agence immobilière traditionnelle (ou un
-              gestionnaire immobilier en ligne), <strong style="color:#36417d ;">ChezVous</strong> ne vous remplace pas
-              dans la gestion de votre bien : vous gérez vous-même votre
+              gestionnaire immobilier en ligne),
+              <strong style="color: #36417d">ChezVous</strong> ne vous remplace
+              pas dans la gestion de votre bien : vous gérez vous-même votre
               location, mais pas tout seul. Afin de gérer au mieux la location
               de votre bien immobilier, nos conseillers dédiés vous épaulent
               tout le long de la location à votre demande. De la rédaction de
-              l'annonce grâce à notre système, en passant par les mises en avant des qualités
-              de votre bien locatif jusqu'au choix du locataire et la signature
-              du bail, nous vous fournissons tous les conseils nécessaires pour
-              optimiser votre expérience locative.
+              l'annonce grâce à notre système, en passant par les mises en avant
+              des qualités de votre bien locatif jusqu'au choix du locataire et
+              la signature du bail, nous vous fournissons tous les conseils
+              nécessaires pour optimiser votre expérience locative.
             </div>
           </div>
         </div>
@@ -240,7 +258,7 @@
               aria-expanded="false"
               aria-controls="panelsStayOpen-collapseTwo"
             >
-              Faut-il être propriétaire bailleur pour louer un logement avec 
+              Faut-il être propriétaire bailleur pour louer un logement avec
               ChezVous ?
             </button>
           </h2>
@@ -251,10 +269,11 @@
           >
             <div class="accordion-body">
               Notre plateforme est disponible pour les propriétaires bailleurs,
-              mais pas uniquement ! La plateforme <strong style="color:#36417d ;">ChezVous</strong> est disponible pour d'autres
-              types de loueurs tels que les démarcheurs, les structures, les
-              colivings, et les professionnels de l'immobilier (agences
-              immobilières, etc.).
+              mais pas uniquement ! La plateforme
+              <strong style="color: #36417d">ChezVous</strong> est disponible
+              pour d'autres types de loueurs tels que les démarcheurs, les
+              structures, les colivings, et les professionnels de l'immobilier
+              (agences immobilières, etc.).
             </div>
           </div>
         </div>
@@ -268,8 +287,8 @@
               aria-expanded="false"
               aria-controls="panelsStayOpen-collapseThree"
             >
-              Dois-je payer des frais au moment de la mise en location chez 
-               ChezVous  ?
+              Dois-je payer des frais au moment de la mise en location chez
+              ChezVous ?
             </button>
           </h2>
           <div
@@ -278,14 +297,17 @@
             aria-labelledby="panelsStayOpen-headingThree"
           >
             <div class="accordion-body">
-              <strong style="color:#36417d ;">ChezVous</strong> est une plateforme de recherche disponible pour toutes personnes
-              volant mettre son bien immobilier en location. Le business model pour ne
-              pas dire la politique économique de <strong style="color:#36417d ;">ChezVous</strong> repose sur l'achat des packs
-              annonces. Cela permet à la plateforme de financer la sécurisation, les mises
-              à jour et autres permettant à ces différents utilisateurs d'être en sécurité.
-                Nos services complémentaires sur-mesure et à votre demande pour faciliter 
-              votre gestion locative peuvent en revanche avoir un coût pour le propriétaire.
-              
+              <strong style="color: #36417d">ChezVous</strong> est une
+              plateforme de recherche disponible pour toutes personnes volant
+              mettre son bien immobilier en location. Le business model pour ne
+              pas dire la politique économique de
+              <strong style="color: #36417d">ChezVous</strong> repose sur
+              l'achat des packs annonces. Cela permet à la plateforme de
+              financer la sécurisation, les mises à jour et autres permettant à
+              ces différents utilisateurs d'être en sécurité. Nos services
+              complémentaires sur-mesure et à votre demande pour faciliter votre
+              gestion locative peuvent en revanche avoir un coût pour le
+              propriétaire.
             </div>
           </div>
         </div>
@@ -300,13 +322,15 @@
 <script>
 import Footer from "../components/Footer.vue";
 import Navbar from "../components/OwnerNavbar.vue";
+import dayjs from "dayjs";
 import StepSlider from "../components/StepSlider.vue";
 import GreenBtn from "../components/GreenBtn.vue";
-
+import axios from "axios";
 export default {
   data() {
     return {
       msg: "Déposer mon annonce",
+      userId: "",
     };
   },
   components: {
@@ -317,6 +341,62 @@ export default {
   },
   created() {
     console.log("created");
+  },
+  mounted() {
+    const userData = this.$store.state.user;
+    this.userId = userData.id;
+
+    axios
+      .get(`http://localhost:8000/api/getUserSubscription/${this.userId}`, {
+        headers: {
+          "x-access-token": userData.accessToken,
+        },
+      })
+      .then(({ data }) => {
+        console.log(data);
+        if (data[0]) {
+          const today = dayjs(new Date());
+          const endPeriod = dayjs(data[0].period_end);
+          console.log(today, endPeriod);
+
+          if (endPeriod.diff(today) < 0) {
+            this.$notify({
+              title: "Message important",
+              text: "Votre pack d'annonce est expiré",
+              type: "warn",
+
+              // (optional, override)
+              // Time (in ms) to keep the notification on screen
+              duration: 10000,
+
+              // (optional, override)
+              // Time (in ms) to show / hide notifications
+              speed: 1000,
+            });
+
+
+            
+            axios
+              .get(
+                `http://localhost:8000/api/removeSubscribtion/${this.userId}`,
+                {
+                  headers: {
+                    "x-access-token": userData.accessToken,
+                  },
+                }
+              )
+              .then((data) => {
+                console.log(data);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          }
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>
@@ -398,7 +478,7 @@ p.description {
   padding: 30px 40px;
   gap: 40px;
   border-radius: 16px;
-  background: #36417d ;
+  background: #36417d;
 }
 
 .ServicesBlock > .ServicesBlock-Item {
@@ -531,7 +611,7 @@ p.description {
 }
 
 .accordion-button::after {
-  background-color: rgba(167, 83, 62, 0.185);  
+  background-color: rgba(167, 83, 62, 0.185);
   border-radius: 50%;
   background-image: url("../assets/téléch.svg");
   width: 1.3rem;
@@ -557,7 +637,7 @@ p.description {
   margin-bottom: 0;
 }
 
-.blue{
+.blue {
   color: #36417d;
 }
 

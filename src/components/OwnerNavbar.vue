@@ -28,10 +28,11 @@
           <router-link to="/logements">
             <li class="link">Trouver un logement</li>
           </router-link>
-          <router-link to="/annonce" a class="link">
-            <li>
-              Déposer une annonce
-            </li>
+          <router-link
+            :to="{ name: 'annonce', params: { id: parseInt(userId) } }"
+            class="link"
+          >
+            <li>Déposer une annonce</li>
           </router-link>
 
           <router-link to="#">
@@ -84,7 +85,7 @@
 
 <script>
 export default {
-  name: "NavbarVue",
+  name: "OwnerNavbar",
   data() {
     return {
       view: {
@@ -139,7 +140,6 @@ export default {
   margin: 0;
 }
 #letter {
-  
   color: #36417d;
 }
 .link {
@@ -147,13 +147,12 @@ export default {
   align-items: center;
   padding: 15px;
   position: relative;
-  transition: .5s all;
+  transition: 0.5s all;
   font-weight: bold;
 }
-.link:hover{
+.link:hover {
   color: #838fcf !important;
   font-weight: bold;
-
 }
 
 .hidden {

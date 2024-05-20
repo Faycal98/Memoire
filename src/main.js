@@ -19,6 +19,7 @@ import { library, dom } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import Notifications from '@kyvg/vue3-notification'
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { VFab } from 'vuetify/labs/VFab'
 library.add(fas, far, fab);
@@ -44,6 +45,7 @@ const vuetify = createVuetify({
 createApp(App)
   .component("font-awesome-icon", FontAwesomeIcon)
   .use(store)
+  .use(Notifications)
   .use(vuetify)
   .use(VueSweetalert2)
   .use(router)

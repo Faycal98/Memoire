@@ -11,8 +11,8 @@
         >
           <ul class="u-block">
             <li>
-              <router-link to="/annonce" class="dropdown-item text-white">
-               Mes annonces
+              <router-link to="/" class="dropdown-item text-white">
+                Mes annonces
               </router-link>
             </li>
           </ul>
@@ -20,57 +20,58 @@
           <ul class="u-block">
             <li v-if="userInitials">
               <router-link to="/profil" class="dropdown-item text-white">
-          Acheter un pack d'annonces
+                Acheter un pack d'annonces
               </router-link>
             </li>
           </ul>
           <div class="Header_buttons ms-3">
-          <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
-            <ul class="sub-list d-block">
-              <li><router-link to="/profil">
-                <a class="dropdown-item" href="#"
-                  ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon profil</a
-                >
-              </router-link>
-                
-              </li>
-              <li><router-link to="/profil">
-                <a class="dropdown-item text-black" href="#"
-                  ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
-                  annonces</a
-                >
-              </router-link>
-                
-              </li>
-              <li>
-                <a class="dropdown-item text-black" @click="logout" href="#"
-                  ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Déconnexion</a
-                >
-              </li>
+            <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
+              <ul class="sub-list d-block">
+                <li>
+                  <router-link to="/profil">
+                    <a class="dropdown-item" href="#"
+                      ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon
+                      profil</a
+                    >
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="/profil">
+                    <a class="dropdown-item text-black" href="#"
+                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
+                      annonces</a
+                    >
+                  </router-link>
+                </li>
+                <li>
+                  <a class="dropdown-item text-black" @click="logout" href="#"
+                    ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i
+                    >Déconnexion</a
+                  >
+                </li>
 
-              <li>
-                <a class="dropdown-item last" href="#"
-                  ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
-                  contacter</a
-                >
-              </li>
-            </ul>
+                <li>
+                  <a class="dropdown-item last" href="#"
+                    ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
+                    contacter</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <v-avatar color="brown" @click="hide = !hide" v-if="userInitials">
+              <span class="text-h7 avatar">{{ userInitials }}</span>
+            </v-avatar>
+
+            <router-link to="/login" v-else>
+              <button
+                type="button"
+                class="btn btn-outline-light account-btn px-1 py-2"
+              >
+                Mon compte
+              </button>
+            </router-link>
           </div>
-          <v-avatar color="brown" @click="hide = !hide" v-if="userInitials">
-            <span class="text-h7 avatar">{{ userInitials }}</span>
-          </v-avatar>
-
-          <router-link to="/login" v-else>
-            <button
-              type="button"
-              class="btn btn-outline-light account-btn px-1 py-2"
-            >
-              Mon compte
-            </button>
-          </router-link>
         </div>
-        </div>
-        
       </nav>
     </div>
   </header>
@@ -89,7 +90,7 @@
     </h1>
 
     <section id="annonce">
-      <Form action="" method="" :validation-schema="schema">
+      <Form action="" method="">
         <div class="stepper-wrapper text-start">
           <v-stepper
             v-model="e1"
@@ -240,18 +241,6 @@
                               variant="outlined"
                             >
                             </v-text-field>
-
-                            <div class="form-group">
-                              <Field
-                                name="username"
-                                type="number"
-                                v-model="userName"
-                              />
-                              <ErrorMessage
-                                name="username"
-                                class="error-feedback text-danger"
-                              />
-                            </div>
                           </v-col>
                           <v-col
                             v-if="
@@ -267,6 +256,7 @@
                               v-model="rentAdvance"
                               :rules="[rules.required]"
                               type="number"
+                              min="0"
                               prefix="Fcfa"
                               variant="outlined"
                             >
@@ -286,6 +276,7 @@
                               v-model="cautionElec"
                               :rules="[rules.required]"
                               type="number"
+                              min="0"
                               prefix="Fcfa"
                               variant="outlined"
                             >
@@ -708,7 +699,7 @@
                     </v-col>
                     <v-col cols="12" md="12" sm="12" class="text-start">
                       <p class="text-center mt-2">
-                        Vous devez choisir 4 a 5 quatres images
+                        Vous devez choisir 4 images
                       </p>
                       <FileUpload
                         @update-album="updateAlbum"
@@ -720,8 +711,8 @@
               </v-stepper-window>
 
               <button
-                @click="submitInfo"
                 v-if="this.e1 == 4"
+                @click="submitInfo"
                 :disabled="!checkData"
                 class="position-absolute hidden-btn v-btn v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-tonal"
               >
@@ -752,39 +743,13 @@
 <script>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
+import dayjs from "dayjs";
 import axios from "axios";
 import FileUpload from "@/components/FileUpload.vue";
 
 export default {
   name: "HouseNavBar",
   data() {
-    const schema = yup.object().shape({
-      username: yup
-        .string()
-        .required("Le nom est obligatoire!")
-        .min(3, "Must be at least 3 characters!")
-        .max(20, "Must be maximum 20 characters!"),
-      phone: yup
-        .string()
-        .required(" Numéro de téléphone est obligatoire!")
-        .min(3, "Must be at least 3 characters!")
-        .max(20, "Must be maximum 20 characters!"),
-      userFirstName: yup
-        .string()
-        .required("Le prénom est obligatoire!")
-        .min(3, "Must be at least 3 characters!")
-        .max(20, "Must be maximum 20 characters!"),
-      email: yup
-        .string()
-        .required("Email obligatoire!")
-        .email("Email non valide!")
-        .max(50, "Must be maximum 50 characters!"),
-      password: yup
-        .string()
-        .required("Mot de passe obligatoire!")
-        .min(6, "Must be at least 6 characters!")
-        .max(40, "Must be maximum 40 characters!"),
-    });
     return {
       view: {
         topOfPage: true,
@@ -796,14 +761,15 @@ export default {
       butAnnonce: 0,
       hasMonitoring: false,
       amount: undefined,
-
+      userInfo: "",
+     
       userName: "",
       userFirstName: "",
       email: "",
       password: "",
       phone: "",
       errorMsg: "",
-      schema,
+
       userRole: "",
       userInitials: "",
       hide: true,
@@ -852,26 +818,62 @@ export default {
   },
 
   beforeMount() {
+    const date1 = dayjs("2019-01-25");
+    const date2 = dayjs("2018-06-05");
+    console.log(date2.diff(date1));
     window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
+    const userID = this.$route.params.id;
+    const userData = JSON.parse(localStorage.getItem("userData"));
+
+    axios
+      .get("http://localhost:8000/api/user", {
+        headers: {
+          "x-access-token": userData.accessToken,
+        },
+      })
+      .then(({ data }) => {
+        this.userInfo = data;
+        if (this.userInfo.nbreAnnouncement == 0) {
+          this.$swal
+            .fire({
+              icon: "error",
+              title: "Oups... Vous n'avez pas d'annonces",
+              allowOutsideClick: false,
+              confirmButtonColor: "#218838",
+              showCancelButton: true,
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Oui",
+              cancelButtonText: "Non",
+              text: "Acheter un pack d'annonce pour continuer",
+            })
+            .then((result) => {
+              if (result.isConfirmed) {
+                this.$router.push("/packs");
+              } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === this.$swal.DismissReason.cancel
+              ) {
+                this.$router.go(-1);
+              }
+            });
+        } 
+      });
+
     (this.rawfiles = []), (this.galleryImg = []);
-    console.log(this.department);
+
     let id = this.department.id;
     this.getCities(id);
 
+    if (userData) {
+      this.userRole = userData.role;
 
-    const userData = JSON.parse(localStorage.getItem("userData"));
-
-if (userData) {
-  this.userRole = userData.role;
-  console.log(this.userRole);
-  const userInitials =
-    userData.userName.charAt(0).toUpperCase() +
-    userData.userFirstName.charAt(0).toUpperCase();
-  this.userInitials = userInitials;
-  console.log(userInitials);
-}
+      const userInitials =
+        userData.userName.charAt(0).toUpperCase() +
+        userData.userFirstName.charAt(0).toUpperCase();
+      this.userInitials = userInitials;
+    }
   },
   components: {
     FileUpload,
@@ -936,6 +938,7 @@ if (userData) {
 
     submitInfo(e) {
       e.preventDefault();
+
       const form = document.querySelector("form");
       const formData = new FormData(form);
       const userData = JSON.parse(localStorage.getItem("userData"));
@@ -1335,7 +1338,6 @@ header {
   cursor: pointer;
 }
 
-
 .Header_navList {
   position: absolute;
 
@@ -1433,10 +1435,8 @@ nav {
       font-weight: 300;
       list-style-type: none;
       color: white;
-    
     }
   }
- 
 }
 .spacer {
   padding: 40px;
