@@ -9,7 +9,7 @@
         </h1>
 
         <h2 class="ft-3xl text-white fw-bold color-b mt-20@s">
-          On a le locataire idéal, les garanties et des services pour vous satisfaire.
+          On a le locataire idéal, les garanties et les services idéals pour vous satisfaire.
         </h2>
         <p class="text-white description">
           <router-link to="/"><strong style="color:#aeb6eb; font-size: 20px">ChezVous</strong></router-link> est une <strong>plateforme de recherche</strong> de

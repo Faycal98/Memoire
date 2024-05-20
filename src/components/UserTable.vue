@@ -1,10 +1,12 @@
 <template>
+  <v-divider></v-divider>
+  
   <v-card flat class="table">
     <v-card-title class="d-flex align-center pe-2">
       <v-text-field
         v-model="search"
         density="compact"
-        label="Recherche"
+        label="Recherche..."
         prepend-inner-icon="mdi-magnify"
         variant="solo-filled"
         flat
@@ -12,7 +14,7 @@
         single-line
       ></v-text-field>
       <v-spacer></v-spacer>
-      <i class="fa-solid fa-filter me-3"></i>
+      <i class="fa-solid fa-filter me-3" ></i>
       Filtrer
     </v-card-title>
 
@@ -194,7 +196,7 @@ export default {
 
     loadUsers() {
       const userData = JSON.parse(localStorage.getItem("userData"));
-console.log(userData)
+      console.log(userData)
       axios
         .get("http://localhost:8000/api/users", {
           headers: {
@@ -214,8 +216,8 @@ console.log(userData)
 </script>
 <style scoped>
 .table{
-  border-radius:10px;
-  border: 1px solid black;
+ /* border-radius:10px;*/
+  
 }
 /*.table .align-center{
   font-weight: bold;

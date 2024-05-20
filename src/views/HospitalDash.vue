@@ -4,7 +4,8 @@
       <div class="col-12 px-5">
         <div class="">
           <div class="row gap-4 md:col-span-6">
-            <div class="widget-area col proclinic-box-shadow color-red"style="background: rgb(251, 233, 233) !important;">
+            <div class="widget-area col proclinic-box-shadow color-red"style="background: rgb(251, 233, 233) !important;
+            border: 1px solid  #e57498;">
               <div class="widget-left">
                 <span class="ti-user" style="background: rgb(251, 233, 233) !important;">
                   <font-awesome-icon :icon="['fas', 'user']" />
@@ -14,12 +15,13 @@
                 <h4 class="wiget-title">Locataires</h4>
                 <span class="numeric color-red">348</span>
                 <p class="inc-dec mb-0">
-                  <span class="ti-angle-up"></span> +20% Increased
+                  <span class="ti-angle-up">+20% Increased</span> 
                 </p>
               </div>
             </div>
 
-            <div class="widget-area col proclinic-box-shadow color-green" style="background: rgb(235, 254, 235) !important;">
+            <div class="widget-area col proclinic-box-shadow color-green" style="background: rgb(235, 254, 235) !important;
+            border: 1px solid  #3cb371;">
               <div class="widget-left">
                 <span class="ti-bar-chart" style="background: rgb(235, 254, 235) !important;">
                   <font-awesome-icon :icon="['fas', 'user']" />
@@ -29,22 +31,23 @@
                 <h4 class="wiget-title">Propriétaires</h4>
                 <span class="numeric color-green">1585</span>
                 <p class="inc-dec mb-0">
-                  <span class="ti-angle-down"></span> -15% Decreased
+                  <span class="ti-angle-down">-15% Decreased</span> 
                 </p>
               </div>
             </div>
 
-            <div class="widget-area col proclinic-box-shadow color-yellow" style="background:rgb(254, 247, 235) !important;">
+            <div class="widget-area col proclinic-box-shadow color-yellow" style="background:rgb(254, 247, 235) !important;
+            border: 1px solid  #ff7d00;">
               <div class="widget-left">
                 <span class="ti-money" style="background: rgb(254, 247, 235) !important;">
                   <font-awesome-icon :icon="['fas', 'user']" />
                 </span>
               </div>
               <div class="widget-right">
-                <h4 class="wiget-title">Démarcheur</h4>
+                <h4 class="wiget-title">Démarcheurs</h4>
                 <span class="numeric color-yellow">73</span>
                 <p class="inc-dec mb-0">
-                  <span class="ti-angle-up"></span> +10% Increased
+                  <span class="ti-angle-up">+10% Increased</span> 
                 </p>
               </div>
             </div>
@@ -198,7 +201,7 @@ table.table thead th {
   padding: 17px;
   background: #fff;
   border-radius: 50%;
-  border: 1px solid;
+  border: 1px solid ;
 }
 
 .widget-left {
@@ -227,8 +230,8 @@ table.table thead th {
 
 h4.wiget-title {
   margin-bottom: 0.5rem;
-  font-size: 16px;
-  font-weight:boldero;
+  font-size: 18px;
+  font-weight:bolder;
   letter-spacing: 0.5px;
 }
 .nav-help {
@@ -271,7 +274,7 @@ p {
 
 .color-red {
   color: #e57498;
-  /*color: #cf829aef;*/
+  
 }
 
 .proclinic-box-shadow.table-container {
@@ -283,13 +286,13 @@ p {
   display: flex;
   align-items: center;
   border: 0;
-  border: 1px solid  #eeeeee;
+  
   background: #fff;
   margin-top: 20px;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .proclinic-box-shadow:hover{
-  transform: translateY(-5px);
+  transform: translateY(-7px);
 }
 
 .menu-link.activeMenu > ul {

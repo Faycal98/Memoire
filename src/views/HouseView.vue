@@ -12,7 +12,7 @@
             <h2>Recherche en cours</h2>
           </div>
           <div class="ps-3 SearchPage_Header_title" v-else>
-            10 logements sont disponibles
+            + de 10 logements sont disponibles
           </div>
           <div class="me-4 select-container">
             <select v-model="selected">

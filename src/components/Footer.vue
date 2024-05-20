@@ -10,18 +10,18 @@
               <a class="Footer_link" href="/login">Espace propriétaire</a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="/logins">Espace démarcheur</a>
+              <a class="Footer_link" href="/login">Espace démarcheur</a>
             </li>
             <li class="Footer_item">
               <a class="Footer_link" href="/howitwork"> Comment ça marche ? </a>
             </li>
             <li class="Footer_item">
-              <a class="Footer_link" href="#"> Nos astuces </a>
+              <a class="Footer_link" href="#">Gérer les cookies</a>
             </li>
           </ul>
         </div>
         <div class="Footer_column col-3 col-6@s col-12@xs">
-          <h5 class="Footer_title">Notre partenaire</h5>
+          <h5 class="Footer_title">Nos partenaires</h5>
           <ul>
             <li class="Footer_item">
               <a class="Footer_link" href="#"> OLA TECHNOLOGY </a>
@@ -30,9 +30,7 @@
               <a class="Footer_link" href="#"> CAVE TECH </a>
             </li>
             
-            <li class="Footer_item">
-              <a class="Footer_link" href="#">Gérer les cookies</a>
-            </li>
+            
           </ul>
         </div>
         <div class="Footer_column col-3 col-6@s col-12@xs">
@@ -67,7 +65,7 @@
               <div class="Footer_link">Nous contacter</div>
             </li>
             <li class="Footer_item " id="icon">
-              <a class="Footer_link" href="#"><i class="fa-solid fa-circle-up" style="font-size: 30px; transition: all .4s ease;"></i></a>
+              <a class="Footer_link" href="#"><i class="fa-solid fa-circle-up" style="font-size: 30px; transition: all .2s;"></i></a>
             </li>
           </ul>
           <div class="SocialShare mt-40 SocialShare--light">
@@ -97,7 +95,7 @@
   color: #fff;
   cursor: pointer;
   text-decoration: none;
-  transition: .5s all;
+  transition: .3s all;
 }
 .Footer_link:hover {
   

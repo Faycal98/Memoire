@@ -148,10 +148,10 @@
                   <v-row>
                     <v-col class="py-2 text-start" cols="12" sm="12">
                       <h2 class="text-h4 text-start title">Détails</h2>
-                      <p class="my-2 mt-4">Selectionner le type de logement</p>
+                      <p class="my-2 mt-4">Veuillez sélectionner le type de logement</p>
                       <v-btn-toggle
                         v-model="typeLogement"
-                        color="#10B981"
+                        color="#36417d"
                         background-color="primary"
                         mandatory
                         rounded="0"
@@ -184,18 +184,18 @@
                         </v-btn>
                       </v-btn-toggle>
                       <div class="mt-4">
-                        <p>Quel est le but de cette annonce?</p>
+                        <p>Quel est le but de votre annonce?</p>
 
                         <v-radio-group v-model="butAnnonce" class="text-black">
                           <v-radio
                             v-if="typeLogement == 'Maison'"
                             label="Vente"
-                            color="rgb(16, 185, 129)"
+                            color="#36417d"
                             value="vente"
                           ></v-radio>
                           <v-radio
                             label="Location"
-                            color="rgb(16, 185, 129)"
+                            color="#36417d"
                             value="location"
                           ></v-radio>
                         </v-radio-group>
@@ -215,12 +215,12 @@
                               v-if="typeLogement == 'Appartement'"
                               label="Journalier"
                               v-model="bill_period"
-                              color="rgb(16, 185, 129)"
+                              color="#36417d"
                               value="jour"
                             ></v-radio>
                             <v-radio
                               label="Mensuel"
-                              color="rgb(16, 185, 129)"
+                              color="#36417d"
                               v-model="bill_period"
                               value="mois"
                             ></v-radio>
@@ -236,22 +236,14 @@
                               v-model="amount"
                               :rules="[rules.required]"
                               type="number"
+                              min="0"
+                              max="50000000"
                               prefix="Fcfa"
                               variant="outlined"
                             >
                             </v-text-field>
 
-                            <div class="form-group">
-                              <Field
-                                name="username"
-                                type="number"
-                                v-model="userName"
-                              />
-                              <ErrorMessage
-                                name="username"
-                                class="error-feedback text-danger"
-                              />
-                            </div>
+                        
                           </v-col>
                           <v-col
                             v-if="
@@ -267,6 +259,8 @@
                               v-model="rentAdvance"
                               :rules="[rules.required]"
                               type="number"
+                              min="0"
+                              max="50000000"
                               prefix="Fcfa"
                               variant="outlined"
                             >
@@ -286,6 +280,8 @@
                               v-model="cautionElec"
                               :rules="[rules.required]"
                               type="number"
+                              min="0"
+                              max="50000000"
                               prefix="Fcfa"
                               variant="outlined"
                             >
@@ -305,6 +301,8 @@
                               v-model="cautionEau"
                               :rules="[rules.required]"
                               type="number"
+                              min="0"
+                              max="50000000"
                               prefix="Fcfa"
                               variant="outlined"
                             >
@@ -334,8 +332,8 @@
                     Emplacement du logement
                   </h2>
                   <span class="text-start"
-                    >Veuillez fournir des donnees correctes.<b
-                      >Il sera difficile de les modifier plus tard</b
+                    >Veuillez fournir des donnees correctes.<b style="color:rgb(221, 88, 55);"
+                      > Il vous sera difficile de les modifier plus tard</b
                     ></span
                   >
                   <div class="stepper-bottom">
@@ -349,7 +347,7 @@
                         ></v-text-field>
                       </v-col>
                       <v-col class="py-2 text-start" md="5" sm="5">
-                        <p class="mb-2">Département(Optionnel)</p>
+                        <p class="mb-2">Département</p>
                         <v-select
                           density="compact"
                           class="city-select"
@@ -410,6 +408,7 @@
                         <v-text-field
                           readonly
                           type="number"
+                          min="0"
                           v-model.number="piecesNumber"
                           variant="outlined"
                         >
@@ -419,9 +418,10 @@
 
                     <v-col class="py-2 text-start" cols="12" md="4" sm="4">
                       <div class="info-container">
-                        <p>Nombre chambres</p>
+                        <p>Nombre de chambres</p>
                         <v-text-field
                           type="number"
+                          min="0"
                           v-model.number="roomNumber"
                           variant="outlined"
                         >
@@ -434,6 +434,7 @@
                         <p>Nombre de douches</p>
                         <v-text-field
                           type="number"
+                          min="0"
                           v-model.number="showerNumber"
                           variant="outlined"
                         >
@@ -446,6 +447,7 @@
                         <p>Nombre de Cuisines</p>
                         <v-text-field
                           type="number"
+                          min="0"
                           v-model.number="kitchenNumber"
                           variant="outlined"
                         >
@@ -464,28 +466,28 @@
                         <v-radio-group v-model="isSanitary" class="text-black">
                           <v-radio
                             label="Oui"
-                            color="rgb(16, 185, 129)"
+                            color="#36417d"
                             :value="true"
                           ></v-radio>
                           <v-radio
                             label="Non"
-                            color="rgb(16, 185, 129)"
+                            color="#36417d"
                             :value="false"
                           ></v-radio>
                         </v-radio-group>
                       </div>
 
                       <div class="w-30">
-                        <p>Sol avec des carreaux</p>
+                        <p>Sol carrelé</p>
                         <v-radio-group v-model="hasTiles" class="text-black">
                           <v-radio
                             label="Oui"
-                            color="rgb(16, 185, 129)"
+                            color="#36417d"
                             :value="true"
                           ></v-radio>
                           <v-radio
                             label="Non"
-                            color="rgb(16, 185, 129)"
+                            color="#36417d"
                             :value="false"
                           ></v-radio>
                         </v-radio-group>
@@ -495,13 +497,13 @@
                     <p>Type de compteur</p>
                     <v-radio-group v-model="counterType" class="text-black">
                       <v-radio
-                        label="Compteur a cartes"
-                        color="rgb(16, 185, 129)"
-                        value="Compteur à cartes"
+                        label="Compteur à carte"
+                        color="#36417d"
+                        value="Compteur a carte"
                       ></v-radio>
                       <v-radio
                         label="Compteur traditionnel"
-                        color="rgb(16, 185, 129)"
+                        color="#36417d"
                         value="Compteur traditionnel"
                       ></v-radio>
                     </v-radio-group>
@@ -513,17 +515,17 @@
                     >
                       <v-radio
                         label="Soneb"
-                        color="rgb(16, 185, 129)"
+                        color="#36417d"
                         value="Soneb"
                       ></v-radio>
                       <v-radio
                         label="Forage"
-                        color="rgb(16, 185, 129)"
+                        color="#36417d"
                         value="Forage"
                       ></v-radio>
                       <v-radio
                         label="Soneb + forage"
-                        color="rgb(16, 185, 129)"
+                        color="#36417d"
                         value="Soneb + forage"
                       ></v-radio>
                     </v-radio-group>
@@ -616,7 +618,7 @@
                       </div>
                     </v-col>
                     <v-col cols="12" md="6" sm="6" class="text-start">
-                      <p class="mb-2">Cuisne & Entretien</p>
+                      <p class="mb-2">Cuisine & Entretien</p>
                       <div
                         class="equipement-wrapper mb-2 d-flex align-items-center"
                       >
@@ -666,7 +668,7 @@
                       </div>
                     </v-col>
                     <v-col cols="12" md="6" sm="6" class="text-start mt-4">
-                      <p class="mb-2">Exterieur</p>
+                      <p class="mb-2">Extérieur</p>
                       <div
                         class="equipement-wrapper mb-2 d-flex align-items-center"
                       >
@@ -708,7 +710,7 @@
                     </v-col>
                     <v-col cols="12" md="12" sm="12" class="text-start">
                       <p class="text-center mt-2">
-                        Vous devez choisir 4 a 5 quatres images
+                        Veuillez choisir 4 à 5 images
                       </p>
                       <FileUpload
                         @update-album="updateAlbum"
@@ -1351,6 +1353,7 @@ header {
 .drop-text {
   color: #fff;
   font-size: 15px;
+  
 
   border-radius: 5px;
   padding: 6px 18px;

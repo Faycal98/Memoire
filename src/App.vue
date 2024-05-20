@@ -12,14 +12,18 @@
 body {
   margin: 0;
 }
-.table {
-  border: 1px solid black !important;
-}
+
 .table th{
   text-align:center;
-  font-weight:bold;
+  font-size: 15px;
+  font-weight: bold;
   background:#36417d;
+  color: #fff;
+}
 
+
+.table tr:nth-child(even) {
+    background: #ededff;
 }
 .my-gallery {
   display: flex;
@@ -87,7 +91,7 @@ main {
 }
 .v-stepper-item--selected .v-stepper-item__avatar.v-avatar,
 .v-stepper-item--complete .v-stepper-item__avatar.v-avatar {
-  background: rgb(221, 88, 55) !important;
+  background: rgb(55, 221, 110) !important;
 }
 html {
   overflow: scroll;
@@ -102,7 +106,7 @@ html {
 }
 
 .equipement-wrapper .form-check-input:checked {
-  background-color: rgb(221, 88, 55);
+  background-color: #36417d;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

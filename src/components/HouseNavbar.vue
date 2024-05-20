@@ -164,7 +164,7 @@
     </h1>
     <div class="text-center info-text">
       <p style="font-size: 18px">
-        ChezVous est une plateforme de logement en ligne qui rend la location
+        ChezVous est une plateforme de recherche de logement en ligne qui rend la location
         plus simple et humaine, quelle qu’en soit la durée.
       </p>
     </div>
@@ -202,9 +202,9 @@
                     <label class="Form_label">Budget min.</label>
                     <input
                       type="number"
-                      min="4000"
+                      min="5000"
                       v-model="minBudget"
-                      max="20000000"
+                      max="50000000"
                       id="numberId"
                       placeholder=""
                       name=""
@@ -225,9 +225,9 @@
                     <label class="Form_label">Budget max.</label>
                     <input
                       type="number"
-                      min="4000"
+                      min="5000"
                       v-model="maxBudget"
-                      max="20000000"
+                      max="50000000"
                       id="numberId"
                       placeholder=""
                       name=""
@@ -271,9 +271,9 @@ export default {
       },
       red: "red",
       userRole: "",
-      minBudget: 4000,
+      minBudget: 5000,
       hide: true,
-      maxBudget: 20000000,
+      maxBudget: 50000000,
       disabled: false,
       userInitials: "",
       isOpen: false,
