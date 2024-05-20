@@ -536,46 +536,50 @@ export default {
         })
         .then(({ data }) => {
           console.log(data);
-          let user = data[0].user;
-          console.log(user);
-          if (data[0] && user.nbreAnnouncement > 0) {
-            this.$swal
-              .fire({
-                icon: "warning",
-                title: "Vous avez toujours un abonnement en cours",
-                allowOutsideClick: false,
-                confirmButtonColor: "#218838",
-                showCancelButton: true,
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Oui",
-                cancelButtonText: "Non",
-                text: "Voulez-vous toujours continuer? Vous allez perdre l'abonnement en cours",
-              })
-              .then((result) => {
-                if (result.isConfirmed) {
-                  console.log(subscription_data)
-                  axios
-                    .post(
-                      "http://localhost:8000/api/updateSubscription",
-                      subscription_data,
-                      {
-                        headers: {
-                          "x-access-token": this.userData.accessToken,
-                        },
-                      }
-                    )
-                    .then((data) => {
-                      console.log(data);
-                      this.$swal.fire({
-                        icon: "success",
-                        title: "Pack acheté",
-                        showConfirmButton: false,
-                        timer: 1500,
+          if (data.length !== 0) {
+            let user = data[0].user;
+            console.log(user);
+            if (data[0] && user.nbreAnnouncement > 0) {
+              this.$swal
+                .fire({
+                  icon: "warning",
+                  title: "Vous avez toujours un abonnement en cours",
+                  allowOutsideClick: false,
+                  confirmButtonColor: "#218838",
+                  showCancelButton: true,
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Oui",
+                  cancelButtonText: "Non",
+                  text: "Voulez-vous toujours continuer? Vous allez perdre l'abonnement en cours",
+                })
+                .then((result) => {
+                  if (result.isConfirmed) {
+                    console.log(subscription_data);
+                    axios
+                      .post(
+                        "http://localhost:8000/api/updateSubscription",
+                        subscription_data,
+                        {
+                          headers: {
+                            "x-access-token": this.userData.accessToken,
+                          },
+                        }
+                      )
+                      .then((data) => {
+                        console.log(data);
+                        this.$swal.fire({
+                          icon: "success",
+                          title: "Pack acheté",
+                          showConfirmButton: false,
+                          timer: 1500,
+                        });
                       });
-                    }); 
-                } else if (result.dismiss === this.$swal.DismissReason.cancel) {
-                }
-              });
+                  } else if (
+                    result.dismiss === this.$swal.DismissReason.cancel
+                  ) {
+                  }
+                });
+            }
           } else {
             axios
               .post("http://localhost:8000/api/subscribe", subscription_data, {
