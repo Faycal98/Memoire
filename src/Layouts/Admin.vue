@@ -2,16 +2,16 @@
   <div class="row">
     <div class="col-2 sidebar">
       <div class="title"><i class="fa-solid fa-house"></i> Dashboard</div>
-      <ul>
-        <li><i class="fa-solid fa-user"></i> Utilisateurs</li>
+      <ul class="menu">
+        <li><i class="fa-solid fa-users"></i> Liste des utilisateurs</li>
         <li>
-          <img
-            src="../assets/megaphone.svg"
-            width="30px"
-            class="me-2"
-            alt=""
-          />Annonces
+          <i class="fa-solid fa-list me-2 "></i>Liste des annonces
         </li>
+        <li class="logout">
+                    <a  @click="logout" href="#"><i class="fa-solid fa-right-from-bracket me-2 arrow"></i
+                      >Se déconnecter</a
+                    >
+                  </li>
       </ul>
     </div>
     <div class="col-10">
@@ -42,27 +42,7 @@
             id="navbarSupportedContent"
           >
             <div class="Header_buttons ms-3">
-              <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
-                <ul class="sub-list d-block">
-                  <li>
-                    <router-link to="/profil" class="dropdown-item">
-                      <i class="fa-solid fa-user me-2 pt-2"></i>Mon profil
-                    </router-link>
-                  </li>
-                  <li @click="handleClick">
-                    <a class="dropdown-item text-black"
-                      ><i class="fa-solid fa-list me-2 arrow"></i>Mes
-                      annonces</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item text-black" @click="logout" href="#"
-                      ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i
-                      >Se deconnecter</a
-                    >
-                  </li>
-                </ul>
-              </div>
+           
               <v-avatar
                 color="rgb(221, 88, 55)"
                 @click="hide = !hide"
@@ -138,6 +118,24 @@ export default {
   font-family: "Metrophobic", sans-serif;
   padding: 0px;
 }
+.menu{
+  height: 88%;
+  margin: 8px 0;
+  position:relative;
+}/*
+.menu li{
+  border: 3px solid #e0e0e058;
+  border-radius: 5px;
+  background-color: #e0e0e058;
+  transition: all 0.3s ease;
+}/*
+.menu li:hover{
+    border-radius: 5px;
+    border:1px solid #e0e0e058;
+    background: #e0e0e058;
+    height: 50px;
+}*/
+    
 
 .sidebar ul {
   list-style-type: none;
@@ -150,10 +148,14 @@ export default {
   border-bottom: 1px solid #fff;
 }
 .sidebar li {
-  margin: 40px 0px;
+  margin: 45px 23px 23px 35px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Metrophobic", sans-serif;
+}
+.logout{
+  margin-top: 160% !important;
+ 
 }
 
 .hidden {

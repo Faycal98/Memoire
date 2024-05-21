@@ -9,8 +9,7 @@
         </h1>
 
         <h2 class="ft-3xl text-white fw-bold color-b mt-20@s">
-          On a le locataire idéal, les garanties et des services pour vous
-          satisfaire.
+          On a le locataire idéal, les garanties et les services idéals pour vous satisfaire.
         </h2>
         <p class="text-white description">
           <router-link to="/"
@@ -116,33 +115,7 @@
             <span class="ft-s">pour toutes vos annonces</span>
           </p>
         </div>
-        <div class="ServicesBlock-Item">
-          <div class="ServicesBlock-Item__Logo-block">
-            <div class="Step_head not-last d-flex align-items-center">
-              <span
-                class="Icon"
-                style="--width: 35px; width: 35px; margin-left: 41px"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
-                  <g fill="none" fill-rule="evenodd">
-                    <path
-                      d="M19.353 30.376v-1.414a1.353 1.353 0 10-2.706 0v1.414c-5.786-.629-10.394-5.237-11.023-11.023h1.414a1.353 1.353 0 100-2.706H5.624c.629-5.787 5.237-10.395 11.023-11.023v1.414a1.353 1.353 0 102.706 0V5.624c5.786.628 10.394 5.236 11.023 11.023h-1.414a1.353 1.353 0 100 2.706h1.414c-.629 5.786-5.237 10.394-11.023 11.023m15.294-13.73h-1.552c-.646-7.29-6.45-13.095-13.742-13.74V1.352a1.353 1.353 0 10-2.706 0v1.552C9.356 3.551 3.55 9.355 2.905 16.647H1.353a1.353 1.353 0 100 2.706h1.552c.646 7.29 6.45 13.096 13.742 13.741v1.553a1.353 1.353 0 102.706 0v-1.553c7.291-.645 13.096-6.45 13.742-13.74h1.552a1.353 1.353 0 100-2.707"
-                      fill="#343F7F"
-                    ></path>
-                    <path
-                      d="M18 24.04l-.84-.84C14.04 20.44 12 18.58 12 16.3c0-1.86 1.44-3.3 3.3-3.3 1.02 0 2.04.48 2.7 1.26A3.604 3.604 0 0120.7 13c1.86 0 3.3 1.44 3.3 3.3 0 2.28-2.04 4.14-5.16 6.9l-.84.84z"
-                      fill="rgb(221, 88, 55)"
-                    ></path>
-                  </g>
-                </svg>
-              </span>
-            </div>
-          </div>
-          <p class="text-center">
-            <span class="ft-m ft-bold">Des services conçus </span><br />
-            <span class="ft-s">pour faciliter votre gestion locative</span>
-          </p>
-        </div>
+        
         <div class="ServicesBlock-Item">
           <div class="ServicesBlock-Item__Logo-block">
             <div class="Step_head not-last d-flex align-items-center">
@@ -479,6 +452,7 @@ p.description {
   gap: 40px;
   border-radius: 16px;
   background: #36417d;
+  justify-content: space-between;
 }
 
 .ServicesBlock > .ServicesBlock-Item {

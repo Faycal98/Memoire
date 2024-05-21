@@ -3,9 +3,7 @@
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <router-link to="/owner">
         <h1 class="ms-5 header-title">
-          <strong style="color: rgb(221, 88, 55)">C</strong>hez<span id="letter"
-            ><strong>V</strong></span
-          >ous
+          
         </h1></router-link
       >
       <button
