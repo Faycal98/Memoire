@@ -122,7 +122,7 @@ const routes = [
   
   },
   {
-    path: "/profil",
+    path: "/user/:id/profil",
     name: "profil",
     component: () => import("../views/Profil.vue"),
     meta: { requiresAuth: true },

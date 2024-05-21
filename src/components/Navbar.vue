@@ -33,7 +33,7 @@
               <ul>
                 <li>
                   <router-link
-                    :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
+                    :to="{ name: 'annonce', params: { id: parseInt(userId) } }"
                     class="dropdown-item"
                     >Déposer une annonce
                   </router-link>
@@ -92,15 +92,17 @@
           <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
             <ul class="sub-list d-block">
               <li>
-                <router-link to="/profil">
+                <router-link
+                  :to="{ name: 'profil', params: { id: parseInt(this.userId) } }"
+                >
                   <a class="dropdown-item" href="#"
                     ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon
                     profil</a
                   >
                 </router-link>
               </li>
-              <li>
-                <router-link to="/profil">
+              <li        v-if="userInitials && userRole !== 'Locataire'">
+                <router-link :to="{ name: 'annonceList', params: { id: parseInt(this.userId) } }">
                   <a class="dropdown-item text-black" href="#"
                     ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
                     annonces</a

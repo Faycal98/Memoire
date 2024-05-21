@@ -214,7 +214,6 @@ export default {
           },
         })
         .then(({ data }) => {
-          console.log(data);
           userData.isAllowed = data.isAllowed;
           this.$store.dispatch("updateUser", userData);
         });

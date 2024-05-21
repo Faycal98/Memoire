@@ -78,7 +78,7 @@
             <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
               <ul class="sub-list d-block">
                 <li>
-                  <router-link to="/profil">
+                  <router-link   :to="{ name: 'profil', params: { id: parseInt(this.userId) } }">
                     <a class="dropdown-item" href="#"
                       ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon
                       profil</a

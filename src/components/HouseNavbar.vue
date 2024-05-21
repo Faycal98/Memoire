@@ -19,6 +19,7 @@
                 <ul>
                   <li>
                     <router-link
+                    v-if="userInitials && userRole !== 'Locataire'"
                       :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
                       class="dropdown-item"
                     >
@@ -44,6 +45,7 @@
                 <ul>
                   <li>
                     <router-link
+                    v-if="userInitials && userRole !== 'Locataire'"
                       :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
                       class="dropdown-item"
                     >
@@ -67,7 +69,7 @@
               class="link d-block"
               v-if="userInitials && userRole !== 'Locataire'"
             >
-              <router-link :to="{ name: 'annonce', params: { id: parseInt(userId) } }">
+              <router-link  v-if="userInitials && userRole !== 'Locataire'" :to="{ name: 'annonce', params: { id: parseInt(userId) } }">
                 <p class="drop-text">Déposer une annonce</p>
               </router-link>
             </li>
