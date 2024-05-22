@@ -975,7 +975,7 @@ export default {
       formData.append("type", this.typeLogement);
       formData.append("city", this.city.name);
       formData.append("neighborhood", this.neighborhood);
-      formData.append("department", this.department);
+      formData.append("department", this.department.name);
       formData.append("description", this.description);
       formData.append("isSanitary", this.isSanitary);
       formData.append("announcePurpose", this.butAnnonce);

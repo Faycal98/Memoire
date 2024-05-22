@@ -573,6 +573,8 @@ export default {
                           showConfirmButton: false,
                           timer: 1500,
                         });
+                      }).catch((err)=>{
+                        console.log(err)
                       });
                   } else if (
                     result.dismiss === this.$swal.DismissReason.cancel

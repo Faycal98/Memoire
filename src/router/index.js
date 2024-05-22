@@ -122,6 +122,15 @@ const routes = [
   
   },
   {
+    path: "/dashboard/houses",
+    name: "AdminHouse",
+    component: () => import("@/views/AdminHouseView.vue"),
+    meta: {
+      admin: true,
+    },
+  
+  },
+  {
     path: "/user/:id/profil",
     name: "profil",
     component: () => import("../views/Profil.vue"),
