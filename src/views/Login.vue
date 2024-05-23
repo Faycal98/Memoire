@@ -10,7 +10,7 @@
     <div class="login-page">
       <div class="form">
         <form class="login-form" method="post">
-          <h2 class="mb-2"><i class="fas fa-lock"></i> Connexion</h2>
+          <h2 class="mb-2" style="color: #0e2941;"><i class="fas fa-lock" style="color:#0e2941;" ></i> Connexion</h2>
           <p class="text-danger">{{ errorMsg }}</p>
           <input
             type="text"
@@ -38,7 +38,7 @@
               @click="changeInput"
               class="position-absolute eye-icon"
             >
-              <i class="fa-solid fa-eye-slash position-absolute eye-icon"></i>
+              <i class="fa-solid fa-eye-slash position-absolute eye-icon" s ></i>
             </span>
           </div>
 
@@ -186,12 +186,15 @@ body {
 }
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: #857e7e;
   font-size: 13px;
 }
 .form .message a {
   color: #234666 !important;
   text-decoration: none;
+}
+.form .message a:hover {
+  border-bottom: 1px solid #234666;
 }
 
 .eye-icon {

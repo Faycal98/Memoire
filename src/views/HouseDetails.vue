@@ -97,7 +97,7 @@
                   <div class="icon-highlight">
                     <div><i class="fa-solid fa-video"></i></div>
                     <div>
-                      <p class="ellipsis-1">Video surveilllance</p>
+                      <p class="ellipsis-1">Vidéo surveilllance</p>
                     </div>
                   </div>
                 </div>
@@ -124,7 +124,7 @@
                       />
                     </div>
                     <div>
-                      <p class="ellipsis-1">Machine à lavé</p>
+                      <p class="ellipsis-1">Machine à laver</p>
                     </div>
                   </div>
                 </div>
@@ -389,7 +389,7 @@
               </p>
               <p class="mt-2">
                 <span class="bullet bg-b mr-5"></span> S'est engagé à respecter
-                la <b>Charte BenApart</b>
+                la <b>Charte ChezVous</b>
               </p>
               <p class="mt-2">
                 <span class="bullet bg-b mr-5"></span> Contacts

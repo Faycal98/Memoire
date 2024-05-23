@@ -3,8 +3,7 @@
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <router-link to="/">
         <h1 class="ms-5 header-title">
-          <strong>C</strong>hez<span id="letter"><strong>V</strong></span
-          >ous
+          <img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -2px;" >
         </h1></router-link
       >
       <button
@@ -110,7 +109,7 @@
               <li>
                 <a class="dropdown-item text-black" @click="logout" href="#"
                   ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i
-                  >Déconnexion</a
+                  >Se déconnecter</a
                 >
               </li>
 

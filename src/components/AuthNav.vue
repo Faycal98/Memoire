@@ -2,7 +2,7 @@
       <div id="navbar">
         <nav class="navbar navbar-expand-lg">
         <router-link to="/">
-          <h1 class="ms-5 header-title text-white">ChezVous</h1>
+          <h1 class="ms-5 header-title text-white"><img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -2px;" ></h1>
         </router-link>
         <div
           class="header-right justify-content-between align-items-center "
@@ -41,7 +41,7 @@ header {
 }
 
 .navbar {
-  background-color: #36417d;
+  background-color: #fff;
 }
 
 
@@ -53,17 +53,18 @@ header {
 }
 
 .drop-text {
-  color: #fff;
+  color: #36417d;
   font-size: 15px;
-  border: 1px solid #fff;
+  border: 1px solid #36417d;
   border-radius: 5px;
   padding: 6px 18px;
   transition: 0.5s;
   font-weight: bold;
 }
 .drop-text:hover {
-  background-color: #fff;
-  color: #36417d;
+  background-color: rgb(221, 88, 55);
+  border: 1px solid rgb(221, 88, 55);
+  color: #fff;
   font-weight: bold;
 }
 
