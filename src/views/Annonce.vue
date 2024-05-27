@@ -846,9 +846,6 @@ export default {
   },
 
   beforeMount() {
-    const date1 = dayjs("2019-01-25");
-    const date2 = dayjs("2018-06-05");
-    console.log(date2.diff(date1));
     window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
