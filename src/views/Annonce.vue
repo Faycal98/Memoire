@@ -852,6 +852,7 @@ export default {
     window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
+    console.log("ici departement",this.city);
     const userID = this.$route.params.id;
     this.userId = userID;
     const userData = JSON.parse(localStorage.getItem("userData"));
@@ -992,7 +993,7 @@ export default {
       for (let i = 0; i < this.rawfiles.length; i++) {
         formData.append("files", this.rawfiles[i]);
       }
-
+      console.log(this.department);
       formData.append("type", this.typeLogement);
       formData.append("city", this.city.name);
       formData.append("neighborhood", this.neighborhood);
