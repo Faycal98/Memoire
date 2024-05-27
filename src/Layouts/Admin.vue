@@ -18,10 +18,7 @@
         <nav :class="['navbar navbar-expand-lg']">
           <router-link to="/dashboard">
             <h1 class="ms-5 header-title">
-              <strong style="color: rgb(221, 88, 55)">C</strong>hez<span
-                id="letter"
-                ><strong>V</strong></span
-              >ous
+              <img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -9px;" >
             </h1></router-link
           >
           <button
@@ -121,7 +118,7 @@ export default {
   padding: 0px;
 }
 .menu {
-  height: 88%;
+  height: 80%;
   margin: 8px 0;
   position: relative;
 } /*

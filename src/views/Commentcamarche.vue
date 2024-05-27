@@ -2,17 +2,17 @@
     <div id="navbar">
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <a data-v-9c6758da href="/">
-      <h1 class="ms-5 header-title"><strong>C</strong>hez<span id="letter"><strong>V</strong></span>ous</h1>
+      <h1 class="ms-5 header-title"><img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -2px;" ></h1>
     </a>
       <div
         class="header-right justify-content-end align-items-center collapse navbar-collapse" id="navbarSupportedContent">
         <ul>
-          <router-link to="/login">
-            <li class="link">Me connecter</li>
+          <router-link to="#">
+            <li class="link">Nous contacter</li>
           </router-link>
-          <router-link to="/">
+          <router-link to="#">
             <a data-v-9c6758da href="">
-          <li class="link links">Je suis locataire</li>
+          <li class="link links">Nos astuces</li>
         </a>
           </router-link>
           
@@ -27,11 +27,16 @@
       </div>
       <div class="head-child2">
         <h3 class="color">Une expérience locative simple et humaine ! <br>ChezVous est une
-         plateforme de recherche d'appartement, de chambre  et de maison en 
+         plateforme de recherche d'appartementd, de chambres à louer et de maisons en 
          ligne qui rend la location plus simple et humaine.</h3>
       </div>
       <div class="head-child3">
-        <a href="/annonce" class="annonce" style=" color: #fff !important;"> Déposer mon annonce </a>
+        <router-link
+            :to="{ name: 'annonce', params: { id: parseInt(userId) } }"
+            style="color: #fff !important;"
+          >
+         Déposer une annonce 
+      </router-link>
       </div>
       <div class="head-child4">
         <h2 style="color: #fff;">Louer avec <router-link to="/"><span class="sigle">ChezVous</span></router-link>, c’est protéger gratuitement votre logement et vos loyers!</h2>
@@ -90,9 +95,9 @@
                     </div>
                     <div class="etape-content">
                         <div class="content">
-                            <div class="year"> <h3>Je finalise la réservation</h3> 
+                            <div class="year"> <h3>Je finalise la location ou le vente</h3> 
                             </div>
-                            <h4 class="color" >Le locataire réserve apres avoir éffectuer son choix  sur la plateforme.</h4>   
+                            <h4 class="color" >Le locataire est mis ne contact avec le propriétaire ou le démarcheur après avoir éffectuer son choix  sur la plateforme.</h4>   
                         </div>
                     </div>
                 </div>

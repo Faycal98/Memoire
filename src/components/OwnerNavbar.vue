@@ -3,8 +3,7 @@
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <router-link to="/owner">
         <h1 class="ms-5 header-title">
-          <strong>C</strong>hez<span id="letter"><strong>V</strong></span
-          >ous
+          <img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -2px;" >
         </h1></router-link
       >
       <button

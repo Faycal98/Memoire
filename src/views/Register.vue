@@ -17,7 +17,7 @@
           @submit="signUp"
           :validation-schema="schema"
         >
-          <h2 class="mb-2"><i class="fas fa-lock me-2"></i>S'enregistrer</h2>
+          <h2 class="mb-2" ><i class="fas fa-lock me-2"></i>S'enregistrer</h2>
           <p class="text-danger">{{ errorMsg }}</p>
 
           <div class="form-group">
@@ -142,32 +142,32 @@ export default {
       username: yup
         .string()
         .required("Le nom est obligatoire!")
-        .min(3, "Doit contenir au moins 3 caractères!")
-        .max(20, "Maximum 20 caracterès!"),
+        .min(3, "Votre nom doit contenir au moins 3 caractères!")
+        .max(20, "Votre nom doit contenir 20 caractères au Maximum!"),
 
       phone: yup
         .string()
         .required(" le numéro de téléphone est obligatoire!")
-        .min(6, "Doit contenir au moins 6 caractères!")
-        .max(20, "Maximum 20 caracterès!"),
+        .min(6, "Votre numéro doit contenir au moins 6 caractères!")
+        .max(20, "Votre numéro doit contenir 20 caracterès au maximum!"),
 
       userFirstName: yup
         .string()
         .required("Le prénom est obligatoire!")
-        .min(3, "Doit contenir au moins 3 caractères!")
-        .max(20, "Maximum 20 caracterès!"),
+        .min(3, "Votre prénom doit contenir au moins 3 caractères!")
+        .max(20, "Votre prénom doit contenir 20 caracterès au maximum !"),
 
       email: yup
         .string()
-        .required("L'email est obligatoire!")
-        .email("Email non valide!")
-        .max(50, "Maximum 50 caractères!"),
+        .required("L'e-mail est obligatoire!")
+        .email("Votre e-mail n'est pas valide!")
+        .max(50, "Votre e-mail doit contenir 20 caractères au maximum !"),
 
       password: yup
         .string()
         .required("Mot de passe obligatoire!")
-        .min(6, "Doit contenir au moins 6 caractères!")
-        .max(40, "Maximum 40 caractères!"),
+        .min(6, "Votre mot de passe doit contenir au moins 6 caractères!")
+        .max(40, "Votre mot de passe doit contenir 40 caractères au maximum!"),
     });
 
     return {
@@ -354,12 +354,15 @@ header {
 }
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: #7c7373;
   font-size: 13px;
 }
 .form .message a {
   color: #234666 !important;
   text-decoration: none;
+}
+.form .message a:hover {
+  border-bottom: 1px solid #234666;
 }
 
 .wrapper {
@@ -464,7 +467,7 @@ input[type="radio"] {
   border-radius: 0.5rem;
   border: none;
   padding: 0.5rem 0;
-  color: rgba(51, 65, 85, 1);
+  color: rgb(221, 88, 55);
   transition: all 0.15s ease-in-out;
 }
 
