@@ -27,71 +27,147 @@
         </li>
       </ul>
     </div>
-
-    <div class="main--content" id="main">
-      <div class="header--wrapper">
-        <div class="header--title">
-          <span style="font-size: 18px">Espace</span>
-          <h2 style="font-size: 30px; font-weight: bold">
-            {{ userData.role }}
-          </h2>
-        </div>
-        <div class="user--info">
-         
-          <v-avatar color="brown" @click="hide = !hide" v-if="userInitials">
-            <span class="text-h7 avatar">{{ userInitials }}</span>
-          </v-avatar>
-        </div>
-      </div>
-      <div class="card--container" id="profil">
-        <h3 class="main-title">Mes informations</h3>
-        <div class="card--wrapper">
-          <div class="payment--card light-red">
-            <div class="card--header">
-              <div class="amount">
-                <span class="title"> {{ userData.userName }}</span>
-                <span class="amount-value">{{ userData.userFirstName }}</span>
-              </div>
-              <i class="fa-solid fa-user icon"></i>
-            </div>
+    <form method="POST" enctype="multipart/form-data">
+      <div class="main--content" id="main">
+        <div class="header--wrapper">
+          <div class="header--title">
+            <span style="font-size: 18px">Espace</span>
+            <h2 style="font-size: 30px; font-weight: bold">
+              {{ userData.role }}
+            </h2>
           </div>
+          <div class="user--info">
+            <v-avatar
+              color="brown"
+              @click="hide = !hide"
+              v-if="!userData.profilePhoto"
+            >
+              <span class="text-h7 avatar">{{ userInitials }}</span>
+            </v-avatar>
 
-          <div class="payment--card light-purple">
-            <div class="card--header">
-              <div class="amount">
-                <span class="title"> (+229) </span>
-                <span class="amount-value">{{ userData.phone }}</span>
-              </div>
-              <i class="fa-solid fa-phone dark-purple icon"></i>
-            </div>
+            <v-avatar v-else>
+              <v-img
+                alt="John"
+                :src="`http://localhost:8000/profil/${userData.profilePhoto}`"
+              ></v-img>
+            </v-avatar>
           </div>
+        </div>
 
-          <div class="payment--card light-blue">
-            <div class="card--header">
-              <div class="amount">
-                <span class="title"> Annonces disponible </span>
-                <span class="amount-value">{{
-                  userData.nbreAnnouncement
+        <div
+          class="card--container d-flex flex-column align-items-center justify-content-center mb-3"
+          id="profil"
+        >
+          <div class="position-relative profil-photo">
+            <p class="mb-2">
+              {{
+                userData.profilePhoto
+                  ? "Modifier ma photo de profil"
+                  : "Ajouter une photo de profil"
+              }}
+            </p>
+            <div class="ms-4">
+              <v-avatar
+                color="brown"
+                @click="hide = !hide"
+                v-if="userInitials && !img"
+                class="big-img"
+              >
+                <span v-if="!userData.profilePhoto" class="text-h7 avatar">{{
+                  userInitials
                 }}</span>
-              </div>
-              <i class="fa-solid fa-check dark-blue icon"></i>
+                <v-img
+                  v-else
+                  :src="`http://localhost:8000/profil/${userData.profilePhoto}`"
+                ></v-img>
+              </v-avatar>
+              <v-avatar class="big-img" v-else>
+                <v-img alt="John" :src="img"></v-img>
+              </v-avatar>
+              <label
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                "
+                class="blue2 pencil"
+              >
+                <v-icon color="#108a00" icon="mdi-pencil" size="large"></v-icon>
+
+                <input
+                  @change="updatePhoto"
+                  type="file"
+                  class="file preview btn_like"
+                  style="display: none"
+                  accept="image/*"
+                  name="avatar"
+              /></label>
             </div>
           </div>
 
-          <div class="payment--card light-green">
-            <div class="card--header">
-              <div class="amount">
-                <span class="title">{{ userData.email }}</span>
+          <green-btn
+            v-if="changePhoto"
+            :content="'Sauvegarder la photo'"
+            @click="savePhoto"
+          ></green-btn>
+        </div>
+        <div class="card--container" id="profil">
+          <h3 class="main-title">Mes informations</h3>
+          <div class="card--wrapper">
+            <div class="payment--card light-red">
+              <div class="card--header">
+                <div class="amount">
+                  <span class="title"> {{ userData.userName }}</span>
+                  <span class="amount-value">{{ userData.userFirstName }}</span>
+                </div>
+                <i class="fa-solid fa-user icon"></i>
               </div>
-              <i class="fa-solid fa-envelope dark-green icon"></i>
+            </div>
+
+            <div class="payment--card light-purple">
+              <div class="card--header">
+                <div class="amount">
+                  <span class="title"> (+229) </span>
+                  <span class="amount-value">{{ userData.phone }}</span>
+                </div>
+                <i class="fa-solid fa-phone dark-purple icon"></i>
+              </div>
+            </div>
+
+            <div class="payment--card light-blue">
+              <div class="card--header">
+                <div class="amount">
+                  <span class="title"> Annonces disponible </span>
+                  <span class="amount-value">{{
+                    userData.nbreAnnouncement
+                  }}</span>
+                </div>
+                <i class="fa-solid fa-check dark-blue icon"></i>
+              </div>
+            </div>
+
+            <div class="payment--card light-green">
+              <div class="card--header">
+                <div class="amount">
+                  <span class="title">{{ userData.email }}</span>
+                </div>
+                <i class="fa-solid fa-envelope dark-green icon"></i>
+              </div>
             </div>
           </div>
         </div>
+
+
+        <div class="card--container mt-3" id="profil">
+          Devenir un profil verifie en envoyant une copie pdf de ma carte CIP OU biometrique
+        </div>
       </div>
-    </div>
+    </form>
   </section>
 </template>
 <script>
+import GreenBtn from "@/components/GreenBtn.vue";
 import axios from "axios";
 export default {
   data() {
@@ -99,12 +175,16 @@ export default {
       userData: {},
       userAccomodation: [],
       userInitials: "",
+      img: "",
+      changePhoto: false,
     };
   },
-
+  components: {
+    GreenBtn,
+  },
   mounted() {
     const userData = JSON.parse(localStorage.getItem("userData"));
-
+    console.log(userData);
     const userInitials =
       userData.userName.charAt(0).toUpperCase() +
       userData.userFirstName.charAt(0).toUpperCase();
@@ -117,6 +197,7 @@ export default {
       })
       .then(({ data }) => {
         this.userData = data;
+        console.log("ll", this.userData);
       });
   },
 
@@ -125,11 +206,46 @@ export default {
       this.$store.dispatch("logout");
       window.location.reload();
     },
+
+    updatePhoto(e) {
+      const data = URL.createObjectURL(e.target.files[0]);
+      this.img = data;
+      this.changePhoto = true;
+    },
+
+    savePhoto() {
+      const form = document.querySelector("form");
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      const formData = new FormData(form);
+      axios
+        .post("http://localhost:8000/api/uploadPhoto", formData, {
+          headers: {
+            "x-access-token": userData.accessToken,
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((data) => {
+          console.log(data);
+          this.changePhoto = false;
+          axios
+            .get("http://localhost:8000/api/user", {
+              headers: {
+                "x-access-token": userData.accessToken,
+              },
+            })
+            .then(({ data }) => {
+              this.userData = data;
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 * {
   font-family: "Poppins", sans-serif;
@@ -155,6 +271,10 @@ section {
   transition: all 0.5s linear;
   background: #36417d;
 }
+
+.photo-profil {
+  width: fit-content;
+}
 .sidebar:hover {
   width: 260px;
   transition: 0.5s;
@@ -162,6 +282,12 @@ section {
 .logo {
   height: 80px;
   padding: 16px;
+}
+
+.big-img {
+  width: 150px;
+  font-size: 25px;
+  height: 150px;
 }
 .menu {
   height: 88%;
@@ -193,6 +319,19 @@ section {
 .menu a i {
   font-size: 1.2rem;
 }
+
+.pencil {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  top: 57%;
+  right: 2%;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #108a00;
+}
+
 .logout {
   position: absolute;
   bottom: 50px;
@@ -205,6 +344,7 @@ section {
   position: relative;
   background: #ebe9e9;
   width: 100%;
+  font-family:"Metrophobic", sans-serif;
   padding: 1rem;
 }
 .header--wrapper img {
@@ -275,9 +415,10 @@ section {
   background: rgba(229, 223, 223);
   border-radius: 10px;
   padding: 1.2rem;
-  width: 315px;
+  width: 286px;
   height: 140px;
   display: flex;
+  font-family:"Metrophobic", sans-serif;
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.5s ease-in-out;
@@ -331,6 +472,10 @@ section {
 }
 .light-green {
   background: rgb(235, 254, 235);
+}
+
+.light {
+  background: #fff;
 }
 .light-blue {
   background: rgb(236, 236, 254);

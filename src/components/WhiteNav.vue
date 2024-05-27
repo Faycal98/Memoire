@@ -19,7 +19,10 @@
                 <ul>
                   <li>
                     <router-link
-                      :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
+                      :to="{
+                        name: 'annonce',
+                        params: { id: parseInt(userId) },
+                      }"
                       class="dropdown-item"
                       >Déposer une annonce
                     </router-link>
@@ -53,7 +56,10 @@
                 <ul>
                   <li>
                     <router-link
-                      :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
+                      :to="{
+                        name: 'annonce',
+                        params: { id: parseInt(userId) },
+                      }"
                       class="dropdown-item"
                     >
                       Déposer une annonce
@@ -78,7 +84,12 @@
             <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
               <ul class="sub-list d-block">
                 <li>
-                  <router-link   :to="{ name: 'profil', params: { id: parseInt(this.userId) } }">
+                  <router-link
+                    :to="{
+                      name: 'profil',
+                      params: { id: parseInt(this.userId) },
+                    }"
+                  >
                     <a class="dropdown-item" href="#"
                       ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon
                       profil</a
@@ -107,8 +118,19 @@
                 </li>
               </ul>
             </div>
-            <v-avatar color="brown" @click="hide = !hide" v-if="userInitials">
-              <span class="text-h7 avatar">{{ userInitials }}</span>
+            <v-avatar
+              color="brown"
+              @click="hide = !hide"
+              v-if="userInitials"
+              class="big-img"
+            >
+              <span v-if="!userData.profilePhoto" class="text-h7 avatar">{{
+                userInitials
+              }}</span>
+              <v-img
+                v-else
+                :src="`http://localhost:8000/profil/${userData.profilePhoto}`"
+              ></v-img>
             </v-avatar>
 
             <router-link to="/login" v-else>
@@ -128,7 +150,7 @@
 
 <script>
 import OrangeBtn from "../components/OrangeBtn.vue";
-
+import axios from "axios";
 export default {
   name: "HouseNavBar",
   data() {
@@ -141,6 +163,7 @@ export default {
       userInitials: "",
       userRole: "",
       userId: "",
+      userData: "",
       hide: true,
       maxBudget: 700000,
       disabled: false,
@@ -171,6 +194,18 @@ export default {
     const userData = JSON.parse(localStorage.getItem("userData"));
 
     if (userData) {
+
+      axios
+      .get("http://localhost:8000/api/user", {
+        headers: {
+          "x-access-token": userData.accessToken,
+        },
+      })
+      .then(({ data }) => {
+        this.userData = data;
+      });
+
+      
       this.userRole = userData.role;
       this.userId = userData.id;
       console.log(this.userRole);

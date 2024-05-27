@@ -9,7 +9,8 @@
         </h1>
 
         <h2 class="ft-3xl text-white fw-bold color-b mt-20@s">
-          On a le locataire idéal, les garanties et les services idéals pour vous satisfaire.
+          On a le locataire idéal, les garanties et les services idéals pour
+          vous satisfaire.
         </h2>
         <p class="text-white description">
           <router-link to="/"
@@ -115,7 +116,7 @@
             <span class="ft-s">pour toutes vos annonces</span>
           </p>
         </div>
-        
+
         <div class="ServicesBlock-Item">
           <div class="ServicesBlock-Item__Logo-block">
             <div class="Step_head not-last d-flex align-items-center">
@@ -347,8 +348,6 @@ export default {
               speed: 1000,
             });
 
-
-            
             axios
               .get(
                 `http://localhost:8000/api/removeSubscribtion/${this.userId}`,
@@ -365,6 +364,8 @@ export default {
                 console.log(err);
               });
           }
+        } else {
+         console.log("see")
         }
       })
       .catch((err) => {

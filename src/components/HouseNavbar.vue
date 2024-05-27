@@ -4,9 +4,9 @@
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
           <h1 class="ms-5 header-title">
-          <strong>C</strong>hez<span id="letter"><strong>V</strong></span
-          >ous
-        </h1>
+            <strong>C</strong>hez<span id="letter"><strong>V</strong></span
+            >ous
+          </h1>
         </router-link>
         <div
           class="header-right justify-content-between align-items-center collapse navbar-collapse"
@@ -20,8 +20,11 @@
                 <ul>
                   <li>
                     <router-link
-                    v-if="userInitials && userRole !== 'Locataire'"
-                      :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
+                      v-if="userInitials && userRole !== 'Locataire'"
+                      :to="{
+                        name: 'annonce',
+                        params: { id: parseInt(userId) },
+                      }"
                       class="dropdown-item"
                     >
                       Déposer une annonce
@@ -46,8 +49,11 @@
                 <ul>
                   <li>
                     <router-link
-                    v-if="userInitials && userRole !== 'Locataire'"
-                      :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
+                      v-if="userInitials && userRole !== 'Locataire'"
+                      :to="{
+                        name: 'annonce',
+                        params: { id: parseInt(userId) },
+                      }"
                       class="dropdown-item"
                     >
                       Déposer une annonce
@@ -70,7 +76,10 @@
               class="link d-block"
               v-if="userInitials && userRole !== 'Locataire'"
             >
-              <router-link  v-if="userInitials && userRole !== 'Locataire'" :to="{ name: 'annonce', params: { id: parseInt(userId) } }">
+              <router-link
+                v-if="userInitials && userRole !== 'Locataire'"
+                :to="{ name: 'annonce', params: { id: parseInt(userId) } }"
+              >
                 <p class="drop-text">Déposer une annonce</p>
               </router-link>
             </li>
@@ -138,9 +147,14 @@
             <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
               <ul class="sub-list d-block">
                 <li>
-                  <a class="dropdown-item"
-                    ><i class="fa-solid fa-user me-2 pt-2"></i>Mon profil</a
-                  >
+                  <router-link
+                  :to="{
+                    name: 'profil',
+                    params: { id: parseInt(this.userId) },
+                  }"
+                  class="dropdown-item"
+                >
+                    <i class="fa-solid fa-user me-2 pt-2"></i>Mon profil</router-link>
                 </li>
                 <li v-if="userRole !== 'Locataire'" @click="handleClick">
                   <a class="dropdown-item text-black"
@@ -155,8 +169,19 @@
                 </li>
               </ul>
             </div>
-            <v-avatar color="#3cd7a3" @click="hide = !hide" v-if="userInitials">
-              <span class="text-h7 text-white avatar">{{ userInitials }}</span>
+            <v-avatar
+              color="brown"
+              @click="hide = !hide"
+              v-if="userInitials"
+              class="big-img"
+            >
+              <span v-if="!userData.profilePhoto" class="text-h7 avatar">{{
+                userInitials
+              }}</span>
+              <v-img
+                v-else
+                :src="`http://localhost:8000/profil/${userData.profilePhoto}`"
+              ></v-img>
             </v-avatar>
           </div>
         </div>
@@ -176,8 +201,8 @@
     </h1>
     <div class="text-center info-text">
       <p style="font-size: 18px">
-        ChezVous est une plateforme de recherche de logement en ligne qui rend la location
-        plus simple et humaine, quelle qu’en soit la durée.
+        ChezVous est une plateforme de recherche de logement en ligne qui rend
+        la location plus simple et humaine, quelle qu’en soit la durée.
       </p>
     </div>
     <div :class="[{ onScroll: !view.topOfPage }, 'searchBar_multiple']">
@@ -267,12 +292,12 @@
         </div>
       </div>
     </div>
-  </header> 
+  </header>
 </template>
 
 <script>
 import OrangeBtn from "../components/OrangeBtn.vue";
-
+import axios from "axios";
 export default {
   name: "HouseNavBar",
   emits: ["getBudget", "submit"],
@@ -284,7 +309,9 @@ export default {
       red: "red",
       userRole: "",
       minBudget: 5000,
+      userId:"",
       hide: true,
+      userData: "",
       maxBudget: 50000000,
       disabled: false,
       userInitials: "",
@@ -326,10 +353,20 @@ export default {
   },
   mounted() {
     const userData = this.$store.state.user;
+   
 
-    console.log(userData);
     if (userData) {
-      console.log(userData, 123);
+
+      axios
+      .get("http://localhost:8000/api/user", {
+        headers: {
+          "x-access-token": userData.accessToken,
+        },
+      })
+      .then(({ data }) => {
+        this.userData = data;
+      });
+   
       this.userId = userData.id;
       this.userRole = userData.role;
       const userInitials =

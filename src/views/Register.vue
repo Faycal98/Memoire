@@ -121,6 +121,12 @@
         </Form>
       </div>
     </div>
+
+    <div class="text" v-if="isLoading">
+      <div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -169,12 +175,13 @@ export default {
         topOfPage: true,
       },
       disabled: false,
+      isLoading: false,
       picked: "Propriétaire",
       userName: "",
       userFirstName: "",
       email: "",
       password: "",
-      age:"",
+      age: "",
       phone: "",
       errorMsg: "",
       isOpen: false,
@@ -192,17 +199,26 @@ export default {
   methods: {
     signUp() {
       // e.preventDefault();
+      this.isLoading = true;
+      let userInfo = {
+        userName: this.userName,
+        userFirstName: this.userFirstName,
+        email: this.email,
+        password: this.password,
+        phone: this.phone,
+        role: this.picked,
+      };
       axios
-        .post("http://localhost:8000/api/auth/signup", {
-          userName: this.userName,
-          userFirstName: this.userFirstName,
-          email: this.email,
-          password: this.password,
-          phone: this.phone,
-          role: this.picked,
-        })
-        .then((data) => {
-          const email = this.email;
+        .post("http://localhost:8000/api/auth/signup", userInfo)
+        .then(({ data }) => {
+        
+          console.log(data.otp);
+
+          userInfo.otp = data.otp;
+          this.$store.dispatch("userInfo", userInfo);
+          this.$router.push("/otp");
+
+          /*  const email = this.email;
           const password = this.password;
 
           axios
@@ -226,10 +242,11 @@ export default {
 
             .catch((err) => {
               this.errorMsg = err.response.data.message;
-            });
+            }); */
         })
         .catch((err) => {
-          this.errorMsg = err.response.data.message;
+          this.isLoading = false;
+          console.log(err);
         });
     },
   },
@@ -253,6 +270,18 @@ header {
 }
 .form-control:focus {
   box-shadow: none;
+}
+
+.text {
+  position: fixed;
+  width: 100%;
+  background-color: #abaaaa;
+  background: rgba(255, 255, 255, 0.8);
+  height: 130vh;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .message a {

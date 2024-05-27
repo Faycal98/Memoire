@@ -52,6 +52,12 @@
         </form>
       </div>
     </div>
+
+    <div class="text" v-if="isLoading">
+      <div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
   </body>
 </template>
 
@@ -66,6 +72,7 @@ export default {
       userMailOrPhone: "",
       password: "",
       errorMsg: "",
+      isLoading:false,
       showInput: false,
       isOpen: false,
       login: true,
@@ -88,6 +95,7 @@ export default {
           password: this.password,
         })
         .then((data) => {
+          this.isLoading = true
           this.userMailOrPhone = "";
           this.password = "";
           const userData = data.data;
@@ -101,6 +109,7 @@ export default {
           }
         })
         .catch((err) => {
+          this.isLoading = false;
           this.errorMsg = err.response.data.message;
         });
     },
@@ -141,6 +150,17 @@ body {
   margin: auto;
 }
 
+.text {
+  position: fixed;
+  width: 100%;
+  background-color: #abaaaa;
+  background: rgba(255,255,255,0.8);
+  height: 100vh;
+  z-index: 3;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .form {
   position: relative;
   z-index: 1;

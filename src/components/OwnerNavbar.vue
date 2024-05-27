@@ -39,11 +39,17 @@
           </router-link>
         </ul>
 
-        <div class="Header_buttons ms-3">
+        <div class="Header_buttons ms-3 d-flex align-items-center">
           <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
             <ul class="sub-list d-block">
               <li>
-                <router-link   :to="{ name: 'profil', params: { id: parseInt(this.userId) } }" class="dropdown-item">
+                <router-link
+                  :to="{
+                    name: 'profil',
+                    params: { id: parseInt(this.userId) },
+                  }"
+                  class="dropdown-item"
+                >
                   <i class="fa-solid fa-user me-2 pt-2"></i>Mon profil
                 </router-link>
               </li>
@@ -60,12 +66,27 @@
               </li>
             </ul>
           </div>
+
+          <v-badge color="error" dot class="me-2">
+            <v-icon
+              color="rgb(221, 88, 55)"
+              icon="mdi-bell"
+              size="large"
+            ></v-icon>
+          </v-badge>
           <v-avatar
-            color="rgb(221, 88, 55)"
+            color="brown"
             @click="hide = !hide"
             v-if="userInitials"
+            class="big-img"
           >
-            <span class="text-h7 text-white avatar">{{ userInitials }}</span>
+            <span v-if="!userData.profilePhoto" class="text-h7 avatar">{{
+              userInitials
+            }}</span>
+            <v-img
+              v-else
+              :src="`http://localhost:8000/profil/${userData.profilePhoto}`"
+            ></v-img>
           </v-avatar>
 
           <router-link to="/login" v-else>
@@ -83,6 +104,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: "OwnerNavbar",
   data() {
@@ -93,8 +115,10 @@ export default {
       red: "red",
       userId: "",
       userInitials: "",
-      hide: true,
+      img: "",
       userData: "",
+      hide: true,
+    
       showHidden: false,
     };
   },
@@ -104,6 +128,16 @@ export default {
   mounted() {
     const userData = this.$store.state.user;
     this.userId = userData.id;
+    axios
+      .get("http://localhost:8000/api/user", {
+        headers: {
+          "x-access-token": userData.accessToken,
+        },
+      })
+      .then(({ data }) => {
+        this.userData = data;
+   
+      });
     if (userData) {
       const userInitials =
         userData.userName.charAt(0).toUpperCase() +

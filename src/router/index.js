@@ -79,6 +79,16 @@ const routes = [
   },
 
   {
+    path: "/otp",
+    name: "otp",
+    meta: {
+      guestGuard: true,
+    },
+    component: () => import("../components/Otp.vue"),
+
+  },
+
+  {
     path: "/register",
     name: "register",
     meta: {

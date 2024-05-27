@@ -25,7 +25,7 @@ body {
   color: #fff;
 }
 
-.table td:last-child{
+.table td:last-child {
   display: flex;
   align-items: center;
 }
@@ -33,12 +33,12 @@ body {
   background: #ededff;
 }
 
-.table td:nth-child(4) .v-chip{
-transform: translateX(-20px);
+.table td:nth-child(4) .v-chip {
+  transform: translateX(-20px);
 }
 
-.table td:nth-child(8) .v-chip{
-transform: translateX(20px);
+.table td:nth-child(8) .v-chip {
+  transform: translateX(20px);
 }
 .table td {
   text-align: left !important;
@@ -129,7 +129,9 @@ html {
 .city-select .v-field__input {
   padding: 16px;
 }
-
+.v-avatar{
+  cursor: pointer;
+}
 .equipement-wrapper .form-check-input:checked {
   background-color: #36417d;
 }
@@ -215,7 +217,7 @@ export default {
   },
   mounted() {
     const userData = JSON.parse(localStorage.getItem("userData"));
-
+console.log(userData)
     if (userData) {
       this.$store.dispatch("updateUser", userData);
     }
@@ -235,6 +237,11 @@ export default {
         .then(({ data }) => {
           userData.isAllowed = data.isAllowed;
           this.$store.dispatch("updateUser", userData);
+        })
+        .catch((err) => {
+          console.log(err);
+          this.$store.dispatch("logout");
+          window.location.reload();
         });
     }
   },

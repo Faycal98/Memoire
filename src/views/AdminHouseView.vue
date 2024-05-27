@@ -302,7 +302,7 @@ export default {
 
       rent: true,
       buy: true,
-      budget: [4000, 20000000],
+      budget: [4000, 20000000000],
       page: 1,
       scTimer: 0,
       appartements: true,

@@ -63,9 +63,20 @@
                 </li>
               </ul>
             </div>
-            <v-avatar color="brown" @click="hide = !hide" v-if="userInitials">
-              <span class="text-h7 avatar">{{ userInitials }}</span>
-            </v-avatar>
+            <v-avatar
+            color="brown"
+            @click="hide = !hide"
+            v-if="userInitials"
+            class="big-img"
+          >
+            <span v-if="!userData.profilePhoto" class="text-h7 avatar">{{
+              userInitials
+            }}</span>
+            <v-img
+              v-else
+              :src="`http://localhost:8000/profil/${userData.profilePhoto}`"
+            ></v-img>
+          </v-avatar>
 
             <router-link to="/login" v-else>
               <button
@@ -811,6 +822,7 @@ export default {
       washMachine: false,
       wifi: false,
       userId: "",
+      userData:"",
       balcony: false,
       garden: false,
       waterDistribution: "Soneb",
@@ -843,7 +855,16 @@ export default {
     const userID = this.$route.params.id;
     this.userId = userID;
     const userData = JSON.parse(localStorage.getItem("userData"));
-
+    axios
+      .get("http://localhost:8000/api/user", {
+        headers: {
+          "x-access-token": userData.accessToken,
+        },
+      })
+      .then(({ data }) => {
+        this.userData = data;
+   
+      }); 
     axios
       .get("http://localhost:8000/api/user", {
         headers: {
