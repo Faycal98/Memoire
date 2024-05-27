@@ -2,7 +2,7 @@
   <WhiteNav></WhiteNav>
   <main>
     <div class="wrapp pt-3">
-      <h1 style="font-weight: bold">Choisissez votre pack annonces !</h1>
+      <h1 style="font-weight: bold; color:#fff !important;">Choisissez votre pack annonces !</h1>
       <div class="container">
         <div class="price-section">
           <article class="price-table">
@@ -52,7 +52,7 @@
               </details>
               <div style="margin-bottom: 125px"></div>
             </div>
-            <div class="text-center pa-4">
+            <div class="text-center pa-4" style=" margin-top:-22px;">
               <v-dialog v-model="dialog1" max-width="400" persistent>
                 <template v-slot:activator="{ props: activatorProps }">
                   <button
@@ -573,6 +573,8 @@ export default {
                           showConfirmButton: false,
                           timer: 1500,
                         });
+                      }).catch((err)=>{
+                        console.log(err)
                       });
                   } else if (
                     result.dismiss === this.$swal.DismissReason.cancel
@@ -624,20 +626,26 @@ export default {
 /*  */
 main/*{
   background-color:#bfc0ee;
-}*/ {
+}*/ {/*
   background-image: linear-gradient(
     200deg,
     rgba(219, 90, 58, 0.336),
-    rgba(230, 73, 34, 0.767),
+    rgba(230, 73, 34, 0.767), 
     #7141e249,
     #26358b59
-  );
+    background-color: rgba(241, 143, 118, 0.801);
+    background-color:rgba(126, 189, 218, 0.897);
+  );*/
+  background-color:rgba(126, 189, 218, 0.897);
   padding: 10px;
+}
+.wrapp{
+  padding-top: 2rem !important;
 }
 .price-section {
   color: #fff;
   display: flex;
-  margin-top: 50px;
+  margin-top: 8px;
   justify-content: space-between;
 }
 /* End basic CSS override */
@@ -673,7 +681,7 @@ main/*{
 .price-table {
   background-color: #152148d7;
   border-radius: 16px;
-  width: 27%;
+ /* width: 32%;*/
   padding: 25px;
   display: flex;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
@@ -690,8 +698,8 @@ main/*{
 }
 
 .price-table:hover {
-  box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
-  border-color: #0974f1;
+  box-shadow: 0 0 16px 6px rgba(8, 80, 163, 0.877);
+  border-color: rgba(8, 80, 163, 0.877);
   /*transform: translateY(-20px);*/
 }
 
@@ -828,6 +836,7 @@ main/*{
   text-align: center;
   cursor: pointer;
   transition: 0.4s;
+ 
 }
 
 #bottone1:hover {

@@ -1,185 +1,6 @@
 <template>
   <header>
-    <div id="navbar">
-      <nav class="navbar navbar-expand-lg">
-        <router-link to="/">
-          <h1 class="ms-5 header-title">
-            <img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -11px;" >
-          </h1>
-        </router-link>
-        <div
-          class="header-right justify-content-between align-items-center collapse navbar-collapse"
-          id="navbarSupportedContent"
-        >
-          <ul>
-            <li class="link d-block" v-if="!userInitials">
-              <p class="drop-text dropdown-toggle">Je suis démarcheur</p>
-
-              <div class="list">
-                <ul>
-                  <li>
-                    <router-link
-                    v-if="userInitials && userRole !== 'Locataire'"
-                      :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
-                      class="dropdown-item"
-                    >
-                      Déposer une annonce
-                    </router-link>
-                  </li>
-                  <li>
-                    <router-link to="/howitwork" class="dropdown-item">
-                      Comment ça marche
-                    </router-link>
-                  </li>
-                  <li>
-                    <router-link to="/login" class="dropdown-item">
-                      Me connecter</router-link
-                    >
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="link d-block" v-if="!userInitials">
-              <p class="drop-text dropdown-toggle">Je suis propriétaire</p>
-              <div class="list">
-                <ul>
-                  <li>
-                    <router-link
-                    v-if="userInitials && userRole !== 'Locataire'"
-                      :to="{ name: 'annonce', params: { id: parseInt(userId)} }"
-                      class="dropdown-item"
-                    >
-                      Déposer une annonce
-                    </router-link>
-                  </li>
-                  <li>
-                    <router-link to="/howitwork" class="dropdown-item">
-                      Comment ça marche
-                    </router-link>
-                  </li>
-                  <li>
-                    <router-link to="/login" class="dropdown-item">
-                      Me connecter</router-link
-                    >
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li
-              class="link d-block"
-              v-if="userInitials && userRole !== 'Locataire'"
-            >
-              <router-link  v-if="userInitials && userRole !== 'Locataire'" :to="{ name: 'annonce', params: { id: parseInt(userId) } }">
-                <p class="drop-text">Déposer une annonce</p>
-              </router-link>
-            </li>
-            <li
-              class="link d-block"
-              v-if="userRole !== 'Locataire' && userInitials"
-            >
-              <router-link to="/packs">
-                <p class="drop-text">Acheter un pack d'annonces</p>
-              </router-link>
-            </li>
-          </ul>
-
-          <div
-            class="Header_buttons ms-3 position relative"
-            v-if="!userInitials"
-          >
-            <button
-              type="button"
-              @click="warnClicked"
-              class="btn btn-outline-light account-btn p-2"
-            >
-              Menu
-              <i class="fa-solid fa-bars"></i>
-            </button>
-            <Transition>
-              <div v-if="disabled" class="sub-menu position-absolute">
-                <ul class="sub-list d-block">
-                  <li>
-                    <router-link to="/login" class="dropdown-item text-black">
-                      <i class="fa-solid fa-arrow-right me-2 arrow"></i>
-                      Connexion
-                    </router-link>
-                  </li>
-                  <li>
-                    <router-link to="/register" class="dropdown-item last">
-                      <i class="fa-solid fa-arrow-right me-2 arrow arrow"></i
-                      >Inscription
-                    </router-link>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#"
-                      ><i class="fa-regular fa-circle-question me-2"></i> Aide
-                      et accompagnement</a
-                    >
-                  </li>
-                  <li>
-                    <router-link to="/howitwork" class="dropdown-item last">
-                      <i class="fa-solid fa-arrow-right me-2 arrow"></i>Comment
-                      ça marche ?
-                    </router-link>
-                  </li>
-                  <li>
-                    <a class="dropdown-item last" href="#"
-                      ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
-                      contacter</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </Transition>
-          </div>
-
-          <div class="Header_buttons ms-3" v-show="userInitials">
-            <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
-              <ul class="sub-list d-block">
-                <li>
-                  <a class="dropdown-item"
-                    ><i class="fa-solid fa-user me-2 pt-2"></i>Mon profil</a
-                  >
-                </li>
-                <li v-if="userRole !== 'Locataire'" @click="handleClick">
-                  <a class="dropdown-item text-black"
-                    ><i class="fa-solid fa-list me-2 pt-2"></i>Mes annonces</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item text-black" @click="logout"
-                    ><i class="fa-solid fa-right-from-bracket me-2 pt-2"></i>Se
-                    deconnecter</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <v-avatar color="#3cd7a3" @click="hide = !hide" v-if="userInitials">
-              <span class="text-h7 text-white avatar">{{ userInitials }}</span>
-            </v-avatar>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <div class="SearchPage_bread mb-40">
-      <v-breadcrumbs :items="items">
-        <template v-slot:divider>
-          <v-icon icon="mdi-forward"></v-icon>
-        </template>
-      </v-breadcrumbs>
-    </div>
-    <h1 class="ft-2xl text-center my-3">
-      <b style="font-size: 30px"
-        >Trouver un logement partout au Bénin et soyez chez vous !</b
-      >
-    </h1>
-    <div class="text-center info-text">
-      <p style="font-size: 18px">
-        ChezVous est une plateforme de recherche de logement en ligne qui rend la location
-        plus simple et humaine, quelle qu’en soit la durée.
-      </p>
-    </div>
-    <div :class="[{ onScroll: !view.topOfPage }, 'searchBar_multiple']">
+    <div class="searchBar_multiple">
       <div class="Header_placeAutocomplete Header_placeAutocomplete--search">
         <div class="LocationPlaceholder_search">
           <i class="fa-solid fa-magnifying-glass strong-blue"></i>
@@ -266,7 +87,7 @@
         </div>
       </div>
     </div>
-  </header> 
+  </header>
 </template>
 
 <script>
@@ -621,10 +442,13 @@ h1.header-title {
 .sub-list {
   margin-left: 0 !important;
 }
-
+.sidebar[data-v-46e2fde0] {
+  overflow: scroll;
+  position: relative !important;
+}
 header {
   background-color: #36417d;
-  min-height: 300px;
+  min-height: auto !important;
   display: flex;
   color: white;
   flex-direction: column;

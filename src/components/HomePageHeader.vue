@@ -10,7 +10,7 @@
         <OrangeBtn
           @click="goToSearch"
           :content="'Voir les annonces →'"
-          :link="'/'"
+          
         ></OrangeBtn>
       </div>
     </div>

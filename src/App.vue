@@ -17,20 +17,30 @@ body {
 .my-gallery {
   display: flex;
 }
-.table th{
-  text-align:center;
+.table th {
+  text-align: center;
   font-size: 15px;
   font-weight: bold;
-  background:#36417d;
+  background: #36417d;
   color: #fff;
 }
 
-
+.table td:last-child{
+  display: flex;
+  align-items: center;
+}
 .table tr:nth-child(even) {
   background: #ededff;
 }
-    
-.table td{
+
+.table td:nth-child(4) .v-chip{
+transform: translateX(-20px);
+}
+
+.table td:nth-child(8) .v-chip{
+transform: translateX(20px);
+}
+.table td {
   text-align: left !important;
 }
 
@@ -223,7 +233,6 @@ export default {
           },
         })
         .then(({ data }) => {
-          console.log(data);
           userData.isAllowed = data.isAllowed;
           this.$store.dispatch("updateUser", userData);
         });

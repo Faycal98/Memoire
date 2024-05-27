@@ -92,7 +92,7 @@ export default {
 </script>
 <style scoped>
 .temp{
-  background-color:rgba(241, 143, 118, 0.801);
+  background-color:rgba(126, 189, 218, 0.897);
   min-height: 100vh
 
 }

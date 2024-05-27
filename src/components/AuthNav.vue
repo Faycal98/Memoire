@@ -11,7 +11,7 @@
           <ul class="u-block">
             <li class="link d-block">
               <router-link to="/">
-                <p class="drop-text">Retour a l'accueil</p>
+                <p class="drop-text">Retour à l'accueil</p>
               </router-link>
               
             </li>

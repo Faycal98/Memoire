@@ -4,56 +4,80 @@
       <div class="col-12 px-5">
         <div class="">
           <div class="row gap-4 md:col-span-6">
-            <div class="widget-area col proclinic-box-shadow color-red"style="background: rgb(251, 233, 233) !important;
-            border: 1px solid  #e57498;">
+            <div
+              class="widget-area col proclinic-box-shadow color-red"
+              style="
+                background: rgb(251, 233, 233) !important;
+                border: 1px solid #e57498;
+              "
+            >
               <div class="widget-left">
-                <span class="ti-user" style="background: rgb(251, 233, 233) !important;">
+                <span
+                  class="ti-user"
+                  style="background: rgb(251, 233, 233) !important"
+                >
                   <font-awesome-icon :icon="['fas', 'user']" />
                 </span>
               </div>
               <div class="widget-right">
                 <h4 class="wiget-title">Locataires</h4>
-                <span class="numeric color-red">348</span>
+                <span class="numeric color-red">{{ locataireAmount }}</span>
                 <p class="inc-dec mb-0">
-                  <span class="ti-angle-up">+20% Increased</span> 
+               <!--    <span class="ti-angle-up">+20% Increased</span> -->
                 </p>
               </div>
             </div>
 
-            <div class="widget-area col proclinic-box-shadow color-green" style="background: rgb(235, 254, 235) !important;
-            border: 1px solid  #3cb371;">
+            <div
+              class="widget-area col proclinic-box-shadow color-green"
+              style="
+                background: rgb(235, 254, 235) !important;
+                border: 1px solid #3cb371;
+              "
+            >
               <div class="widget-left">
-                <span class="ti-bar-chart" style="background: rgb(235, 254, 235) !important;">
+                <span
+                  class="ti-bar-chart"
+                  style="background: rgb(235, 254, 235) !important"
+                >
                   <font-awesome-icon :icon="['fas', 'user']" />
                 </span>
               </div>
               <div class="widget-right">
                 <h4 class="wiget-title">Propriétaires</h4>
-                <span class="numeric color-green">1585</span>
+                <span class="numeric color-green">{{
+                  proprietaireAmount
+                }}</span>
                 <p class="inc-dec mb-0">
-                  <span class="ti-angle-down">-15% Decreased</span> 
+              <!--     <span class="ti-angle-down">-15% Decreased</span> -->
                 </p>
               </div>
             </div>
 
-            <div class="widget-area col proclinic-box-shadow color-yellow" style="background:rgb(254, 247, 235) !important;
-            border: 1px solid  #ff7d00;">
+            <div
+              class="widget-area col proclinic-box-shadow color-yellow"
+              style="
+                background: rgb(254, 247, 235) !important;
+                border: 1px solid #ff7d00;
+              "
+            >
               <div class="widget-left">
-                <span class="ti-money" style="background: rgb(254, 247, 235) !important;">
+                <span
+                  class="ti-money"
+                  style="background: rgb(254, 247, 235) !important"
+                >
                   <font-awesome-icon :icon="['fas', 'user']" />
                 </span>
               </div>
               <div class="widget-right">
                 <h4 class="wiget-title">Démarcheurs</h4>
-                <span class="numeric color-yellow">73</span>
+                <span class="numeric color-yellow">{{ demarcheurAmount }}</span>
                 <p class="inc-dec mb-0">
-                  <span class="ti-angle-up">+10% Increased</span> 
+               <!--    <span class="ti-angle-up">+10% Increased</span> -->
                 </p>
               </div>
             </div>
           </div>
-
-       
 
           <div class="mt-5">
             <UserTable></UserTable>
@@ -65,13 +89,16 @@
 </template>
 <script>
 import UserTable from "../components/UserTable.vue";
-
+import axios from "axios";
 
 export default {
   data() {
     return {
       barName: "Bar Chart",
       bar: "line",
+      demarcheurAmount: "",
+      proprietaireAmount: "",
+      locataireAmount: "",
       bar3: "bar",
       barData: {
         labels: [2000, 2015, 2016, 2017, 2018, 2020],
@@ -101,15 +128,55 @@ export default {
     };
   },
   components: {
-   
     UserTable,
+  },
+  mounted() {
+    const userData = this.$store.state.user;
+    let roles = ["Démarcheur", "Locataire", "Propriétaire"];
+    axios
+      .get(`http://localhost:8000/api/users/number?role=${roles[0]}`, {
+        headers: {
+          "x-access-token": userData.accessToken,
+        },
+      })
+      .then(({ data }) => {
+        this.demarcheurAmount = data.amount;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios
+      .get(`http://localhost:8000/api/users/number?role=${roles[1]}`, {
+        headers: {
+          "x-access-token": userData.accessToken,
+        },
+      })
+      .then(({ data }) => {
+        console.log({ data });
+        this.locataireAmount = data.amount;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get(`http://localhost:8000/api/users/number?role=${roles[2]}`, {
+        headers: {
+          "x-access-token": userData.accessToken,
+        },
+      })
+      .then(({ data }) => {
+        this.proprietaireAmount = data.amount;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>
 <style scoped>
 .color-green {
   color: #3cb371;
-  
 }
 
 tr:nth-child(even) {
@@ -154,13 +221,11 @@ tr:nth-child(even) {
   border-width: 0px;
   border-style: initial;
   border-color: initial;
-  
 }
 .table-bordered {
   border-width: 1px;
   border-style: solid;
   border-color: black;
-  
 }
 
 table.table tbody td,
@@ -169,7 +234,7 @@ table.table thead th {
 }
 
 .table th {
-  font-weight:bold !important;
+  font-weight: bold !important;
   /*text-align: center;*/
 }
 
@@ -178,15 +243,13 @@ table.table thead th {
   max-width: 100%;
   margin-bottom: 1rem;
   background-color: transparent;
-  border:1px solid #fff7f7;
+  border: 1px solid #fff7f7;
 }
 
 .table td,
 .table th {
   padding: 0.75rem;
 }
-
-
 
 .table-bordered td,
 .table-bordered th {
@@ -201,7 +264,7 @@ table.table thead th {
   padding: 17px;
   background: #fff;
   border-radius: 50%;
-  border: 1px solid ;
+  border: 1px solid;
 }
 
 .widget-left {
@@ -231,7 +294,7 @@ table.table thead th {
 h4.wiget-title {
   margin-bottom: 0.5rem;
   font-size: 18px;
-  font-weight:bolder;
+  font-weight: bolder;
   letter-spacing: 0.5px;
 }
 .nav-help {
@@ -274,7 +337,6 @@ p {
 
 .color-red {
   color: #e57498;
-  
 }
 
 .proclinic-box-shadow.table-container {
@@ -286,12 +348,12 @@ p {
   display: flex;
   align-items: center;
   border: 0;
-  
+
   background: #fff;
   margin-top: 20px;
   transition: all 0.3s ease-in-out;
 }
-.proclinic-box-shadow:hover{
+.proclinic-box-shadow:hover {
   transform: translateY(-7px);
 }
 

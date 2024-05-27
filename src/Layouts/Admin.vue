@@ -4,22 +4,21 @@
       <div class="title"><i class="fa-solid fa-house"></i> Dashboard</div>
       <ul class="menu">
         <li><i class="fa-solid fa-users"></i> Liste des utilisateurs</li>
-        <li>
-          <i class="fa-solid fa-list me-2 "></i>Liste des annonces
-        </li>
+        <li><i class="fa-solid fa-list me-2"></i>Liste des annonces</li>
         <li class="logout">
-                    <a  @click="logout" href="#"><i class="fa-solid fa-right-from-bracket me-2 arrow"></i
-                      >Se déconnecter</a
-                    >
-                  </li>
+          <a @click="logout" href="#"
+            ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Se
+            déconnecter</a
+          >
+        </li>
       </ul>
     </div>
     <div class="col-10">
       <div class="">
         <nav :class="['navbar navbar-expand-lg']">
-          <router-link to="#">
+          <router-link to="/dashboard">
             <h1 class="ms-5 header-title">
-              <img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -2px;" >
+              <img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -9px;" >
             </h1></router-link
           >
           <button
@@ -39,7 +38,6 @@
             id="navbarSupportedContent"
           >
             <div class="Header_buttons ms-3">
-           
               <v-avatar
                 color="rgb(221, 88, 55)"
                 @click="hide = !hide"
@@ -67,15 +65,19 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       hide: true,
       userInitials: "",
+     
     };
   },
   mounted() {
     const userData = this.$store.state.user;
+  
+
     if (userData) {
       console.log(userData, 123);
       this.userId = userData.id;
@@ -115,11 +117,11 @@ export default {
   font-family: "Metrophobic", sans-serif;
   padding: 0px;
 }
-.menu{
-  height: 88%;
+.menu {
+  height: 80%;
   margin: 8px 0;
-  position:relative;
-}/*
+  position: relative;
+} /*
 .menu li{
   border: 3px solid #e0e0e058;
   border-radius: 5px;
@@ -132,7 +134,6 @@ export default {
     background: #e0e0e058;
     height: 50px;
 }*/
-    
 
 .sidebar ul {
   list-style-type: none;
@@ -150,9 +151,8 @@ export default {
   font-size: 18px;
   font-family: "Metrophobic", sans-serif;
 }
-.logout{
+.logout {
   margin-top: 160% !important;
- 
 }
 
 .hidden {

@@ -1,6 +1,6 @@
 <template>
   <v-divider></v-divider>
-  
+
   <v-card flat class="table">
     <v-card-title class="d-flex align-center pe-2">
       <v-text-field
@@ -14,7 +14,7 @@
         single-line
       ></v-text-field>
       <v-spacer></v-spacer>
-      <i class="fa-solid fa-filter me-3" ></i>
+      <i class="fa-solid fa-filter me-3"></i>
       Filtrer
     </v-card-title>
 
@@ -56,7 +56,13 @@
         </div>
       </template>
       <template v-slot:item.role="{ value }">
-        <v-chip :color="getColor(value)"small> {{value}}</v-chip>
+        <v-chip :color="getColor(value)" small> {{ value }}</v-chip>
+      </template>
+
+      <template v-slot:item.nbreAnnouncement="{ value }">
+        <v-chip :color="getAnnonce(value)">
+          {{ value }}
+        </v-chip>
       </template>
 
       <template v-slot:item.isAllowed="{ item }">
@@ -74,7 +80,7 @@
       <template v-slot:item.actions="{ item }">
         <v-icon
           class="me-2"
-          color="red"
+          color="orange"
           size="x-large"
           @click="lockAccount(item)"
         >
@@ -88,7 +94,9 @@
         >
           mdi-account-lock-open
         </v-icon>
-        <v-icon size="x-large"> mdi-delete </v-icon>
+        <v-icon size="x-large" color="red" @click="deleteAccount(item)">
+          mdi-delete
+        </v-icon>
       </template>
       <template v-slot:no-data>
         <v-btn color="primary"> Actualiser </v-btn>
@@ -102,23 +110,7 @@ export default {
   data() {
     return {
       search: "",
-      items: [
-        {
-          name: "Nebula GTX 3080",
-          image: "1.png",
-          price: 699.99,
-          rating: 5,
-          stock: true,
-        },
-        {
-          name: "Nebula GTX 3080",
-          image: "1.png",
-          price: 699.99,
-          rating: 5,
-          stock: true,
-        },
-        
-      ],
+
       users: [],
       headers: [
         {
@@ -152,6 +144,12 @@ export default {
       if (role == "Locataire") return "red";
       else if (role == "Démarcheur") return "orange";
       else return "green";
+    },
+
+    getAnnonce(annonce) {
+      if (annonce == 0) return "red";
+      else if (annonce > 5) return "green";
+      else return "orange";
     },
     lockAccount(item) {
       const userData = JSON.parse(localStorage.getItem("userData"));
@@ -194,9 +192,29 @@ export default {
         });
     },
 
+    deleteAccount(item) {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+
+      axios
+        .delete(
+          `http://localhost:8000/api/deleteUser/${item.id}`,
+          {
+            headers: {
+              "x-access-token": userData.accessToken,
+            },
+          }
+        )
+        .then((data) => {
+          console.log(data)
+          this.loadUsers(userData);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
     loadUsers() {
       const userData = JSON.parse(localStorage.getItem("userData"));
-      console.log(userData)
+      console.log(userData);
       axios
         .get("http://localhost:8000/api/users", {
           headers: {
@@ -215,17 +233,7 @@ export default {
 };
 </script>
 <style scoped>
-.table{
- /* border-radius:10px;*/
-  
-}
-/*.table .align-center{
-  font-weight: bold;
-  color:#fff;
-}*/
-
-.title{
+.title {
   font-weight: bold;
 }
-
 </style>

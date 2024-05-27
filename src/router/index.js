@@ -122,7 +122,16 @@ const routes = [
   
   },
   {
-    path: "/profil",
+    path: "/dashboard/houses",
+    name: "AdminHouse",
+    component: () => import("@/views/AdminHouseView.vue"),
+    meta: {
+      admin: true,
+    },
+  
+  },
+  {
+    path: "/user/:id/profil",
     name: "profil",
     component: () => import("../views/Profil.vue"),
     meta: { requiresAuth: true },

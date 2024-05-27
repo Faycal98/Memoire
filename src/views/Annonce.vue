@@ -19,7 +19,7 @@
 
           <ul class="u-block">
             <li v-if="userInitials">
-              <router-link to="/profil" class="dropdown-item text-white">
+              <router-link to="/packs" class="dropdown-item text-white">
                 Acheter un pack d'annonces
               </router-link>
             </li>
@@ -28,7 +28,12 @@
             <div :class="[{ hidden: hide }, 'sub-menu position-absolute']">
               <ul class="sub-list d-block">
                 <li>
-                  <router-link to="/profil">
+                  <router-link
+                    :to="{
+                      name: 'profil',
+                      params: { id: parseInt(this.userId) },
+                    }"
+                  >
                     <a class="dropdown-item" href="#"
                       ><i class="fa-solid fa-user me-2 pt-2"></i>Voir mon
                       profil</a
@@ -36,7 +41,7 @@
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="/profil">
+                  <router-link :to="{ name: 'annonceList', params: { id: parseInt(this.userId) } }">
                     <a class="dropdown-item text-black" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
                       annonces</a
@@ -772,7 +777,7 @@ export default {
       hasMonitoring: false,
       amount: undefined,
       userInfo: "",
-     
+
       userName: "",
       userFirstName: "",
       email: "",
@@ -805,6 +810,7 @@ export default {
       neighborhood: "",
       washMachine: false,
       wifi: false,
+      userId: "",
       balcony: false,
       garden: false,
       waterDistribution: "Soneb",
@@ -835,6 +841,7 @@ export default {
   },
   mounted() {
     const userID = this.$route.params.id;
+    this.userId = userID;
     const userData = JSON.parse(localStorage.getItem("userData"));
 
     axios
@@ -865,10 +872,10 @@ export default {
                 /* Read more about handling dismissals below */
                 result.dismiss === this.$swal.DismissReason.cancel
               ) {
-                this.$router.go(-1);
+                this.$router.push("/");
               }
             });
-        } 
+        }
       });
 
     (this.rawfiles = []), (this.galleryImg = []);
@@ -968,7 +975,7 @@ export default {
       formData.append("type", this.typeLogement);
       formData.append("city", this.city.name);
       formData.append("neighborhood", this.neighborhood);
-      formData.append("department", this.department);
+      formData.append("department", this.department.name);
       formData.append("description", this.description);
       formData.append("isSanitary", this.isSanitary);
       formData.append("announcePurpose", this.butAnnonce);
