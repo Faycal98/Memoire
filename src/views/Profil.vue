@@ -135,7 +135,10 @@
               </div>
             </div>
 
-            <div class="payment--card light-blue">
+            <div
+              class="payment--card light-blue"
+              v-if="userData.role !== 'Locataire'"
+            >
               <div class="card--header">
                 <div class="amount">
                   <span class="title"> Annonces disponible </span>
@@ -158,9 +161,186 @@
           </div>
         </div>
 
-
         <div class="card--container mt-3" id="profil">
-          Devenir un profil verifie en envoyant une copie pdf de ma carte CIP OU biometrique
+          <form method="POST" class="form2" enctype="multipart/form-data">
+            <h2 class="mb-3">Données personnelles</h2>
+            Afin de devenir un profil verifié en envoyant une copie pdf de ma
+            carte CIP OU biometrique suivi d'une photo d'identité à fond blanc
+            <div
+              class="d-flex justify-content-between flex-column align-items-center"
+            >
+              <div class="aegov-btn my-2 d-flex flex-column">
+                <div class="">
+                  <h3 class="text-decoration-underline" v-if="userPiece">
+                    Piece d'identité
+                  </h3>
+                </div>
+                <div class="d-flex">
+                  <div
+                    class="file-input-summary space-y-4 mt-2"
+                    v-if="userPiece"
+                  >
+                    <div class="file-input-summary-item my-2">
+                      <i class="fa-solid fa-file-import me-2"></i>
+                      <span>{{ userPiece }}</span>
+                    </div>
+                  </div>
+                  <label
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      cursor: pointer;
+                    "
+                    :class="{
+                      'file-preview': !userPiece,
+                      'file-modify': userPiece,
+                    }"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 256 256"
+                      class="file-summary w-5 h-5 me-1"
+                    >
+                      <rect width="256" height="256" fill="none" />
+                      <line
+                        x1="128"
+                        y1="152"
+                        x2="128"
+                        y2="40"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                      <path
+                        d="M216,152v56a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V152"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                      <polyline
+                        points="88 80 128 40 168 80"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                    </svg>
+                    {{
+                      !userPiece
+                        ? "Envoyer ma pièce d'identité"
+                        : "Modifier ma pièce d'identité"
+                    }}
+                    <input
+                      type="file"
+                      name="piece"
+                      accept="application/pdf"
+                      @change="getUserIdentity"
+                      class="file preview btn_like"
+                      style="display: none"
+                  /></label>
+                </div>
+              </div>
+
+              <div class="aegov-btn my-2 d-flex flex-column">
+                <div class="">
+                  <h3 v-if="userTruePhoto" class="text-decoration-underline">
+                    Photo d'identité
+                  </h3>
+                </div>
+                <div class="d-flex">
+                  <div
+                    class="file-input-summary-item my-2"
+                    v-if="userTruePhoto"
+                  >
+                  <i class="fa-solid fa-file-import me-2"></i>
+                    <span>{{ userTruePhoto }}</span>
+                  </div>
+                  <label
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      cursor: pointer;
+                    "
+                    :class="{
+                      'file-preview': !userTruePhoto,
+                      'file-modify': userTruePhoto,
+                    }"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 256 256"
+                      class="file-summary w-5 h-5 me-3"
+                    >
+                      <rect width="256" height="256" fill="none" />
+                      <line
+                        x1="128"
+                        y1="152"
+                        x2="128"
+                        y2="40"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                      <path
+                        d="M216,152v56a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V152"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                      <polyline
+                        points="88 80 128 40 168 80"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                    </svg>
+                    {{
+                      !userTruePhoto ? "Envoyer ma photo" : "Modifier ma photo"
+                    }}
+                    <input
+                      type="file"
+                      name="personalPhoto"
+                      accept="image/*"
+                      @change="getUserPhoto"
+                      class="file preview btn_like"
+                      style="display: none"
+                  /></label>
+                </div>
+                <div
+                  class="file-input-summary space-y-4 mt-4"
+                  v-if="userTruePhoto"
+                ></div>
+              </div>
+
+              <div>
+                <button
+                  @click="UpdateUserInfo"
+                  :class="[
+                    userTruePhoto && userPiece ? 'validate-btn' : 'isDisabled','text-uppercase'
+                  ]"
+                  v-if="userPiece || userTruePhoto"
+                  :disabled="userTruePhoto == '' || userPiece == ''"
+                >
+                  Confirmer mes données
+                </button>
+              </div>
+
+            
+            </div>
+          </form>
         </div>
       </div>
     </form>
@@ -176,6 +356,8 @@ export default {
       userAccomodation: [],
       userInitials: "",
       img: "",
+      userPiece: "",
+      userTruePhoto: "",
       changePhoto: false,
     };
   },
@@ -213,6 +395,22 @@ export default {
       this.changePhoto = true;
     },
 
+    getUserIdentity(e) {
+      const data = e.target.files[0].name;
+      this.userPiece = data;
+      console.log(data);
+    },
+
+    getUserPhoto(e) {
+      const data = e.target.files[0].name;
+      this.userTruePhoto = data;
+    },
+    deleteChoice() {
+      var fileInput = document.querySelector(".btn_like");
+
+      fileInput.value = "";
+      this.userPiece = "";
+    },
     savePhoto() {
       const form = document.querySelector("form");
       const userData = JSON.parse(localStorage.getItem("userData"));
@@ -241,6 +439,35 @@ export default {
           console.log(err);
         });
     },
+
+    UpdateUserInfo(e) {
+      e.preventDefault();
+      const form = document.querySelector(".form2");
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      const formData = new FormData(form);
+      axios
+        .post("http://localhost:8000/api/uploadPersonalData", formData, {
+          headers: {
+            "x-access-token": userData.accessToken,
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then(({ data }) => {
+          console.log(data);
+          this.$swal.fire({
+            icon: "success",
+            title: "Vos données ont bien été envoyées",
+            confirmButtonColor: "#218838",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Oui",
+            cancelButtonText: "Non",
+            text: "Veuillez revenir consulter votre profil régulièrement",
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
@@ -257,6 +484,81 @@ export default {
 }
 section {
   display: flex;
+}
+
+.file-modify {
+  color: rgb(16, 138, 0);
+  margin-left: 20px;
+}
+
+.aegov-form-control.aegov-file-input-control .file-input-label {
+  margin: 0;
+  display: inline-flex !important;
+  flex-shrink: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+
+  color: red !important;
+  text-decoration-line: none;
+}
+
+.aegov-btn svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.aegov-btn {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+.file-input-summary .file-input-summary-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  text-align: center;
+  font-weight: 500;
+
+  color: rgb(95 100 109 / var(--tw-text-opacity));
+}
+.aegov-form-control.aegov-file-input-control input[type="file"] {
+  display: none;
+}
+.file-preview,
+.validate-btn {
+  max-width: 300px;
+  background-color: rgb(16, 138, 0);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.isDisabled {
+  background-color: grey;
+  margin-bottom: 20px;
+  width: 265px;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+.validate-btn {
+  margin-bottom: 20px;
+  width: 265px;
+  padding: 20px;
 }
 .sidebar {
   position: sticky;
@@ -344,7 +646,7 @@ section {
   position: relative;
   background: #ebe9e9;
   width: 100%;
-  font-family:"Metrophobic", sans-serif;
+  font-family: "Metrophobic", sans-serif;
   padding: 1rem;
 }
 .header--wrapper img {
@@ -418,7 +720,7 @@ section {
   width: 286px;
   height: 140px;
   display: flex;
-  font-family:"Metrophobic", sans-serif;
+  font-family: "Metrophobic", sans-serif;
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.5s ease-in-out;

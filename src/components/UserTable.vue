@@ -23,7 +23,7 @@
       <template v-slot:header.stock>
         <div clas>Stock</div>
       </template>
-
+<!-- 
       <template v-slot:item.image="{ item }">
         <v-card class="my-2" elevation="2" rounded>
           <v-img
@@ -32,9 +32,9 @@
             cover
           ></v-img>
         </v-card>
-      </template>
+      </template> -->
 
-      <template v-slot:item.rating="{ item }">
+     <!--  <template v-slot:item.rating="{ item }">
         <v-rating
           :model-value="item.rating"
           color="orange-darken-2"
@@ -42,10 +42,11 @@
           size="small"
           readonly
         ></v-rating>
-      </template>
+      </template> -->
 
       <template v-slot:item.stock="{ item }">
         <div class="">
+          
           <v-chip
             :color="item.stock ? 'green' : 'red'"
             :text="item.stock ? 'In stock' : 'Out of stock'"
@@ -56,6 +57,7 @@
         </div>
       </template>
       <template v-slot:item.role="{ value }">
+        
         <v-chip :color="getColor(value)" small> {{ value }}</v-chip>
       </template>
 
@@ -79,6 +81,7 @@
 
       <template v-slot:item.actions="{ item }">
         <v-icon
+          v-if="item.isAllowed"
           class="me-2"
           color="orange"
           size="x-large"
@@ -87,6 +90,7 @@
           mdi-account-lock
         </v-icon>
         <v-icon
+          v-else
           class="me-2"
           color="green"
           size="x-large"
@@ -94,6 +98,24 @@
         >
           mdi-account-lock-open
         </v-icon>
+
+        <v-icon
+          class="me-2"
+          color="green"
+          size="x-large"
+          @click="lockAccount(item)"
+        >
+          mdi-thumb-up</v-icon
+        >
+
+        <v-icon
+          class="me-2"
+          color="red"
+          size="x-large"
+          @click="lockAccount(item)"
+        >
+          mdi-thumb-down</v-icon
+        >
         <v-icon size="x-large" color="red" @click="deleteAccount(item)">
           mdi-delete
         </v-icon>
@@ -126,7 +148,7 @@ export default {
         { key: "isAllowed", title: "Status" },
         {
           key: "nbreAnnouncement",
-          title: "Annonces restantes",
+          title: "A. restantes",
         },
         { title: "Actions", key: "actions", sortable: false },
       ],
@@ -152,6 +174,7 @@ export default {
       else return "orange";
     },
     lockAccount(item) {
+      console.log(8797, item);
       const userData = JSON.parse(localStorage.getItem("userData"));
       console.log(userData.accessToken);
       axios
@@ -196,16 +219,13 @@ export default {
       const userData = JSON.parse(localStorage.getItem("userData"));
 
       axios
-        .delete(
-          `http://localhost:8000/api/deleteUser/${item.id}`,
-          {
-            headers: {
-              "x-access-token": userData.accessToken,
-            },
-          }
-        )
+        .delete(`http://localhost:8000/api/deleteUser/${item.id}`, {
+          headers: {
+            "x-access-token": userData.accessToken,
+          },
+        })
         .then((data) => {
-          console.log(data)
+          console.log(data);
           this.loadUsers(userData);
         })
         .catch((err) => {
