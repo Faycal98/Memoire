@@ -13,6 +13,9 @@
 body {
   margin: 0;
 }
+tr.v-data-table__tr td:has(.validateProfile){
+  background-color: rgb(235, 254, 235)!important
+}
 
 .my-gallery {
   display: flex;

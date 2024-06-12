@@ -100,7 +100,7 @@
                   type="file"
                   class="file preview btn_like"
                   style="display: none"
-                  accept="image/*"
+                  accept="image/jpeg"
                   name="avatar"
               /></label>
             </div>
@@ -163,7 +163,6 @@
         </div>
 
         <div class="card--container mt-3" id="profil">
-          <h2 class="mb-3">Activation profil</h2>
           <form
             method="POST"
             class="form2"
@@ -319,7 +318,7 @@
                     <input
                       type="file"
                       name="photo_identite"
-                      accept="image/*"
+                      accept="image/jpeg"
                       @change="getUserPhoto"
                       class="file preview btn_like"
                       style="display: none"
@@ -346,12 +345,193 @@
               </div>
             </div>
           </form>
-        
+          <form
+            method="POST"
+            class="form2"
+            enctype="multipart/form-data"
+            v-else-if="userData.isVerified == 'Wrong'"
+          >
+            <p class="text-danger text-h5 mb-3">
+              Données incorrectes.Veuillez ressayer
+            </p>
+            <div
+              class="d-flex justify-content-between flex-column align-items-center"
+            >
+              <div class="aegov-btn my-2 d-flex flex-column">
+                <div class="">
+                  <h3 class="text-decoration-underline" v-if="userPiece">
+                    Piece d'identité
+                  </h3>
+                </div>
+                <div class="d-flex">
+                  <div
+                    class="file-input-summary space-y-4 mt-2"
+                    v-if="userPiece"
+                  >
+                    <div class="file-input-summary-item my-2">
+                      <i class="fa-solid fa-file-import me-2"></i>
+                      <span>{{ userPiece }}</span>
+                    </div>
+                  </div>
+                  <label
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      cursor: pointer;
+                    "
+                    :class="{
+                      'file-preview': !userPiece,
+                      'file-modify': userPiece,
+                    }"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 256 256"
+                      class="file-summary w-5 h-5 me-1"
+                    >
+                      <rect width="256" height="256" fill="none" />
+                      <line
+                        x1="128"
+                        y1="152"
+                        x2="128"
+                        y2="40"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                      <path
+                        d="M216,152v56a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V152"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                      <polyline
+                        points="88 80 128 40 168 80"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                    </svg>
+                    {{
+                      !userPiece
+                        ? "Envoyer ma pièce d'identité"
+                        : "Modifier ma pièce d'identité"
+                    }}
+                    <input
+                      type="file"
+                      name="piece_identite"
+                      accept="application/pdf"
+                      @change="getUserIdentity"
+                      class="file preview btn_like"
+                      style="display: none"
+                  /></label>
+                </div>
+              </div>
+
+              <div class="aegov-btn my-2 d-flex flex-column">
+                <div class="">
+                  <h3 v-if="userTruePhoto" class="text-decoration-underline">
+                    Photo d'identité
+                  </h3>
+                </div>
+                <div class="d-flex">
+                  <div
+                    class="file-input-summary-item my-2"
+                    v-if="userTruePhoto"
+                  >
+                    <i class="fa-solid fa-file-import me-2"></i>
+                    <span>{{ userTruePhoto }}</span>
+                  </div>
+                  <label
+                    style="
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      cursor: pointer;
+                    "
+                    :class="{
+                      'file-preview': !userTruePhoto,
+                      'file-modify': userTruePhoto,
+                    }"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 256 256"
+                      class="file-summary w-5 h-5 me-3"
+                    >
+                      <rect width="256" height="256" fill="none" />
+                      <line
+                        x1="128"
+                        y1="152"
+                        x2="128"
+                        y2="40"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                      <path
+                        d="M216,152v56a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V152"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                      <polyline
+                        points="88 80 128 40 168 80"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="16"
+                      />
+                    </svg>
+                    {{
+                      !userTruePhoto ? "Envoyer ma photo" : "Modifier ma photo"
+                    }}
+                    <input
+                      type="file"
+                      name="photo_identite"
+                      accept="image/jpeg"
+                      @change="getUserPhoto"
+                      class="file preview btn_like"
+                      style="display: none"
+                  /></label>
+                </div>
+                <div
+                  class="file-input-summary space-y-4 mt-4"
+                  v-if="userTruePhoto"
+                ></div>
+              </div>
+
+              <div>
+                <button
+                  @click="UpdateUserInfo"
+                  :class="[
+                    userTruePhoto && userPiece ? 'validate-btn' : 'isDisabled',
+                    'text-uppercase',
+                  ]"
+                  v-if="userPiece || userTruePhoto"
+                  :disabled="userTruePhoto == '' || userPiece == ''"
+                >
+                  Confirmer mes données
+                </button>
+              </div>
+            </div>
+          </form>
           <div
             class="message d-flex align-items-center flex-column justify-center"
             v-else-if="userData.isVerified == 'Pending'"
           >
-
             <div class="spinner-container">
               <div class="spinner-border text-success" role="status">
                 <span class="sr-only">Loading...</span>
@@ -365,7 +545,7 @@
             >
           </div>
 
-          <div class="verified"    v-else-if="userData.isVerified == 'yes'">
+          <div class="verified" v-else-if="userData.isVerified == 'Yes'">
             <h1>Bravo!</h1>
             Vous informations ont ete verifiés.Vous profil est desormais actif
           </div>

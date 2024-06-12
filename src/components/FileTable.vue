@@ -1,10 +1,8 @@
 <template>
-
   <div class="content">
     <!-- container -->
-  
 
-    <div class="" v-if="users.length>0">
+    <div class="" v-if="users.length > 0">
       <v-divider></v-divider>
 
       <v-card flat class="table">
@@ -27,9 +25,34 @@
           <template v-slot:header.stock>
             <div clas>Stock</div>
           </template>
+          <template v-slot:item.id="{ item }">
+            <div :class="{ validateProfile: item.isVerified == 'Yes' }">
+              {{ item.id }}
+            </div>
+          </template>
+
+          <template v-slot:item.userName="{ item }">
+          
+            <div :class="{ validateProfile: item.isVerified == 'Yes' }">
+          
+            
+              {{ item.userName }}
+            </div>
+          </template>
+
+          <template v-slot:item.userFirstName="{ item }">
+            <div :class="{ validateProfile: item.isVerified == 'Yes' }">
+              {{ item.userFirstName }}
+            </div>
+          </template>
 
           <template v-slot:item.truePhoto="{ item }">
-            <div class="d-flex align-items-center">
+            <div
+              :class="[
+                item.isVerified == 'Yes' ? 'validateProfile' : '',
+                'd-flex align-items-center',
+              ]"
+            >
               <img src="../assets/image.svg" height="40px" alt="icon" />
               <p class="mx-2 mb-0">{{ item.truePhoto }}</p>
 
@@ -62,7 +85,12 @@
           </template>
 
           <template v-slot:item.identity_card="{ item }">
-            <div class="d-flex align-items-center">
+            <div
+            :class="[
+                item.isVerified == 'Yes' ? 'validateProfile' : '',
+                'd-flex align-items-center',
+              ]"
+            >
               <img src="../assets/pdf.svg" height="40px" alt="icon" />
               <p class="mx-2 mb-0">{{ item.identity_card }}</p>
 
@@ -96,12 +124,11 @@
             </div>
           </template>
 
-          <template v-slot:item.role="{ value }">
-            <v-chip :color="getColor(value)" small> {{ value }}</v-chip>
-          </template>
-
           <template v-slot:item.actions="{ item }">
-            <span class="validate" @click="validateFiles(item)">
+            <span  @click="validateFiles(item)"      :class="[
+                item.isVerified == 'Yes' ? 'validateProfile' : '',
+                'validate',
+              ]">
               <i class="fa-solid fa-circle-check text-h5 text-success"></i>
             </span>
 
@@ -224,12 +251,15 @@ body {
   margin-top: 20px;
   background: #dcdcdc;
 }
-.empty{
-  
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+tr td:has(.validateProfile) {
+  background-color: rgb(235, 254, 235);
+}
+.empty {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .validate {
