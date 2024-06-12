@@ -846,6 +846,9 @@ export default {
   },
 
   beforeMount() {
+    const date1 = dayjs("2019-01-25");
+    const date2 = dayjs("2018-06-05");
+    console.log(date2.diff(date1));
     window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
@@ -991,6 +994,7 @@ export default {
         formData.append("files", this.rawfiles[i]);
       }
       console.log(this.department);
+      alert(this.city.name)
       formData.append("type", this.typeLogement);
       formData.append("city", this.city.name);
       formData.append("neighborhood", this.neighborhood);

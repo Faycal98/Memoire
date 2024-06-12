@@ -3,12 +3,12 @@
     <div class="sidebar">
       <div style="margin-top: 10px; margin-right: -37px" class="logo">
         <router-link to="/">
-          <span style="color: #fff; font-size: 30px; font-weight: bold"
+         <!-- <span style="color: #fff; font-size: 30px; font-weight: bold"
             ><i
               style="margin-left: -35px; color: rgb(221, 88, 55)"
               class="fa-solid fa-home"
             ></i
-          ></span>
+          ></span>--><h1 class="ms-5 header-title"><img src="../assets/log01.png" alt="" style="height: 8vh;background-color: white;border-radius: 7px;margin-left: -86px;" ></h1>
         </router-link>
       </div>
       <ul class="menu">
@@ -20,9 +20,9 @@
         </li>
 
         <li class="logout">
-          <a @click="logout" href="">
-            <i class="fa-solid fa-sign-out"></i>
-            <span>Déconnexion</span>
+          <a @click="logout" href="" style="margin-left: -10px;">
+            <i class="fa-solid fa-sign-out"  ></i>
+            <span style="margin-left: -5px;" >Déconnexion</span>
           </a>
         </li>
       </ul>
@@ -59,7 +59,7 @@
           id="profil"
         >
           <div class="position-relative profil-photo">
-            <p class="mb-2">
+            <p class="mb-2" style="margin-right: -30px; font-weight:bold; color:rgb(221, 88, 55); ">
               {{
                 userData.profilePhoto
                   ? "Modifier ma photo de profil"
@@ -93,7 +93,7 @@
                 "
                 class="blue2 pencil"
               >
-                <v-icon color="#108a00" icon="mdi-pencil" size="large"></v-icon>
+                <v-icon color="rgb(221, 88, 55)" icon="mdi-pencil" size="large"></v-icon>
 
                 <input
                   @change="updatePhoto"
@@ -115,7 +115,9 @@
         <div class="card--container" id="profil">
           <h3 class="main-title">Mes informations</h3>
           <div class="card--wrapper">
-            <div class="payment--card light-red">
+
+
+           <!--<div class="payment--card light-red">
               <div class="card--header">
                 <div class="amount">
                   <span class="title"> {{ userData.userName }}</span>
@@ -123,45 +125,57 @@
                 </div>
                 <i class="fa-solid fa-user icon"></i>
               </div>
-            </div>
-
-            <div class="payment--card light-purple">
+            </div>--> 
+            <div class="payment--card light-red">
+              <i class="fa-solid fa-user icon" style="margin-left: 95px;"></i>
               <div class="card--header">
-                <div class="amount">
-                  <span class="title"> (+229) </span>
-                  <span class="amount-value">{{ userData.phone }}</span>
+                <div class="amoun" style=" margin-bottom: -10px; margin-right: 40px;">
+                  <span style="font-weight:bold; font-size:17px"> {{ userData.userName }} {{ userData.userFirstName }}</span>
                 </div>
-                <i class="fa-solid fa-phone dark-purple icon"></i>
-              </div>
-            </div>
-
-            <div class="payment--card light-blue">
-              <div class="card--header">
-                <div class="amount">
-                  <span class="title"> Annonces disponible </span>
-                  <span class="amount-value">{{
-                    userData.nbreAnnouncement
-                  }}</span>
-                </div>
-                <i class="fa-solid fa-check dark-blue icon"></i>
               </div>
             </div>
 
             <div class="payment--card light-green">
+              <i class="fa-solid fa-envelope dark-green icon" style="margin-left: 95px;"></i>
               <div class="card--header">
                 <div class="amount">
-                  <span class="title">{{ userData.email }}</span>
+                  <span class="title"> {{ userData.email }}</span>
                 </div>
-                <i class="fa-solid fa-envelope dark-green icon"></i>
+                
               </div>
             </div>
+
+            <div class="payment--card light-purple">
+              <i class="fa-solid fa-phone dark-purple icon" style="margin-left: 95px;"></i>
+              <div class="card--header">
+                <div class="amount">
+                  <span class="title"> (+229)  {{ userData.phone }} </span>
+                  
+                </div>
+                
+              </div>
+            </div>
+
+            <div class="payment--card light-blue">
+              <i class="fa-solid fa-check dark-blue icon" style="margin-left: 95px;" ></i>
+              <div class="card--header">
+                <div class="amount">
+                  <span class="title"> Annonces : {{
+                    userData.nbreAnnouncement
+                  }} </span>
+                 
+                </div>
+                
+              </div>
+            </div>
+
+            
           </div>
         </div>
 
 
         <div class="card--container mt-3" id="profil">
-          Devenir un profil verifie en envoyant une copie pdf de ma carte CIP OU biometrique
-        </div>
+          <p style="font-weight:bold; color:rgb(221, 88, 55); ">Devenez un profil verifié en envoyant une copie de votre carte CIP Ou Biometrique</p>         </div>
       </div>
     </form>
   </section>
@@ -263,22 +277,23 @@ section {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 110px;
+
   height: 100vh;
   padding: 0 1.7rem;
   color: #fff;
   overflow: hidden;
-  transition: all 0.5s linear;
+  width: 200px;
+  /*transition: all 0.5s linear;*/
   background: #36417d;
 }
 
 .photo-profil {
   width: fit-content;
-}
+}/*
 .sidebar:hover {
   width: 260px;
   transition: 0.5s;
-}
+}*/
 .logo {
   height: 80px;
   padding: 16px;
@@ -329,7 +344,7 @@ section {
   right: 2%;
   border-radius: 50%;
   cursor: pointer;
-  border: 2px solid #108a00;
+  border: 2px solid rgb(221, 88, 55);
 }
 
 .logout {
@@ -436,11 +451,14 @@ section {
 .amount {
   display: flex;
   flex-direction: column;
-  margin-right: 10px;
+  margin-right: 53px;
+  margin-bottom: -10px;
+
 }
 .title {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
+  
 }
 .amount-value {
   font-size: 24px;

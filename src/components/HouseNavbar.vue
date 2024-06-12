@@ -4,7 +4,7 @@
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
           <h1 class="ms-5 header-title">
-            <img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -11px;" >
+            <img src="../assets/log01.png" alt="" style="height: 7vh; margin-bottom: -11px; background-color: white; border-radius: 4px;" >
           </h1>
         </router-link>
         <div
