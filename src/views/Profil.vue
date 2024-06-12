@@ -8,7 +8,7 @@
               style="margin-left: -35px; color: rgb(221, 88, 55)"
               class="fa-solid fa-home"
             ></i
-          ></span>--><h1 class="ms-5 header-title"><img src="../assets/log01.png" alt="" style="height: 8vh;background-color: white;border-radius: 7px;margin-left: -86px;" ></h1>
+          ></span>--><h1 class="ms-5 header-title"><img src="../assets/log01.jpg" alt="" style="height: 8vh;background-color: white;border-radius: 7px;margin-left: -86px;" ></h1>
         </router-link>
       </div>
       <ul class="menu">
@@ -163,8 +163,8 @@
               <i class="fa-solid fa-check dark-blue icon" style="margin-left: 95px;" ></i>
               <div class="card--header">
                 <div class="amount">
-                  {{ userData.isVerified }}
-                  <span class="title">{{ userData.email }}</span>
+                  
+                  <span class="title">A.restante(s) : {{ userData.nbreAnnouncement }}</span>
                 </div>
                 
               </div>
@@ -175,7 +175,7 @@
         </div>
 
         <div class="card--container mt-3" id="profil">
-          <h2 class="mb-3">Activation profil</h2>
+          <h2 class="mb-3" style="font-weight:bold; color:rgb(221, 88, 55);">Activation de mon profil</h2>
           <form
             method="POST"
             class="form2"
