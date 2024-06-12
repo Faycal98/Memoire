@@ -99,23 +99,8 @@
           mdi-account-lock-open
         </v-icon>
 
-        <v-icon
-          class="me-2"
-          color="green"
-          size="x-large"
-          @click="lockAccount(item)"
-        >
-          mdi-thumb-up</v-icon
-        >
-
-        <v-icon
-          class="me-2"
-          color="red"
-          size="x-large"
-          @click="lockAccount(item)"
-        >
-          mdi-thumb-down</v-icon
-        >
+    
+       
         <v-icon size="x-large" color="red" @click="deleteAccount(item)">
           mdi-delete
         </v-icon>

@@ -10,7 +10,7 @@
           <div class="d-flex">
             <div class="AccomodationBlock_contentLeft">
               <div class="text-start">
-                <p class="pt-2 mb-0 AccomodationType ">
+                <p class="pt-2 mb-0 AccomodationType">
                   <!---->
                   {{ accomodationDetail.type }}
                 </p>
@@ -41,7 +41,8 @@
           </div>
 
           <div class="AccomodationBlock_location text-start mb-3">
-            {{accomodationDetail.hasFurniture?"Meublé": "Non meublé"}} - {{ accomodationDetail.roomNumber }} chambres
+            {{ accomodationDetail.hasFurniture ? "Meublé" : "Non meublé" }} -
+            {{ accomodationDetail.roomNumber }} chambres
           </div>
           <div
             class="ellipsis-2 wrapper-description-full text-start color-ft-weak"
@@ -63,9 +64,15 @@
         </div>
       </div>
     </router-link>
+    <div class="position-absolute delete-icon" v-if="$route.meta.admin">
+      <v-icon size="x-large" color="red" @click="deleteHouse(appartId)">
+        mdi-delete
+      </v-icon>
+    </div>
   </div>
 </template>
 <script>
+import axios from "axios";
 import Carrousel from "./CardSlider.vue";
 export default {
   name: "CardVue",
@@ -94,6 +101,23 @@ export default {
         params: { id: this.appartId },
       });
     },
+    deleteHouse(id) {
+      console.log(id);
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      axios
+        .delete(`http://localhost:8000/api/deleteAccomodation/${id}`, {
+          headers: {
+            "x-access-token": userData.accessToken,
+          },
+        })
+        .then((data) => {
+          console.log(data);
+       
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
   },
 };
 </script>
@@ -109,6 +133,17 @@ export default {
 .ft-2xs.unit {
   color: #353535;
 }
+
+.delete-icon {
+  opacity: 0;
+  right: 4%;
+  bottom: 17%;
+  transition: ease-in-out 1s;
+}
+.sliderCard:hover .delete-icon {
+  opacity: 1;
+}
+
 .carrousel-container {
   height: 218px !important;
   overflow: hidden;
@@ -147,7 +182,7 @@ export default {
 }
 
 .AccomodationBlock_notif.is-active {
-  background-color: rgba(33, 175, 40, 0.959);   
+  background-color: rgba(33, 175, 40, 0.959);
 }
 
 .AccomodationBlock_notif {

@@ -31,13 +31,11 @@ module.exports = {
     module: {
       rules: [
         {
-          test: /\.(pdf|jpg|avif)(\?.*)?$/,
+          test: /\.(pdf|png)(\?.*)?$/,
           use: [
             {
               loader: 'url-loader',
-              options: {
-                name: 'files/[name].[hash:8].[ext]'
-              }
+           
             }
           ]
         }

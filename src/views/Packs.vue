@@ -636,6 +636,7 @@ main/*{
     background-color: rgba(241, 143, 118, 0.801);
     background-color:rgba(126, 189, 218, 0.897);
   );*/
+  height: 100vh;
   background-color:rgba(126, 189, 218, 0.897);
   padding: 10px;
 }

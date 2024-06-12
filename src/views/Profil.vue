@@ -163,10 +163,8 @@
               <i class="fa-solid fa-check dark-blue icon" style="margin-left: 95px;" ></i>
               <div class="card--header">
                 <div class="amount">
-                  <span class="title"> Annonces : {{
-                    userData.nbreAnnouncement
-                  }} </span>
-                 
+                  {{ userData.isVerified }}
+                  <span class="title">{{ userData.email }}</span>
                 </div>
                 
               </div>
@@ -177,8 +175,13 @@
         </div>
 
         <div class="card--container mt-3" id="profil">
-          <form method="POST" class="form2" enctype="multipart/form-data">
-            <h2 class="mb-3">Données personnelles</h2>
+          <h2 class="mb-3">Activation profil</h2>
+          <form
+            method="POST"
+            class="form2"
+            enctype="multipart/form-data"
+            v-if="userData.isVerified == 'No'"
+          >
             Afin de devenir un profil verifié en envoyant une copie pdf de ma
             carte CIP OU biometrique suivi d'une photo d'identité à fond blanc
             <div
@@ -253,7 +256,7 @@
                     }}
                     <input
                       type="file"
-                      name="piece"
+                      name="piece_identite"
                       accept="application/pdf"
                       @change="getUserIdentity"
                       class="file preview btn_like"
@@ -273,7 +276,7 @@
                     class="file-input-summary-item my-2"
                     v-if="userTruePhoto"
                   >
-                  <i class="fa-solid fa-file-import me-2"></i>
+                    <i class="fa-solid fa-file-import me-2"></i>
                     <span>{{ userTruePhoto }}</span>
                   </div>
                   <label
@@ -327,7 +330,7 @@
                     }}
                     <input
                       type="file"
-                      name="personalPhoto"
+                      name="photo_identite"
                       accept="image/*"
                       @change="getUserPhoto"
                       class="file preview btn_like"
@@ -344,7 +347,8 @@
                 <button
                   @click="UpdateUserInfo"
                   :class="[
-                    userTruePhoto && userPiece ? 'validate-btn' : 'isDisabled','text-uppercase'
+                    userTruePhoto && userPiece ? 'validate-btn' : 'isDisabled',
+                    'text-uppercase',
                   ]"
                   v-if="userPiece || userTruePhoto"
                   :disabled="userTruePhoto == '' || userPiece == ''"
@@ -352,12 +356,32 @@
                   Confirmer mes données
                 </button>
               </div>
-
-            
             </div>
           </form>
+        
+          <div
+            class="message d-flex align-items-center flex-column justify-center"
+            v-else-if="userData.isVerified == 'Pending'"
+          >
+
+            <div class="spinner-container">
+              <div class="spinner-border text-success" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+              <p class="text-h5 ms-2">
+                Votre demande est en cours de traitement.
+              </p>
+            </div>
+            <span class="d-block"
+              >Veuillez revenir consulter votre profil de temps en temps</span
+            >
+          </div>
+
+          <div class="verified"    v-else-if="userData.isVerified == 'yes'">
+            <h1>Bravo!</h1>
+            Vous informations ont ete verifiés.Vous profil est desormais actif
+          </div>
         </div>
-          <p style="font-weight:bold; color:rgb(221, 88, 55); ">Devenez un profil verifié en envoyant une copie de votre carte CIP Ou Biometrique</p>         </div>
       </div>
     </form>
   </section>
@@ -387,16 +411,7 @@ export default {
       userData.userName.charAt(0).toUpperCase() +
       userData.userFirstName.charAt(0).toUpperCase();
     this.userInitials = userInitials;
-    axios
-      .get("http://localhost:8000/api/user", {
-        headers: {
-          "x-access-token": userData.accessToken,
-        },
-      })
-      .then(({ data }) => {
-        this.userData = data;
-        console.log("ll", this.userData);
-      });
+    this.loadData();
   },
 
   methods: {
@@ -409,6 +424,20 @@ export default {
       const data = URL.createObjectURL(e.target.files[0]);
       this.img = data;
       this.changePhoto = true;
+    },
+
+    loadData() {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      axios
+        .get("http://localhost:8000/api/user", {
+          headers: {
+            "x-access-token": userData.accessToken,
+          },
+        })
+        .then(({ data }) => {
+          this.userData = data;
+          console.log("ll", this.userData);
+        });
     },
 
     getUserIdentity(e) {
@@ -479,6 +508,7 @@ export default {
             cancelButtonText: "Non",
             text: "Veuillez revenir consulter votre profil régulièrement",
           });
+          this.loadData();
         })
         .catch((err) => {
           console.log(err);
@@ -494,7 +524,6 @@ export default {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  border: none;
   outline: none;
   box-sizing: border-box;
 }

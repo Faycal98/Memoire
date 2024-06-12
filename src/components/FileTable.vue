@@ -1,16 +1,10 @@
 <template>
-  <link
-    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-    rel="stylesheet"
-  />
-  <div class="content">
-  
-    <!-- container -->
-    <div class="">
-      <div class=""></div>
-    </div>
 
-    <div class="">
+  <div class="content">
+    <!-- container -->
+  
+
+    <div class="" v-if="users.length>0">
       <v-divider></v-divider>
 
       <v-card flat class="table">
@@ -26,7 +20,6 @@
             single-line
           ></v-text-field>
           <v-spacer></v-spacer>
-        
         </v-card-title>
 
         <v-divider></v-divider>
@@ -108,25 +101,26 @@
           </template>
 
           <template v-slot:item.actions="{ item }">
-            <i
-              class="fa-solid fa-circle-check text-h5 text-success"
-              @click="validateAccount(item)"
-            ></i>
+            <span class="validate" @click="validateFiles(item)">
+              <i class="fa-solid fa-circle-check text-h5 text-success"></i>
+            </span>
 
-            <v-icon
-              class="me-2"
-              color="red"
-              size="x-large"
-              @click="lockAccount(item)"
-            >
-              mdi-close-circle
-            </v-icon>
+            <span class="validate" @click="deleteFiles(item)">
+              <v-icon class="mx-2" color="red" size="x-large">
+                mdi-close-circle
+              </v-icon>
+            </span>
           </template>
           <template v-slot:no-data>
             <v-btn color="primary"> Actualiser </v-btn>
           </template>
         </v-data-table>
       </v-card>
+    </div>
+    <div class="empty" v-else>
+      <div class="">
+        <h2>Aucun fichier</h2>
+      </div>
     </div>
   </div>
 </template>
@@ -154,27 +148,72 @@ export default {
   },
   mounted() {
     console.log(2342);
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    console.log(userData);
-    axios
-      .get("http://localhost:8000/api/usersPersonalInfo", {
-        headers: {
-          "x-access-token": userData.accessToken,
-        },
-      })
-      .then(({ data }) => {
-        console.log(2342);
-        console.log(data);
-        this.users = data;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.loadData();
   },
 
   methods: {
     seePhoto(item) {
       console.log(item);
+    },
+    loadData() {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      console.log(userData);
+      axios
+        .get("http://localhost:8000/api/usersPersonalInfo", {
+          headers: {
+            "x-access-token": userData.accessToken,
+          },
+        })
+        .then(({ data }) => {
+          console.log(2342);
+          console.log(data);
+          this.users = data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    deleteFiles(item) {
+      console.log(13421);
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      console.log(userData.accessToken);
+      axios
+        .put(
+          `http://localhost:8000/api/deleteFiles/${item.id}`,
+          {},
+          {
+            headers: {
+              "x-access-token": userData.accessToken,
+            },
+          }
+        )
+        .then((data) => {
+          this.loadData();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    validateFiles(item) {
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      console.log(userData.accessToken);
+      axios
+        .put(
+          `http://localhost:8000/api/validateFiles/${item.id}`,
+          {},
+          {
+            headers: {
+              "x-access-token": userData.accessToken,
+            },
+          }
+        )
+        .then((data) => {
+          this.loadData();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
@@ -185,6 +224,17 @@ body {
   margin-top: 20px;
   background: #dcdcdc;
 }
+.empty{
+  
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.validate {
+  cursor: pointer;
+}
 .card-box {
   padding: 20px;
   border-radius: 3px;
@@ -193,9 +243,9 @@ body {
 }
 
 .pdf {
-        width: 100%;
-        aspect-ratio: 4 / 3;
-    }
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
 
 .file-man-box {
   padding: 20px;

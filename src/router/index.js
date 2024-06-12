@@ -13,7 +13,12 @@ const routes = [
     component: HomeView,
     beforeEnter: (to, from, next) => {
       console.log("home");
-      if (store.state.isLogged && store.state.user.role !== "Locataire") {
+      if (store.state.isLogged && store.state.user.role == "Admin") {
+        next("/dashboard");
+      } else if (
+        store.state.isLogged &&
+        store.state.user.role !== "Locataire"
+      ) {
         next("/owner");
       } else {
         next();
@@ -85,7 +90,14 @@ const routes = [
       guestGuard: true,
     },
     component: () => import("../components/Otp.vue"),
-
+    beforeEnter: (to, from, next) => {
+      console.log("home");
+      if (store.state.isLogged) {
+        next("/owner");
+      } else {
+        next();
+      }
+    },
   },
 
   {
@@ -129,7 +141,6 @@ const routes = [
     meta: {
       admin: true,
     },
-  
   },
   {
     path: "/dashboard/houses",
@@ -138,7 +149,6 @@ const routes = [
     meta: {
       admin: true,
     },
-  
   },
   {
     path: "/dashboard/files",
@@ -147,7 +157,6 @@ const routes = [
     meta: {
       admin: true,
     },
-  
   },
   {
     path: "/user/:id/profil",

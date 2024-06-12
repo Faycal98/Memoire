@@ -219,9 +219,9 @@
             ></v-alert>
           </div>
 
-          <div class="row" v-if="accomodationTab.length > 0">
+          <div class="row " v-if="accomodationTab.length > 0">
             <div
-              class="col-lg-4 col-sm-8 mb-4"
+              class="col-lg-5 col-sm-8 mb-4"
               v-if="!isLoading"
               v-for="accomodation in accomodationTab"
               :key="accomodation"
@@ -563,7 +563,7 @@ export default {
 .sidebar {
   overflow: scroll;
   position: relative;
-  top: 15px;
+  top: 0px;
 
   height: 480px;
 }
