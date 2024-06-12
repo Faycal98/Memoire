@@ -33,7 +33,7 @@
           <router-link to="/dashboard">
             <h1 class="ms-5 header-title">
               <img
-                src="../assets/log01.png"
+                src="../assets/log01.jpg"
                 alt=""
                 style="height: 9vh; margin-bottom: -9px"
               /></h1

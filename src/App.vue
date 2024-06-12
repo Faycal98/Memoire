@@ -236,6 +236,7 @@ console.log(userData)
         })
         .then(({ data }) => {
           userData.isAllowed = data.isAllowed;
+          console.log(data)
           this.$store.dispatch("updateUser", userData);
         })
         .catch((err) => {

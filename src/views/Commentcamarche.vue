@@ -2,7 +2,7 @@
     <div id="navbar">
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <a data-v-9c6758da href="/">
-      <h1 class="ms-5 header-title"><img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -2px;" ></h1>
+      <h1 class="ms-5 header-title"><img src="../assets/log01.jpg" alt="" style="height: 10vh; margin-bottom: -2px;" ></h1>
     </a>
       <div
         class="header-right justify-content-end align-items-center collapse navbar-collapse" id="navbarSupportedContent">

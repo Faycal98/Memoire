@@ -2,7 +2,7 @@
       <div id="navbar">
         <nav class="navbar navbar-expand-lg">
         <router-link to="/">
-          <h1 class="ms-5 header-title text-white"><img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -2px;" ></h1>
+          <h1 class="ms-5 header-title text-white"><img src="../assets/log01.jpg" alt="" style="height: 9vh; margin-bottom: -2px;" ></h1>
         </router-link>
         <div
           class="header-right justify-content-between align-items-center "
