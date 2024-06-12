@@ -141,6 +141,15 @@ const routes = [
   
   },
   {
+    path: "/dashboard/files",
+    name: "AdminFile",
+    component: () => import("@/components/FileTable.vue"),
+    meta: {
+      admin: true,
+    },
+  
+  },
+  {
     path: "/user/:id/profil",
     name: "profil",
     component: () => import("../views/Profil.vue"),

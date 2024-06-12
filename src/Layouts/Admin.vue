@@ -3,8 +3,22 @@
     <div class="col-2 sidebar">
       <div class="title"><i class="fa-solid fa-house"></i> Dashboard</div>
       <ul class="menu">
-        <li><i class="fa-solid fa-users"></i> Liste des utilisateurs</li>
-        <li><i class="fa-solid fa-list me-2"></i>Liste des annonces</li>
+        <li>
+          <router-link to="/dashboard">
+            <i class="fa-solid fa-users"></i> Liste des utilisateurs
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/dashboard/houses">
+          <i class="fa-solid fa-list me-2"></i>Liste des annonces
+        </router-link>
+        </li>
+
+        <li>
+          <router-link to="/dashboard/files" >
+          <i class="fa-solid fa-file me-2"></i>Liste des fichiers
+        </router-link>
+        </li>
         <li class="logout">
           <a @click="logout" href="#"
             ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Se
@@ -18,9 +32,12 @@
         <nav :class="['navbar navbar-expand-lg']">
           <router-link to="/dashboard">
             <h1 class="ms-5 header-title">
-              <img src="../assets/log01.png" alt="" style="height: 9vh; margin-bottom: -9px;" >
-            </h1></router-link
-          >
+              <img
+                src="../assets/log01.png"
+                alt=""
+                style="height: 9vh; margin-bottom: -9px"
+              /></h1
+          ></router-link>
           <button
             class="navbar-toggler"
             type="button"
@@ -71,12 +88,10 @@ export default {
     return {
       hide: true,
       userInitials: "",
-     
     };
   },
   mounted() {
     const userData = this.$store.state.user;
-  
 
     if (userData) {
       console.log(userData, 123);
@@ -107,6 +122,17 @@ export default {
 #letter {
   color: #36417d;
 }
+
+/* 
+li .router-link-exact-active {
+background-color: red
+} */
+
+li:has(.router-link-exact-active) {
+  padding: 15px 6px;
+  background-color: #5a5a90;
+  border-radius: 10px;
+}
 .link {
   display: flex;
   align-items: center;
@@ -115,7 +141,7 @@ export default {
 }
 .sidebar {
   font-family: "Metrophobic", sans-serif;
-  padding: 0px;
+  padding: 10px;
 }
 .menu {
   height: 80%;
@@ -137,7 +163,7 @@ export default {
 
 .sidebar ul {
   list-style-type: none;
-  padding: 0px;
+  padding-left: 10px;
 }
 .sidebar .title {
   font-size: 25px;
@@ -146,7 +172,7 @@ export default {
   border-bottom: 1px solid #fff;
 }
 .sidebar li {
-  margin: 45px 23px 23px 35px;
+  margin: 45px 0px;
   cursor: pointer;
   font-size: 18px;
   font-family: "Metrophobic", sans-serif;
