@@ -339,11 +339,11 @@ export default {
     axios
       .get("http://localhost:8000/api/findAllAccomodation")
       .then(({ data }) => {
-        console.log(data);
+     
         this.accomodationTab = data;
       })
       .catch((err) => {
-        console.log(err);
+     
       });
   },
 
@@ -362,7 +362,7 @@ export default {
       this.isOpen = !this.isOpen;
     },
     submitCity(city) {
-      console.log(city);
+    
 
       let filter = {
         type: {

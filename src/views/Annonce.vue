@@ -1002,7 +1002,7 @@ export default {
         formData.append("files", this.rawfiles[i]);
       }
       console.log(this.department);
-      alert(this.city.name)
+
       formData.append("type", this.typeLogement);
       formData.append("city", this.city.name);
       formData.append("neighborhood", this.neighborhood);

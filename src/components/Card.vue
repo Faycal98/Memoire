@@ -69,6 +69,23 @@
         mdi-delete
       </v-icon>
     </div>
+
+    <v-avatar color="brown" v-if="isVerified" class="big-img position-absolute">
+      <span v-if="!ownerData.profilePhoto" class="text-h7 avatar">{{
+        userInitials
+      }}</span>
+      <v-img
+        v-else
+        :src="`http://localhost:8000/profil/${ownerData.profilePhoto}`"
+      ></v-img>
+    </v-avatar>
+    <img
+      v-if="isVerified"
+      class="validation-badge position-absolute"
+      src="../assets/badge.svg"
+      alt=""
+      width="10px"
+    />
   </div>
 </template>
 <script>
@@ -77,7 +94,12 @@ import Carrousel from "./CardSlider.vue";
 export default {
   name: "CardVue",
   data() {
-    return {};
+    return {
+      isVerified: false,
+      userData: "",
+      OwnerInitials: "",
+      ownerData: "",
+    };
   },
   components: {
     Carrousel,
@@ -93,16 +115,30 @@ export default {
       type: Object,
     },
   },
+  mounted() {
+
+    let owner = this.accomodationDetail.announcements[0].user;
+    this.ownerData = owner;
+    const ownerInitials =
+      owner.userName.charAt(0).toUpperCase() +
+      owner.userFirstName.charAt(0).toUpperCase();
+    this.OwnerInitials = ownerInitials;
+ 
+    let verification = this.accomodationDetail.announcements[0].user.isVerified;
+    verification === "Yes" ? (this.isVerified = true) : false;
+  
+  },
   methods: {
     goToDetails() {
-      console.log("clicked");
+  
       this.$router.push({
         name: "houseDetails",
         params: { id: this.appartId },
       });
     },
+
     deleteHouse(id) {
-      console.log(id);
+    
       const userData = JSON.parse(localStorage.getItem("userData"));
       axios
         .delete(`http://localhost:8000/api/deleteAccomodation/${id}`, {
@@ -111,8 +147,7 @@ export default {
           },
         })
         .then((data) => {
-          console.log(data);
-       
+        
         })
         .catch((err) => {
           console.log(err);
@@ -133,7 +168,15 @@ export default {
 .ft-2xs.unit {
   color: #353535;
 }
+.big-img {
+  top: 40%;
+  left: 5%;
+}
 
+.validation-badge {
+  top: 45%;
+  left: 15%;
+}
 .delete-icon {
   opacity: 0;
   right: 4%;
