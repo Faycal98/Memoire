@@ -110,7 +110,7 @@
                     params: { id: parseInt(this.userId) },
                   }"
                 >
-                  <a class="dropdown-item text-black" href="#"
+                  <a class="dropdown-item text-black"
                     ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
                     annonces</a
                   >

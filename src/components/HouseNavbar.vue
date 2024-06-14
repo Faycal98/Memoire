@@ -156,9 +156,14 @@
                     <i class="fa-solid fa-user me-2 pt-2"></i>Mon profil</router-link>
                 </li>
                 <li v-if="userRole !== 'Locataire'" @click="handleClick">
-                  <a class="dropdown-item text-black"
-                    ><i class="fa-solid fa-list me-2 pt-2"></i>Mes annonces</a
-                  >
+                  <router-link :to="{
+                      name: 'annonceList',
+                      params: { id: parseInt(this.userId) },
+                    }">
+                    <a class="dropdown-item text-black"
+                      ><i class="fa-solid fa-list me-2 pt-2"></i>Mes annonces</a>
+                    </router-link>
+
                 </li>
                 <li>
                   <a class="dropdown-item text-black" @click="logout"

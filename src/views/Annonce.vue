@@ -3,7 +3,9 @@
     <div id="navbar">
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
-          <h1 class="ms-5 header-title">ChezVous</h1>
+          <h1 class="ms-5 header-title">
+            <img src="../assets/log01.jpg" alt="" style="height: 8vh;background-color:white;border-radius:4px;  margin-bottom: -1px;" >
+          </h1>
         </router-link>
         <div
           class="header-right justify-content-end align-items-center d-flex"
@@ -11,7 +13,13 @@
         >
           <ul class="u-block">
             <li>
-              <router-link to="/" class="dropdown-item text-white">
+              <router-link
+                  :to="{
+                    name: 'annonceList',
+                    params: { id: parseInt(this.userId) },
+                  }"
+                  class="dropdown-item text-white"
+                >
                 Mes annonces
               </router-link>
             </li>
@@ -1215,15 +1223,6 @@ export default {
 }
 
 
-
-
-
-
-
-
-
-
-
 .hidden {
   display: none;
 }
@@ -1405,7 +1404,7 @@ header {
 
 .navbar {
   position: fixed;
-  border-bottom: 0.5px solid hsla(0, 0%, 100%, 0.3);
+ /* border-bottom: 0.5px solid hsla(0, 0%, 100%, 0.3);*/
 }
 
 .v-enter-from,

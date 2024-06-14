@@ -120,11 +120,11 @@ export default {
 
       users: [],
       headers: [
-        {
+        /*{
           key: "id",
           sortable: false,
           title: "Id",
-        },
+        },*/
         { key: "userName", title: "Noms" },
         { key: "userFirstName", title: "Prénoms" },
         { key: "role", title: "Rôles" },

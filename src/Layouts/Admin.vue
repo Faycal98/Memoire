@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <div class="col-2 sidebar">
-      <div class="title"><i class="fa-solid fa-house"></i> Dashboard</div>
+      <div class="title"><i class="fa-solid fa-house"></i> Admin</div>
       <ul class="menu">
         <li>
           <router-link to="/dashboard">

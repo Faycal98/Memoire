@@ -9,18 +9,10 @@
             <div class="spinner-border spinner-border-sm" role="status">
               <span class="visually-hidden">Loading...</span>
             </div>
-            <h2>Recherche en cours</h2>
+            <h2>Recherche en cours...</h2>
           </div>
-          <div class="ps-3 SearchPage_Header_title" v-else>
-            + de 10 logements sont disponibles
-          </div>
-          <div class="me-4 select-container">
-            <select v-model="selected">
-              <option disabled value="">Trier par:</option>
-              <option>Prix croissant</option>
-              <option>Prix décroissant</option>
-            </select>
-          </div>
+          
+         
         </div>
       </div>
       <div class="row gx-2">

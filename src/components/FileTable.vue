@@ -159,15 +159,17 @@ export default {
       search: "",
       users: [],
       headers: [
-        {
+       /* {
           key: "id",
           sortable: false,
           title: "Id",
-        },
+        },*/
+        
         { key: "userName", title: "Noms" },
         { key: "userFirstName", title: "Prénoms" },
-        { key: "truePhoto", title: "Photo" },
-        { key: "identity_card", title: "Piece biometrique" },
+       /* { key: "role", title: "Rôles" },*/
+        { key: "truePhoto", title: "Photos d'identité" },
+        { key: "identity_card", title: "Pièces biométriques" },
 
         { title: "Actions", key: "actions", sortable: false },
       ],
