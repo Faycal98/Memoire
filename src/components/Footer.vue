@@ -62,7 +62,9 @@
               <div class="Footer_link">Nous rejoindre</div>
             </li>
             <li class="Footer_item">
+              <router-link to="/contact">
               <div class="Footer_link">Nous contacter</div>
+              </router-link>
             </li>
             <li class="Footer_item " id="icon">
               <a class="Footer_link" href="#"><i class="fa-solid fa-circle-up" style="font-size: 30px; transition: all .2s;"></i></a>

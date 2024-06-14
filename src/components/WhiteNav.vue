@@ -3,7 +3,13 @@
     <div id="navbar">
       <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
         <router-link to="/">
-          <h1 class="ms-5 header-title"><img src="../assets/log01.jpg" alt="" style="height: 9vh; margin-bottom: -9px;" ></h1>
+          <h1 class="ms-5 header-title">
+            <img
+              src="../assets/log01.jpg"
+              alt=""
+              style="height: 9vh; margin-bottom: -9px"
+            />
+          </h1>
         </router-link>
         <div
           class="header-right justify-content-between align-items-center collapse navbar-collapse"
@@ -111,9 +117,9 @@
                 </li>
 
                 <li>
-                  <a class="dropdown-item last" href="#"
-                    ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
-                    contacter</a
+                  <router-link to="/contact" class="dropdown-item last">
+                    <i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
+                    contacter</router-link
                   >
                 </li>
               </ul>
@@ -194,18 +200,16 @@ export default {
     const userData = JSON.parse(localStorage.getItem("userData"));
 
     if (userData) {
-
       axios
-      .get("http://localhost:8000/api/user", {
-        headers: {
-          "x-access-token": userData.accessToken,
-        },
-      })
-      .then(({ data }) => {
-        this.userData = data;
-      });
+        .get("http://localhost:8000/api/user", {
+          headers: {
+            "x-access-token": userData.accessToken,
+          },
+        })
+        .then(({ data }) => {
+          this.userData = data;
+        });
 
-      
       this.userRole = userData.role;
       this.userId = userData.id;
       console.log(this.userRole);
@@ -532,7 +536,6 @@ header {
   align-items: center;
   padding: 15px;
   position: relative;
-  
 }
 .list {
   position: absolute;
@@ -638,10 +641,10 @@ nav {
       cursor: pointer;
       font-weight: 600;
       list-style-type: none;
-      color:#36417d;
+      color: #36417d;
     }
-    li:hover{
-      color:#6875c0;
+    li:hover {
+      color: #6875c0;
     }
   }
 }

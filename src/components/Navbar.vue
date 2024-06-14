@@ -3,9 +3,12 @@
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <router-link to="/">
         <h1 class="ms-5 header-title">
-          <img src="../assets/log01.jpg" alt="" style="height: 9vh; margin-bottom: -2px;" >
-        </h1></router-link
-      >
+          <img
+            src="../assets/log01.jpg"
+            alt=""
+            style="height: 9vh; margin-bottom: -2px"
+          /></h1
+      ></router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -118,15 +121,15 @@
               </li>
               <li>
                 <a class="dropdown-item text-black" @click="logout" href="#"
-                  ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i
-                  >Se déconnecter</a
+                  ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Se
+                  déconnecter</a
                 >
               </li>
 
               <li>
-                <a class="dropdown-item last" href="#"
+                <router-link to="/contact" class="dropdown-item last"
                   ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
-                  contacter</a
+                  contacter</router-link
                 >
               </li>
             </ul>
@@ -307,7 +310,7 @@ nav {
 }
 </style>
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   name: "NavbarVue",
   data() {
@@ -331,18 +334,16 @@ export default {
     const userData = JSON.parse(localStorage.getItem("userData"));
 
     if (userData) {
-
       axios
-      .get("http://localhost:8000/api/user", {
-        headers: {
-          "x-access-token": userData.accessToken,
-        },
-      })
-      .then(({ data }) => {
-        this.userData = data;
-      
-      });
-      
+        .get("http://localhost:8000/api/user", {
+          headers: {
+            "x-access-token": userData.accessToken,
+          },
+        })
+        .then(({ data }) => {
+          this.userData = data;
+        });
+
       this.userRole = userData.role;
       this.userId = userData.id;
       console.log(this.userRole);

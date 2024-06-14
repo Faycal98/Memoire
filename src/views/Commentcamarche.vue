@@ -7,7 +7,7 @@
       <div
         class="header-right justify-content-end align-items-center collapse navbar-collapse" id="navbarSupportedContent">
         <ul>
-          <router-link to="#">
+          <router-link to="contact">
             <li class="link">Nous contacter</li>
           </router-link>
           <router-link to="#">

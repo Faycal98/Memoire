@@ -41,7 +41,12 @@
                   </router-link>
                 </li>
                 <li>
-                  <router-link :to="{ name: 'annonceList', params: { id: parseInt(this.userId) } }">
+                  <router-link
+                    :to="{
+                      name: 'annonceList',
+                      params: { id: parseInt(this.userId) },
+                    }"
+                  >
                     <a class="dropdown-item text-black" href="#"
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Mes
                       annonces</a
@@ -56,27 +61,27 @@
                 </li>
 
                 <li>
-                  <a class="dropdown-item last" href="#"
+                  <router-link to="/contact" class="dropdown-item last"
                     ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
-                    contacter</a
+                    contacter</router-link
                   >
                 </li>
               </ul>
             </div>
             <v-avatar
-            color="brown"
-            @click="hide = !hide"
-            v-if="userInitials"
-            class="big-img"
-          >
-            <span v-if="!userData.profilePhoto" class="text-h7 avatar">{{
-              userInitials
-            }}</span>
-            <v-img
-              v-else
-              :src="`http://localhost:8000/profil/${userData.profilePhoto}`"
-            ></v-img>
-          </v-avatar>
+              color="brown"
+              @click="hide = !hide"
+              v-if="userInitials"
+              class="big-img"
+            >
+              <span v-if="!userData.profilePhoto" class="text-h7 avatar">{{
+                userInitials
+              }}</span>
+              <v-img
+                v-else
+                :src="`http://localhost:8000/profil/${userData.profilePhoto}`"
+              ></v-img>
+            </v-avatar>
 
             <router-link to="/login" v-else>
               <button
@@ -165,7 +170,9 @@
                   <v-row>
                     <v-col class="py-2 text-start" cols="12" sm="12">
                       <h2 class="text-h4 text-start title">Détails</h2>
-                      <p class="my-2 mt-4">Veuillez sélectionner le type de logement</p>
+                      <p class="my-2 mt-4">
+                        Veuillez sélectionner le type de logement
+                      </p>
                       <v-btn-toggle
                         v-model="typeLogement"
                         color="#36417d"
@@ -347,8 +354,10 @@
                     Emplacement du logement
                   </h2>
                   <span class="text-start"
-                    >Veuillez fournir des donnees correctes.<b style="color:rgb(221, 88, 55);"
-                      > Il vous sera difficile de les modifier plus tard</b
+                    >Veuillez fournir des donnees correctes.<b
+                      style="color: rgb(221, 88, 55)"
+                    >
+                      Il vous sera difficile de les modifier plus tard</b
                     ></span
                   >
                   <div class="stepper-bottom">
@@ -822,7 +831,7 @@ export default {
       washMachine: false,
       wifi: false,
       userId: "",
-      userData:"",
+      userData: "",
       balcony: false,
       garden: false,
       waterDistribution: "Soneb",
@@ -852,7 +861,7 @@ export default {
     window.addEventListener("scroll", this.handleScroll);
   },
   mounted() {
-    console.log("ici departement",this.city);
+    console.log("ici departement", this.city);
     const userID = this.$route.params.id;
     this.userId = userID;
     const userData = JSON.parse(localStorage.getItem("userData"));
@@ -864,8 +873,7 @@ export default {
       })
       .then(({ data }) => {
         this.userData = data;
-   
-      }); 
+      });
     axios
       .get("http://localhost:8000/api/user", {
         headers: {
@@ -1214,16 +1222,6 @@ export default {
   padding: 10px 20px;
 }
 
-
-
-
-
-
-
-
-
-
-
 .hidden {
   display: none;
 }
@@ -1266,9 +1264,9 @@ export default {
   font-size: 35px;
 }
 
-
 .sub-list .dropdown-item {
-  color: #36417d !important;}
+  color: #36417d !important;
+}
 .dropdown-item {
   color: white !important;
   font-weight: 400;
@@ -1305,20 +1303,6 @@ export default {
 .link:hover .list li {
   display: block;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 span {
   font-weight: 500;
@@ -1499,7 +1483,6 @@ header {
 .drop-text {
   color: #fff;
   font-size: 15px;
-  
 
   border-radius: 5px;
   padding: 6px 18px;
