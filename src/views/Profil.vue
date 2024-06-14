@@ -27,7 +27,7 @@
         </li>
       </ul>
     </div>
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" style="width: 100%;">
       <div class="main--content" id="main">
         <div class="header--wrapper">
           <div class="header--title">
@@ -147,7 +147,7 @@
 
             <div
               class="payment--card light-purple"
-              v-if="userData.role !== 'Locataire'"
+             
             >
               <i class="fa-solid fa-phone dark-purple icon" style="margin-left: 95px;"></i>
               <div class="card--header">
@@ -159,7 +159,7 @@
               </div>
             </div>
 
-            <div class="payment--card light-blue">
+            <div class="payment--card light-blue"   v-if="userData.role !== 'Locataire'">
               <i class="fa-solid fa-check dark-blue icon" style="margin-left: 95px;" ></i>
               <div class="card--header">
                 <div class="amount">
@@ -174,7 +174,7 @@
           </div>
         </div>
 
-        <div class="card--container mt-3" id="profil">
+        <div class="card--container mt-3" id="profil"   v-if="userData.role !== 'Locataire'">
           <h2 class="mb-3" style="font-weight:bold; color:rgb(221, 88, 55);">Activation de mon profil</h2>
           <form
             method="POST"

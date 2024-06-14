@@ -3,9 +3,12 @@
     <nav :class="[{ onScroll: !view.topOfPage }, 'navbar navbar-expand-lg']">
       <router-link to="/owner">
         <h1 class="ms-5 header-title">
-          <img src="../assets/log01.jpg" alt="" style="height: 9vh; margin-bottom: -2px;" >
-        </h1></router-link
-      >
+          <img
+            src="../assets/log01.jpg"
+            alt=""
+            style="height: 9vh; margin-bottom: -2px"
+          /></h1
+      ></router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -33,7 +36,7 @@
             <li>Déposer une annonce</li>
           </router-link>
 
-          <router-link to="#">
+          <router-link to="/contact">
             <li class="link">Nous contacter</li>
           </router-link>
         </ul>
@@ -57,6 +60,14 @@
                   ><i class="fa-solid fa-list me-2 arrow"></i>Mes annonces</a
                 >
               </li>
+
+              <li>
+                <router-link to="/contact" class="dropdown-item text-black"
+                  ><i class="fa-solid fa-address-book me-2 pt-2"></i>Nous
+                  contacter
+                </router-link>
+              </li>
+
               <li>
                 <a class="dropdown-item text-black" @click="logout" href="#"
                   ><i class="fa-solid fa-right-from-bracket me-2 arrow"></i>Se
@@ -103,7 +114,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
   name: "OwnerNavbar",
   data() {
@@ -117,7 +128,7 @@ export default {
       img: "",
       userData: "",
       hide: true,
-    
+
       showHidden: false,
     };
   },
@@ -135,7 +146,6 @@ export default {
       })
       .then(({ data }) => {
         this.userData = data;
-   
       });
     if (userData) {
       const userInitials =
@@ -183,7 +193,6 @@ export default {
   font-weight: bold;
 }
 .link:hover {
-
   font-weight: bold;
 }
 

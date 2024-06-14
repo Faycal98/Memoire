@@ -4,7 +4,16 @@
       <nav class="navbar navbar-expand-lg">
         <router-link to="/">
           <h1 class="ms-5 header-title">
-            <img src="../assets/log01.jpg" alt="" style="height: 7vh;background-color:white;border-radius:4px;  margin-bottom: -11px;" >
+            <img
+              src="../assets/log01.jpg"
+              alt=""
+              style="
+                height: 7vh;
+                background-color: white;
+                border-radius: 4px;
+                margin-bottom: -11px;
+              "
+            />
           </h1>
         </router-link>
         <div
@@ -132,9 +141,9 @@
                     </router-link>
                   </li>
                   <li>
-                    <a class="dropdown-item last" href="#"
+                    <router-link to="/contact" class="dropdown-item last"
                       ><i class="fa-solid fa-arrow-right me-2 arrow"></i>Nous
-                      contacter</a
+                      contacter</router-link
                     >
                   </li>
                 </ul>
@@ -147,13 +156,15 @@
               <ul class="sub-list d-block">
                 <li>
                   <router-link
-                  :to="{
-                    name: 'profil',
-                    params: { id: parseInt(this.userId) },
-                  }"
-                  class="dropdown-item"
-                >
-                    <i class="fa-solid fa-user me-2 pt-2"></i>Mon profil</router-link>
+                    :to="{
+                      name: 'profil',
+                      params: { id: parseInt(this.userId) },
+                    }"
+                    class="dropdown-item"
+                  >
+                    <i class="fa-solid fa-user me-2 pt-2"></i>Mon
+                    profil</router-link
+                  >
                 </li>
                 <li v-if="userRole !== 'Locataire'" @click="handleClick">
                   <router-link :to="{
@@ -313,7 +324,7 @@ export default {
       red: "red",
       userRole: "",
       minBudget: 5000,
-      userId:"",
+      userId: "",
       hide: true,
       userData: "",
       maxBudget: 50000000,
@@ -357,20 +368,18 @@ export default {
   },
   mounted() {
     const userData = this.$store.state.user;
-   
 
     if (userData) {
-
       axios
-      .get("http://localhost:8000/api/user", {
-        headers: {
-          "x-access-token": userData.accessToken,
-        },
-      })
-      .then(({ data }) => {
-        this.userData = data;
-      });
-   
+        .get("http://localhost:8000/api/user", {
+          headers: {
+            "x-access-token": userData.accessToken,
+          },
+        })
+        .then(({ data }) => {
+          this.userData = data;
+        });
+
       this.userId = userData.id;
       this.userRole = userData.role;
       const userInitials =

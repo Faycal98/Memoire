@@ -68,7 +68,9 @@
               <div class="Footer_link"> <i class="fa-brands fa-whatsapp" style=" height: 30px; margin-bottom:-6px"></i> (+229) 58-83-57-58 </div>
             </li>
             <li class="Footer_item">
-              <div class="Footer_link"> <i class="fa-solid fa-envelope" style=" height: 30px; margin-bottom:-6px"></i> chezvous229@gmail.com</div>
+              <router-link to="/contact">
+              <div class="Footer_link">Nous contacter</div>
+              </router-link>
             </li>
             
             <li class="Footer_item " id="icon">

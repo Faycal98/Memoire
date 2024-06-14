@@ -109,6 +109,15 @@ const routes = [
     component: () => import("../views/Register.vue"),
     beforeEnter: redirect,
   },
+  {
+    path: "/contact",
+    name: "contact",
+    meta: {
+      guestGuard: true,
+    },
+    component: () => import("../views/Contact.vue"),
+
+  },
 
   {
     path: "/packs",
