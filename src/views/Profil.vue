@@ -587,7 +587,7 @@ export default {
   },
   mounted() {
     const userData = JSON.parse(localStorage.getItem("userData"));
-    console.log(userData);
+
     const userInitials =
       userData.userName.charAt(0).toUpperCase() +
       userData.userFirstName.charAt(0).toUpperCase();
@@ -617,14 +617,14 @@ export default {
         })
         .then(({ data }) => {
           this.userData = data;
-          console.log("ll", this.userData);
+          
         });
     },
 
     getUserIdentity(e) {
       const data = e.target.files[0].name;
       this.userPiece = data;
-      console.log(data);
+    
     },
 
     getUserPhoto(e) {
@@ -855,7 +855,7 @@ section {
   height: 40px;
   background-color: white;
   top: 57%;
-  right: 2%;
+  right: -2%;
   border-radius: 50%;
   cursor: pointer;
   border: 2px solid rgb(221, 88, 55);

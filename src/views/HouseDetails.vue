@@ -47,8 +47,6 @@
                   </div>
                 </div>
               </div>
-
-      
             </div>
             <div class="mb-1">
               <h2 class="Title Title--s mb-10 color-ft-strong">
@@ -293,10 +291,11 @@
             <div class="d-flex fx-grow fx-align-center">
               <div
                 class="UserPicture UserPicture--stroke-r PropertyPage_profilePicture fx-no-shrink"
-                style="
-                  background-image: url('https://www.studapart.com/back/build/images/placeholder/owner.png?553a106922c14602a135b6c17ebffbeb&amp;frz-v=3263');
-                  --score: 0;
-                "
+                :style="{
+                  backgroundImage: ownerDataPhoto
+                    ? `url(http://localhost:8000/profil/${ownerDataPhoto})`
+                    : `url('https://www.studapart.com/back/build/images/placeholder/owner.png?553a106922c14602a135b6c17ebffbeb&amp;frz-v=3263)`,
+                }"
               >
                 <span class="Icon UserPicture_certification" style="">
                   <svg
@@ -395,10 +394,10 @@
                 <span class="bullet bg-b mr-5"></span> Contacts
               </p>
               <p class="mt-2 ms-2">
-                <i class="fa-solid fa-phone"></i> 97864356
+                <i class="fa-solid fa-phone"></i> {{ ownerContact }}
               </p>
               <p class="mt-2 ms-2">
-                <i class="fa-brands fa-whatsapp me-1"></i>94765215
+                <i class="fa-brands fa-whatsapp me-1"></i>{{ ownerContact }}
               </p>
             </div>
           </div>
@@ -444,12 +443,14 @@ export default {
       hidden: true,
       descriptionLength: 0,
       chat: false,
+      ownerDataPhoto: "",
       galleryImg: [],
       announceOwner: "",
       announcePurpose: "",
       announceDetail: {},
       price: "",
       ownerId: "",
+      ownerContact: "",
       billPeriod: "",
       waterDeposit: "",
       electricityDeposit: "",
@@ -465,9 +466,11 @@ export default {
         console.log(data);
         this.announceDetail = data;
         this.galleryImg = data.images;
+        this.ownerDataPhoto = data.announcements[0].user.profilePhoto;
         this.announceOwner = data.announcements[0].user.userFirstName;
         this.announcePurpose = data.announcePurpose;
         this.ownerId = data.announcements[0].user.id;
+        this.ownerContact = data.announcements[0].user.phone;
         this.price = data.price;
         this.billPeriod = data.billPeriod;
         this.waterDeposit = data.waterDeposit;
