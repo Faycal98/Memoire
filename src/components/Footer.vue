@@ -24,11 +24,15 @@
           <h5 class="Footer_title">Nos partenaires</h5>
           <ul>
             <li class="Footer_item">
-              <a class="Footer_link" href="#"> OLA TECHNOLOGY </a>
+              <a class="Footer_lin" href="https://www.olatechnology.com"> OLA TECHNOLOGY </a>
             </li>
+           
+            
             <li class="Footer_item">
-              <a class="Footer_link" href="#"> CAVE TECH </a>
+              <a class="Footer_lin" href="https://cave-tech.com/"> CAVE TECH </a>
             </li>
+            
+            
             
             
           </ul>
@@ -51,19 +55,22 @@
           </ul>
         </div>
         <div class="Footer_column col-3 col-6@s col-12@xs Footer_column--highlight">
-          <h5 class="Footer_title">Rejoignez-nous <i>!</i></h5>
+          <h5 class="Footer_title">Réjoignez-nous <i>!</i></h5>
 
           <ul>
             <li class="Footer_item">
               <a class="Footer_link" href="#">L'équipe</a>
             </li>
+            <li class="Footer_item">
+              <div class="Footer_lin">Nous contacter</div>
+            </li>
+            <li class="Footer_item">
+              <div class="Footer_link"> <i class="fa-brands fa-whatsapp" style=" height: 30px; margin-bottom:-6px"></i> (+229) 58-83-57-58 </div>
+            </li>
+            <li class="Footer_item">
+              <div class="Footer_link"> <i class="fa-solid fa-envelope" style=" height: 30px; margin-bottom:-6px"></i> chezvous229@gmail.com</div>
+            </li>
             
-            <li class="Footer_item">
-              <div class="Footer_link">Nous rejoindre</div>
-            </li>
-            <li class="Footer_item">
-              <div class="Footer_link">Nous contacter</div>
-            </li>
             <li class="Footer_item " id="icon">
               <a class="Footer_link" href="#"><i class="fa-solid fa-circle-up" style="font-size: 30px; transition: all .2s;"></i></a>
             </li>
