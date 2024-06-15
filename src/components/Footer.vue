@@ -23,7 +23,7 @@
         <div class="Footer_column col-3 col-6@s col-12@xs">
           <h5 class="Footer_title">Nos partenaires</h5>
           <ul>
-            <li class="Footer_item">
+            <li class="Footer_item" style="margin-bottom: 8px;">
               <a class="Footer_lin" href="https://www.olatechnology.com"> OLA TECHNOLOGY </a>
             </li>
            
@@ -59,19 +59,18 @@
 
           <ul>
             <li class="Footer_item">
-              <a class="Footer_link" href="#">L'équipe</a>
-            </li>
-            <li class="Footer_item">
-              <div class="Footer_lin">Nous contacter</div>
-            </li>
-            <li class="Footer_item">
-              <div class="Footer_link"> <i class="fa-brands fa-whatsapp" style=" height: 30px; margin-bottom:-6px"></i> (+229) 58-83-57-58 </div>
-            </li>
-            <li class="Footer_item">
               <router-link to="/contact">
               <div class="Footer_link">Nous contacter</div>
               </router-link>
             </li>
+             
+            <li class="Footer_item">
+              <div class="Footer_lin" style=" font-weight: bold; margin-bottom:13px"> <i class="fa-brands fa-whatsapp" style=" height: 30px; margin-bottom:-8px"></i> (+229) 58-83-57-58 </div>
+            </li>
+            <li class="Footer_item">
+              <div class="Footer_lin" style=" font-weight: bold; margin-bottom:-5px"> <i class="fa-solid fa-envelope" style=" height: 30px; margin-bottom:-8px"></i> chezvous229@gmail.com</div>
+            </li>
+            
             
             <li class="Footer_item " id="icon">
               <a class="Footer_link" href="#"><i class="fa-solid fa-circle-up" style="font-size: 30px; transition: all .2s;"></i></a>
