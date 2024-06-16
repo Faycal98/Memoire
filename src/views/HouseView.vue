@@ -252,12 +252,27 @@
               </div>
             </div>
           </div>
-          <div class="searching" v-else>
-            <div class="">
-              <div class="row" v-if="accomodationTab.length > 0">
+          <div class="searching row" v-else>
+          
+            <div
+              v-if="isLoading"
+              class="col-lg-4 col-sm-8 mb-4"
+              v-for="num in 20"
+              :key="num"
+            >
+              <div class="SearchPage_Block_Result">
+                <v-skeleton-loader
+                  class="mx-auto"
+                  elevation="12"
+                  max-width="300"
+                  type="table-heading, list-item-two-line, image, table-tfoot"
+                ></v-skeleton-loader>
+              </div>
+            </div>
+            <div class="" v-else>
+              <div class="row here" v-if="accomodationTab.length > 0">
                 <div
                   class="col-lg-4 col-sm-8 mb-4"
-                  v-if="!isLoading"
                   v-for="accomodation in accomodationTab"
                   :key="accomodation"
                 >
@@ -273,21 +288,6 @@
               <div class="row" v-else>
                 <h1>Aucun resultat correspondant</h1>
               </div>
-              <div
-                class="col-lg-4 col-sm-8 mb-4"
-                v-else
-                v-for="num in 20"
-                :key="num"
-              >
-                <div class="SearchPage_Block_Result">
-                  <v-skeleton-loader
-                    class="mx-auto"
-                    elevation="12"
-                    max-width="300"
-                    type="table-heading, list-item-two-line, image, table-tfoot"
-                  ></v-skeleton-loader>
-                </div>
-              </div>
             </div>
           </div>
           <div class="row mb-5">
@@ -296,7 +296,7 @@
                 <v-pagination
                   v-model="page"
                   @input="handlePageChange"
-                  :length="4"
+                  :length="2"
                   next-icon="mdi-menu-right"
                   prev-icon="mdi-menu-left"
                 ></v-pagination>
@@ -459,8 +459,8 @@ export default {
       type = type.map((el) => el.type);
       proposedBy = proposedBy.map((el) => el.proposedBy);
       purpose = purpose.map((el) => el.purpose);
-
-      axios
+ 
+        axios
         .get(
           `http://localhost:8000/api/findSpecificAccomodation?city=${city}&type=${type}&proposedBy=${proposedBy}&purpose=${purpose}&budget=${budget}`
         )
@@ -470,6 +470,8 @@ export default {
 
           this.isLoading = false;
         });
+   
+   
     },
     handleScroll() {
       if (window.pageYOffset > 100) {
@@ -555,15 +557,20 @@ export default {
           budget: budget,
         },
       });
-      axios
+
+   
+        axios
         .get(
           `http://localhost:8000/api/findSpecificAccomodation?type=${type}&proposedBy=${proposedBy}&purpose=${purpose}&budget=${budget}`
         )
         .then(({ data }) => {
           console.log(data);
           this.accomodationTab = data;
-          this.isLoading = false
+          console.log(this.accomodationTab.length);
+          this.isLoading = false;
         });
+      
+  
     },
   },
   computed: {
